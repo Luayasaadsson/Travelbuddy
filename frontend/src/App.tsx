@@ -10,7 +10,7 @@ function App() {
             <Header />
             {/* <GetStarted /> */}
             <ProfileStart />
-            {/* <EatBot /> */}
+           {/*  <EatBot /> */}
             <FooterMobile />
         </>
     );

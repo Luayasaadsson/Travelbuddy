@@ -32,7 +32,10 @@ function Header() {
 
             <div
                 className="origin-top absolute top-28 w-full bg-white overflow-hidden transition-transform  duration-300 ease-in-out"
-                style={{ transform: isOpen ? "scaleY(1)" : "scaleY(0)" }}
+                style={{
+                    transform: isOpen ? "scaleY(1)" : "scaleY(0)",
+                    zIndex: "1000",
+                }}
             >
                 <ul className="bg-background flex flex-col items-center justify-center">
                     <li
