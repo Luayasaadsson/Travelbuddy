@@ -12,7 +12,7 @@ function ProfileStart() {
                     }}
                 >
                     <AvatarImage src={"./profile-picture.jpg"} />
-                    <AvatarFallback>TS</AvatarFallback>
+                    <AvatarFallback>?</AvatarFallback>
                 </Avatar>
                 <div>
                     <h1 className="text-primary text-3xl text-center w-45">

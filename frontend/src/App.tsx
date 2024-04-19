@@ -7,7 +7,7 @@ function App() {
         <>
             <Header />
             {/* <GetStarted /> */}
-            {/* <ProfileStart /> */}
+            {<ProfileStart />}
         </>
     );
 }
