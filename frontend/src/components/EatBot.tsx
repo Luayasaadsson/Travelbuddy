@@ -46,21 +46,27 @@ export default function EatBot() {
                 <p
                     style={{
                         borderRadius: "16px 16px 16px 0px / 16px 16px 16px 0px",
+                        whiteSpace: "pre-line",
                     }}
                     className="p-3 gap-2 bg-[#A9CBE3] text-primary-foreground text-base font-normal leading-5 tracking-tight"
                 >
                     Sure! Here are some options for pizza places in Gustavsberg:
+                    {"\n\n"}
                     [Pizzeria Uno] - Known for their delicious wood-fired pizzas
-                    with fresh ingredients. [Pizza Italia] - Offers a wide
-                    variety of traditional and gourmet pizzas. [Gustavsberg
-                    Pizza & Grill] - Popular for their generous toppings and
-                    fast service. Would you like more information about any of
-                    these options or assistance with something else?
+                    with fresh ingredients.
+                    {"\n\n"}
+                    [Pizza Italia] - Offers a wide variety of traditional and
+                    gourmet pizzas.
+                    {"\n\n"}
+                    [Gustavsberg Pizza & Grill] - Popular for their generous
+                    toppings and fast service.
+                    {"\n\n"}Would you like more information about any of these
+                    options or assistance with something else?
                 </p>
             </div>
 
             <div className="w-10/12 mb-8">
-                <Label>Whats your cravings?</Label>
+                <Label className="text-primary">Whats your cravings?</Label>
                 <Input placeholder="Enter Your Cravings" />
             </div>
         </main>
