@@ -1,12 +1,13 @@
 import Header from "./components/Header";
-import { Button } from "./components/ui/button";
 import GetStarted from "./components/GetStarted";
+import ProfileStart from "./components/ProfileStart";
 
 function App() {
     return (
         <>
             <Header />
-            <GetStarted />
+            {/* <GetStarted /> */}
+            {/* <ProfileStart /> */}
         </>
     );
 }
