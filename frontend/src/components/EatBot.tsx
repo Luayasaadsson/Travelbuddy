@@ -4,11 +4,11 @@ import { Label } from "./ui/label";
 
 export default function EatBot() {
     return (
-        <main className="h-screen pt-36 flex flex-col gap-4 items-center justify-between">
-            <div className="flex flex-col items-center justify-center">
-                <div className="flex flex-col justify-center items-center w-11/12 p-2 gap-8">
+        <main className="h-screen pt-28 flex flex-col gap-4 items-center justify-between">
+            <div className="flex flex-col items-center justify-center gap-4">
+                <div className="flex flex-col justify-center items-center w-11/12 p-2 gap-2">
                     <h1 className="text-secondary text-3xl text-center w-45">
-                        Let’s Find a Bite!
+                        Let's Find a Bite!
                     </h1>
                     <p className="text-secondary text-sm text-center">
                         Choose below or type in your cravings at the bottom for
@@ -36,13 +36,19 @@ export default function EatBot() {
                     </Button>
                 </div>
             </div>
-            <div
-                className="w-10/12 bg-primary flex p-3 items-center gap-2 self-center"
-                style={{
-                    borderRadius: "12px 12px 12px 0px / 12px 12px 12px 0px",
-                }}
-            >
-                <p className="text-primary-foreground text-base font-normal leading-5 tracking-tight">
+            <div className="h-full w-10/12 flex flex-col gap-2 overflow-y-auto">
+                <style jsx>{`
+                    /* Göm scrollbarer */
+                    ::-webkit-scrollbar {
+                        display: none;
+                    }
+                `}</style>
+                <p
+                    style={{
+                        borderRadius: "16px 16px 16px 0px / 16px 16px 16px 0px",
+                    }}
+                    className="p-3 gap-2 bg-[#A9CBE3] text-primary-foreground text-base font-normal leading-5 tracking-tight"
+                >
                     Sure! Here are some options for pizza places in Gustavsberg:
                     [Pizzeria Uno] - Known for their delicious wood-fired pizzas
                     with fresh ingredients. [Pizza Italia] - Offers a wide
