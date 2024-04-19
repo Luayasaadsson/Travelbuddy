@@ -37,25 +37,25 @@ function Header() {
                 <ul className="bg-background flex flex-col items-center justify-center">
                     <li
                         style={{ opacity: isOpen ? "1" : "0" }}
-                        className="cursor-pointer py-2 text-primary text-2xl transition-opacity duration-300 ease-in hover:text-primary-foreground"
+                        className="cursor-pointer py-2 text-primary text-2xl transition-opacity duration-300 ease-in-out hover:text-primary-foreground"
                     >
                         Home
                     </li>
                     <li
                         style={{ opacity: isOpen ? "1" : "0" }}
-                        className=" cursor-pointer py-2 text-primary text-2xl transition-opacity duration-300 ease-in hover:text-primary-foreground"
+                        className=" cursor-pointer py-2 text-primary text-2xl transition-opacity duration-300 ease-in-out hover:text-primary-foreground"
                     >
                         Bot
                     </li>
                     <li
                         style={{ opacity: isOpen ? "1" : "0" }}
-                        className="cursor-pointer py-2 text-primary text-2xl transition-opacity duration-300 ease-in hover:text-primary-foreground"
+                        className="cursor-pointer py-2 text-primary text-2xl transition-opacity duration-300 ease-in-out hover:text-primary-foreground"
                     >
                         Setting
                     </li>
                     <li
                         style={{ opacity: isOpen ? "1" : "0" }}
-                        className="cursor-pointer py-2 text-primary text-2xl transition-opacity duration-300 ease-in hover:text-primary-foreground"
+                        className="cursor-pointer py-2 text-primary text-2xl transition-opacity duration-300 ease-in-out hover:text-primary-foreground"
                     >
                         About us
                     </li>
