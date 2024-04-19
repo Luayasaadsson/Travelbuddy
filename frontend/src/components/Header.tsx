@@ -15,12 +15,16 @@ function Header() {
                     </h1>
                 </div>
                 <div className="flex gap-4">
-                    <img src="/account_circle.svg" alt="" className="w-11" />
+                    <img
+                        src="/account_circle.svg"
+                        alt=""
+                        className="w-11 hover:cursor-pointer"
+                    />
 
                     <img
                         src={isOpen ? "/icons/menu_open.svg" : "/menu.svg"}
                         alt=""
-                        className="w-11"
+                        className="w-11 hover:cursor-pointer"
                         onClick={handleMenu}
                     />
                 </div>
@@ -33,25 +37,25 @@ function Header() {
                 <ul className="bg-background flex flex-col items-center justify-center">
                     <li
                         style={{ opacity: isOpen ? "1" : "0" }}
-                        className="py-2 text-primary text-2xl transition-opacity duration-300 ease-in"
+                        className="cursor-pointer py-2 text-primary text-2xl transition-opacity duration-300 ease-in hover:text-primary-foreground"
                     >
                         Home
                     </li>
                     <li
                         style={{ opacity: isOpen ? "1" : "0" }}
-                        className="py-2 text-primary text-2xl transition-opacity duration-300 ease-in"
+                        className=" cursor-pointer py-2 text-primary text-2xl transition-opacity duration-300 ease-in hover:text-primary-foreground"
                     >
                         Bot
                     </li>
                     <li
                         style={{ opacity: isOpen ? "1" : "0" }}
-                        className="py-2 text-primary text-2xl transition-opacity duration-300 ease-in"
+                        className="cursor-pointer py-2 text-primary text-2xl transition-opacity duration-300 ease-in hover:text-primary-foreground"
                     >
                         Setting
                     </li>
                     <li
                         style={{ opacity: isOpen ? "1" : "0" }}
-                        className="py-2 text-primary text-2xl transition-opacity duration-300 ease-in"
+                        className="cursor-pointer py-2 text-primary text-2xl transition-opacity duration-300 ease-in hover:text-primary-foreground"
                     >
                         About us
                     </li>
