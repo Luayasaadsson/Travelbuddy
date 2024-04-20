@@ -4,6 +4,7 @@ import ProfileStart from "./components/ProfileStart";
 import LogIn from "./components/LogIn";
 import SignUp from "./components/SignUp"
 import ForgotPassword from "./components/ForgotPassword"
+import ResetPassword from "./components/ResetPassword"
 import EatBot from "./components/EatBot";
 import FooterMobile from "./components/Footer";
 
@@ -15,7 +16,8 @@ function App() {
             {/* <ProfileStart /> */}
            {/*  <LogIn /> */}
            {/* <SignUp /> */}
-           <ForgotPassword />
+           {/* <ForgotPassword /> */}
+           <ResetPassword />
            {/*  <EatBot /> */}
             <FooterMobile />
         </>
