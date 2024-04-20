@@ -12,9 +12,9 @@ function App() {
     return (
         <>
             <Header />
-            {/* <GetStarted /> */}
+           {/*  <GetStarted /> */}
             {/* <ProfileStart /> */}
-           {/*  <LogIn /> */}
+       {/*      <LogIn /> */}
            {/* <SignUp /> */}
            {/* <ForgotPassword /> */}
            <ResetPassword />

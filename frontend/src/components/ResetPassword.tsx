@@ -15,7 +15,7 @@ function ResetPassword() {
   );
 
   return (
-    <main className="flex flex-col items-center w-[393px] h-[852px] p-[140px_16px] gap-6">
+    <main className="h-screen flex items-center justify-center">
       <div className="w-96 flex flex-col items-center gap-4">
         <h1 className="text-secondary text-3xl">Reset Password</h1>
         <p className="text-secondary text-xs">
