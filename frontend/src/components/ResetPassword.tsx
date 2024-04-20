@@ -27,11 +27,11 @@ function ResetPassword() {
         </div>
         <div className="w-full flex flex-col items-start gap-2">
           <Label className="text-secondary">Password *</Label>
-          <Input placeholder="Enter Your Email" />
+          <Input placeholder="Enter Your Password" />
         </div>
         <div className="w-full flex flex-col items-start gap-2">
           <Label className="text-secondary">Confirm password *</Label>
-          <Input placeholder="Enter Your Email" />
+          <Input placeholder="Enter Your Password" />
         </div>
         <Button
           onClick={() => dispatch(showOverlay())}
