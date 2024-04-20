@@ -2,12 +2,13 @@ import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Button } from "./ui/button";
 
-function LogIn() {
+function SignUp() {
   return (
     <main className="h-screen pt-28 flex flex-col gap-4 items-center justify-start">
       <h1 className="text-secondary text-3xl text-center">
-        Login <br /> Welcome back!
+        Let's get you started
       </h1>
+      <p className="text-secondary text-xs text-center">Fields marked with * are mandatory.</p>
       <div className="flex w-96 flex-col items-start gap-2">
         <Label className="text-secondary ">Email *</Label>
         <Input placeholder="Enter Your Email" />
@@ -20,21 +21,22 @@ function LogIn() {
             className="absolute top-12 right-3 inset-y-0"
           />
         </div>
-        <p className="text-primary mt-0 w-full flex justify-end text-sm underline underline-offset-4 cursor-pointer">
-          Forgot password?
-        </p>
-      </div>
-      <div className="w-[371px] h-10 justify-end items-center gap-2.5 inline-flex">
-        <div className="text-secondary text-sm leading-tight tracking-tight">
-          Stay signed in?
+        <div className="relative flex w-full flex-col items-start gap-2">
+          <Label className="text-secondary pt-2">Confirm password *</Label>
+          <Input placeholder="Enter Your Password" className="pr-10" />
+          <img
+            src="./icons/visibility.svg"
+            alt="Show password"
+            className="absolute top-12 right-3 inset-y-0"
+          />
         </div>
-        <div className="w-9 h-9 relative rounded-md border border-neutral-200 cursor-pointer" />
+       
       </div>
       <Button className="flex p-3 w-96 justify-center items-center gap-2">
-        Login
+        Create profile
       </Button>
       <p className="text-neutral-200 text-center my-2">
-        Don't have an account?{" "}
+        Already have an account?{" "}
         <span className="text-primary underline underline-offset-4 cursor-pointer">
           Signup here!
         </span>
@@ -72,4 +74,4 @@ function LogIn() {
   );
 }
 
-export default LogIn;
+export default SignUp;
