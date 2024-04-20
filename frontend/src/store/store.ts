@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-
+import overlayReducer from "@/store/slices/overlaySlice";
 
 export const store = configureStore({
-    reducer: {},
+  reducer: {
+    overlay: overlayReducer,
+  },
 });
 
-// Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>;
-// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
 export type AppDispatch = typeof store.dispatch;
