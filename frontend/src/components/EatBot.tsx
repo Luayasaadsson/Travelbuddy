@@ -5,7 +5,7 @@ import { Label } from "./ui/label";
 export default function EatBot() {
     return (
         <main className="h-screen pt-28 flex flex-col gap-4 items-center justify-between">
-            <div className="flex flex-col items-center justify-center gap-4">
+            <div className="flex flex-col items-center justify-center gap-4 max-w-96">
                 <div className="flex flex-col justify-center items-center w-11/12 p-2 gap-2">
                     <h1 className="text-secondary text-3xl text-center w-45">
                         Let's Find a Bite!
@@ -36,7 +36,7 @@ export default function EatBot() {
                     </Button>
                 </div>
             </div>
-            <div className="h-full w-10/12 flex flex-col gap-2 overflow-y-auto">
+            <div className="h-full w-10/12 max-w-96 flex flex-col gap-2 overflow-y-auto">
                 <style jsx>{`
                     /* Göm scrollbarer */
                     ::-webkit-scrollbar {
@@ -65,7 +65,7 @@ export default function EatBot() {
                 </p>
             </div>
 
-            <div className="w-10/12 mb-8">
+            <div className="w-11/12 max-w-96 mb-8">
                 <Label className="text-primary">Whats your cravings?</Label>
                 <Input placeholder="Enter Your Cravings" />
             </div>

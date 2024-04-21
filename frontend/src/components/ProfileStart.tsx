@@ -4,7 +4,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar";
 function ProfileStart() {
     return (
         <main className="h-screen flex items-center justify-center">
-            <div className="flex flex-col justify-center items-center w-11/12 p-2 gap-8">
+            <div className="flex flex-col justify-center items-center w-11/12  gap-8">
                 <Avatar
                     className="border-4 border-secondary"
                     style={{
