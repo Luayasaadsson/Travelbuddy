@@ -16,7 +16,7 @@ function ResetPassword() {
 
   return (
     <main className="h-screen flex items-center justify-center">
-      <div className="w-96 flex flex-col items-center gap-4">
+      <div className="max-w-96 w-11/12 flex flex-col items-center gap-4">
         <h1 className="text-secondary text-3xl">Reset Password</h1>
         <p className="text-secondary text-xs">
           Enter your email account to reset your password
@@ -35,7 +35,7 @@ function ResetPassword() {
         </div>
         <Button
           onClick={() => dispatch(showOverlay())}
-          className="flex p-3 w-96 justify-center items-center gap-2"
+          className="flex p-3 w-full justify-center items-center gap-2"
         >
           Reset Password
         </Button>
