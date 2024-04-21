@@ -12,14 +12,14 @@ function App() {
     return (
         <>
             <Header />
-            {/*  <GetStarted /> */}
-            <ProfileStart />
-            {/*      <LogIn /> */}
-            <SignUp />
-            <ForgotPassword />
-            <ResetPassword />
-            <EatBot />
-            <FooterMobile />
+            {/* <GetStarted /> */}
+            {/* <ProfileStart /> */}
+            {/* <LogIn />  */}
+            {/* <SignUp /> */}
+            {/* <ForgotPassword /> */}
+            {/* <ResetPassword /> */}
+            {/* <EatBot /> */}
+            {/* <FooterMobile /> */}
         </>
     );
 }
