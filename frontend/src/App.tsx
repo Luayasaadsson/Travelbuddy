@@ -20,10 +20,10 @@ function App () {
             <Settings />
    {/*          <GetStarted /> */}
      {/*        <ProfileStart /> */}
-            <MyProfile />
-            <ProfileSettings />
-           <ChangePassword />
-           <Notifications />
+          {/*   <MyProfile /> */}
+           {/*  <ProfileSettings /> */}
+        {/*    <ChangePassword /> */}
+           {/* <Notifications /> */}
            {/*  <LogIn /> */} 
             {/* <SignUp /> */}
             {/* <ForgotPassword /> */}
