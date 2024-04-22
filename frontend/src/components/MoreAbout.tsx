@@ -37,21 +37,22 @@ function MoreAbout () {
             <div className="flex max-w-96 w-11/12 flex-col items-start gap-4 text-onBackground font-700">
                <div className="flex flex-col gap-1 w-full">
                     <Label>First name *</Label>
-                    <Input className="text-opacity-50" placeholder="Enter your first name" />
+                    <Input className="placeholder:text-opacity-50 border-outline" placeholder="Enter your first name" />
                </div>
                <div className="flex flex-col gap-1 w-full">
                     <Label>Last name *</Label>
-                    <Input className="text-opacity-50" placeholder="Enter your first name" />
+                    <Input className="placeholder:text-opacity-50 border-outline" placeholder="Enter your first name" />
                </div>
                <div className="flex flex-col gap-1 w-full">
                     <Label>City *</Label>
-                    <Input className="text-opacity-50" placeholder="Enter the name of your city" />
+                    <Input className="placeholder:text-opacity-50 border-outline" placeholder="Enter the name of your city" />
                </div>
                <div className="flex flex-col gap-1 w-full">
                     <Label>Gender</Label>
                     <Select>
-                        <SelectTrigger className="flex h-12 w-full opacity-50">
+                        <SelectTrigger className="flex h-12 w-full ">
                             <SelectValue 
+                                className="border-outline placeholder:opacity-50"
                                 placeholder="Select your gender" />
                         </SelectTrigger>
                         <SelectContent>
