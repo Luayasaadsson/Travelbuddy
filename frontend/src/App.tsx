@@ -11,7 +11,7 @@ import SignUp from "./components/SignUp";
 import ForgotPassword from "./components/ForgotPassword";
 import ResetPassword from "./components/ResetPassword";
 import EatBot from "./components/EatBot";
-import FooterMobile from "./components/Footer";
+import Footer from "./components/Footer";
 
 function App() {
     return (
@@ -29,7 +29,7 @@ function App() {
             {/* <ForgotPassword /> */}
             {/* <ResetPassword /> */}
             {/* <EatBot /> */}
-            {/* <FooterMobile /> */}
+            <Footer />
         </>
     );
 }
