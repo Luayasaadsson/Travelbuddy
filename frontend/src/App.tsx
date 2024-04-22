@@ -17,13 +17,13 @@ function App() {
     return (
         <>
             <Header />
-            <Settings />
+            {/* <Settings /> */}
             {/* <GetStarted /> */}
             {/*<ProfileStart />*/}
             {/*<MyProfile /> */}
             {/*<ProfileSettings /> */}
             {/*<ChangePassword /> */}
-            {/*<Notifications /> */}
+            <Notifications />
             {/*<LogIn /> */}
             {/*<SignUp /> */}
             {/* <ForgotPassword /> */}
