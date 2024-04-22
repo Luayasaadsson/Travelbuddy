@@ -68,6 +68,12 @@
         --border: 217.2 32.6% 17.5%;
         --input: 217.2 32.6% 17.5%;
         --ring: 212.7 26.8% 83.9%;
+
+        --onBackground: 140 10% 88%;
+        --outline: 150 4% 56%;
+        --onPrimaryContainer: 161 75% 79%;
+        --onPrimary: 167 100% 11%;
+        --primaryContainer: 168 100% 16%;
     }
 }
 

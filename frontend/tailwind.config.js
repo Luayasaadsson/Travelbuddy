@@ -23,6 +23,10 @@ module.exports = {
                 ring: "hsl(var(--ring))",
                 background: "hsl(var(--background))",
                 foreground: "hsl(var(--foreground))",
+                outline: "hsl(var(--outline))",
+                onPrimaryContainer: "hsl(var(--onPrimaryContainer))",
+                onPrimary: "hsl(var(--onPrimary))",
+                primaryContainer: "hsl(var(--primaryContainer))",
                 primary: {
                     DEFAULT: "hsl(var(--primary))",
                     foreground: "hsl(var(--primary-foreground))",
