@@ -1,4 +1,4 @@
-import Settings from "./components/Settings/Settings"
+import Settings from "./components/Settings/Settings";
 import Header from "./components/Header";
 import GetStarted from "./components/GetStarted";
 import ProfileStart from "./components/ProfileStart";
@@ -13,23 +13,23 @@ import ResetPassword from "./components/ResetPassword";
 import EatBot from "./components/EatBot";
 import FooterMobile from "./components/Footer";
 
-function App () {
+function App() {
     return (
         <>
             <Header />
             <Settings />
-   {/*          <GetStarted /> */}
-     {/*        <ProfileStart /> */}
-            <MyProfile />
-            <ProfileSettings />
-           <ChangePassword />
-           <Notifications />
-           {/*  <LogIn /> */} 
-            {/* <SignUp /> */}
+            {/* <GetStarted /> */}
+            {/*<ProfileStart />*/}
+            {/*<MyProfile /> */}
+            {/*<ProfileSettings /> */}
+            {/*<ChangePassword /> */}
+            {/*<Notifications /> */}
+            {/*<LogIn /> */}
+            {/*<SignUp /> */}
             {/* <ForgotPassword /> */}
             {/* <ResetPassword /> */}
             {/* <EatBot /> */}
-            <FooterMobile />
+            {/* <FooterMobile /> */}
         </>
     );
 }
