@@ -1,10 +1,10 @@
-import { Button } from "./ui/button";
-import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar";
+import { Button } from "./ui/button"
+import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar"
 
 function ProfileStart() {
     return (
-        <main className="h-screen flex items-center justify-center">
-            <div className="flex flex-col justify-center items-center w-11/12  gap-8">
+        <main className="flex h-screen items-center justify-center">
+            <div className="flex w-11/12 max-w-96 flex-col items-center justify-center  gap-8">
                 <Avatar
                     className="border-4 border-secondary"
                     style={{
@@ -15,33 +15,31 @@ function ProfileStart() {
                     <AvatarFallback>?</AvatarFallback>
                 </Avatar>
                 <div>
-                    <h1 className="text-primary text-3xl text-center w-45">
-                        Hi, Sofia!
-                    </h1>
-                    <p className="text-secondary text-sm text-center">
+                    <h1 className="text-center text-3xl">Hi, Sofia!</h1>
+                    <p className="text-center text-sm text-secondary">
                         How can i help you today?
                     </p>
                 </div>
-                <Button className="flex justify-between w-full">
+                <Button className="flex w-full justify-between">
                     Find your dream vacation
                     <img src="./icons/icon-location.svg" alt="" />
                 </Button>
-                <Button className="flex justify-between w-full">
+                <Button className="flex w-full justify-between">
                     Places to stay nearby
                     <img src="./icons/icon-bed.svg" alt="" />
                 </Button>
-                <Button className="flex justify-between w-full">
+                <Button className="flex w-full justify-between">
                     Let’s find a place to eat nearby
                     <img src="./icons/icon-food.svg" alt="" />
                 </Button>
-                <Button className="flex justify-between w-full">
+                <Button className="flex w-full justify-between">
                     Experiences & Activities
                     <img src="./icons/icon-activity.svg" alt="" />
                 </Button>
                 {/* </div> */}
             </div>
         </main>
-    );
+    )
 }
 
-export default ProfileStart;
+export default ProfileStart

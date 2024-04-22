@@ -1,18 +1,19 @@
-import { Input } from "./ui/input";
-import { Label } from "./ui/label";
-import { Button } from "./ui/button";
+import { Input } from "./ui/input"
+import { Label } from "./ui/label"
+import { Button } from "./ui/button"
+import { Checkbox } from "./ui/checkbox"
 
 function LogIn() {
     return (
-        <main className="h-screen pt-28 flex flex-col gap-4 items-center justify-start">
-            <h1 className="text-secondary text-3xl text-center">
+        <main className="flex h-screen flex-col items-center justify-center gap-4">
+            <h1 className="text-center text-3xl text-secondary">
                 Login <br /> Welcome back!
             </h1>
-            <div className="flex max-w-96 w-11/12 flex-col items-start gap-2">
+            <div className="flex w-11/12 max-w-96 flex-col items-start gap-2">
                 <Label className="text-secondary ">Email *</Label>
                 <Input placeholder="Enter Your Email" />
                 <div className="relative flex w-full flex-col items-start gap-2">
-                    <Label className="text-secondary pt-2">Password *</Label>
+                    <Label className="pt-2 text-secondary">Password *</Label>
                     <Input
                         placeholder="Enter Your Password"
                         className="pr-10"
@@ -20,59 +21,59 @@ function LogIn() {
                     <img
                         src="./icons/visibility.svg"
                         alt="Show password"
-                        className="absolute top-12 right-3 inset-y-0"
+                        className="absolute inset-y-0 right-3 top-12"
                     />
                 </div>
-                <p className="text-primary mt-0 w-full flex justify-end text-sm underline underline-offset-4 cursor-pointer">
+                <p className="mt-0 flex w-full cursor-pointer justify-end text-sm underline underline-offset-4">
                     Forgot password?
                 </p>
             </div>
-            <div className="max-w-[371px] w-11/12 h-10 justify-end items-center gap-2.5 inline-flex">
-                <div className="text-secondary text-sm leading-tight tracking-tight">
+            <div className="inline-flex h-10 w-11/12 max-w-[371px] items-center justify-end gap-2.5">
+                <div className="text-sm leading-tight tracking-tight text-secondary">
                     Stay signed in?
                 </div>
-                <div className="w-9 h-9 relative rounded-md border border-neutral-200 cursor-pointer" />
+                <Checkbox />
             </div>
-            <Button className="flex p-3 max-w-96 w-11/12 justify-center items-center gap-2">
+            <Button className="flex w-11/12 max-w-96 items-center justify-center gap-2 p-3">
                 Login
             </Button>
-            <p className="text-neutral-200 text-center my-2">
-                Don't have an account?{" "}
-                <span className="text-primary underline underline-offset-4 cursor-pointer">
+            <p className="my-2 text-center text-sm text-neutral-200">
+                Don't have an account?
+                <span className="cursor-pointer pl-2 text-primary underline underline-offset-4">
                     Signup here!
                 </span>
             </p>
-            <div className="max-w-[313px] w-11/12 h-[21px] justify-start items-center gap-[9px] inline-flex">
-                <div className="w-[139px] h-[0px] border border-emerald-300"></div>
-                <div className="text-neutral-300 text-sm font-normal">Or</div>
-                <div className="w-[139px] h-[0px] border border-emerald-300"></div>
+            <div className="inline-flex h-[21px] w-11/12 max-w-[313px] items-center justify-start gap-[9px]">
+                <span className="w-[139px] border border-emerald-300"></span>
+                <div className="text-sm font-normal text-neutral-300">Or</div>
+                <span className="w-[139px] border border-emerald-300"></span>
             </div>
 
-            <div className="max-w-[361px] w-11/12 h-[50px] p-3 bg-blue-600 rounded-md shadow border border-neutral-200 justify-between items-center inline-flex cursor-pointer">
-                <div className="w-[26px] h-[26px] relative">
+            <div className="inline-flex h-[50px] w-11/12 max-w-[361px] cursor-pointer items-center justify-between rounded-md bg-blue-600 p-3 shadow">
+                <div className="relative h-[26px] w-[26px]">
                     <img
-                        className="w-[26px] h-[26px] left-0 top-0 absolute"
+                        className="absolute left-0 top-0 h-[26px] w-[26px]"
                         src="./icons/facebook-logo.svg"
                     />
                 </div>
-                <div className="grow shrink basis-0 text-center text-white text-sm font-medium leading-tight tracking-tight">
+                <div className="shrink grow basis-0 text-center text-sm font-medium leading-tight tracking-tight text-white">
                     Login with Facebook
                 </div>
             </div>
 
-            <div className="max-w-[361px] w-11/12 h-[50px] p-3 rounded-md shadow border border-neutral-200 justify-between items-center inline-flex cursor-pointer">
-                <div className="w-[26px] h-[26px] relative">
+            <div className="inline-flex h-[50px] w-11/12 max-w-[361px] cursor-pointer items-center justify-between rounded-md border border-neutral-200 p-3 shadow">
+                <div className="relative h-[26px] w-[26px]">
                     <img
-                        className="w-[26px] h-[26px] left-0 top-0 absolute"
+                        className="absolute left-0 top-0 h-[26px] w-[26px]"
                         src="./icons/google-logo.svg"
                     />
                 </div>
-                <div className="grow shrink basis-0 text-center text-neutral-200 text-sm font-medium leading-tight tracking-tight">
+                <div className="shrink grow basis-0 text-center text-sm font-medium leading-tight tracking-tight text-neutral-200">
                     Login with Google
                 </div>
             </div>
         </main>
-    );
+    )
 }
 
-export default LogIn;
+export default LogIn

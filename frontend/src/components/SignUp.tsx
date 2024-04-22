@@ -1,21 +1,21 @@
-import { Input } from "./ui/input";
-import { Label } from "./ui/label";
-import { Button } from "./ui/button";
+import { Input } from "./ui/input"
+import { Label } from "./ui/label"
+import { Button } from "./ui/button"
 
 function SignUp() {
     return (
-        <main className="h-screen pt-28 flex flex-col gap-4 items-center justify-start">
-            <h1 className="text-secondary text-3xl text-center">
+        <main className="flex h-screen flex-col items-center justify-center gap-4 pt-8">
+            <h1 className="text-center text-3xl text-secondary">
                 Let's get you started
             </h1>
-            <p className="text-secondary text-xs text-center">
+            <p className="text-center text-xs text-secondary">
                 Fields marked with * are mandatory.
             </p>
-            <div className="flex max-w-96 w-11/12 flex-col items-start gap-2">
+            <div className="flex w-11/12 max-w-96 flex-col items-start gap-2">
                 <Label className="text-secondary ">Email *</Label>
                 <Input placeholder="Enter Your Email" />
                 <div className="relative flex w-full flex-col items-start gap-2">
-                    <Label className="text-secondary pt-2">Password *</Label>
+                    <Label className="pt-2 text-secondary">Password *</Label>
                     <Input
                         placeholder="Enter Your Password"
                         className="pr-10"
@@ -23,11 +23,11 @@ function SignUp() {
                     <img
                         src="./icons/visibility.svg"
                         alt="Show password"
-                        className="absolute top-12 right-3 inset-y-0"
+                        className="absolute inset-y-0 right-3 top-12"
                     />
                 </div>
                 <div className="relative flex w-full flex-col items-start gap-2">
-                    <Label className="text-secondary pt-2">
+                    <Label className="pt-2 text-secondary">
                         Confirm password *
                     </Label>
                     <Input
@@ -37,50 +37,50 @@ function SignUp() {
                     <img
                         src="./icons/visibility.svg"
                         alt="Show password"
-                        className="absolute top-12 right-3 inset-y-0"
+                        className="absolute inset-y-0 right-3 top-12"
                     />
                 </div>
             </div>
-            <Button className="flex p-3 max-w-96 w-11/12 justify-center items-center gap-2">
+            <Button className="flex w-11/12 max-w-96 items-center justify-center gap-2 p-3">
                 Create profile
             </Button>
-            <p className="text-neutral-200 text-center my-2">
+            <p className="my-2 text-center text-sm text-neutral-200 ">
                 Already have an account?
-                <span className="text-primary underline underline-offset-4 cursor-pointer">
-                    Signup here!
+                <span className="cursor-pointer pl-2 text-primary underline underline-offset-4">
+                    Login here!
                 </span>
             </p>
-            <div className="max-w-[313px] w-10/12 h-[21px] justify-start items-center gap-[9px] inline-flex">
-                <div className="w-[139px] h-[0px] border border-emerald-300"></div>
-                <div className="text-neutral-300 text-sm font-normal">Or</div>
-                <div className="w-[139px] h-[0px] border border-emerald-300"></div>
+            <div className="inline-flex h-[21px] w-10/12 max-w-[313px] items-center justify-start gap-[9px]">
+                <div className="h-[0px] w-[139px] border border-emerald-300"></div>
+                <div className="text-sm font-normal text-neutral-300">Or</div>
+                <div className="h-[0px] w-[139px] border border-emerald-300"></div>
             </div>
 
-            <div className="max-w-[361px] w-11/12 h-[50px] p-3 bg-blue-600 rounded-md shadow border border-neutral-200 justify-between items-center inline-flex cursor-pointer">
-                <div className="w-[26px] h-[26px] relative">
+            <div className="inline-flex h-[50px] w-11/12 max-w-[361px] cursor-pointer items-center justify-between rounded-md bg-blue-600 p-3 shadow">
+                <div className="relative h-[26px] w-[26px]">
                     <img
-                        className="w-[26px] h-[26px] left-0 top-0 absolute"
+                        className="absolute left-0 top-0 h-[26px] w-[26px]"
                         src="./icons/facebook-logo.svg"
                     />
                 </div>
-                <div className="grow shrink basis-0 text-center text-white text-sm font-medium leading-tight tracking-tight">
+                <div className="shrink grow basis-0 text-center text-sm font-medium leading-tight tracking-tight text-white">
                     Login with Facebook
                 </div>
             </div>
 
-            <div className="max-w-[361px] w-11/12 h-[50px] p-3 rounded-md shadow border border-neutral-200 justify-between items-center inline-flex cursor-pointer">
-                <div className="w-[26px] h-[26px] relative">
+            <div className="inline-flex h-[50px] w-11/12 max-w-[361px] cursor-pointer items-center justify-between rounded-md border border-neutral-200 p-3 shadow">
+                <div className="relative h-[26px] w-[26px]">
                     <img
-                        className="w-[26px] h-[26px] left-0 top-0 absolute"
+                        className="absolute left-0 top-0 h-[26px] w-[26px]"
                         src="./icons/google-logo.svg"
                     />
                 </div>
-                <div className="grow shrink basis-0 text-center text-neutral-200 text-sm font-medium leading-tight tracking-tight">
+                <div className="shrink grow basis-0 text-center text-sm font-medium leading-tight tracking-tight text-neutral-200">
                     Login with Google
                 </div>
             </div>
         </main>
-    );
+    )
 }
 
-export default SignUp;
+export default SignUp
