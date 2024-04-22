@@ -8,6 +8,15 @@
 }
 
 @layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-primary;
+    }
+}
+
+@layer base {
     :root {
         --background: 150 17% 7%; /*  */
         --foreground: 222.2 84% 4.9%;
@@ -38,6 +47,12 @@
         --ring: 222.2 84% 4.9%;
 
         --radius: 0.5rem;
+
+        --onBackground: 140 10% 88%;
+        --outline: 150 4% 56%;
+        --onPrimaryContainer: 161 75% 79%;
+        --onPrimary: 167 100% 11%;
+        --primaryContainer: 168 100% 16%;
     }
 
     .dark {
@@ -77,11 +92,4 @@
     }
 }
 
-@layer base {
-    * {
-        @apply border-border;
-    }
-    body {
-        @apply bg-background text-primary;
-    }
-}
+

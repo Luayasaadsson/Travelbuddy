@@ -19,40 +19,39 @@ function MoreAbout () {
             <h1 className="text-secondary font-semibold text-3xl text-center text-">
                 Let's make it personal
             </h1>
-            <p className="text-white text-xs text-center">
+            <p className="text-onBackground text-xs text-center">
                 Fields marked with * are mandatory.
             </p>
          
             <Avatar
-                 className="border-4 border-secondary rounded-tl-full rounded-tr-full rounded-bl-full"
+                 className="border-4 border-onBackground rounded-tl-full rounded-tr-full rounded-bl-full"
             >
                 <AvatarImage src="./profile-picture.jpg" />
                 <AvatarFallback>CN</AvatarFallback>
             </Avatar>
             
-             <p className="text-secondary text-xs text-center font-bold text-[14px] pb-[2px] border-b-[1px]">
+             <p className="text-primary text-xs text-center font-bold text-[14px] pb-[2px] border-b-[1px] border-primary">
                 Upload profile picture
             </p>
 
-            <div className="flex max-w-96 w-11/12 flex-col items-start gap-4">
+            <div className="flex max-w-96 w-11/12 flex-col items-start gap-4 text-onBackground font-700">
                <div className="flex flex-col gap-1 w-full">
-                    <Label className="text-secondary">First name *</Label>
-                    <Input className="font-700" placeholder="Enter your first name" />
+                    <Label>First name *</Label>
+                    <Input className="text-opacity-50" placeholder="Enter your first name" />
                </div>
                <div className="flex flex-col gap-1 w-full">
-                    <Label className="text-secondary mb-">Last name *</Label>
-                    <Input placeholder="Enter your first name" />
+                    <Label>Last name *</Label>
+                    <Input className="text-opacity-50" placeholder="Enter your first name" />
                </div>
                <div className="flex flex-col gap-1 w-full">
-                    <Label className="text-secondary ">City *</Label>
-                    <Input placeholder="Enter the name of your city" />
+                    <Label>City *</Label>
+                    <Input className="text-opacity-50" placeholder="Enter the name of your city" />
                </div>
                <div className="flex flex-col gap-1 w-full">
-                    <Label className="text-secondary ">Gender</Label>
+                    <Label>Gender</Label>
                     <Select>
-                        <SelectTrigger className="flex h-12 w-full text-white">
+                        <SelectTrigger className="flex h-12 w-full opacity-50">
                             <SelectValue 
-                                className="text-secondary"
                                 placeholder="Select your gender" />
                         </SelectTrigger>
                         <SelectContent>
