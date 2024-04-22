@@ -12,15 +12,17 @@ import ForgotPassword from "./components/ForgotPassword"
 import ResetPassword from "./components/ResetPassword"
 import EatBot from "./components/EatBot"
 import Footer from "./components/Footer"
+import MoreAbout from "./components/MoreAbout"
 
 function App() {
     return (
         <>
             <Header />
+            <MoreAbout/>
             {/* <Settings /> */}
             {/* <ProfileSettings /> */}
             {/* <GetStarted /> */}
-            <ProfileStart />
+            {/* <ProfileStart /> */}
             {/* <MyProfile /> */}
             {/* <ChangePassword /> */}
             {/* <Notifications /> */}
@@ -29,7 +31,7 @@ function App() {
             {/* <ForgotPassword /> */}
             {/* <ResetPassword /> */}
             {/* <EatBot /> */}
-            <Footer />
+            {/* <Footer /> */}
         </>
     )
 }
