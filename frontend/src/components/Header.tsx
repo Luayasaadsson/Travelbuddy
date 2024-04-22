@@ -10,9 +10,7 @@ function Header() {
             <nav className="flex items-center justify-between p-4">
                 <div className="flex items-center justify-center">
                     <img src="/logo.svg" alt="" className="w-11" />
-                    <h1 className="text-base font-light text-primary">
-                        TravelBuddy
-                    </h1>
+                    <h1 className="text-base font-light">TravelBuddy</h1>
                 </div>
                 <div className="flex gap-4">
                     <img
@@ -40,25 +38,25 @@ function Header() {
                 <ul className="flex flex-col items-center justify-center bg-background">
                     <li
                         style={{ opacity: isOpen ? "1" : "0" }}
-                        className="cursor-pointer py-2 text-2xl text-primary transition-opacity duration-300 ease-in-out hover:text-primary-foreground"
+                        className="cursor-pointer py-2 text-2xl transition-opacity duration-300 ease-in-out hover:text-primary-foreground"
                     >
                         Home
                     </li>
                     <li
                         style={{ opacity: isOpen ? "1" : "0" }}
-                        className=" cursor-pointer py-2 text-2xl text-primary transition-opacity duration-300 ease-in-out hover:text-primary-foreground"
+                        className=" cursor-pointer py-2 text-2xl transition-opacity duration-300 ease-in-out hover:text-primary-foreground"
                     >
                         Bot
                     </li>
                     <li
                         style={{ opacity: isOpen ? "1" : "0" }}
-                        className="cursor-pointer py-2 text-2xl text-primary transition-opacity duration-300 ease-in-out hover:text-primary-foreground"
+                        className="cursor-pointer py-2 text-2xl transition-opacity duration-300 ease-in-out hover:text-primary-foreground"
                     >
                         Setting
                     </li>
                     <li
                         style={{ opacity: isOpen ? "1" : "0" }}
-                        className="cursor-pointer py-2 text-2xl text-primary transition-opacity duration-300 ease-in-out hover:text-primary-foreground"
+                        className="cursor-pointer py-2 text-2xl transition-opacity duration-300 ease-in-out hover:text-primary-foreground"
                     >
                         About us
                     </li>

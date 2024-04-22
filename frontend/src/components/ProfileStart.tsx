@@ -8,7 +8,7 @@ function ProfileStart() {
                 <Avatar
                     className="border-4 border-secondary"
                     style={{
-                        borderRadius: "50% 50% 0% 50% / 50% 50% 0% 50%",
+                        borderRadius: "50% 50% 0% 50%",
                     }}
                 >
                     <AvatarImage src={"./profile-picture.jpg"} />

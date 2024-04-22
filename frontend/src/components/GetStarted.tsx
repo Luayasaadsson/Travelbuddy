@@ -4,7 +4,7 @@ function GetStarted() {
         <main className="flex h-screen items-center justify-center">
             <div className="flex w-4/5 flex-col items-center justify-center p-2">
                 <img src="/logo.svg" alt="" className="w-20" />
-                <h1 className="w-45 text-center text-3xl text-primary">
+                <h1 className="w-45 text-center text-3xl">
                     Discover Your Perfect Journey
                 </h1>
                 <p className="text-center text-sm text-secondary">

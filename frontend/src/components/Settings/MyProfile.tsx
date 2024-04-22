@@ -7,14 +7,14 @@ function MyProfile() {
                 <Avatar
                     className="border-4 border-secondary"
                     style={{
-                        borderRadius: "50% 50% 0% 50% / 50% 50% 0% 50%",
+                        borderRadius: "50% 50% 0% 50%",
                     }}
                 >
                     <AvatarImage src={"./profile-picture.jpg"} />
                     <AvatarFallback>?</AvatarFallback>
                 </Avatar>
                 <div className="text-center">
-                    <h1 className="text-3xl text-primary">Sofia</h1>
+                    <h1 className="text-3xl">Sofia</h1>
                     <div className="flex gap-2 text-2xl">
                         <img
                             className="w-8"
@@ -25,7 +25,7 @@ function MyProfile() {
                     </div>
                 </div>
                 <div className="flex flex-col items-center">
-                    <h2 className="text-2xl font-bold text-primary">
+                    <h2 className="text-2xl font-bold">
                         My profile
                     </h2>
                 </div>

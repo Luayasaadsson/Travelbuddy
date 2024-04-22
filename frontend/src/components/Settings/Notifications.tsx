@@ -51,8 +51,8 @@ function Notifications() {
                     </div>
                 </div>
                 <div className="flex w-11/12 max-w-96 flex-col items-start gap-2">
-                    <p className="text-xl text-primary">Reviews</p>
-                    <p className="text-xs text-primary">
+                    <p className="text-xl">Reviews</p>
+                    <p className="text-xs">
                         Get reminded to rate for activities you've done
                         recently.
                     </p>

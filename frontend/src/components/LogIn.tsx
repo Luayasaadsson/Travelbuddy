@@ -39,7 +39,7 @@ function LogIn() {
             </Button>
             <p className="my-2 text-center text-sm text-neutral-200">
                 Don't have an account?
-                <span className="cursor-pointer pl-2 text-primary underline underline-offset-4">
+                <span className="cursor-pointer pl-2 underline underline-offset-4">
                     Signup here!
                 </span>
             </p>
