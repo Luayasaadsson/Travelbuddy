@@ -17,19 +17,19 @@ function App() {
     return (
         <>
             <Header />
-            {/* <Settings /> */}
-            {/* <GetStarted /> */}
-            {/*<ProfileStart />*/}
-            {/*<MyProfile /> */}
-            {/*<ProfileSettings /> */}
-            {/*<ChangePassword /> */}
+            <Settings />
+            <GetStarted />
+            <ProfileStart />
+            <MyProfile />
+            <ProfileSettings />
+            <ChangePassword />
             <Notifications />
-            {/*<LogIn /> */}
-            {/*<SignUp /> */}
-            {/* <ForgotPassword /> */}
-            {/* <ResetPassword /> */}
-            {/* <EatBot /> */}
-            {/* <FooterMobile /> */}
+            <LogIn />
+            <SignUp />
+            <ForgotPassword />
+            <ResetPassword />
+            <EatBot />
+            <FooterMobile />
         </>
     );
 }
