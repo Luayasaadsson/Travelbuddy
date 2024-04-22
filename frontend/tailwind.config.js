@@ -56,6 +56,7 @@ module.exports = {
                 onPrimaryContainer: "hsl(var(--onPrimaryContainer))",
                 onPrimary: "hsl(var(--onPrimary))",
                 primaryContainer: "hsl(var(--primaryContainer))",
+                onTertiaryContainer: "hsl(var(--onTertiaryContainer))",
             },
             borderRadius: {
                 lg: "var(--radius)",

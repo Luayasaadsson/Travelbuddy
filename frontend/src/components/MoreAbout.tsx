@@ -24,9 +24,14 @@ function MoreAbout () {
             </p>
          
             <Avatar
-                 className="border-4 border-onBackground rounded-tl-full rounded-tr-full rounded-bl-full"
+                //isAvatarImageUploaded && className="border-4 border-onBackground" TODO: 
+                className="border-4 border-onTertiaryContainer"
+                style={{
+                    borderRadius: "50% 50% 0% 50%",
+                }}
             >
-                <AvatarImage src="./profile-picture.jpg" />
+                <AvatarImage 
+                    src="./profile-picture.jpg" />
                 <AvatarFallback>CN</AvatarFallback>
             </Avatar>
             
@@ -34,25 +39,26 @@ function MoreAbout () {
                 Upload profile picture
             </p>
 
-            <div className="flex max-w-96 w-11/12 flex-col items-start gap-4 text-onBackground font-700">
+            <div className="flex max-w-96 w-11/12 flex-col items-start gap-4 text-onBackground font-semibold text-[13px]">
                <div className="flex flex-col gap-1 w-full">
                     <Label>First name *</Label>
-                    <Input className="placeholder:text-opacity-50 border-outline" placeholder="Enter your first name" />
+                    <Input className="border-outline placeholder:text-onBackground placeholder:opacity-50" placeholder="Enter your first name" />
                </div>
-               <div className="flex flex-col gap-1 w-full">
+               <div className="flex flex-col gap-1 w-full ">
                     <Label>Last name *</Label>
-                    <Input className="placeholder:text-opacity-50 border-outline" placeholder="Enter your first name" />
+                    <Input className="border-outline placeholder:text-onBackground placeholder:opacity-50" placeholder="Enter your first name" />
                </div>
                <div className="flex flex-col gap-1 w-full">
                     <Label>City *</Label>
-                    <Input className="placeholder:text-opacity-50 border-outline" placeholder="Enter the name of your city" />
+                    <Input className="border-outline placeholder:text-onBackground placeholder:opacity-50" placeholder="Enter the name of your city" />
                </div>
                <div className="flex flex-col gap-1 w-full">
                     <Label>Gender</Label>
                     <Select>
-                        <SelectTrigger className="flex h-12 w-full ">
-                            <SelectValue 
-                                className="border-outline placeholder:opacity-50"
+                        <SelectTrigger className="flex h-12 w-full border-outline placeholder:text-onBackground placeholder:opacity-50">
+                        
+                            <SelectValue
+                                /* className="placeholder:text-onBackground placeholder:opacity-50" */
                                 placeholder="Select your gender" />
                         </SelectTrigger>
                         <SelectContent>

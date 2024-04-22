@@ -53,6 +53,7 @@
         --onPrimaryContainer: 161 75% 79%;
         --onPrimary: 167 100% 11%;
         --primaryContainer: 168 100% 16%;
+        --onTertiaryContainer: 205 100% 89%;
     }
 
     .dark {
@@ -89,6 +90,7 @@
         --onPrimaryContainer: 161 75% 79%;
         --onPrimary: 167 100% 11%;
         --primaryContainer: 168 100% 16%;
+        --onTertiaryContainer: 205 100% 89%;
     }
 }
 
