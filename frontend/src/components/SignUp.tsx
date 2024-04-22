@@ -51,9 +51,9 @@ function SignUp() {
                 </span>
             </p>
             <div className="inline-flex h-[21px] w-10/12 max-w-[313px] items-center justify-start gap-[9px]">
-                <div className="h-[0px] w-[139px] border border-emerald-300"></div>
-                <div className="text-sm font-normal text-neutral-300">Or</div>
-                <div className="h-[0px] w-[139px] border border-emerald-300"></div>
+                <span className="h-[0px] w-[139px] border border-emerald-300"></span>
+                <p className="text-sm font-normal text-neutral-300">Or</p>
+                <span className="h-[0px] w-[139px] border border-emerald-300"></span>
             </div>
 
             <div className="inline-flex h-[50px] w-11/12 max-w-[361px] cursor-pointer items-center justify-between rounded-md bg-blue-600 p-3 shadow">

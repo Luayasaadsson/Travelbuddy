@@ -6,9 +6,7 @@ function Settings() {
         <main className="flex h-screen items-center justify-center pt-24">
             <div className="flex w-11/12 max-w-96 flex-col items-center justify-center">
                 <h1 className="text-2xl">Profil</h1>
-                <h2 className="ml-2 self-start text-xl">
-                    Settings
-                </h2>
+                <h2 className="ml-2 self-start text-xl">Settings</h2>
                 <button className=" m-w- mt-4 flex h-9 w-11/12 cursor-pointer items-center justify-between border-b-2 border-secondary px-4 text-secondary">
                     <div className="flex gap-4">
                         <img src="./icons/ProfileIcon.svg" alt="Travelicon" />
@@ -46,9 +44,7 @@ function Settings() {
                     <Switch />
                 </div>
 
-                <h2 className="ml-2 mt-4 self-start text-xl">
-                    Support
-                </h2>
+                <h2 className="ml-2 mt-4 self-start text-xl">Support</h2>
                 <button className=" mt-4 flex h-9 w-11/12 cursor-pointer  items-center justify-between border-b-2 border-secondary px-4 text-secondary">
                     <div className="flex gap-4">
                         <img src="./icons/ProfileIcon.svg" alt="Travelicon" />
@@ -64,9 +60,7 @@ function Settings() {
                     <img className="" src="./icons/Arrow.svg" alt="Arrow" />
                 </button>
 
-                <h2 className="ml-2 mt-4 self-start text-xl">
-                    Feedback
-                </h2>
+                <h2 className="ml-2 mt-4 self-start text-xl">Feedback</h2>
                 <button className=" mt-4 flex h-9 w-11/12 cursor-pointer items-center justify-between border-b-2 border-secondary px-4 text-secondary">
                     <div className="flex gap-4">
                         <img src="./icons/star-icon.svg" alt="Travelicon" />
