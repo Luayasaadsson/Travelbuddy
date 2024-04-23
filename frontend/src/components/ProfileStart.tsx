@@ -11,7 +11,7 @@ function ProfileStart() {
                         borderRadius: "50% 50% 0% 50%",
                     }}
                 >
-                    <AvatarImage src={"./profile-picture.jpg"} />
+                    <AvatarImage src={"./images/profile-picture.jpg"} />
                     <AvatarFallback>?</AvatarFallback>
                 </Avatar>
                 <div>

@@ -44,7 +44,7 @@ function Footer() {
                 </div>
             </div>
             <div className="order-first flex items-center justify-center gap-2 md:order-none">
-                <img src="/logo.svg" alt="TravelBuddy Logo" className="w-14" />
+                <img src="/images/logo.svg" alt="TravelBuddy Logo" className="w-14" />
                 <h1 className="text-4xl font-light">TravelBuddy</h1>
             </div>
             <div className="flex gap-4">

@@ -9,18 +9,18 @@ function Header() {
         <header className="absolute flex h-28 w-full flex-col justify-end bg-background">
             <nav className="flex items-center justify-between p-4">
                 <div className="flex items-center justify-center">
-                    <img src="/logo.svg" alt="" className="w-11" />
+                    <img src="/images/logo.svg" alt="" className="w-11" />
                     <h1 className="text-base font-light">TravelBuddy</h1>
                 </div>
                 <div className="flex gap-4">
                     <img
-                        src="/account_circle.svg"
+                        src="/images/account_circle.svg"
                         alt=""
                         className="w-11 hover:cursor-pointer"
                     />
 
                     <img
-                        src={isOpen ? "/icons/menu_open.svg" : "/menu.svg"}
+                        src={isOpen ? "/icons/menu_open.svg" : "/images/menu.svg"}
                         alt=""
                         className="w-11 hover:cursor-pointer"
                         onClick={handleMenu}

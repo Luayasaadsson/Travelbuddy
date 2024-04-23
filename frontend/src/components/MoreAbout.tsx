@@ -31,7 +31,7 @@ function MoreAbout () {
                 }}
             >
                 <AvatarImage 
-                    src="./profile-picture.jpg" />
+                    src="./images/profile-picture.jpg" />
                 <AvatarFallback>CN</AvatarFallback>
             </Avatar>
             

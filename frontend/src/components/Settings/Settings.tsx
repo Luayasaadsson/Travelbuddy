@@ -81,7 +81,7 @@ function Settings() {
                         <p>Sign out</p>
                         <img
                             className="ml-2 h-6 w-6"
-                            src="/account_circle.svg"
+                            src="/images/account_circle.svg"
                             alt="Profileicon"
                         />
                     </Button>
