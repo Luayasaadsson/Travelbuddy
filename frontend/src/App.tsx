@@ -18,10 +18,10 @@ function App() {
     return (
         <>
             <Header />
-            <MoreAbout/>
+            {/* <MoreAbout/> */}
             {/* <Settings /> */}
             {/* <ProfileSettings /> */}
-            {/* <GetStarted /> */}
+            <GetStarted />
             {/* <ProfileStart /> */}
             {/* <MyProfile /> */}
             {/* <ChangePassword /> */}
