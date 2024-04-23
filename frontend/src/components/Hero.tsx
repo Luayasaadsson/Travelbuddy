@@ -3,24 +3,25 @@ function Hero (){
   return (
     <main className="flex h-screen items-center justify-center ">
     <div className="flex w-4/5 flex-col items-center justify-center p-2 gap-5 w-80">
-        <img src="/images/logo.svg" alt="" className="w-20" />
+        
         <h1 className="w-45 text-center text-3xl">
-            Discover Your Perfect Journey
+            First step
+        </h1>
+        <h1 className="text-center text-3xl text-secondary">
+            Tailor your travel experience to perfection
         </h1>
         <p className="text-center text-sm text-secondary ">
-            Unleash the power of personalized travel. Let our
-            AI-assistant guide you effortlessly from inspiration to
-            exploration. Your dream trip starts here.
+        Share your preferences and interests to unlock personalized recommendations and seamless adventures. Let's craft your journey together.
         </p>
-        {/* Skapa en gap mellan p och button med avstånd 32 */}
-        <Button>Get started</Button>
-        <Button>Get started</Button>
+        <div className="flex justify-center">
+        <Button>Login Now <img className="" src="./images/account_circle.svg" alt="" /></Button>
+        <Button>Create profile <img src="./images/account_circle.svg" alt="" />
+        </Button>
+        </div>
     </div>
 </main>
   )
 
 }
-
-// Justeringer krävs på hela följ figman från start
 
 export default Hero
