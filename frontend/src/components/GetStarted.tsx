@@ -12,6 +12,7 @@ function GetStarted() {
                     AI-assistant guide you effortlessly from inspiration to
                     exploration. Your dream trip starts here.
                 </p>
+                {/* Skapa en gap mellan p och button med avstånd 32 */}
                 <Button>Get started</Button>
             </div>
         </main>

@@ -13,6 +13,7 @@ import ResetPassword from "./components/ResetPassword"
 import EatBot from "./components/EatBot"
 import Footer from "./components/Footer"
 import MoreAbout from "./components/MoreAbout"
+import Hero from "./components/Hero"
 
 function App() {
     return (
@@ -22,6 +23,7 @@ function App() {
             {/* <Settings /> */}
             {/* <ProfileSettings /> */}
             <GetStarted />
+            {/* <Hero /> */}
             {/* <ProfileStart /> */}
             {/* <MyProfile /> */}
             {/* <ChangePassword /> */}
