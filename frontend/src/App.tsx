@@ -18,12 +18,12 @@ import Hero from "./components/Hero"
 function App() {
     return (
         <>
-            <Header />
-            <MoreAbout/>
+            {/* <Header /> */}
+            {/* <MoreAbout/> */}
             {/* <Settings /> */}
             {/* <ProfileSettings /> */}
             {/* <GetStarted /> */}
-            {/* <Hero /> */}
+            <Hero />
             {/* <ProfileStart /> */}
             {/* <MyProfile /> */}
             {/* <ChangePassword /> */}
