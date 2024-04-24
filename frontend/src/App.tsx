@@ -30,8 +30,8 @@ function App() {
             {/* <Notifications /> */}
           {/*   <LogIn /> */}
            {/*  <SignUp /> */}
-            <ForgotPassword />
-            {/* <ResetPassword /> */}
+          {/*   <ForgotPassword /> */}
+            <ResetPassword />
             {/* <EatBot /> */}
             <Footer />
         </>
