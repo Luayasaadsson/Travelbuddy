@@ -18,7 +18,7 @@ import Hero from "./components/Hero"
 function App() {
     return (
         <>
-            {/* <Header /> */}
+            <Header />
             {/* <MoreAbout/> */}
             {/* <Settings /> */}
             {/* <ProfileSettings /> */}
@@ -33,7 +33,7 @@ function App() {
             {/* <ForgotPassword /> */}
             {/* <ResetPassword /> */}
             {/* <EatBot /> */}
-            {/* <Footer /> */}
+            <Footer />
         </>
     )
 }
