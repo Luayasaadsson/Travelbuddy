@@ -29,8 +29,8 @@ function App() {
             {/* <ChangePassword /> */}
             {/* <Notifications /> */}
           {/*   <LogIn /> */}
-            <SignUp />
-            {/* <ForgotPassword /> */}
+           {/*  <SignUp /> */}
+            <ForgotPassword />
             {/* <ResetPassword /> */}
             {/* <EatBot /> */}
             <Footer />
