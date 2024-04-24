@@ -2,6 +2,7 @@ import User from "../userInfo/User"
 import UserPreferencePrompts from "./UserPreferencePrompt"
 import UserAgentRating from "./UserAgentRating"
 import HistoricalQuestionAnswers from "./HistoricalQuestionAnswers"
+import Agent from "./Agent"
 
 
 type UserAgent = {

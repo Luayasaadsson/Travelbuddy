@@ -1,9 +1,5 @@
 import Language from "../common/Language"
 import User from "../userInfo/User"
-import UserPreferencePrompts from "../userAgentInfo/UserPreferencePrompt"
-import InteractionHistoryPrompts from "../userAgentInfo/HistoricalQuestionAnswers"
-import UserAgentRating from "../userAgentInfo/UserAgentRating"
-import HistoricalQuestionAnswers from "../userAgentInfo/HistoricalQuestionAnswers"
 
 
 type Settings = {
@@ -31,11 +27,6 @@ type Settings = {
     IncomingSubscriptionRequestsPending: User[]
     IncomingSubscriptionRequestsDenied: User[]
     IncomingSubscriptionRequestsApproved: User[]
-    // Agents
-    agentsUsed: Agent[]
-    userPreferencePrompts: UserPreferencePrompt[] 
-    historicalQuestionAnswers: HistoricalQuestionAnswer[]
-    userAgentRatings: UserAgentRating[]
 }
 
 export default Settings

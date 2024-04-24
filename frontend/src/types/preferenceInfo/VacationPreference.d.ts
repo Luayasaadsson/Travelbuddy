@@ -1,6 +1,6 @@
 
 
-type TravelPreference = {
+type VacationPreference = {
 
     adventureTravel?: boolean | null;
     backpackingAndBudgetTravel?: boolean | null;
@@ -24,4 +24,4 @@ type TravelPreference = {
     wildlifeAndSafariExperiences?: boolean | null;
 }
 
-export default TravelPreference
+export default VacationPreference

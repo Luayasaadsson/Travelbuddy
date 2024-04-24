@@ -1,9 +1,8 @@
-import Destination from "./Destination"
-import StoryItem from "./StorySection"
-import Rating from "../common/Rating"
-import Recipient from "../common/Recipient"
 import Trip from "./Trip"
+import StorySection from "./StorySection"
 import Destination from "./Destination"
+import Rating from "../common/Rating"
+import User from "../userInfo/User"
 
 
 type Story = {
@@ -15,7 +14,7 @@ type Story = {
     destination?: Destination,
     rating?: Rating,
     review?: string | null,
-    recipients?: Recipient[],
+    recipients?: User[],
     likes?: number,
 }
 

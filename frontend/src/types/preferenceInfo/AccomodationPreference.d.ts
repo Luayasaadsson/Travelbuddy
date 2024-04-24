@@ -1,6 +1,7 @@
 
+
 type AccomodationPreference = {
-    
+    userId: string
     enjoyBedAndBreakfast?: boolean | null;
     enjoyBoatOrHouseboat?: boolean | null;
     enjoyBoutiqueHotel?: boolean | null;

@@ -1,4 +1,3 @@
-import ApartmentInfo from "./ApartmentInfo"
 import StreetAddress from "./StreetAddress"
 
 type Address = {

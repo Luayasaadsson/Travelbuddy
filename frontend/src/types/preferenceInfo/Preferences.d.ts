@@ -1,17 +1,16 @@
-import TravelPreference from './TravelPreference'
-import RestaurantPreference from './FoodPreference'
-import Destination from '../tripInfo/Destination'
-import DietaryPreference from './DietaryPreferences'
-import BudgetPreference from './BudgetPreference'
-import AccomodationPreference from './AccomodationPreference'
-import TransportationPreferences from './TransportationPreference'
-import FoodPreference from './FoodPreference'
-import DrinkPreferences from './DrinkPreference'
+import VacationPreference from "./VacationPreference"
+import Destination from "../tripInfo/Destination"
+import BudgetPreference from "./BudgetPreference"
+import TransportationPreferences from "./TransportationPreference"
+import AccomodationPreference from "./AccomodationPreference"
+import FoodPreference from "./FoodPreference"
+import DietaryPreferences from "./DietaryPreferences"
+import DrinkPreferences from "./DrinkPreference"
 
 
 type Preferences = {
     userId: string
-    travelPreference: TravelPreference
+    vacationPreference: VacationPreference
     destinationPreference: Destination[]
     budgetPreference: BudgetPreference
     transportationPreference: TransportationPreference
