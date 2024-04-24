@@ -22,8 +22,8 @@ function App() {
             {/* <MoreAbout/> */}
             {/* <Settings /> */}
             {/* <ProfileSettings /> */}
-            {/* <GetStarted /> */}
-            <Hero />
+            <GetStarted />
+     {/*        <Hero /> */}
             {/* <ProfileStart /> */}
             {/* <MyProfile /> */}
             {/* <ChangePassword /> */}
