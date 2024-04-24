@@ -1,6 +1,6 @@
 
 
-type Allergies = {
+type AllergyPreferences = {
     avoidPeanut?: boolean | null
     avoidTreeNut?: boolean | null
     avoidShellfish?: boolean | null
@@ -11,4 +11,4 @@ type Allergies = {
     avoidGluten?: boolean | null
 }
 
-export default Allergies
+export default AllergyPreferences

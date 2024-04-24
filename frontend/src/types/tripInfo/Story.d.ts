@@ -1,7 +1,7 @@
 import Destination from "./Destination"
 import StoryItem from "./StorySection"
-import Rating from "./Rating"
-import Recipient from "./Recipient"
+import Rating from "../common/Rating"
+import Recipient from "../common/Recipient"
 import Trip from "./Trip"
 import Destination from "./Destination"
 

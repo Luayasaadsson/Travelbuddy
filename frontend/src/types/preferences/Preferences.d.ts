@@ -1,6 +1,6 @@
 import TravelPreference from './TravelPreference'
 import RestaurantPreference from './FoodPreference'
-import Destination from './Destination'
+import Destination from '../tripInfo/Destination'
 import DietaryPreference from './DietaryPreferences'
 import BudgetPreference from './BudgetPreference'
 import AccomodationPreference from './AccomodationPreference'
@@ -10,6 +10,7 @@ import DrinkPreferences from './DrinkPreference'
 
 
 type Preferences = {
+    userId: string
     travelPreference: TravelPreference
     destinationPreference: Destination[]
     budgetPreference: BudgetPreference

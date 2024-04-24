@@ -6,7 +6,8 @@ import Traveller from "./Traveller"
 type Trip = {
     destination: Destination[],
     travellers: Traveller[],
-    date?: Date | null,
+    fromDate?: Date | null,
+    toDate?: Date | null,
 }
 
 export default Trip
