@@ -1,29 +1,41 @@
 import Language from "../common/Language"
-import Theme from './Theme'
-import Accessibility from "./Accessibility"
-import Notifications from "./Notifications"
-import Security from "./Security"
-import Recipient from "../common/Recipient"
-import Subscriptions from "./Subscription"
-import UserData from "./UserData"
 import User from "../userInfo/User"
+import UserPreferencePrompts from "./UserPreferencePrompt"
+import InteractionHistoryPrompts from "./HistoricalQuestionAnswers"
+import UserAgentRating from "./UserAgentRating"
+import HistoricalQuestionAnswers from "./HistoricalQuestionAnswers"
+
 
 type Settings = {
     userId: string | null,
-    userData: UserData, 
-    accessibility: Accessibility,
-    theme: Theme,
-    notifications: Notifications,
-    security: Security,
-    applicationLanguage: Language,
+    // LoginInfo and PublicInfo
+    userName?: string | null,
+    password: string,
+    publicName?: string | null,
+    publicAvatarUrl?: string | null,
+    // Notification Settings
+    notificationViaEmail?: boolean | null,
+    notificationViaAppMessage?: boolean | null,
+    notificationViaSms?: boolean | null,
+    // Security
+    twoFactorAuthentication?: boolean | null
+    // Theme
+    darkMode: boolean | null
+    // Language & Accessibility
+    applicationLanguage: Language
+    accessibilityTextSize?: number | null
+    // Publication and Subscription
+    OutgoingSubscriptionRequestsPending: User[]
+    OutgoingSubscriptionRequestsDenied: User[]
+    OutgoingSubscriptionRequestsApproved: User[]
+    IncomingSubscriptionRequestsPending: User[]
+    IncomingSubscriptionRequestsDenied: User[]
+    IncomingSubscriptionRequestsApproved: User[]
+    // Agents
     agentsUsed: Agent[]
-
-    // TODO: Where do these belong?
-    approvedFollowers: Recipient[],  
-    requestedSubscriptions:                                    8
-    approvedSubscriptions: Subscription[],
-
-
+    userPreferencePrompts: UserPreferencePrompt[] 
+    historicalQuestionAnswers: HistoricalQuestionAnswer[]
+    userAgentRatings: UserAgentRating[]
 }
 
 export default Settings

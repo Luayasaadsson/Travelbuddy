@@ -12,11 +12,10 @@ type User = {
     firstName: string | null,
     lastName?: string | null,
     nickName?: string | null,
-    emailAddressPrivate1: string | null,   // mandatory
+    emailAddressPrivate1: string | null,   
     emailAddressPrivate2?: string | null,   
     emailAddressBusiness?: string | null,
     address?: Address,
-   
     mobilePhone1?: number | null,
     mobilePhone2?: number | null,
     facebookId?: string | null,
