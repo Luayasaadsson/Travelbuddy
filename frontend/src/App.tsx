@@ -22,16 +22,16 @@ function App() {
             {/* <MoreAbout/> */}
             {/* <Settings /> */}
             {/* <ProfileSettings /> */}
-            {/* <GetStarted /> */}
-            <Hero />
+         {/*    <GetStarted /> */}
+     {/*        <Hero /> */}
             {/* <ProfileStart /> */}
             {/* <MyProfile /> */}
             {/* <ChangePassword /> */}
             {/* <Notifications /> */}
-            {/* <LogIn /> */}
-            {/* <SignUp /> */}
-            {/* <ForgotPassword /> */}
-            {/* <ResetPassword /> */}
+          {/*   <LogIn /> */}
+           {/*  <SignUp /> */}
+          {/*   <ForgotPassword /> */}
+            <ResetPassword />
             {/* <EatBot /> */}
             <Footer />
         </>
