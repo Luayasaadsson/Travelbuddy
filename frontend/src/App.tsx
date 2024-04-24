@@ -22,13 +22,13 @@ function App() {
             {/* <MoreAbout/> */}
             {/* <Settings /> */}
             {/* <ProfileSettings /> */}
-            <GetStarted />
+         {/*    <GetStarted /> */}
      {/*        <Hero /> */}
             {/* <ProfileStart /> */}
             {/* <MyProfile /> */}
             {/* <ChangePassword /> */}
             {/* <Notifications /> */}
-            {/* <LogIn /> */}
+            <LogIn />
             {/* <SignUp /> */}
             {/* <ForgotPassword /> */}
             {/* <ResetPassword /> */}
