@@ -1,9 +1,9 @@
 import Language from "../common/Language"
 import User from "../userInfo/User"
-import UserPreferencePrompts from "./UserPreferencePrompt"
-import InteractionHistoryPrompts from "./HistoricalQuestionAnswers"
-import UserAgentRating from "./UserAgentRating"
-import HistoricalQuestionAnswers from "./HistoricalQuestionAnswers"
+import UserPreferencePrompts from "../userAgentInfo/UserPreferencePrompt"
+import InteractionHistoryPrompts from "../userAgentInfo/HistoricalQuestionAnswers"
+import UserAgentRating from "../userAgentInfo/UserAgentRating"
+import HistoricalQuestionAnswers from "../userAgentInfo/HistoricalQuestionAnswers"
 
 
 type Settings = {

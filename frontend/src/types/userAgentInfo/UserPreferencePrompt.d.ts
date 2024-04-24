@@ -1,5 +1,5 @@
 import User from "../userInfo/User"
-import Preferences from "../preferences/Preferences"
+import Preferences from "../preferenceInfo/Preferences"
 
 
 type UserPreferencePrompts = {
