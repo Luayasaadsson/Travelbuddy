@@ -1,7 +1,7 @@
 function Footer() {
     return (
-        <footer className="flex w-full flex-col items-center justify-center gap-10 py-20">
-            <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 md:grid-cols-4">
+        <footer className="flex  flex-col items-center gap-10 py-20">
+            <div className="grid grid-cols-1 gap-20 sm:grid-cols-3 md:grid-cols-4">
                 {/* Navigeringslänkar kommer senare */}
                 <div className="flex flex-col items-start gap-4">
                     <h2 className="text-2xl font-bold">Guide trips</h2>
@@ -44,7 +44,11 @@ function Footer() {
                 </div>
             </div>
             <div className="order-first flex items-center justify-center gap-2 md:order-none">
-                <img src="/images/logo.svg" alt="TravelBuddy Logo" className="w-14" />
+                <img
+                    src="/images/logo.svg"
+                    alt="TravelBuddy Logo"
+                    className="w-14"
+                />
                 <h1 className="text-4xl font-light">TravelBuddy</h1>
             </div>
             <div className="flex gap-4">

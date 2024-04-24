@@ -56,7 +56,7 @@ function LogIn() {
                             Signup here!
                         </span>
                     </p>
-                    <div className="inline-flex  items-center gap-[9px]">
+                    <div className="inline-flex items-center gap-[9px]">
                         <span className="w-[139px] border border-emerald-300"></span>
                         <div className="text-sm font-normal text-neutral-300">
                             Or

@@ -28,8 +28,8 @@ function App() {
             {/* <MyProfile /> */}
             {/* <ChangePassword /> */}
             {/* <Notifications /> */}
-            <LogIn />
-            {/* <SignUp /> */}
+          {/*   <LogIn /> */}
+            <SignUp />
             {/* <ForgotPassword /> */}
             {/* <ResetPassword /> */}
             {/* <EatBot /> */}
