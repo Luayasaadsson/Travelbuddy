@@ -15,6 +15,8 @@ import Footer from "./components/Footer"
 import MoreAbout from "./components/MoreAbout"
 import Hero from "./components/Hero"
 import DesktopImage from "./components/DesktopImage"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 function App() {
     return (
         <>
