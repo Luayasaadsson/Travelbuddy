@@ -17,7 +17,7 @@ build_artifact:
 build_image:
   stage: image
   dependencies:
-    - build
+    - build_artifact
   image: docker
   before_script:
     - docker info
