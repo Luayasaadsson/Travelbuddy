@@ -24,7 +24,7 @@ build_image:
   variables:
     DOCKER_TLS_CERTDIR: "/certs"
   script:
-    - docker login $CI_REGISTRY -u $CI_REGISTRY_USER --password-stdin <<<$CI_JOB_TOKEN
+    - docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN
     - docker build -t registry.gitlab.com/ccg-2/travelbuddy:frontend .
     - docker push registry.gitlab.com/ccg-2/travelbuddy:frontend
 
@@ -38,6 +38,6 @@ build_image_arm64:
   variables:
     DOCKER_TLS_CERTDIR: "/certs"
   script:
-    - docker login $CI_REGISTRY -u $CI_REGISTRY_USER --password-stdin <<<$CI_JOB_TOKEN
+    - docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN
     - docker build --platform linux/arm64/v8 -t registry.gitlab.com/ccg-2/travelbuddy:frontend.arm64 .
     - docker push registry.gitlab.com/ccg-2/travelbuddy:frontend.arm64
