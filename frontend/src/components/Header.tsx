@@ -6,8 +6,8 @@ function Header() {
         setIsOpen(!isOpen)
     }
     return (
-        <header className="absolute flex h-28 w-full flex-col justify-end bg-background">
-            <nav className="flex items-center justify-between p-4">
+        <header className="absolute flex h-28 w-full flex-col justify-end bg-transparent">
+            <nav className="z-2 flex items-center justify-between p-4">
                 <div className="flex items-center justify-center">
                     <img src="/images/logo.svg" alt="" className="w-11" />
                     <h1 className="text-base font-light">TravelBuddy</h1>
@@ -28,6 +28,7 @@ function Header() {
                         onClick={handleMenu}
                     />
                 </div>
+                <img src="/icons/bg-blur.svg" alt="" className=" absolute z-[-10]" />
             </nav>
 
             <div

@@ -1,6 +1,6 @@
 import { Button } from "./ui/button"
 
-function Hero () {
+function Hero() {
     return (
         <main className="flex h-screen items-center justify-center">
             <div className="flex flex-col gap-5 p-6">
