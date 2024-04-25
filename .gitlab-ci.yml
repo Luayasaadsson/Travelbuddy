@@ -12,7 +12,7 @@ build_artifact:
     - npm run build
   artifacts:
     paths:
-      - frontend/dist/
+      - frontend/dist/*
 
 build_image:
   stage: image
