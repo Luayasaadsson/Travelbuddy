@@ -20,7 +20,9 @@ function Header() {
                     />
 
                     <img
-                        src={isOpen ? "/icons/menu_open.svg" : "/images/menu.svg"}
+                        src={
+                            isOpen ? "/icons/menu_open.svg" : "/images/menu.svg"
+                        }
                         alt=""
                         className="w-11 hover:cursor-pointer"
                         onClick={handleMenu}

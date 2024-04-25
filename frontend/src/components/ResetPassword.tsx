@@ -16,14 +16,6 @@ function ResetPassword() {
 
     return (
         <main className="flex h-screen items-center justify-center">
-            <div className="flex flex-row-reverse gap-6 p-6">
-                <div>
-                    <img
-                        className="hidden h-full w-full sm:flex"
-                        src="/images/unsplash-bg6.png"
-                        alt="background"
-                    />
-                </div>
                 <div className="flex w-11/12 max-w-96 flex-col items-center gap-4">
                     <h1 className="text-3xl text-secondary">Reset Password</h1>
                     <p className="text-xs text-secondary">
@@ -77,7 +69,6 @@ function ResetPassword() {
                         </div>
                     </div>
                 )}
-            </div>
         </main>
     )
 }

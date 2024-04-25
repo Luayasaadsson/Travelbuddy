@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 
 function ChangePassword() {
     return (
-        <main className="flex h-screen flex-col items-center justify-center">
+        <main className="flex h-screen flex-col items-center justify-start pt-36">
             <div className="flex w-11/12 max-w-96 flex-col items-center justify-center gap-6">
                 <div className="flex justify-center">
                     <h1 className="text-2xl font-bold">Change password</h1>

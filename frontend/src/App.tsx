@@ -14,25 +14,28 @@ import EatBot from "./components/EatBot"
 import Footer from "./components/Footer"
 import MoreAbout from "./components/MoreAbout"
 import Hero from "./components/Hero"
-
+import DesktopImage from "./components/DesktopImage"
 function App() {
     return (
         <>
             <Header />
-            {/* <MoreAbout/> */}
-            {/* <Settings /> */}
-            {/* <ProfileSettings /> */}
-         {/*    <GetStarted /> */}
-     {/*        <Hero /> */}
-            {/* <ProfileStart /> */}
-            {/* <MyProfile /> */}
-            {/* <ChangePassword /> */}
-            {/* <Notifications /> */}
-          {/*   <LogIn /> */}
-           {/*  <SignUp /> */}
-          {/*   <ForgotPassword /> */}
+            <div className=" h-1/2 flex w-full items-center justify-center">
+                <LogIn />
+                <DesktopImage />
+            </div>
+            <MoreAbout />
+            <Settings />
+            <ProfileSettings />
+            <GetStarted />
+            <Hero />
+            <ProfileStart />
+            <MyProfile />
+            <ChangePassword />
+            <Notifications />
+            <SignUp />
+            <ForgotPassword />
             <ResetPassword />
-            {/* <EatBot /> */}
+            <EatBot />
             <Footer />
         </>
     )
