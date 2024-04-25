@@ -1,7 +1,7 @@
 
 
 type VacationPreference = {
-
+    id: string | null;
     preferAdventureTravel?: boolean | null;
     preferBackpackingAndBudgetTravel?: boolean | null;
     preferBeachVacations?: boolean | null;

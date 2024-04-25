@@ -2,7 +2,7 @@ import Language from "../common/Language"
 import User from "../user/User"
 
 
-type Settings = {
+type Setting = {
     userId: string | null,
     // LoginInfo and PublicInfo
     userName?: string | null,
@@ -21,12 +21,7 @@ type Settings = {
     applicationLanguage: Language
     accessibilityTextSize?: number | null
     // Publication and Subscription
-    OutgoingSubscriptionRequestsPending: User[]
-    OutgoingSubscriptionRequestsDenied: User[]
-    OutgoingSubscriptionRequestsApproved: User[]
-    IncomingSubscriptionRequestsPending: User[]
-    IncomingSubscriptionRequestsDenied: User[]
-    IncomingSubscriptionRequestsApproved: User[]
+    subscriptionIds?: string[] 
 }
 
-export default Settings
+export default Setting

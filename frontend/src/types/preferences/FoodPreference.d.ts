@@ -2,7 +2,6 @@
 
 type FoodPreference = {
     id: string
-    userId: string
     preferAmericanFood?: boolean | null
     preferAustralianFood?: boolean | null
     preferBrazilianFood?: boolean | null

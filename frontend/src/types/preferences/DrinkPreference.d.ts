@@ -1,7 +1,6 @@
 
 type DrinkPreferences = {
     id: string
-    userId: string
     preferBeer?: boolean | null;
     preferCocktails?: boolean | null;
     preferCoffee?: boolean | null;

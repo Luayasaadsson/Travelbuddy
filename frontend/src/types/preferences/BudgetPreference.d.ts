@@ -1,8 +1,7 @@
 
 
-type BudgetPreferences = {
+type BudgetPreference = {
     id: string
-    userId: string
     maxAccommodationPricePerNight?: number | null;
     maxFoodExpense?: number | null;
     maxDrinkExpense?: number | null;

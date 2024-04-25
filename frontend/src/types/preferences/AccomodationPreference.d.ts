@@ -2,7 +2,6 @@
 
 type AccomodationPreference = {
     id: string
-    userId: string
     preferBedAndBreakfast?: boolean | null;
     preferBoatOrHouseboat?: boolean | null;
     preferBoutiqueHotel?: boolean | null;
