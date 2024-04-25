@@ -28,7 +28,11 @@ function Header() {
                         onClick={handleMenu}
                     />
                 </div>
-                <img src="/icons/bg-blur.svg" alt="" className=" absolute z-[-10]" />
+                {/* <img
+                    src="/icons/bg-blur.svg"
+                    alt=""
+                    className=" absolute right-auto z-[-10]"
+                /> */}
             </nav>
 
             <div
