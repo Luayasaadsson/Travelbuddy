@@ -1,7 +1,7 @@
 
 
 type TransportationPreferences = {
-  
+    id: string;
     preferAirplane?: boolean | null;
     preferBicycle?: boolean | null;
     preferBoat?: boolean | null;

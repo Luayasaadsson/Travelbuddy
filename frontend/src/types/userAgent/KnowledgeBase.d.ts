@@ -2,8 +2,8 @@
 
 type KnowledgeBase =
     // Travel planning
-    "Destinations" |
-    "Activities" |
+    "Destinations"
+    "Activities"
     // Transportation
     "Flights" |
     "Train Rides" |
@@ -15,7 +15,7 @@ type KnowledgeBase =
     // Products & Services
     "Restaurants" |
     "Shopping" |
-    "Currency-exchange" |
+    "Currency-exchange"
     // Payment
     "Payment"
     

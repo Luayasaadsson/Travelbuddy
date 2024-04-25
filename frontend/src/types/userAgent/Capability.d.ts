@@ -37,7 +37,8 @@ type Capability =
     "Aggregating" |
     "Summarising" | 
     "Content-creation" |
-    "Being a Virtual friend"
+    "Being a Virtual friend" |
+    "Managing"
 
     export default Capability
 
