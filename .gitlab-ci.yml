@@ -1,0 +1,27 @@
+stages:
+  - build
+  - image
+
+build_artifact:
+  stage: build
+  image: node
+  before_script:
+    - cd frontend
+    - npm install
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+
+build_image:
+  stage: image
+  dependencies:
+    - build
+  image: docker
+  before_script:
+    - docker info
+  script:
+    - docker login --username AlexLundgren --password $GITLAB_CONTAINER_REGISTRY_TOKEN registry.gitlab.com
+    - docker build -t registry.gitlab.com/ccg-2/travelbuddy:$CI_JOB_STARTED_AT .
+    - docker push registry.gitlab.com/ccg-2/travelbuddy:$CI_JOB_STARTED_AT
