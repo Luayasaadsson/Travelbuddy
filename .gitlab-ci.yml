@@ -12,15 +12,15 @@ build_artifact:
     - npm run build
   artifacts:
     paths:
-      - dist/
+      - frontend/dist/
 
 build_image:
   stage: image
   dependencies:
     - build_artifact
-  image: docker
-  before_script:
-    - docker info
+  image: docker:26.1.0
+  services:
+    - docker:26.1.0-dind
   script:
     - docker login --username AlexLundgren --password $GITLAB_CONTAINER_REGISTRY_TOKEN registry.gitlab.com
     - docker build -t registry.gitlab.com/ccg-2/travelbuddy:$CI_JOB_STARTED_AT .
