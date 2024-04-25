@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { Button } from "./ui/button"
 
 function GetStarted() {
@@ -17,9 +18,11 @@ function GetStarted() {
                     AI-assistant guide you effortlessly from inspiration to
                     exploration. Your dream trip starts here.
                 </p>
-                <Button className="flex h-full w-full items-center justify-center gap-2 p-3 sm:text-2xl">
-                    Get started
-                </Button>
+                <Link className="flex w-full justify-center" to="/hero">
+                    <Button className="h-full w-full items-center p-3 sm:text-2xl">
+                        Get started
+                    </Button>
+                </Link>
             </div>
         </main>
     )

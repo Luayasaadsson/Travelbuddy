@@ -20,8 +20,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 function App() {
     return (
         <>
-            <Header />
             <BrowserRouter>
+                <Header />
                 <Routes>
                     {/* <div className=" flex h-1/2 w-full items-center justify-center">
                         <LogIn />

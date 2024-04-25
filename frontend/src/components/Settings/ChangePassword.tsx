@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
@@ -34,9 +35,11 @@ function ChangePassword() {
                     </div>
                 </div>
 
-                <Button className="flex w-full max-w-96 items-center justify-center gap-2 p-3">
-                    Save changes
-                </Button>
+                <Link className="w-full" to="/profilestart">
+                    <Button className="flex w-full max-w-96 items-center justify-center gap-2 p-3">
+                        Save changes
+                    </Button>
+                </Link>
             </div>
         </main>
     )

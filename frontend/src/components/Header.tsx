@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
 function Header() {
     const [isOpen, setIsOpen] = useState<boolean>(false)
 
@@ -8,10 +9,10 @@ function Header() {
     return (
         <header className="absolute flex h-28 w-full flex-col justify-end bg-transparent">
             <nav className="z-2 flex items-center justify-between p-4">
-                <div className="flex items-center justify-center">
+                <Link to="/" className="flex items-center justify-center">
                     <img src="/images/logo.svg" alt="" className="w-11" />
                     <h1 className="text-base font-light">TravelBuddy</h1>
-                </div>
+                </Link>
                 <div className="flex gap-4">
                     <img
                         src="/images/account_circle.svg"
@@ -47,7 +48,9 @@ function Header() {
                         style={{ opacity: isOpen ? "1" : "0" }}
                         className="cursor-pointer py-2 text-2xl transition-opacity duration-300 ease-in-out hover:text-primary-foreground"
                     >
-                        Home
+                        <Link to="/">
+                            Home
+                        </Link>
                     </li>
                     <li
                         style={{ opacity: isOpen ? "1" : "0" }}
@@ -59,7 +62,9 @@ function Header() {
                         style={{ opacity: isOpen ? "1" : "0" }}
                         className="cursor-pointer py-2 text-2xl transition-opacity duration-300 ease-in-out hover:text-primary-foreground"
                     >
+                        <Link to="/settings">
                         Setting
+                        </Link>
                     </li>
                     <li
                         style={{ opacity: isOpen ? "1" : "0" }}
