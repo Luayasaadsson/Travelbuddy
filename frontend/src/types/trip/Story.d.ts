@@ -2,7 +2,7 @@ import Trip from "./Trip"
 import StorySection from "./StorySection"
 import Destination from "./Destination"
 import Rating from "../common/Rating"
-import User from "../userInfo/User"
+import User from "../user/User"
 
 
 type Story = {

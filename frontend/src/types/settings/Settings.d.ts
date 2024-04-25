@@ -1,5 +1,5 @@
 import Language from "../common/Language"
-import User from "../userInfo/User"
+import User from "../user/User"
 
 
 type Settings = {

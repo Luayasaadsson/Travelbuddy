@@ -10,8 +10,7 @@ type Agent = {
     role?: Role | null
     capability?: Capability | null
     knowledgeBase?: KnowledgeBase | null
-    questionAnswers: QuestionAnswer[]
-
+    questionAnswersIds: string[]   
 }
 
 export default Agent

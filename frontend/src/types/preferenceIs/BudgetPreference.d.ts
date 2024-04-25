@@ -1,6 +1,7 @@
 
 
 type BudgetPreferences = {
+    id: string
     userId: string
     maxAccommodationPricePerNight?: number | null;
     maxFoodExpense?: number | null;
@@ -8,6 +9,6 @@ type BudgetPreferences = {
     maxTransportationExpense?: number | null;
     maxEntertainmentExpense?: number | null;
     maxTotalBudget?: number | null;
-  };
+};
 
 export default BudgetPreference

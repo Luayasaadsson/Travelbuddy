@@ -1,15 +1,15 @@
 import Rating from "../common/Rating"
-import User from "../userInfo/User"
-import Agent
+import User from "../user/User"
+import Agent from "./Agent"
 import QuestionAnswer from "./QuestionAnswer"
 
 
 type UserAgentRating = {
-    user: User
-    interactionAgent: Agent
-    expertAgent: Agent
+    userId: string
+    interactionAgentId: string
+    expertAgentId: string
+    questionAnswerId: string
     rating: Rating 
-    questionAnswer: QuestionAnswer
     date: Date
 }
 

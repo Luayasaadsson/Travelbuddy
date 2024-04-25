@@ -1,20 +1,18 @@
 import Country from '../common/Country'
 import Gender from '../common/Gender'
 import Language from '../common/Language'
-import Child from './Child'
-import GrandChild from './GrandChild'
-import Parent from './Parent'
-import Partner from './Partner'
-import Sibling from './Sibling'
+
 
 
 type User = {
+    id: string
     firstName: string | null,
     lastName?: string | null,
     nickName?: string | null,
     emailAddressPrivate1: string | null,   
     emailAddressPrivate2?: string | null,   
     emailAddressBusiness?: string | null,
+    emailAddressForRecovery?: string | null,
     address?: Address,
     mobilePhone1?: number | null,
     mobilePhone2?: number | null,
@@ -28,13 +26,13 @@ type User = {
     languageFirst?: Language,
     languageSecond?: Language,
     languageThird?: Language,
-    partner?: Partner[],
-    children?: Child[],
-    grandChildren?: GrandChild[],
-    parents?: Parents[],
-    siblings?: Sibling[],
-    friends?: Friend[],
-    colleagues?: Colleague[],
+    partnerId?: string | null,
+    childrenIds?: string[],
+    grandChildrenIds?: string[],
+    parentIds?: string[],
+    siblingIds?: string[],
+    friendIds?: string[],
+    colleagueIds?: string[],
     noDisabilty?: boolean | null,
     visualImpairment?: boolean | null,
     hearingImpairment?: boolean | null,

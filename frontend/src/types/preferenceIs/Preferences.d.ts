@@ -1,10 +1,10 @@
 import VacationPreference from "./VacationPreference"
-import Destination from "../tripInfo/Destination"
+import Destination from "../trip/Destination"
 import BudgetPreference from "./BudgetPreference"
 import TransportationPreferences from "./TransportationPreference"
 import AccomodationPreference from "./AccomodationPreference"
 import FoodPreference from "./FoodPreference"
-import DietaryPreferences from "./DietaryPreferences"
+import DietaryPreferences from "./DietaryPreference"
 import DrinkPreferences from "./DrinkPreference"
 
 

@@ -4,8 +4,10 @@ import Traveller from "./Traveller"
 
 
 type Trip = {
-    destination: Destination[],
-    travellers: Traveller[],
+    id: string
+    status?: TripStatus
+    destinationIds: string[],
+    travellerIds: string[],
     fromDate?: Date | null,
     toDate?: Date | null,
 }
