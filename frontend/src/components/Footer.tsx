@@ -1,6 +1,6 @@
 function Footer() {
     return (
-        <footer className="flex  flex-col items-center gap-10 py-20">
+        <footer className="mt-16  flex flex-col items-center gap-10 p-20">
             <div className="grid grid-cols-1 gap-20 sm:grid-cols-3 md:grid-cols-4">
                 {/* Navigeringslänkar kommer senare */}
                 <div className="flex flex-col items-start gap-4">
@@ -43,7 +43,7 @@ function Footer() {
                     </ul>
                 </div>
             </div>
-            <div className="order-first flex items-center justify-center gap-2 md:order-none">
+            <div className="order-first flex items-center justify-center md:order-none">
                 <img
                     src="/images/logo.svg"
                     alt="TravelBuddy Logo"

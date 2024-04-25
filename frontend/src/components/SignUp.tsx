@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom"
 import { Input } from "./ui/input"
 import { Label } from "./ui/label"
 import { Button } from "./ui/button"
 
 function SignUp() {
     return (
-        <main className="flex h-screen items-end justify-center pb-8">
+        <main className="mb-10 flex h-screen w-full items-center justify-center pt-52">
             <div className="flex w-11/12 max-w-96 flex-col items-center gap-6">
                 <h1 className="text-center text-3xl text-secondary">
                     Let's get you started
@@ -38,14 +39,18 @@ function SignUp() {
                         />
                     </div>
 
-                    <Button className="flex w-full items-center justify-center gap-2 p-3">
-                        Create profile
-                    </Button>
+                    <Link to="/moreabout">
+                        <Button className="flex w-full items-center justify-center gap-2 p-3">
+                            Create profile
+                        </Button>
+                    </Link>
                     <p className="my-2 text-center text-sm text-neutral-200 ">
                         Already have an account?
-                        <span className="cursor-pointer pl-2 text-primary underline underline-offset-4">
-                            Login here!
-                        </span>
+                        <Link to="/login">
+                            <span className="cursor-pointer pl-2 text-primary underline underline-offset-4">
+                                Login here!
+                            </span>
+                        </Link>
                     </p>
                 </div>
                 <div className="inline-flex items-center gap-[9px]">

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { Input } from "./ui/input"
 import { Label } from "./ui/label"
 import { Button } from "./ui/button"
@@ -5,7 +6,7 @@ import { Checkbox } from "./ui/checkbox"
 
 function LogIn() {
     return (
-        <main className="flex h-screen w-full items-center justify-center pt-20">
+        <main className="flex h-screen w-full items-center justify-center pt-48">
             <div className="flex w-11/12 max-w-96 flex-col items-center gap-6">
                 <h1 className="text-center text-3xl text-secondary">
                     Login <br /> Welcome back!
@@ -27,9 +28,11 @@ function LogIn() {
                             className="absolute inset-y-0 right-3 top-12"
                         />
                     </div>
-                    <p className="mt-0 flex w-full cursor-pointer justify-end pt-2 text-sm underline underline-offset-4">
-                        Forgot password?
-                    </p>
+                    <Link to="/forgotpassword">
+                        <p className="mt-0 flex w-full cursor-pointer justify-end pt-2 text-sm underline underline-offset-4">
+                            Forgot password?
+                        </p>
+                    </Link>
 
                     <div className="inline-flex  w-full items-center justify-end gap-2.5">
                         <div className="text-sm leading-tight tracking-tight text-secondary">
@@ -37,12 +40,16 @@ function LogIn() {
                         </div>
                         <Checkbox />
                     </div>
-                    <Button className=" w-full ">Login</Button>
+                    <Link to="/moreabout">
+                        <Button className=" w-full ">Login</Button>
+                    </Link>
                     <p className=" text-center text-sm text-onBackground">
                         Don't have an account?
-                        <span className="cursor-pointer pl-2 underline underline-offset-4">
-                            Signup here!
-                        </span>
+                        <Link to="/signup">
+                            <span className="cursor-pointer pl-2 text-primary underline underline-offset-4">
+                                Signup here!
+                            </span>
+                        </Link>
                     </p>
                 </div>
                 <div className="inline-flex items-center gap-[9px]">

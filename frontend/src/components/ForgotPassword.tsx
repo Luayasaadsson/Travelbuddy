@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 import { RootState, AppDispatch } from "@/store/store"
 import { showOverlay, hideOverlay } from "@/store/slices/overlaySlice"
@@ -16,7 +17,7 @@ function ForgotPassword() {
 
     return (
         <main className="flex h-screen items-center justify-center">
-            <div className="flex max-w-96 flex-col items-center gap-4 w-11/12 ">
+            <div className="flex w-11/12 max-w-96 flex-col items-center gap-4 ">
                 <h1 className="text-3xl text-secondary">Forgot Password</h1>
                 <p className="text-xs text-secondary">
                     Enter your email account to reset your password
@@ -29,8 +30,11 @@ function ForgotPassword() {
                     onClick={() => dispatch(showOverlay())}
                     className="w-full"
                 >
-                    Reset Password
+                    Send
                 </Button>
+                <Link className="w-full" to="/resetpassword">
+                    <Button className="w-full">Reset Password</Button>
+                </Link>
             </div>
 
             {/* Renderar overlay om overlayVisible är true. */}
