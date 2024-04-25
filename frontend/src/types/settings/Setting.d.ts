@@ -10,18 +10,18 @@ type Setting = {
     publicName?: string | null,
     publicAvatarUrl?: string | null,
     // Notification Settings
-    notificationViaEmail?: boolean | null,
-    notificationViaAppMessage?: boolean | null,
-    notificationViaSms?: boolean | null,
+    notificationViaEmail?: boolean | null, //Kanske??
+    // notificationViaAppMessage?: boolean | null,
+    // notificationViaSms?: boolean | null,
     // Security
-    twoFactorAuthentication?: boolean | null
+    // twoFactorAuthentication?: boolean | null
     // Theme
     darkMode: boolean | null
     // Language & Accessibility
-    applicationLanguage: Language
-    accessibilityTextSize?: number | null
+    /* applicationLanguage: Language */
+    // accessibilityTextSize?: number | null
     // Publication and Subscription
-    subscriptionIds?: string[] 
+    // subscriptionIds?: string[] 
 }
 
 export default Setting
