@@ -1,4 +1,4 @@
-import User from "../user/User"
+import User from "../user/UserOld"
 import UserPreferencePrompts from "./UserPreferencesPrompt"
 import UserAgentRating from "./UserAgentRating"
 import HistoricalQuestionAnswers from "./QuestionAnswers"
