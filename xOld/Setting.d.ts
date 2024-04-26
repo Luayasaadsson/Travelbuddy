@@ -1,5 +1,5 @@
-import Language from "../common/Language"
-import User from "../user/User"
+import Language from "../frontend/src/types/common/Language"
+import User from "../frontend/src/types/user/User"
 
 
 type Setting = {

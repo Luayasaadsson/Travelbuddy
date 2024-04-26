@@ -1,5 +1,5 @@
-import Language from "../common/Language"
-import User from "../user/UserOld"
+import Language from "../frontend/src/types/common/Language"
+import User from "./UserOld"
 
 
 type Settings = {

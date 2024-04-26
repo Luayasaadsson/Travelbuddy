@@ -1,6 +1,6 @@
 import Disabilties from "./user/Disabilities"
-import Gender from "./common/Gender"
-import Language from "./common/Language"
+import Gender from "../frontend/src/types/common/Gender"
+import Language from "../frontend/src/types/common/Language"
 
 type UserProfile = {
   id: string,

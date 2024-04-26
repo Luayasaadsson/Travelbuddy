@@ -1,5 +1,5 @@
-import User from "../user/UserOld"
-import Preferences from "../preferences/Preferences"
+import User from "../../../../xOld/UserOld"
+import Preferences from "../../../../xOld/preferences/Preferences"
 
 
 type UserPreferencesPrompt = {

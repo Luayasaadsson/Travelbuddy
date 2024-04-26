@@ -1,5 +1,5 @@
 import Rating from "../common/Rating"
-import User from "../user/UserOld"
+import User from "../../../../xOld/UserOld"
 import Agent from "./Agent"
 
 type QuestionAnswer = {
