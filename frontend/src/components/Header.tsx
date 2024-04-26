@@ -1,26 +1,16 @@
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Header() {
     const [isOpen, setIsOpen] = useState<boolean>(false);
-    const menuRef = useRef<HTMLDivElement>(null);
 
     const handleMenu = () => {
         setIsOpen(!isOpen);
     };
 
-    const handleClickOutside = (event: MouseEvent) => {
-        if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-            setIsOpen(false);
-        }
+    const handleCloseMenu = () => {
+        setIsOpen(false);
     };
-
-    useEffect(() => {
-        document.addEventListener("mousedown", handleClickOutside);
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
-    }, []);
 
     return (
         <header className="absolute flex h-28 w-full flex-col justify-end bg-transparent">
@@ -49,8 +39,14 @@ function Header() {
                 </div>
             </nav>
 
+            {isOpen && (
+                <div
+                    className="fixed top-0 left-0 w-full h-full bg-transparent"
+                    onClick={handleCloseMenu}
+                />
+            )}
+
             <div
-                ref={menuRef}
                 className="absolute top-28 w-full origin-top overflow-hidden bg-white transition-transform  duration-300 ease-in-out"
                 style={{
                     transform: isOpen ? "scaleY(1)" : "scaleY(0)",
@@ -62,7 +58,7 @@ function Header() {
                         style={{ opacity: isOpen ? "1" : "0" }}
                         className="cursor-pointer py-2 text-2xl transition-opacity duration-300 ease-in-out hover:text-primary-foreground"
                     >
-                        <Link to="/" onClick={handleMenu}>
+                        <Link to="/" onClick={handleCloseMenu}>
                             Home
                         </Link>
                     </li>
@@ -76,7 +72,7 @@ function Header() {
                         style={{ opacity: isOpen ? "1" : "0" }}
                         className="cursor-pointer py-2 text-2xl transition-opacity duration-300 ease-in-out hover:text-primary-foreground"
                     >
-                        <Link to="/settings" onClick={handleMenu}>
+                        <Link to="/settings" onClick={handleCloseMenu}>
                             Setting
                         </Link>
                     </li>
