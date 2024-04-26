@@ -5,7 +5,7 @@ import { Button } from "./ui/button"
 
 function SignUp() {
     return (
-        <main className="mb-10 flex h-screen w-full items-center justify-center pt-52">
+        <main className="mb-10 flex h-screen w-full items-center justify-center pt-24">
             <div className="flex w-11/12 max-w-96 flex-col items-center gap-6">
                 <h1 className="text-center text-3xl text-secondary">
                     Let's get you started

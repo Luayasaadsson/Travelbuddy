@@ -6,7 +6,7 @@ import { Checkbox } from "./ui/checkbox"
 
 function LogIn() {
     return (
-        <main className="flex h-screen w-full items-center justify-center pt-48">
+        <main className="flex h-screen w-full items-center justify-center pt-20">
             <div className="flex w-11/12 max-w-96 flex-col items-center gap-6">
                 <h1 className="text-center text-3xl text-secondary">
                     Login <br /> Welcome back!
@@ -29,7 +29,7 @@ function LogIn() {
                         />
                     </div>
                     <Link to="/forgotpassword">
-                        <p className="mt-0 flex w-full cursor-pointer justify-end pt-2 text-sm underline underline-offset-4">
+                        <p className="flex w-full cursor-pointer justify-end pt-2 text-sm underline underline-offset-4">
                             Forgot password?
                         </p>
                     </Link>
