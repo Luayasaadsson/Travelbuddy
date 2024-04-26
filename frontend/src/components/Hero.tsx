@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom"
 import { Button } from "./ui/button"
 
-function Hero () {
+function Hero() {
     return (
         <main className="flex h-screen items-center justify-center">
             <div className="flex flex-col gap-5 p-6">
@@ -45,26 +46,32 @@ function Hero () {
                             adventures. Let's craft your journey together.
                         </p>
                         <div className="mt-4 flex justify-center gap-3">
-                            <Button variant="outline" size="md">
-                                <p className="text-neutral-200">Login now</p>
-                                <img
-                                    className="ml-2 h-6 w-6"
-                                    src="/images/account.svg"
-                                    alt="Profileicon"
-                                />
-                            </Button>
+                            <Link to="/login">
+                                <Button variant="outline" size="md">
+                                    <p className="text-neutral-200">
+                                        Login now
+                                    </p>
+                                    <img
+                                        className="ml-2 h-6 w-6"
+                                        src="/images/account.svg"
+                                        alt="Profileicon"
+                                    />
+                                </Button>
+                            </Link>
                             <img
                                 src="./icons/vector-icon.svg"
                                 alt="Vectoricon"
                             />
-                            <Button variant="default">
-                                <p>Create profile</p>
-                                <img
-                                    className="ml-2 h-6 w-6"
-                                    src="/images/account2.svg"
-                                    alt="Profileicon"
-                                />
-                            </Button>
+                            <Link to="/signup">
+                                <Button variant="default">
+                                    <p>Create profile</p>
+                                    <img
+                                        className="ml-2 h-6 w-6"
+                                        src="/images/account2.svg"
+                                        alt="Profileicon"
+                                    />
+                                </Button>
+                            </Link>
                         </div>
                     </div>
                 </div>

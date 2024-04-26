@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom"
 import { Button } from "./ui/button"
 import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar"
 
 function ProfileStart() {
     return (
-        <main className="flex h-screen items-center justify-center">
+        <main className="flex h-screen items-center justify-center pt-28">
             <div className="flex w-11/12 max-w-96 flex-col items-center justify-center  gap-8">
                 <Avatar
                     className="border-4 border-secondary"
@@ -28,10 +29,12 @@ function ProfileStart() {
                     Places to stay nearby
                     <img src="./icons/icon-bed.svg" alt="" />
                 </Button>
-                <Button className="flex w-full justify-between">
-                    Let’s find a place to eat nearby
-                    <img src="./icons/icon-food.svg" alt="" />
-                </Button>
+                <Link className="w-full" to="/eatbot">
+                    <Button className="flex w-full justify-between">
+                        Let’s find a place to eat nearby
+                        <img src="./icons/icon-food.svg" alt="" />
+                    </Button>
+                </Link>
                 <Button className="flex w-full justify-between">
                     Experiences & Activities
                     <img src="./icons/icon-activity.svg" alt="" />

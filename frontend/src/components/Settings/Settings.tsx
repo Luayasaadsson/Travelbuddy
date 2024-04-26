@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import { Switch } from "../ui/switch"
 
 function Settings() {
     return (
-        <main className="flex h-screen items-center justify-center pt-24">
+        <main className="flex h-screen items-center justify-center">
             <div className="flex w-11/12 max-w-96 flex-col items-center justify-center">
                 <h1 className="text-2xl">Profil</h1>
                 <h2 className="ml-2 self-start text-xl">Settings</h2>
@@ -15,27 +16,27 @@ function Settings() {
                     <img className="" src="./icons/Arrow.svg" alt="Arrow" />
                 </button>
 
-                <button className=" mt-4 flex h-9 w-11/12 cursor-pointer  items-center justify-between border-b-2 border-secondary px-4 text-secondary">
+              {/*   <button className=" mt-4 flex h-9 w-11/12 cursor-pointer  items-center justify-between border-b-2 border-secondary px-4 text-secondary">
                     <div className="flex gap-4">
                         <img src="./icons/Travel.svg" alt="Travelicon" />
                         <p>My trips</p>
                     </div>
                     <img className="" src="./icons/Arrow.svg" alt="Arrow" />
-                </button>
-                <button className=" mt-4 flex h-9 w-11/12 cursor-pointer  items-center justify-between border-b-2 border-secondary px-4 text-secondary">
+                </button> */}
+                {/* <button className=" mt-4 flex h-9 w-11/12 cursor-pointer  items-center justify-between border-b-2 border-secondary px-4 text-secondary">
                     <div className="flex gap-4">
                         <img src="./icons/Version.svg" alt="Travelicon" />
                         <p>Main language</p>
                     </div>
                     <img className="" src="./icons/Arrow.svg" alt="Arrow" />
-                </button>
-                <button className=" mt-4 flex h-9 w-11/12 cursor-pointer  items-center justify-between border-b-2 border-secondary px-4 text-secondary">
+                </button> */}
+               {/*  <button className=" mt-4 flex h-9 w-11/12 cursor-pointer  items-center justify-between border-b-2 border-secondary px-4 text-secondary">
                     <div className="flex gap-4">
                         <img src="./icons/Alert.svg" alt="Travelicon" />
                         <p>Notifications</p>
                     </div>
                     <img className="" src="./icons/Arrow.svg" alt="Arrow" />
-                </button>
+                </button> */}
                 <div className=" mt-4 flex h-9 w-11/12 items-center  justify-between border-b-2 border-secondary pl-4 text-secondary">
                     <div className="flex gap-4">
                         <img src="./icons/sun.svg" alt="Travelicon" />
@@ -44,21 +45,21 @@ function Settings() {
                     <Switch />
                 </div>
 
-                <h2 className="ml-2 mt-4 self-start text-xl">Support</h2>
+                {/* <h2 className="ml-2 mt-4 self-start text-xl">Support</h2> */}
                 <button className=" mt-4 flex h-9 w-11/12 cursor-pointer  items-center justify-between border-b-2 border-secondary px-4 text-secondary">
-                    <div className="flex gap-4">
+                    <Link to="/changepassword" className="flex gap-4">
                         <img src="./icons/ProfileIcon.svg" alt="Travelicon" />
-                        <p>About us</p>
-                    </div>
+                        <p>Change password</p>
+                    </Link>
                     <img className="" src="./icons/Arrow.svg" alt="Arrow" />
                 </button>
-                <button className=" mt-4 flex h-9 w-11/12 cursor-pointer items-center justify-between border-b-2 border-secondary px-4 text-secondary">
+                {/* <button className=" mt-4 flex h-9 w-11/12 cursor-pointer items-center justify-between border-b-2 border-secondary px-4 text-secondary">
                     <div className="flex gap-4">
                         <img src="./icons/Travel.svg" alt="Travelicon" />
                         <p>Help center</p>
                     </div>
                     <img className="" src="./icons/Arrow.svg" alt="Arrow" />
-                </button>
+                </button> */}
 
                 <h2 className="ml-2 mt-4 self-start text-xl">Feedback</h2>
                 <button className=" mt-4 flex h-9 w-11/12 cursor-pointer items-center justify-between border-b-2 border-secondary px-4 text-secondary">
