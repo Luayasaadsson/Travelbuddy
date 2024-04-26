@@ -1,11 +1,27 @@
-import { useState } from "react"
-import { Link } from "react-router-dom"
+import { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
+
 function Header() {
-    const [isOpen, setIsOpen] = useState<boolean>(false)
+    const [isOpen, setIsOpen] = useState<boolean>(false);
+    const menuRef = useRef<HTMLDivElement>(null);
 
     const handleMenu = () => {
-        setIsOpen(!isOpen)
-    }
+        setIsOpen(!isOpen);
+    };
+
+    const handleClickOutside = (event: MouseEvent) => {
+        if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+            setIsOpen(false);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
+
     return (
         <header className="absolute flex h-28 w-full flex-col justify-end bg-transparent">
             <nav className="z-2 flex items-center justify-between p-4">
@@ -31,14 +47,10 @@ function Header() {
                         onClick={handleMenu}
                     />
                 </div>
-                {/* <img
-                    src="/icons/bg-blur.svg"
-                    alt=""
-                    className=" absolute right-auto z-[-10]"
-                /> */}
             </nav>
 
             <div
+                ref={menuRef}
                 className="absolute top-28 w-full origin-top overflow-hidden bg-white transition-transform  duration-300 ease-in-out"
                 style={{
                     transform: isOpen ? "scaleY(1)" : "scaleY(0)",
@@ -77,7 +89,7 @@ function Header() {
                 </ul>
             </div>
         </header>
-    )
+    );
 }
 
-export default Header
+export default Header;
