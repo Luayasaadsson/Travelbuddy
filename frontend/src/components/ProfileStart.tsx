@@ -21,21 +21,21 @@ function ProfileStart() {
                         How can i help you today?
                     </p>
                 </div>
-                <Button className="flex w-full justify-between">
+                <Button className="justify-between">
                     Find your dream vacation
                     <img src="./icons/icon-location.svg" alt="" />
                 </Button>
-                <Button className="flex w-full justify-between">
+                <Button className="justify-between">
                     Places to stay nearby
                     <img src="./icons/icon-bed.svg" alt="" />
                 </Button>
                 <Link className="w-full" to="/eatbot">
-                    <Button className="flex w-full justify-between">
+                    <Button className="justify-between">
                         Let’s find a place to eat nearby
                         <img src="./icons/icon-food.svg" alt="" />
                     </Button>
                 </Link>
-                <Button className="flex w-full justify-between">
+                <Button className="justify-between">
                     Experiences & Activities
                     <img src="./icons/icon-activity.svg" alt="" />
                 </Button>

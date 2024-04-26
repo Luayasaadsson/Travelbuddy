@@ -77,7 +77,7 @@ function MoreAbout() {
                     </Select>
                 </div>
                 <Link className="w-full" to="/profilestart">
-                    <Button className="w-full">
+                    <Button>
                         Add to your profile
                     </Button>
                 </Link>
