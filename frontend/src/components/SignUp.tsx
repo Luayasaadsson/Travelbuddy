@@ -40,7 +40,7 @@ function SignUp() {
                     </div>
 
                     <Link to="/moreabout">
-                        <Button className="flex w-full items-center justify-center gap-2 p-3">
+                        <Button >
                             Create profile
                         </Button>
                     </Link>
@@ -59,29 +59,14 @@ function SignUp() {
                     <span className="w-[139px] border border-primary"></span>
                 </div>
 
-                <div className="inline-flex w-full cursor-pointer items-center justify-between rounded-md bg-blue-600 p-3 shadow">
-                    <div className="relative h-[26px] w-[26px]">
-                        <img
-                            className="absolute left-0 top-0 h-[26px] w-[26px]"
-                            src="./icons/facebook-logo.svg"
-                        />
-                    </div>
-                    <div className="shrink grow basis-0 text-center text-sm font-medium leading-tight tracking-tight text-white">
-                        Login with Facebook
-                    </div>
-                </div>
-
-                <div className="inline-flex h-[50px] w-full cursor-pointer items-center justify-between rounded-md border border-neutral-200 p-3 shadow">
-                    <div className="relative h-[26px] w-[26px]">
-                        <img
-                            className="absolute left-0 top-0 h-[26px] w-[26px]"
-                            src="./icons/google-logo.svg"
-                        />
-                    </div>
-                    <div className="shrink grow basis-0 text-center text-sm font-medium leading-tight tracking-tight text-neutral-200">
-                        Login with Google
-                    </div>
-                </div>
+                <Button variant="facebook">
+                    <img src="./icons/facebook-logo.svg" alt="facebook Logo" />
+                    <span className="flex-grow">Login with Facebook</span>
+                </Button>
+                <Button variant="google">
+                    <img src="./icons/google-logo.svg" alt="Google Logo" />
+                    <span className="flex-grow">Login with Google</span>
+                </Button>
             </div>
         </main>
     )
