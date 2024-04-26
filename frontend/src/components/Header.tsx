@@ -50,7 +50,9 @@ function Header() {
                         style={{ opacity: isOpen ? "1" : "0" }}
                         className="cursor-pointer py-2 text-2xl transition-opacity duration-300 ease-in-out hover:text-primary-foreground"
                     >
-                        <Link to="/">Home</Link>
+                        <Link to="/" onClick={handleMenu}>
+                            Home
+                        </Link>
                     </li>
                     <li
                         style={{ opacity: isOpen ? "1" : "0" }}
@@ -62,7 +64,9 @@ function Header() {
                         style={{ opacity: isOpen ? "1" : "0" }}
                         className="cursor-pointer py-2 text-2xl transition-opacity duration-300 ease-in-out hover:text-primary-foreground"
                     >
-                        <Link to="/settings">Setting</Link>
+                        <Link to="/settings" onClick={handleMenu}>
+                            Setting
+                        </Link>
                     </li>
                     <li
                         style={{ opacity: isOpen ? "1" : "0" }}
