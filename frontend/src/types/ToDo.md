@@ -30,9 +30,10 @@ LocalStorage ?
     - Activities
 
 4. Booking
-    - Trips
+    - Flights
+    - Trains
+    - Car rental
     - Restaurante table
 
 4. Story/Content creation 
-    
     
