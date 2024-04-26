@@ -14,6 +14,7 @@ import EatBot from "./components/EatBot"
 import Footer from "./components/Footer"
 import MoreAbout from "./components/MoreAbout"
 import Hero from "./components/Hero"
+import AboutUs from "./components/AboutUs"
 import DesktopImage from "./components/DesktopImage"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
@@ -58,9 +59,10 @@ function App() {
                     />
                     <Route path="/resetpassword" element={<ResetPassword />} />
                     <Route path="/myprofile" element={<MyProfile />} />
+                    <Route path="/aboutus" element={<AboutUs />} />
                 </Routes>
             </BrowserRouter>
-            {/* <Footer /> */}
+            <Footer />
         </>
     )
 }

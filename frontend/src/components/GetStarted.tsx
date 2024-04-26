@@ -3,7 +3,7 @@ import { Button } from "./ui/button"
 
 function GetStarted() {
     return (
-        <main className="flex h-screen items-center justify-center  ">
+        <main className="flex h-screen items-center justify-center">
             <div className="flex flex-col items-center justify-center gap-5 p-2">
                 <img
                     className="w-20 sm:w-2/12"

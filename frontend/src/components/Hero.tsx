@@ -37,7 +37,7 @@ function Hero() {
                         alt="background"
                     />
                     <div>
-                        <h2 className="text-center text-3xl text-secondary">
+                        <h2 className="text-center text-3xl text-secondary mb-2">
                             Tailor your travel experience to perfection
                         </h2>
                         <p className="text-center text-sm text-secondary ">
