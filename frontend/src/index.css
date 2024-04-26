@@ -14,6 +14,16 @@
     body {
         @apply bg-background text-primary;
     }
+    .botPrompt {
+        @apply self-start bg-[#A9CBE3] p-3 text-base font-normal leading-5 tracking-tight text-primary-foreground;
+        border-radius: 16px 16px 16px 0px; /* Användning av border-radius inline-stil */
+        white-space: pre-line; /* Användning av white-space inline-stil */
+    }
+    .userPrompt {
+        @apply gap-2 self-end bg-primary p-3 text-base font-normal leading-5 tracking-tight text-primary-foreground;
+        border-radius: 16px 16px 0px 16px; /* Användning av border-radius inline-stil */
+        white-space: pre-line; /* Användning av white-space inline-stil */
+    }
 }
 
 @layer base {
@@ -93,5 +103,3 @@
         --onTertiaryContainer: 205 100% 89%;
     }
 }
-
-

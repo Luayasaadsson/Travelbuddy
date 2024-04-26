@@ -60,7 +60,7 @@ function App() {
                     <Route path="/myprofile" element={<MyProfile />} />
                 </Routes>
             </BrowserRouter>
-            <Footer />
+            {/* <Footer /> */}
         </>
     )
 }
