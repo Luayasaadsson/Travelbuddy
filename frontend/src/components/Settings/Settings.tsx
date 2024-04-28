@@ -81,7 +81,9 @@ function Settings() {
                 <button className=" mt-4 flex h-9 w-11/12 cursor-pointer items-center justify-between border-b-2 border-secondary px-4 text-secondary">
                     <div className="flex gap-4">
                         <img src="./icons/star-icon.svg" alt="Travelicon" />
+                        <Link to="/ratetheapp">
                         <p>Rate the app</p>
+                        </Link>
                     </div>
                     <img className="" src="./icons/Arrow.svg" alt="Arrow" />
                 </button>
