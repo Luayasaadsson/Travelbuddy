@@ -15,6 +15,7 @@ import Footer from "./components/Footer"
 import MoreAbout from "./components/MoreAbout"
 import Hero from "./components/Hero"
 import AboutUs from "./components/AboutUs"
+import RateTheApp from "./components/RateTheApp"
 import DesktopImage from "./components/DesktopImage"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
@@ -59,6 +60,7 @@ function App() {
                     />
                     <Route path="/resetpassword" element={<ResetPassword />} />
                     <Route path="/myprofile" element={<MyProfile />} />
+                    <Route path="/ratetheapp" element={<RateTheApp />} />
                     <Route path="/aboutus" element={<AboutUs />} />
                 </Routes>
             </BrowserRouter>
