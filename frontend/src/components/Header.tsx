@@ -16,8 +16,8 @@ function Header() {
         <header className="absolute flex h-28 w-full flex-col justify-end bg-transparent">
             <nav className="z-2 flex items-center justify-between p-4">
                 <Link to="/" className="flex items-center justify-center">
-                    <img src="/images/logo.svg" alt="" className="w-11" />
-                    <h1 className="text-base font-light">TravelBuddy</h1>
+                    <img src="/images/logo.svg" alt="" className="w-11 md:w-16" />
+                    <h1 className="text-base font-light md:text-2xl">TravelBuddy</h1>
                 </Link>
                 <div className="flex gap-4">
                     <Link to="/settings">
