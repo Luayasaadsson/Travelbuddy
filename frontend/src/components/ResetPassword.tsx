@@ -56,7 +56,7 @@ function ResetPassword() {
                                 Congratulations!
                             </p>
                             <p className="font-small p-2 text-center text-xs leading-normal tracking-wide text-secondary">
-                                Your password was reset.
+                                Your password was reset
                             </p>
                             <Link to="/login">
                                 <Button
