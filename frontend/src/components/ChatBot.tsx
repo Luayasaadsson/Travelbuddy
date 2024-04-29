@@ -10,12 +10,15 @@ import { RootState } from "@/store/store"
 export default function ChatBot({}) {
     const heading = useSelector((state: RootState) => state.chat.heading)
     const subHeading = useSelector((state: RootState) => state.chat.subHeading)
+    const messageList = useSelector((state) => state.chat.messageList)
+    const nationalFoodList = useSelector(
+        (state: RootState) => state.user.preferences.nationalFood,
+    )
 
     const [foodChoice, setFoodChoice] = useState("")
 
     const handleFoodChoice = (food) => {
         setFoodChoice(food)
-        console.log(heading)
     }
 
     return (
@@ -29,13 +32,24 @@ export default function ChatBot({}) {
                 </p>
             </div>
             <div className="flex h-full w-10/12 max-w-96 flex-col gap-4 overflow-y-auto">
-                <BotPrompt text={"Hi! What do you want to eat today?"} />
-                {!foodChoice && (
-                    <FoodPreferenceButtons onFoodChoice={handleFoodChoice} />
+                {messageList.map((message) =>
+                    message.role === "agent" ? (
+                        <AgentMessage
+                            messageContent={message.content}
+                            key={message.id}
+                        />
+                    ) : (
+                        <UserMessage messageContent={message.content} />
+                    ),
                 )}
-                {foodChoice && <UserPrompt foodChoice={foodChoice} />}
-                {foodChoice && (
-                    <BotPrompt text={`Oooooh so nice with ${foodChoice}`} />
+                {nationalFoodList.map((nationalFood, index) =>
+                    nationalFood.prefer === true ? (
+                        <FoodPreferenceButtons
+                            key={index}
+                            onFoodChoice={handleFoodChoice}
+                            foodPreference={nationalFood.food}
+                        />
+                    ) : null,
                 )}
             </div>
 
@@ -47,59 +61,24 @@ export default function ChatBot({}) {
     )
 }
 
-function FoodPreferenceButtons({ onFoodChoice }) {
+function FoodPreferenceButtons({ onFoodChoice, foodPreference }) {
     return (
         <div className="flex w-11/12 flex-wrap justify-center gap-2">
             <Button
                 variant="greenOutline"
                 size="prompt"
-                onClick={() => onFoodChoice("pizza")}
-            >
-                Pizza
-            </Button>
-            <Button
-                variant="greenOutline"
-                size="prompt"
-                onClick={() => onFoodChoice("Hamburger")}
-            >
-                Hamburger
-            </Button>
-            <Button
-                variant="greenOutline"
-                size="prompt"
-                onClick={() => onFoodChoice("Italian")}
-            >
-                Italian
-            </Button>
-            <Button
-                variant="greenOutline"
-                size="prompt"
-                onClick={() => onFoodChoice("Pasta")}
-            >
-                Pasta
-            </Button>
-            <Button
-                variant="greenOutline"
-                size="prompt"
-                onClick={() => onFoodChoice("Thai")}
-            >
-                Thai
-            </Button>
-            <Button
-                variant="greenOutline"
-                size="prompt"
                 onClick={() => onFoodChoice("French")}
             >
-                French
+                {foodPreference}
             </Button>
         </div>
     )
 }
 
-function UserPrompt({ foodChoice }) {
-    return <p className="userPrompt">{foodChoice}</p>
+function UserMessage({ messageContent }) {
+    return <p className="userPrompt">{messageContent}</p>
 }
 
-function BotPrompt({ text }) {
-    return <p className="botPrompt">{text}</p>
+function AgentMessage({ messageContent }) {
+    return <p className="botPrompt">{messageContent}</p>
 }

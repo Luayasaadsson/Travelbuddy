@@ -1,7 +1,6 @@
-import Country from '../common/Country'
-import Gender from '../common/Gender'
-import Language from '../common/Language'
-
+import Country from "../common/Country"
+import Gender from "../common/Gender"
+import Language from "../common/Language"
 
 type User = {
     id: string | null
@@ -10,38 +9,38 @@ type User = {
         lastName?: string | null
         email?: string | null
         mobilePhone?: string | null
-        phone?: string | null 
+        phone?: string | null
         address?: {
-            streetName?: string | null,
-            houseNumber?: string | null,
+            streetName?: string | null
+            houseNumber?: string | null
             houseName?: string | null
-            apartmentBlock?: string | null,
-            floor?: string | null,
-            apartmentNumber?: string | null,
-            postOfficeBoxNumber?: string | null,
-            city?: string | null,
-            postalCode?: string | null,
-            state?: string | null,
-            country?: string | null,
+            apartmentBlock?: string | null
+            floor?: string | null
+            apartmentNumber?: string | null
+            postOfficeBoxNumber?: string | null
+            city?: string | null
+            postalCode?: string | null
+            state?: string | null
+            country?: string | null
         }
         facebook?: string | null
         instagram?: string | null
         x?: string | null
         linkedIn?: string | null
         ticToc?: string | null
-    },
+    }
 
     settings: {
         emailForUserName: string
         password: string
         emailForAccountRecovery: string
-        emailForNotifications: string | null   
+        emailForNotifications: string | null
         publicName: string
         publicAvatarUrl?: string | null
-        language: "en"  // DEVELOPMENT POTENTIAL 
-        currency: "USD" | "EUR" | "SEK"  //TODO:
+        language: "en" // DEVELOPMENT POTENTIAL
+        currency: "USD" | "EUR" | "SEK" //TODO:
         timezone: string | null // TODO:
-        unitSystem: "metric" // DEVELOPMENT POTENTIAL 
+        unitSystem: "metric" // DEVELOPMENT POTENTIAL
         notificationsAreEnabled: boolean
         subscriptionsAutoRenew: boolean
         notificationsViaEmail: boolean
@@ -49,15 +48,11 @@ type User = {
         mode: "light" | "dark"
         // twoFactorAuthentication?: boolean | null
         // accessibilityTextSize?: number | null
-        // subscriptionIds?: string[] 
-    },
+        // subscriptionIds?: string[]
+    }
     personalInfo: {
         dateOfBirth?: Date | null
-        gender?:    "Female" | 
-                    "Male" | 
-                    "Non-binary" |
-                    "Transgender" | 
-                    null
+        gender?: "Female" | "Male" | "Non-binary" | "Transgender" | null
         partnerId?: string | null
         childrenIds?: string[]
         grandChildrenIds?: string[]
@@ -65,30 +60,30 @@ type User = {
         siblingIds?: string[]
         friendIds?: string[]
         colleagueIds?: string[]
-    },
+    }
     preferences: {
         accomodation: {
             bedAndBreakfast?: boolean
-            boatOrHouseboat?: boolean 
-            boutiqueHotel?: boolean 
-            cabinOrChalet?: boolean 
-            campground?: boolean 
-            ecoLodge?: boolean 
-            farmStay?: boolean 
-            glamping?: boolean 
-            guesthouse?: boolean 
-            homestay?: boolean 
-            hotel?: boolean 
-            hostel?: boolean 
-            luxuryHotel?: boolean 
-            motel?: boolean 
-            resort?: boolean 
-            safariLodge?: boolean 
-            servicedApartment?: boolean 
-            treehouseAccommodation?: boolean 
-            vacationRental?: boolean 
-            youthHostel?: boolean 
-        },
+            boatOrHouseboat?: boolean
+            boutiqueHotel?: boolean
+            cabinOrChalet?: boolean
+            campground?: boolean
+            ecoLodge?: boolean
+            farmStay?: boolean
+            glamping?: boolean
+            guesthouse?: boolean
+            homestay?: boolean
+            hotel?: boolean
+            hostel?: boolean
+            luxuryHotel?: boolean
+            motel?: boolean
+            resort?: boolean
+            safariLodge?: boolean
+            servicedApartment?: boolean
+            treehouseAccommodation?: boolean
+            vacationRental?: boolean
+            youthHostel?: boolean
+        }
         budget: {
             maxAccommodationPricePerNight?: number | null
             maxFoodExpense?: number | null
@@ -96,7 +91,7 @@ type User = {
             maxTransportationExpense?: number | null
             maxEntertainmentExpense?: number | null
             maxTotalBudget?: number | null
-        }, 
+        }
         dietary: {
             vegetarian: boolean
             lactoVegetarian: boolean
@@ -121,7 +116,7 @@ type User = {
             lowSodium: boolean
             paleo: boolean
             ketogenic: boolean
-        },
+        }
         allergies: {
             peanutAllergy: boolean
             treeNutAllergy: boolean
@@ -131,38 +126,38 @@ type User = {
             soyAllergy: boolean
             wheatAllergy: boolean
             glutenAllergy: boolean
-        },
-        nationalFood:{
-            americanFood?: boolean | null
-            australianFood?: boolean | null
-            brazilianFood?: boolean | null
-            britishFood?: boolean | null
-            cajunCreoleFood?: boolean | null
-            caribbeanFood?: boolean | null
-            chineseFood?: boolean | null
-            ethiopianFood?: boolean | null
-            frenchFood?: boolean | null
-            germanFood?: boolean | null
-            greekFood?: boolean | null
-            indianFood?: boolean | null
-            italianFood?: boolean | null
-            japaneseFood?: boolean | null
-            koreanFood?: boolean | null
-            mexicanFood?: boolean | null
-            middleEasternFood?: boolean | null
-            spanishFood?: boolean | null
-            thaiFood?: boolean | null
-            vietnameseFood?: boolean | null
-            localFood?: boolean | null
-            mediterraneanFood?: boolean | null
-        },
+        }
+        nationalFood: [
+            { prefer?: boolean | null; food: string },
+            { prefer?: boolean | null; food: string },
+            { prefer?: boolean | null; food: string },
+            { prefer?: boolean | null; food: string },
+            { prefer?: boolean | null; food: string },
+            { prefer?: boolean | null; food: string },
+            { prefer?: boolean | null; food: string },
+            { prefer?: boolean | null; food: string },
+            { prefer?: boolean | null; food: string },
+            { prefer?: boolean | null; food: string },
+            { prefer?: boolean | null; food: string },
+            { prefer?: boolean | null; food: string },
+            { prefer?: boolean | null; food: string },
+            { prefer?: boolean | null; food: string },
+            { prefer?: boolean | null; food: string },
+            { prefer?: boolean | null; food: string },
+            { prefer?: boolean | null; food: string },
+            { prefer?: boolean | null; food: string },
+            { prefer?: boolean | null; food: string },
+            { prefer?: boolean | null; food: string },
+            { prefer?: boolean | null; food: string },
+            { prefer?: boolean | null; food: string },
+        ]
         foodDishes: {
             hamburger?: boolean | null
             pasta?: boolean | null
             pizza?: boolean | null
             seaFood?: boolean | null
-        },
-        drinks:{
+        }
+        drinks: {
             beer: boolean
             cocktails: boolean
             coffee: boolean
@@ -176,7 +171,7 @@ type User = {
             water: boolean
             whiskey: boolean
             wine: boolean
-        },
+        }
         transportation: {
             airplane: boolean
             bicycle: boolean
@@ -189,8 +184,8 @@ type User = {
             rideshare: boolean
             taxi: boolean
             train: boolean
-            walking: boolean   
-        },
+            walking: boolean
+        }
         vacationType: {
             adventureTravel: boolean
             backpackingAndBudgetTravel: boolean
@@ -212,8 +207,8 @@ type User = {
             volunteerAndCommunityBasedTourism: boolean
             wellnessAndSpaRetreats: boolean
             wildlifeAndSafariExperiences: boolean
-        },
-    },
+        }
+    }
     disabilities: {
         noDisabilty?: boolean | null
         visualImpairment?: boolean | null
@@ -224,12 +219,12 @@ type User = {
         neurologicalDisorders?: boolean | null
         otherDisabilities?: boolean | null
         commentOnDisabilities?: string | null
-    },
+    }
     sessionInfo: {
         isLoggedIn: boolean
         isLoading: boolean
         messageToUser: string | null
-    },
+    }
 }
 
 export default User
