@@ -59,3 +59,6 @@
 /Users/damianamalraj/Documents/Repos/travelbuddy/backend/API/obj/Debug/net6.0/API.genruntimeconfig.cache
 /Users/damianamalraj/Documents/Repos/travelbuddy/backend/API/obj/Debug/net6.0/ref/API.dll
 /Users/damianamalraj/Documents/Repos/travelbuddy/backend/API/bin/Debug/net6.0/appsettings.Development.json
+/Users/damianamalraj/Documents/Repos/travelbuddy/backend/API/bin/Debug/net6.0/appsettings.json
+/Users/damianamalraj/Documents/Repos/travelbuddy/backend/API/bin/Debug/net6.0/DotNetEnv.dll
+/Users/damianamalraj/Documents/Repos/travelbuddy/backend/API/bin/Debug/net6.0/Sprache.dll
