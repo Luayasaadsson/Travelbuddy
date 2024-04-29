@@ -51,6 +51,7 @@ export default function ChatBot({}) {
                         />
                     ) : null,
                 )}
+                <UserMessage messageContent={foodChoice}/>
             </div>
 
             <div className="mb-8 w-11/12 max-w-96">
@@ -67,7 +68,7 @@ function FoodPreferenceButtons({ onFoodChoice, foodPreference }) {
             <Button
                 variant="greenOutline"
                 size="prompt"
-                onClick={() => onFoodChoice("French")}
+                onClick={() => onFoodChoice(foodPreference)}
             >
                 {foodPreference}
             </Button>
