@@ -42,16 +42,20 @@ export default function ChatBot({}) {
                         <UserMessage messageContent={message.content} />
                     ),
                 )}
-                {nationalFoodList.map((nationalFood, index) =>
-                    nationalFood.prefer === true ? (
-                        <FoodPreferenceButtons
-                            key={index}
-                            onFoodChoice={handleFoodChoice}
-                            foodPreference={nationalFood.food}
-                        />
-                    ) : null,
+                {!foodChoice && (
+                    <div className="flex w-11/12 flex-wrap justify-center gap-2">
+                        {nationalFoodList.map((nationalFood, index) =>
+                            nationalFood.prefer === true ? (
+                                <FoodPreferenceButtons
+                                    key={index}
+                                    onFoodChoice={handleFoodChoice}
+                                    foodPreference={nationalFood.food}
+                                />
+                            ) : null,
+                        )}
+                    </div>
                 )}
-                <UserMessage messageContent={foodChoice}/>
+                {foodChoice && <UserMessage messageContent={foodChoice} />}
             </div>
 
             <div className="mb-8 w-11/12 max-w-96">
@@ -64,15 +68,13 @@ export default function ChatBot({}) {
 
 function FoodPreferenceButtons({ onFoodChoice, foodPreference }) {
     return (
-        <div className="flex w-11/12 flex-wrap justify-center gap-2">
-            <Button
-                variant="greenOutline"
-                size="prompt"
-                onClick={() => onFoodChoice(foodPreference)}
-            >
-                {foodPreference}
-            </Button>
-        </div>
+        <Button
+            variant="greenOutline"
+            size="prompt"
+            onClick={() => onFoodChoice(foodPreference)}
+        >
+            {foodPreference}
+        </Button>
     )
 }
 
