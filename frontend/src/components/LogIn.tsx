@@ -38,7 +38,7 @@ function LogIn() {
                         <p className="text-sm leading-tight tracking-tight text-secondary">
                             Stay signed in?
                         </p>
-                        <Checkbox />
+                        <Checkbox shape="square" />
                     </div>
                     <Link to="/moreabout">
                         <Button>Login</Button>

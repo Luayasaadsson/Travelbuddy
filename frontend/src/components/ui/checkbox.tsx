@@ -1,28 +1,58 @@
-import * as React from "react"
-import * as CheckboxPrimitive from "@radix-ui/react-checkbox"
-import { Check } from "lucide-react"
+import * as React from "react";
+import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
+import { Check } from "lucide-react";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "@/lib/utils";
 
-import { cn } from "@/lib/utils"
+const checkboxVariants = cva(
+  "h-9 w-9 shrink-0 rounded-md border border-neutral-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+  {
+    variants: {
+      color: {
+        primary: "data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground",
+        destructive: "data-[state=checked]:bg-destructive data-[state=checked]:text-destructive-foreground",
+        neutral: "data-[state=checked]:bg-neutral data-[state=checked]:text-neutral-foreground",
+      },
+      shape: {
+        circle: "border-none",
+        square: "rounded-sm",
+      },
+    },
+    defaultVariants: {
+      color: "primary",
+      shape: "circle",
+    },
+  }
+);
+
+export interface CheckboxProps
+    extends React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>,
+        VariantProps<typeof checkboxVariants> {
+    color?: 'primary' | 'destructive' | 'neutral';
+    shape?: 'circle' | 'square';
+    children?: React.ReactNode;
+}
 
 const Checkbox = React.forwardRef<
-    React.ElementRef<typeof CheckboxPrimitive.Root>,
-    React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>
->(({ className, ...props }, ref) => (
+  React.ElementRef<typeof CheckboxPrimitive.Root>,
+  CheckboxProps
+>(({ className, children, color, shape, ...props }, ref) => (
+  <label className={cn("flex items-center justify-between flex-row-reverse", className)}> 
     <CheckboxPrimitive.Root
-        ref={ref}
-        className={cn(
-            "peer h-9 w-9 shrink-0 rounded-md border border-neutral-200 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground",
-            className,
-        )}
-        {...props}
+      ref={ref}
+      className={cn(checkboxVariants({ color, shape }), "flex-none")}
+      {...props}
     >
-        <CheckboxPrimitive.Indicator
-            className={cn("flex items-center justify-center text-current")}
-        >
-            <Check className="h-4 w-4" />
-        </CheckboxPrimitive.Indicator>
+      <CheckboxPrimitive.Indicator
+        className="flex items-center justify-center text-current"
+      >
+        <Check className="h-5 w-5" />
+      </CheckboxPrimitive.Indicator>
     </CheckboxPrimitive.Root>
-))
-Checkbox.displayName = CheckboxPrimitive.Root.displayName
+    {children && <span className="select-none cursor-pointer">{children}</span>} 
+  </label>
+));
 
-export { Checkbox }
+Checkbox.displayName = "Checkbox";
+
+export { Checkbox, checkboxVariants };
