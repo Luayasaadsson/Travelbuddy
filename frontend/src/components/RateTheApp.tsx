@@ -50,3 +50,4 @@ function RateTheApp() {
 export default RateTheApp
 
 // Behöver justera Knapparna så det blir enhetliga.. 
+// SKAPA funktion så man kan rate 
