@@ -2,7 +2,7 @@ type Chat = {
     id: string | null
     userId: string | null
     agentId: string | null
-    messages: Message[] | null
+    messageList: Message[]
     heading: string
     subHeading: string
 }
