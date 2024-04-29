@@ -30,13 +30,15 @@ function RateTheApp() {
           </div>
 
           <div className="flex justify-between items-center pt-2.5 w-80">
-           <Button variant="outline" size="lg">
+                    
+           <Button variant="outline" size="md">
              <p className="text-neutral-200">CANSEL</p>
            </Button>
             
+    
             <img src="./icons/vector-icon.svg" alt="Vectoricon" />
-            
-            <Button>
+
+            <Button variant="default" size="md"  >
               <p>SEND</p>
             </Button>
           </div>
@@ -47,5 +49,4 @@ function RateTheApp() {
 
 export default RateTheApp
 
-
-// Stjärnan ej lagt till heter icon-ratingstar.svg
+// Behöver justera Knapparna så det blir enhetliga.. 
