@@ -1,16 +1,19 @@
 //@ts-nocheck
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "./ui/button"
 import { Input } from "./ui/input"
 import { Label } from "./ui/label"
 import { useDispatch, useSelector } from "react-redux"
-import chatSlice from "@/store/slices/chatSlice"
 import { RootState } from "@/store/store"
+import { useLocation } from "react-router-dom"
+import { updateMessageList, clearMessageList } from "@/store/slices/chatSlice"
 
-export default function ChatBot({}) {
+export default function ChatBot() {
     const heading = useSelector((state: RootState) => state.chat.heading)
     const subHeading = useSelector((state: RootState) => state.chat.subHeading)
-    const messageList = useSelector((state) => state.chat.messageList)
+    const messageList = useSelector(
+        (state: RootState) => state.chat.messageList,
+    )
     const nationalFoodList = useSelector(
         (state: RootState) => state.user.preferences.nationalFood,
     )

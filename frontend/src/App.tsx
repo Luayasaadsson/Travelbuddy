@@ -19,7 +19,9 @@ import RateTheApp from "./components/RateTheApp"
 import DesktopImage from "./components/DesktopImage"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
+
 function App() {
+    
     return (
         <>
             <BrowserRouter>
