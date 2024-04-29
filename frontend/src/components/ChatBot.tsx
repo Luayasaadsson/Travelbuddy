@@ -1,12 +1,11 @@
-//@ts-nocheck
-import { useState, useEffect } from "react"
+
+import { useState } from "react"
 import { Button } from "./ui/button"
 import { Input } from "./ui/input"
 import { Label } from "./ui/label"
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 import { RootState } from "@/store/store"
-import { useLocation } from "react-router-dom"
-import { updateMessageList, clearMessageList } from "@/store/slices/chatSlice"
+
 
 export default function ChatBot() {
     const heading = useSelector((state: RootState) => state.chat.heading)
