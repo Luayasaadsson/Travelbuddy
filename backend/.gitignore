@@ -1,3 +1,30 @@
 **appsettings.Development.json
-**appsettings.json
+**{
+    "Logging": {
+        "LogLevel": {
+            "Default": "Information",
+            "Microsoft.AspNetCore": "Warning"
+        }
+    },
+    "ConnectionStrings": {
+        "DefaultConnection": ""
+    },
+    "OAuth": {
+        "ClientId": "",
+        "Client": ""
+    },
+    "OpenAi": {
+        "ApiKey": "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"
+    }
+}
+
+
+
+
+
+
+
+
+
+
 **/bin
