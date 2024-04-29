@@ -10,7 +10,7 @@ import LogIn from "./components/LogIn"
 import SignUp from "./components/SignUp"
 import ForgotPassword from "./components/ForgotPassword"
 import ResetPassword from "./components/ResetPassword"
-import EatBot from "./components/EatBot"
+import ChatBot from "./components/ChatBot"
 import Footer from "./components/Footer"
 import MoreAbout from "./components/MoreAbout"
 import Hero from "./components/Hero"
@@ -42,7 +42,7 @@ function App() {
                     <Route path="/signup" element={<SignUp />} />
                     <Route path="/profilestart" element={<ProfileStart />} />
                     <Route path="/hero" element={<Hero />} />
-                    <Route path="/eatbot" element={<EatBot />} />
+                    <Route path="/chatbot" element={<ChatBot />} />
                     <Route path="/moreabout" element={<MoreAbout />} />
                     <Route path="/settings" element={<Settings />} />
                     <Route
