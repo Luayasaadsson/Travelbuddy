@@ -64,7 +64,9 @@ function Settings() {
                 <button className=" m-w- mt-4 flex h-9 w-11/12 cursor-pointer items-center justify-between border-b-2 border-secondary px-4 text-secondary">
                     <div className="flex gap-4">
                         <img src="./icons/p-settings.svg" alt="Travelicon" />
+                        <Link to="/profilesettings">
                         <p>Profile settings</p>
+                        </Link>
                     </div>
                     <img className="" src="./icons/Arrow.svg" alt="Arrow" />
                 </button>
@@ -95,7 +97,7 @@ function Settings() {
                     <img className="" src="./icons/Arrow.svg" alt="Arrow" />
                 </button>
 
-                <div className="mt-4 flex gap-3">
+                <div className="mt-4 flex gap-3 items-center">
                     <Button variant="outline" size="lg">
                         <p className="text-neutral-200">Sign out</p>
                         <img
