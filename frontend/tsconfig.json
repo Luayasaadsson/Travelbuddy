@@ -24,6 +24,6 @@
         "noUnusedParameters": true,
         "noFallthroughCasesInSwitch": true
     },
-    "include": ["src", "../xOld/Setting.d.ts", "../xOld/Settings.d.ts", "../xOld/UserOld.d.ts", "../xOld/preferences", "../xOld/UserProfile.d.ts"],
+    "include": ["src", "../xOld/Setting.d.ts", "../xOld/Settings.d.ts", "../xOld/UserOld.d.ts", "../xOld/preferences", "../xOld/UserProfile.d.ts", "../xOld/agent/Agent.d copy.ts", "../xOld/agent/Role.d copy.ts"],
     "references": [{ "path": "./tsconfig.node.json" }]
 }
