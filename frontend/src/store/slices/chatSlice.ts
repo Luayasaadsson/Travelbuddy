@@ -19,7 +19,7 @@ import Message from "@/types/chat/Message"
 const initialState: Chat = {
     id: null,
     userId: null,
-    agentId: null,
+    //agentId: null,
     messageList: [], // Ensure id is typed as a string
     heading: "",
     subHeading: "",

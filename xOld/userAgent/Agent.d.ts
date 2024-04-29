@@ -1,4 +1,4 @@
-import Role from '../chat/Role'
+import Role from '../../frontend/src/types/chat/Role'
 import Capability from './Capability'
 import KnowledgeBase from './KnowledgeBase'
 import QuestionAnswer from './QuestionAnswer'
