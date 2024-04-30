@@ -43,8 +43,9 @@ type AllergyPreferences = {
 }
 
 type NationalFoodPreference = {
-    prefer?: boolean | null
-    food: string
+    like?: boolean | null
+    country: string
+    dishes: string[]
 }
 
 type NationalFoodPreferences = NationalFoodPreference[]

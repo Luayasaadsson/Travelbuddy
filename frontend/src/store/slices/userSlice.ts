@@ -32,8 +32,7 @@ const maxSearchResultsChosen = Number(JSON.parse(localStorage.getItem("maxSearch
 
 // Initial state
 
-
-const initialState:User = {
+const initialState: User = {
     id: null,
     profile: {
         firstName: "",
@@ -158,28 +157,231 @@ const initialState:User = {
             glutenAllergy: false,
         },
         nationalFood: [
-            { prefer: true, food: "American" },
-            { prefer: false, food: "Australian" },
-            { prefer: true, food: "Brazilian" },
-            { prefer: true, food: "British" },
-            { prefer: false, food: "Cajun Creole" },
-            { prefer: true, food: "Caribbean" },
-            { prefer: false, food: "Chinese" },
-            { prefer: false, food: "Ethiopian" },
-            { prefer: false, food: "French" },
-            { prefer: false, food: "German" },
-            { prefer: true, food: "Greek" },
-            { prefer: false, food: "Indian" },
-            { prefer: false, food: "Italian" },
-            { prefer: false, food: "Japanese" },
-            { prefer: false, food: "Korean" },
-            { prefer: false, food: "Mexican" },
-            { prefer: false, food: "Middle Eastern" },
-            { prefer: false, food: "Spanish" },
-            { prefer: false, food: "Thai" },
-            { prefer: false, food: "Vietnamese" },
-            { prefer: false, food: "Local" },
-            { prefer: false, food: "Mediterranean" },
+            {
+                like: true,
+                country: "American",
+                dishes: [
+                    "Hamburgare",
+                    "Hotdogs",
+                    "BBQ ribs",
+                    "Macaroni and cheese",
+                    "Chicken and waffles",
+                ],
+            },
+            {
+                like: false,
+                country: "Australian",
+                dishes: [
+                    "Anzac biscuits",
+                    "Meat pie",
+                    "Pavlova",
+                    "Vegemite on toast",
+                    "Lamington",
+                ],
+            },
+            {
+                like: true,
+                country: "Brazilian",
+                dishes: [
+                    "Feijoada",
+                    "Pão de queijo",
+                    "Churrasco",
+                    "Coxinha",
+                    "Moqueca",
+                ],
+            },
+            {
+                like: true,
+                country: "British",
+                dishes: [
+                    "Fish and chips",
+                    "Roast beef with Yorkshire pudding",
+                    "Full English breakfast",
+                    "Shepherd's pie",
+                    "Bangers and mash",
+                ],
+            },
+            {
+                like: false,
+                country: "Cajun Creole",
+                dishes: [
+                    "Gumbo",
+                    "Jambalaya",
+                    "Crawfish étouffée",
+                    "Red beans and rice",
+                    "Shrimp and grits",
+                ],
+            },
+            {
+                like: true,
+                country: "Caribbean",
+                dishes: [
+                    "Ackee and saltfish",
+                    "Jerk chicken",
+                    "Curried goat",
+                    "Roti",
+                    "Plantains",
+                ],
+            },
+            {
+                like: false,
+                country: "Chinese",
+                dishes: [
+                    "Kung Pao chicken",
+                    "Peking duck",
+                    "Dim sum",
+                    "Sweet and sour pork",
+                    "Mapo tofu",
+                ],
+            },
+            {
+                like: false,
+                country: "Ethiopian",
+                dishes: [
+                    "Injera with wat",
+                    "Doro wat",
+                    "Kitfo",
+                    "Tibs",
+                    "Shiro",
+                ],
+            },
+            {
+                like: false,
+                country: "French",
+                dishes: [
+                    "Coq au vin",
+                    "Croissants",
+                    "Bouillabaisse",
+                    "Ratatouille",
+                    "Quiche Lorraine",
+                ],
+            },
+            {
+                like: false,
+                country: "German",
+                dishes: [
+                    "Bratwurst with sauerkraut",
+                    "Schnitzel",
+                    "Pretzels",
+                    "Sauerbraten",
+                    "Black Forest cake",
+                ],
+            },
+            {
+                like: true,
+                country: "Greek",
+                dishes: [
+                    "Moussaka",
+                    "Souvlaki",
+                    "Tzatziki",
+                    "Dolmades",
+                    "Spanakopita",
+                ],
+            },
+            {
+                like: false,
+                country: "Indian",
+                dishes: [
+                    "Butter chicken",
+                    "Tandoori chicken",
+                    "Naan bread",
+                    "Samosas",
+                    "Palak paneer",
+                ],
+            },
+            {
+                like: false,
+                country: "Italian",
+                dishes: [
+                    "Pizza Margherita",
+                    "Spaghetti carbonara",
+                    "Risotto",
+                    "Lasagna",
+                    "Tiramisu",
+                ],
+            },
+            {
+                like: false,
+                country: "Japanese",
+                dishes: [
+                    "Sushi",
+                    "Ramen",
+                    "Tempura",
+                    "Udon noodles",
+                    "Tonkatsu",
+                ],
+            },
+            {
+                like: false,
+                country: "Korean",
+                dishes: [
+                    "Kimchi",
+                    "Bulgogi",
+                    "Bibimbap",
+                    "Kimchi jjigae",
+                    "Japchae",
+                ],
+            },
+            {
+                like: false,
+                country: "Mexican",
+                dishes: [
+                    "Tacos",
+                    "Enchiladas",
+                    "Chiles rellenos",
+                    "Guacamole",
+                    "Mole",
+                ],
+            },
+            {
+                like: false,
+                country: "Middle Eastern",
+                dishes: [
+                    "Hummus",
+                    "Falafel",
+                    "Shawarma",
+                    "Tabbouleh",
+                    "Baklava",
+                ],
+            },
+            {
+                like: false,
+                country: "Spanish",
+                dishes: [
+                    "Paella",
+                    "Tortilla española",
+                    "Gazpacho",
+                    "Patatas bravas",
+                    "Churros",
+                ],
+            },
+            {
+                like: false,
+                country: "Thai",
+                dishes: [
+                    "Pad Thai",
+                    "Tom yum soup",
+                    "Green curry",
+                    "Som tam",
+                    "Massaman curry",
+                ],
+            },
+            {
+                like: false,
+                country: "Vietnamese",
+                dishes: ["Pho", "Banh mi", "Goi cuon", "Bun cha", "Com tam"],
+            },
+            {
+                like: false,
+                country: "Mediterranean",
+                dishes: [
+                    "Greek salad",
+                    "Hummus with pita",
+                    "Moussaka",
+                    "Falafel",
+                    "Baba ganoush",
+                ],
+            },
         ],
         foodDishes: {
             hamburger: false,
