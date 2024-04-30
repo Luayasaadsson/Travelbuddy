@@ -96,13 +96,13 @@ export default function ChatBot() {
                     <div className="flex w-11/12 flex-wrap justify-center gap-2">
                         {nationalFoodList
                             .filter(
-                                (nationalFood) => nationalFood.prefer === true,
+                                (nationalFood) => nationalFood.like === true,
                             )
                             .map((nationalFood, index) => (
                                 <FoodPreferenceButtons
                                     key={index}
                                     onFoodChoice={handleFoodChoice}
-                                    foodPreference={nationalFood.food}
+                                    foodPreference={nationalFood.country}
                                 />
                             ))}
                     </div>

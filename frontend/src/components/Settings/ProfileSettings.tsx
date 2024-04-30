@@ -10,12 +10,17 @@ import {
 } from "@/components/ui/accordion"
 import { useSelector, useDispatch } from "react-redux"
 import { RootState } from "@/store/store"
+import { toggleFoodPreference } from "@/store/slices/userSlice"
 
 function ProfileSettings() {
     const dispatch = useDispatch()
     const nationalFoodList = useSelector(
         (state: RootState) => state.user.preferences.nationalFood,
     )
+
+    const handleToggleLike = (country: string) => {
+        dispatch(toggleFoodPreference(country))
+    }
     return (
         <main className="flex h-screen items-start justify-center pt-28">
             <div className="flex w-11/12 max-w-96 flex-col items-center justify-center gap-6">
@@ -56,8 +61,15 @@ function ProfileSettings() {
                             </AccordionTrigger>
                             <AccordionContent>
                                 {nationalFoodList.map((item, index) => (
-                                    <Checkbox key={index} color="neutral">
-                                        {item.food}
+                                    <Checkbox
+                                        key={index}
+                                        color="neutral"
+                                        checked={item.like}
+                                        onChange={() =>
+                                            handleToggleLike(item.country)
+                                        }
+                                    >
+                                        {item.country}
                                     </Checkbox>
                                 ))}
                             </AccordionContent>

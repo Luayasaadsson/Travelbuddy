@@ -485,6 +485,9 @@ export const userSlice = createSlice({
         updatePersonalInfo: (state, action: PayloadAction<User>) => {
             state.personalInfo = action.payload.personalInfo
         },
+        toggleFoodPreference: (state, action: PayloadAction<string>) => {
+            
+        },
         // TODO:
     },
 
@@ -566,7 +569,7 @@ export const fetchUser = createAsyncThunk(
 )
 
 // Exporterar alla actionfunktioner
-export const { updateUser } = userSlice.actions // TODO:
+export const { updateUser, toggleFoodPreference } = userSlice.actions // TODO:
 // Exporterar reducern
 export default userSlice.reducer
 
