@@ -1,4 +1,5 @@
 //@ts-nocheck
+import ChatLoader from "./ChatLoader"
 import ChatHeading from "./ChatHeading"
 import ChatLog from "./ChatLog"
 import FoodPreferenceButtons from "./FoodPreferenceButtons"
@@ -20,6 +21,7 @@ export default function ChatBot() {
     )
     const [showFoodChoiceButtons, setShowFoodChoiceButtons] = useState(true)
     const [inputQuery, setInputQuery] = useState("")
+    const [isLoading, setIsLoading] = useState(false)
 
     const handleFoodChoice = (food) => {
         setShowFoodChoiceButtons(false)
@@ -37,6 +39,7 @@ export default function ChatBot() {
     }
 
     const fetchAgentResponse = async (query) => {
+        setIsLoading(true)
         try {
             const context = messageList
                 .map((message) => message.content)
@@ -72,6 +75,8 @@ export default function ChatBot() {
             )
         } catch (error) {
             console.error("Något gick fel i fetchen:", error)
+        } finally {
+            setIsLoading(false)
         }
     }
 
@@ -102,6 +107,7 @@ export default function ChatBot() {
                             ))}
                     </div>
                 )}
+                {isLoading && <ChatLoader />}
             </ChatLog>
             <ChatInput
                 handleInputSubmit={handleInputSubmit}
