@@ -84,7 +84,9 @@ function Header() {
                         style={{ opacity: isOpen ? "1" : "0" }}
                         className=" cursor-pointer py-2 text-2xl transition-opacity duration-300 ease-in-out hover:text-primary-foreground"
                     >
-                        Bot
+                        <Link to="/profilestart" onClick={handleCloseMenu}>
+                            Bot
+                        </Link>
                     </li>
                     <li
                         style={{ opacity: isOpen ? "1" : "0" }}

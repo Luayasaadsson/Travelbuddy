@@ -31,7 +31,9 @@ const maxSearchResultsChosen = Number(JSON.parse(localStorage.getItem("maxSearch
  */
 
 // Initial state
-const initialState: User = {
+
+
+const initialState:User = {
     id: null,
     profile: {
         firstName: "",
@@ -58,7 +60,6 @@ const initialState: User = {
         linkedIn: "",
         ticToc: "",
     },
-
     settings: {
         emailForUserName: "",
         password: "",
