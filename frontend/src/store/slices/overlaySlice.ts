@@ -1,26 +1,30 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit"
 
 interface OverlayState {
-  isVisible: boolean;
+    isVisible: boolean
+    overlayType: string | null
 }
 
 const initialState: OverlayState = {
-  isVisible: false,
-};
+    isVisible: false,
+    overlayType: null,
+}
 
 const overlaySlice = createSlice({
-  name: "overlay",
-  initialState,
-  reducers: {
-    showOverlay: (state) => {
-      state.isVisible = true;
+    name: "overlay",
+    initialState,
+    reducers: {
+        showOverlay: (state, action) => {
+            state.isVisible = true
+            state.overlayType = action.payload
+        },
+        hideOverlay: (state) => {
+            state.isVisible = false
+            state.overlayType = null
+        },
     },
-    hideOverlay: (state) => {
-      state.isVisible = false;
-    },
-  },
-});
+})
 
-export const { showOverlay, hideOverlay } = overlaySlice.actions;
+export const { showOverlay, hideOverlay } = overlaySlice.actions
 
-export default overlaySlice.reducer;
+export default overlaySlice.reducer
