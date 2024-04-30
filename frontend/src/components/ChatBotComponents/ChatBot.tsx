@@ -8,6 +8,7 @@ import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { RootState } from "@/store/store"
 import { updateMessageList } from "@/store/slices/chatSlice"
+import promptsData from "./prompts.json"
 
 export default function ChatBot() {
     const dispatch = useDispatch()
@@ -52,7 +53,7 @@ export default function ChatBot() {
                     },
                     body: JSON.stringify({
                         question: fullQuery,
-                        prompt: "english",
+                        prompt: promptsData.prompts[0].text,
                     }),
                 },
             )
