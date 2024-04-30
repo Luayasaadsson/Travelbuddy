@@ -10,7 +10,7 @@ import LogIn from "./components/LogIn"
 import SignUp from "./components/SignUp"
 import ForgotPassword from "./components/ForgotPassword"
 import ResetPassword from "./components/ResetPassword"
-import ChatBot from "./components/ChatBot"
+import ChatBot from "./components/ChatBotComponents/ChatBot"
 import Footer from "./components/Footer"
 import MoreAbout from "./components/MoreAbout"
 import Hero from "./components/Hero"
@@ -19,9 +19,7 @@ import RateTheApp from "./components/RateTheApp"
 import DesktopImage from "./components/DesktopImage"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
-
 function App() {
-    
     return (
         <>
             <BrowserRouter>
