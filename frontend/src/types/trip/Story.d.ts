@@ -3,6 +3,7 @@ import Rating from "../common/Rating"
 
 type Story = {
     id: string
+    tripId: string
     heading?: string | null,
     initialComment?: string | null,
     sectionIds?: string[],

@@ -33,15 +33,9 @@
 /// <reference types='../trip/Traveller' />
 /// <reference types='../trip/Trip' />
 
-/// <reference types='../userAgent/Agent' />
-/// <reference types='../userAgent/Capability' />
-/// <reference types='../userAgent/HistoricalQuestionAnswers' />
-/// <reference types='../userAgent/KnowledgeBase' />
-/// <reference types='../userAgent/QuestionAnswer' />
-/// <reference types='../userAgent/Role' />
-/// <reference types='../userAgent/UserAgent' />
-/// <reference types='../userAgent/UserAgentRating' />
-/// <reference types='../userAgent/UserPreferencePrompt' />
+/// <reference types='../chat/Chat'/>
+/// <reference types='../chat/Message'/>
+/// <reference types='../chat/Role'/>
 
 /// <reference types='../user/Child' />
 /// <reference types='../user/Colleague' />
