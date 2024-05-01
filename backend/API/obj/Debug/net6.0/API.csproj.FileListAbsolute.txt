@@ -59,3 +59,39 @@
 /Users/damianamalraj/Documents/Repos/travelbuddy/backend/API/obj/Debug/net6.0/API.genruntimeconfig.cache
 /Users/damianamalraj/Documents/Repos/travelbuddy/backend/API/obj/Debug/net6.0/ref/API.dll
 /Users/damianamalraj/Documents/Repos/travelbuddy/backend/API/bin/Debug/net6.0/appsettings.Development.json
+/Users/damianamalraj/Documents/Repos/travelbuddy/backend/API/bin/Debug/net6.0/appsettings.json
+/Users/damianamalraj/Documents/Repos/travelbuddy/backend/API/bin/Debug/net6.0/DotNetEnv.dll
+/Users/damianamalraj/Documents/Repos/travelbuddy/backend/API/bin/Debug/net6.0/Sprache.dll
+/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/bin/Debug/net6.0/appsettings.Development.json
+/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/bin/Debug/net6.0/appsettings.json
+/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/bin/Debug/net6.0/questions.json
+/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/bin/Debug/net6.0/API
+/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/bin/Debug/net6.0/API.deps.json
+/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/bin/Debug/net6.0/API.runtimeconfig.json
+/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/bin/Debug/net6.0/API.dll
+/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/bin/Debug/net6.0/API.pdb
+/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/bin/Debug/net6.0/DotNetEnv.dll
+/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/bin/Debug/net6.0/Microsoft.Bcl.AsyncInterfaces.dll
+/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/bin/Debug/net6.0/Microsoft.OpenApi.dll
+/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/bin/Debug/net6.0/Newtonsoft.Json.dll
+/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/bin/Debug/net6.0/OpenAI_API.dll
+/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/bin/Debug/net6.0/Sprache.dll
+/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/bin/Debug/net6.0/Swashbuckle.AspNetCore.Swagger.dll
+/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/obj/Debug/net6.0/API.csproj.AssemblyReference.cache
+/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/obj/Debug/net6.0/API.GeneratedMSBuildEditorConfig.editorconfig
+/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/obj/Debug/net6.0/API.AssemblyInfoInputs.cache
+/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/obj/Debug/net6.0/API.AssemblyInfo.cs
+/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/obj/Debug/net6.0/API.csproj.CoreCompileInputs.cache
+/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/obj/Debug/net6.0/API.MvcApplicationPartsAssemblyInfo.cs
+/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/obj/Debug/net6.0/API.MvcApplicationPartsAssemblyInfo.cache
+/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/obj/Debug/net6.0/staticwebassets.build.json
+/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/obj/Debug/net6.0/staticwebassets.development.json
+/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/obj/Debug/net6.0/scopedcss/bundle/API.styles.css
+/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/obj/Debug/net6.0/API.csproj.CopyComplete
+/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/obj/Debug/net6.0/API.dll
+/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/obj/Debug/net6.0/refint/API.dll
+/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/obj/Debug/net6.0/API.pdb
+/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/obj/Debug/net6.0/API.genruntimeconfig.cache
+/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/obj/Debug/net6.0/ref/API.dll

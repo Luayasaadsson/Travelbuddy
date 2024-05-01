@@ -5,7 +5,7 @@ using OpenAI_API.Models;
 
 namespace API.Services
 {
-  public class OpenAiService : IOpenAiRepository
+  public class OpenAiService : IOpenAiService
   {
     private readonly OpenAiConfig _openAiConfig;
 
@@ -22,7 +22,7 @@ namespace API.Services
       return result.Completions[0].Text;
     }
 
-    public async Task<object> AskAiAssistant(string request)
+    public async Task<object> AskAiAssistant(ReqDto request)
     {
       var api = new OpenAI_API.OpenAIAPI(_openAiConfig.ApiKey);
       var chat = api.Chat.CreateConversation();
@@ -30,9 +30,9 @@ namespace API.Services
       chat.RequestParameters.MaxTokens = 50;
       chat.RequestParameters.Temperature = 0.1;
 
-      chat.AppendSystemMessage("As an AI travel assistant, your role is to respond to travel-related inquiries such as destinations, flights, budgeting, accommodations, and attractions. When a user asks a travel question, like 'What are the best budget hotels in Paris?' or 'Can you suggest activities for kids in Tokyo?', provide concise and accurate responses. If a question is unrelated to travel, reply with: 'Sorry, I can't help you with that specific question. I'm here to assist with travel-related inquiries only.' When greeted, respond briefly: 'Hi, I'm your AI travel assistant. Shoot me your question.' This keeps the conversation focused and efficient, ensuring that responses are directly related to travel planning and are very concise and short.");
+      chat.AppendSystemMessage(request.Prompt ?? "As an AI travel assistant, your role is to respond to travel-related inquiries such as destinations, flights, budgeting, accommodations, and attractions. When a user asks a travel question, like 'What are the best budget hotels in Paris?' or 'Can you suggest activities for kids in Tokyo?', provide concise and accurate responses. If a question is unrelated to travel, reply with: 'Sorry, I can't help you with that specific question. I'm here to assist with travel-related inquiries only.' When greeted, respond briefly: 'Hi, I'm your AI travel assistant. Shoot me your question.' This keeps the conversation focused and efficient, ensuring that responses are directly related to travel planning and are very concise and short.");
 
-      chat.AppendUserInput(request);
+      chat.AppendUserInput(request.Question);
 
       var response = await chat.GetResponseFromChatbotAsync();
       Console.WriteLine(chat.MostRecentApiResult.Usage.PromptTokens);

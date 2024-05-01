@@ -65,7 +65,7 @@ function Settings() {
                     <div className="flex gap-4">
                         <img src="./icons/p-settings.svg" alt="Travelicon" />
                         <Link to="/profilesettings">
-                        <p>Profile settings</p>
+                            <p>Profile settings</p>
                         </Link>
                     </div>
                     <img className="" src="./icons/Arrow.svg" alt="Arrow" />
@@ -84,7 +84,7 @@ function Settings() {
                     <div className="flex gap-4">
                         <img src="./icons/star-icon.svg" alt="Travelicon" />
                         <Link to="/ratetheapp">
-                        <p>Rate the app</p>
+                            <p>Rate the app</p>
                         </Link>
                     </div>
                     <img className="" src="./icons/Arrow.svg" alt="Arrow" />
@@ -97,7 +97,14 @@ function Settings() {
                     <img className="" src="./icons/Arrow.svg" alt="Arrow" />
                 </button>
 
-                <div className="mt-4 flex gap-3 items-center">
+                <button className=" mt-4 flex h-9 w-11/12 cursor-pointer items-center justify-between border-b-2 border-secondary px-4 text-secondary">
+                    <div className="flex gap-4">
+                        <img src="./icons/sun.svg" alt="Travelicon" />
+                        <p>Appearance</p>
+                    </div>
+                </button>
+
+                <div className="mt-4 flex items-center gap-3">
                     <Button variant="outline" size="lg">
                         <p className="text-neutral-200">Sign out</p>
                         <img
@@ -108,7 +115,7 @@ function Settings() {
                     </Button>
                     <img src="./icons/vector-icon.svg" alt="Vectoricon" />
                     <Button
-                        onClick={() => dispatch(showOverlay())}
+                        onClick={() => dispatch(showOverlay({}))}
                         variant="default"
                     >
                         <p>Delete account</p>
@@ -179,7 +186,7 @@ function Settings() {
                                 onClick={() => setShowSuccessOverlay(false)}
                             >
                                 <p className="text-center text-sm font-bold uppercase">
-                                    Home page
+                                    Home
                                 </p>
                             </Link>
                         </div>

@@ -1,23 +1,41 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react"
+import { Link } from "react-router-dom"
+import { useLocation } from "react-router-dom"
+import { useDispatch } from "react-redux"
+import { useEffect } from "react"
+import { clearMessageList } from "@/store/slices/chatSlice"
 
 function Header() {
-    const [isOpen, setIsOpen] = useState<boolean>(false);
+    const location = useLocation()
+
+    const dispatch = useDispatch()
+    useEffect(() => {
+        if (location.pathname !== "/chatbot") {
+            dispatch(clearMessageList())
+        }
+    }, [location, dispatch])
+    const [isOpen, setIsOpen] = useState<boolean>(false)
 
     const handleMenu = () => {
-        setIsOpen(!isOpen);
-    };
+        setIsOpen(!isOpen)
+    }
 
     const handleCloseMenu = () => {
-        setIsOpen(false);
-    };
+        setIsOpen(false)
+    }
 
     return (
         <header className="absolute flex h-28 w-full flex-col justify-end bg-transparent">
             <nav className="z-2 flex items-center justify-between p-4">
                 <Link to="/" className="flex items-center justify-center">
-                    <img src="/images/logo.svg" alt="" className="w-11 md:w-16" />
-                    <h1 className="text-base font-light md:text-2xl">TravelBuddy</h1>
+                    <img
+                        src="/images/logo.svg"
+                        alt=""
+                        className="w-11 md:w-16"
+                    />
+                    <h1 className="text-base font-light md:text-2xl">
+                        TravelBuddy
+                    </h1>
                 </Link>
                 <div className="flex gap-4">
                     <Link to="/settings">
@@ -41,7 +59,7 @@ function Header() {
 
             {isOpen && (
                 <div
-                    className="fixed top-0 left-0 w-full h-full bg-transparent"
+                    className="fixed left-0 top-0 h-full w-full bg-transparent"
                     onClick={handleCloseMenu}
                 />
             )}
@@ -66,7 +84,9 @@ function Header() {
                         style={{ opacity: isOpen ? "1" : "0" }}
                         className=" cursor-pointer py-2 text-2xl transition-opacity duration-300 ease-in-out hover:text-primary-foreground"
                     >
-                        Bot
+                        <Link to="/profilestart" onClick={handleCloseMenu}>
+                            Bot
+                        </Link>
                     </li>
                     <li
                         style={{ opacity: isOpen ? "1" : "0" }}
@@ -81,13 +101,13 @@ function Header() {
                         className="cursor-pointer py-2 text-2xl transition-opacity duration-300 ease-in-out hover:text-primary-foreground"
                     >
                         <Link to="/aboutus" onClick={handleCloseMenu}>
-                        About us
+                            About us
                         </Link>
                     </li>
                 </ul>
             </div>
         </header>
-    );
+    )
 }
 
-export default Header;
+export default Header
