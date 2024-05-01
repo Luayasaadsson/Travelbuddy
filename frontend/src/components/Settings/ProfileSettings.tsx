@@ -22,12 +22,12 @@ function ProfileSettings() {
         dispatch(toggleFoodPreference(country))
     }
     return (
-        <main className="flex h-screen items-start justify-center pt-28">
+        <main className="flex min-h-screen items-start justify-center pt-28">
             <div className="flex w-11/12 max-w-96 flex-col items-center justify-center gap-6">
                 <div className="flex justify-center">
                     <h1 className="text-2xl font-bold">Profile settings</h1>
                 </div>
-                <div className="flex w-full flex-col items-start gap-2 text-secondary">
+                <div className="flex w-full flex-col items-start gap-4 text-secondary">
                     <p className="text-xl">Username</p>
                     <div className="flex w-full max-w-96 flex-col">
                         <Label className="gap-2 text-secondary">Name *</Label>
