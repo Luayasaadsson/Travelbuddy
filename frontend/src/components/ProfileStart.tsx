@@ -46,7 +46,7 @@ function ProfileStart() {
                             handleClick(
                                 "Let's find a bite!",
                                 "Choose below or type in your cravings at the bottom for restaurants near you!",
-                                {id: "1", role: "agent", content: "Hi, what do you want to eat today?"}
+                                {role: "agent", content: "Hi, what do you want to eat today?"}
                             )
                         }
                         className="justify-between"

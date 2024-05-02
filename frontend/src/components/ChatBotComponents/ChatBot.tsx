@@ -25,15 +25,13 @@ export default function ChatBot() {
 
     const handleFoodChoice = (food) => {
         setShowFoodChoiceButtons(false)
-        dispatch(updateMessageList({ id: 1, role: "user", content: food }))
+        dispatch(updateMessageList({ role: "user", content: food }))
         fetchAgentResponse(food)
     }
     const handleInputSubmit = (e) => {
         e.preventDefault()
         setShowFoodChoiceButtons(false)
-        dispatch(
-            updateMessageList({ id: 1, role: "user", content: inputQuery }),
-        )
+        dispatch(updateMessageList({ role: "user", content: inputQuery }))
         setInputQuery("")
         fetchAgentResponse(inputQuery)
     }
@@ -68,7 +66,6 @@ export default function ChatBot() {
             const data = await response.json()
             dispatch(
                 updateMessageList({
-                    id: messageList.length + 1,
                     role: "agent",
                     content: data.response,
                 }),
@@ -81,7 +78,7 @@ export default function ChatBot() {
     }
 
     return (
-        <main className="flex w-full h-screen flex-col items-center justify-between gap-4 pt-28">
+        <main className="flex h-screen w-full flex-col items-center justify-between gap-4 pt-28">
             <ChatHeading />
             <ChatLog>
                 {messageList.map((message, index) => (
@@ -95,9 +92,7 @@ export default function ChatBot() {
                 {showFoodChoiceButtons && (
                     <div className="flex w-11/12 flex-wrap justify-center gap-2">
                         {foodList
-                            .filter(
-                                (food) => food.like === true,
-                            )
+                            .filter((food) => food.like === true)
                             .map((food, index) => (
                                 <FoodPreferenceButtons
                                     key={index}
