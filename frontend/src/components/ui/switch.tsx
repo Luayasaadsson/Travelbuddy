@@ -14,7 +14,7 @@ const Switch = React.forwardRef<
     }
 
     return (
-        <div
+        <button
             className={cn(
                 "inline-flex h-11 w-24 items-center gap-2 rounded-full border border-neutral-200 bg-neutral-900 p-1",
                 {
@@ -22,6 +22,7 @@ const Switch = React.forwardRef<
                     "justify-start": !isDarkMode,
                 },
             )}
+            onClick={handleToggle}
         >
             {isDarkMode ? (
                 <SwitchPrimitives.Root
@@ -32,7 +33,6 @@ const Switch = React.forwardRef<
                     style={{ transform: "translateX(-0%)" }}
                     {...props}
                     ref={ref}
-                    onClick={handleToggle}
                 >
                     <SwitchPrimitives.Thumb
                         className={cn(
@@ -66,7 +66,7 @@ const Switch = React.forwardRef<
                     />
                 </SwitchPrimitives.Root>
             ) : null}
-        </div>
+        </button>
     )
 })
 Switch.displayName = SwitchPrimitives.Root.displayName
