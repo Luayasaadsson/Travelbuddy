@@ -1,7 +1,3 @@
-type Gender = 
-    "Female" | 
-    "Male" | 
-    "Non-binary" |
-    "Transgender"
+type Gender = "Female" | "Male" | "Non-binary" | "Transgender" | null
 
 export default Gender

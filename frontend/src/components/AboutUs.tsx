@@ -51,12 +51,12 @@ function AboutUs() {
                     travelbuddy.com
                 </p>
             </div>
-            <div className="flex gap-6">
+            {/* <div className="flex gap-6">
                 <img src="/icons/phone.svg" alt="icon" />
                 <p className="text-sm text-secondary md:text-lg">
                     +46 (0)8 123 123 123
                 </p>
-            </div>
+            </div> */}
         </main>
     )
 }

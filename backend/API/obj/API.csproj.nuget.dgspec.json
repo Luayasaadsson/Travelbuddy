@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/damianamalraj/Documents/Repos/travelbuddy/backend/API/API.csproj": {}
+    "/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/API.csproj": {}
   },
   "projects": {
-    "/Users/damianamalraj/Documents/Repos/travelbuddy/backend/API/API.csproj": {
+    "/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/damianamalraj/Documents/Repos/travelbuddy/backend/API/API.csproj",
+        "projectUniqueName": "/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/API.csproj",
         "projectName": "API",
-        "projectPath": "/Users/damianamalraj/Documents/Repos/travelbuddy/backend/API/API.csproj",
-        "packagesPath": "/Users/damianamalraj/.nuget/packages/",
-        "outputPath": "/Users/damianamalraj/Documents/Repos/travelbuddy/backend/API/obj/",
+        "projectPath": "/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/API.csproj",
+        "packagesPath": "/Users/dennis/.nuget/packages/",
+        "outputPath": "/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/obj/",
         "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "/Users/damianamalraj/.nuget/NuGet/NuGet.Config"
-        ],
-        "originalTargetFrameworks": [
-          "net8.0"
-        ],
+        "configFilePaths": ["/Users/dennis/.nuget/NuGet/NuGet.Config"],
+        "originalTargetFrameworks": ["net8.0"],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -29,9 +25,7 @@
           }
         },
         "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
+          "warnAsError": ["NU1605"]
         },
         "restoreAuditProperties": {
           "enableAudit": "true",

@@ -4,6 +4,81 @@ import * as SwitchPrimitives from "@radix-ui/react-switch"
 import { cn } from "@/lib/utils"
 
 const Switch = React.forwardRef<
+    React.ElementRef<typeof SwitchPrimitives.Root>,
+    React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root>
+>(({ className, ...props }, ref) => {
+    const [isDarkMode, setIsDarkMode] = React.useState(false)
+
+    const handleToggle = () => {
+        setIsDarkMode((prevMode) => !prevMode)
+    }
+
+    return (
+        <button
+            className={cn(
+                "inline-flex h-11 w-24 items-center gap-2 rounded-full border border-neutral-200 bg-neutral-900 p-1",
+                {
+                    "justify-end": isDarkMode,
+                    "justify-start": !isDarkMode,
+                },
+            )}
+            onClick={handleToggle}
+        >
+            {isDarkMode ? (
+                <SwitchPrimitives.Root
+                    className={cn("h-9 w-9 rounded-full", {
+                        "bg-emerald-300": isDarkMode,
+                        "bg-neutral-200": !isDarkMode,
+                    })}
+                    style={{ transform: "translateX(-0%)" }}
+                    {...props}
+                    ref={ref}
+                >
+                    <SwitchPrimitives.Thumb
+                        className={cn(
+                            "pointer-events-none block h-full w-full rounded-full bg-primary shadow-lg ring-0",
+                        )}
+                    />
+                </SwitchPrimitives.Root>
+            ) : null}
+            <div
+                className={cn(
+                    "w-12 text-center text-xs font-bold leading-tight text-secondary",
+                )}
+            >
+                {isDarkMode ? "Light" : "Dark"}
+            </div>
+            {!isDarkMode ? (
+                <SwitchPrimitives.Root
+                    className={cn("h-9 w-9 rounded-full", {
+                        "bg-neutral-200": !isDarkMode,
+                        "bg-emerald-300": isDarkMode,
+                    })}
+                    style={{ transform: "translateX(0%)" }}
+                    {...props}
+                    ref={ref}
+                    onClick={handleToggle}
+                >
+                    <SwitchPrimitives.Thumb
+                        className={cn(
+                            "pointer-events-none block h-full w-full rounded-full bg-primary shadow-lg ring-0",
+                        )}
+                    />
+                </SwitchPrimitives.Root>
+            ) : null}
+        </button>
+    )
+})
+Switch.displayName = SwitchPrimitives.Root.displayName
+
+export { Switch }
+
+/* import * as React from "react"
+import * as SwitchPrimitives from "@radix-ui/react-switch"
+
+import { cn } from "@/lib/utils"
+
+const Switch = React.forwardRef<
   React.ElementRef<typeof SwitchPrimitives.Root>,
   React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root>
 >(({ className, ...props }, ref) => (
@@ -24,4 +99,4 @@ const Switch = React.forwardRef<
 ))
 Switch.displayName = SwitchPrimitives.Root.displayName
 
-export { Switch }
+export { Switch } */

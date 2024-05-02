@@ -28,7 +28,7 @@ function Settings() {
 
     return (
         <main className="flex h-screen items-center justify-center">
-            <div className="flex w-11/12 max-w-96 flex-col items-center justify-center">
+            <div className="flex w-11/12 max-w-96 flex-col items-center justify-center gap-3">
                 <h1 className="text-2xl">Profil</h1>
                 <div className="flex flex-col items-center gap-4">
                     <Avatar
@@ -53,59 +53,68 @@ function Settings() {
                     </div>
                 </div>
                 <h2 className="ml-2 mt-4 self-start text-xl">Settings</h2>
-                <button className=" m-w- mt-4 flex h-9 w-11/12 cursor-pointer items-center justify-between border-b-2 border-secondary px-4 text-secondary">
+                {/* <button className=" m-w- mt-4 flex h-9 w-11/12 cursor-pointer items-center justify-between border-b-2 border-secondary px-4 text-secondary">
                     <div className="flex gap-4">
                         <img src="./icons/Icon-sheets.svg" alt="icon" />
                         <p>Previous search</p>
                     </div>
                     <img className="" src="./icons/Arrow.svg" alt="Arrow" />
-                </button>
+                </button> */}
 
-                <button className=" m-w- mt-4 flex h-9 w-11/12 cursor-pointer items-center justify-between border-b-2 border-secondary px-4 text-secondary">
+                <button className="mt-4 flex h-9 w-full cursor-pointer items-center justify-between self-start px-4 text-secondary">
                     <div className="flex gap-4">
-                        <img src="./icons/p-settings.svg" alt="Travelicon" />
+                        <img src="./icons/p-settings.svg" alt="Settingsicon" />
                         <Link to="/profilesettings">
-                        <p>Profile settings</p>
+                            <p>Profile settings</p>
                         </Link>
                     </div>
-                    <img className="" src="./icons/Arrow.svg" alt="Arrow" />
+                    <img className="w-8" src="./icons/Arrow.svg" alt="Arrow" />
                 </button>
 
-                <button className=" mt-4 flex h-9 w-11/12 cursor-pointer  items-center justify-between border-b-2 border-secondary px-4 text-secondary">
+                <button className="mt-4 flex h-9 w-full cursor-pointer items-center justify-between px-4 text-secondary">
                     <Link to="/changepassword" className="flex gap-4">
-                        <img src="./icons/icon-password.svg" alt="Travelicon" />
+                        <img
+                            src="./icons/icon-password.svg"
+                            alt="Passwordicon"
+                        />
                         <p>Change password</p>
                     </Link>
-                    <img className="" src="./icons/Arrow.svg" alt="Arrow" />
+                    <img className="w-8" src="./icons/Arrow.svg" alt="Arrow" />
                 </button>
 
-                <h2 className="ml-2 mt-4 self-start text-xl">Feedback</h2>
-                <button className=" mt-4 flex h-9 w-11/12 cursor-pointer items-center justify-between border-b-2 border-secondary px-4 text-secondary">
+                {/*   <h2 className="ml-2 mt-4 self-start text-xl">Feedback</h2> */}
+                <button className="mt-4 flex h-9 w-full cursor-pointer items-center justify-between px-4 text-secondary">
                     <div className="flex gap-4">
-                        <img src="./icons/star-icon.svg" alt="Travelicon" />
+                        <img
+                            className="w-5"
+                            src="./icons/star-icon.svg"
+                            alt="Staricon"
+                        />
                         <Link to="/ratetheapp">
-                        <p>Rate the app</p>
+                            <p>Rate the app</p>
                         </Link>
                     </div>
-                    <img className="" src="./icons/Arrow.svg" alt="Arrow" />
+                    <img className="w-8" src="./icons/Arrow.svg" alt="Arrow" />
                 </button>
-                <button className=" mt-4 flex h-9 w-11/12 cursor-pointer items-center justify-between border-b-2 border-secondary px-4 text-secondary">
+                <button className="mt-4 flex h-9 w-full cursor-pointer items-center justify-between px-4 text-secondary">
                     <div className="flex gap-4">
-                        <img src="./icons/pencil-icon.svg" alt="Travelicon" />
-                        <p>Give feedback</p>
+                        <img src="./icons/users.svg" alt="Profileicon" />
+                        <Link to="/aboutus">
+                            <p>About us</p>
+                        </Link>
                     </div>
-                    <img className="" src="./icons/Arrow.svg" alt="Arrow" />
+                    <img className="w-8" src="./icons/Arrow.svg" alt="Arrow" />
                 </button>
 
-                <button className=" mt-4 flex h-9 w-11/12 cursor-pointer items-center justify-between border-b-2 border-secondary px-4 text-secondary">
-                    <div className="flex gap-4">
-                        <img src="./icons/sun.svg" alt="Travelicon" />
-                        <p>Appearance</p>
-                    </div>
-                    
-                </button>
+                <div className="mt-4 flex h-9 w-full items-center  justify-between px-4 text-secondary">
+                    <p className="flex flex-row-reverse gap-3">
+                        Appearance
+                        <img src="./icons/sun.svg" alt="Sunicon" />
+                    </p>
+                    <Switch />
+                </div>
 
-                <div className="mt-4 flex gap-3 items-center">
+                <div className="mt-4 flex gap-3">
                     <Button variant="outline" size="lg">
                         <p className="text-neutral-200">Sign out</p>
                         <img
@@ -116,13 +125,13 @@ function Settings() {
                     </Button>
                     <img src="./icons/vector-icon.svg" alt="Vectoricon" />
                     <Button
-                        onClick={() => dispatch(showOverlay())}
-                        variant="default"
+                        onClick={() => dispatch(showOverlay({}))}
+                        variant="destructive"
                     >
                         <p>Delete account</p>
                         <img
                             className="ml-2 h-6 w-6"
-                            src="./icons/trash-2.svg"
+                            src="./icons/trash-icon.svg"
                             alt="Trashicon"
                         />
                     </Button>
@@ -187,7 +196,7 @@ function Settings() {
                                 onClick={() => setShowSuccessOverlay(false)}
                             >
                                 <p className="text-center text-sm font-bold uppercase">
-                                    Home page
+                                    Home
                                 </p>
                             </Link>
                         </div>

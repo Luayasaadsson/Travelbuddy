@@ -12,7 +12,7 @@ const buttonVariants = cva(
                 default:
                     "bg-primary w-full text-primary-foreground font-bold hover:bg-primary/70 max-w-[400px]",
                 destructive:
-                    "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+                    "bg-destructive text-destructive-foreground hover:bg-destructive/80",
                 outline:
                     "border border-input text-primary border-primary bg-background",
                 google: "flex w-full max-w-[400px] items-center justify-center rounded-md border bg-background text-sm font-medium text-onBackground hover:bg-onBackground/20",
@@ -30,7 +30,7 @@ const buttonVariants = cva(
                 prompt: "h-10 px-2 py-0",
                 sm: "h-9 rounded-md px-3",
                 md: "h-12 rounded-md p-3",
-                lg: "h-11 rounded-md px-8",
+                lg: "h-12 rounded-md px-8",
                 icon: "h-10 w-10",
             },
         },

@@ -15,7 +15,6 @@ type Trip = {
     travellerIds: string[],     // userIds
     fromDate?: Date | null,
     toDate?: Date | null,
-    storyId?: string | null
 }
 
 export default Trip
