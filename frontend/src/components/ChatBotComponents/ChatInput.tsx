@@ -12,7 +12,7 @@ export default function ChatInput({
     setInputQuery,
 }: ChatInputProps) {
     return (
-        <div className="mb-8 w-11/12 max-w-96">
+        <div className="mb-8 w-full px-4 max-w-96">
             <form onSubmit={handleInputSubmit}>
                 <Label>Whats your cravings?</Label>
                 <Input
