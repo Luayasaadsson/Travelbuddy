@@ -62,3 +62,4 @@
 /Users/damianamalraj/Documents/Repos/travelbuddy/backend/API/bin/Debug/net6.0/appsettings.json
 /Users/damianamalraj/Documents/Repos/travelbuddy/backend/API/bin/Debug/net6.0/DotNetEnv.dll
 /Users/damianamalraj/Documents/Repos/travelbuddy/backend/API/bin/Debug/net6.0/Sprache.dll
+/Users/damianamalraj/Documents/Repos/travelbuddy/backend/API/bin/Debug/net6.0/Microsoft.AspNetCore.Authentication.Google.dll

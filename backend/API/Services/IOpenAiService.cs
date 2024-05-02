@@ -4,5 +4,6 @@ namespace API.Services
   {
     Task<string> CreateAdvanceCompletion(string request);
     Task<object> AskAiAssistant(ReqDto request);
+
   }
 }
