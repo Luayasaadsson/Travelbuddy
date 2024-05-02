@@ -14,8 +14,8 @@ import { toggleFoodPreference } from "@/store/slices/userSlice"
 
 function ProfileSettings() {
     const dispatch = useDispatch()
-    const nationalFoodList = useSelector(
-        (state: RootState) => state.user.preferences.nationalFood,
+    const foodList = useSelector(
+        (state: RootState) => state.user.preferences.food,
     )
 
     const handleToggleLike = (country: string) => {
@@ -60,12 +60,11 @@ function ProfileSettings() {
                                 Favorite cuisines
                             </AccordionTrigger>
                             <AccordionContent>
-                                {nationalFoodList.map((item, index) => (
+                                {foodList.map((item, index) => (
                                     <Checkbox
                                         key={index}
                                         color="neutral"
-                                        checked={item.like}
-                                        onChange={() =>
+                                        onCheckedChange={() =>
                                             handleToggleLike(item.country)
                                         }
                                     >

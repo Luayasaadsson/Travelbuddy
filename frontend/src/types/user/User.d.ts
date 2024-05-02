@@ -42,13 +42,13 @@ type AllergyPreferences = {
     [key: string]: boolean
 }
 
-type NationalFoodPreference = {
+type FoodPreference = {
     like: boolean
     country: string
     dishes: string[]
 }
 
-type NationalFoodPreferences = NationalFoodPreference[]
+type FoodPreferences = FoodPreference[]
 
 type FoodDishesPreferences = {
     [key: string]: boolean | null
@@ -133,7 +133,7 @@ type Preferences = {
     budget: BudgetPreferences
     dietary: DietaryPreferences
     allergies: AllergyPreferences
-    nationalFood: NationalFoodPreferences
+    food: FoodPreferences
     foodDishes: FoodDishesPreferences
     drinks: DrinksPreferences
     transportation: TransportationPreferences

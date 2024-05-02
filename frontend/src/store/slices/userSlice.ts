@@ -156,9 +156,9 @@ const initialState: User = {
             wheatAllergy: false,
             glutenAllergy: false,
         },
-        nationalFood: [
+        food: [
             {
-                like: true,
+                like: false,
                 country: "American",
                 dishes: [
                     "Hamburgare",
@@ -180,7 +180,7 @@ const initialState: User = {
                 ],
             },
             {
-                like: true,
+                like: false,
                 country: "Brazilian",
                 dishes: [
                     "Feijoada",
@@ -191,7 +191,7 @@ const initialState: User = {
                 ],
             },
             {
-                like: true,
+                like: false,
                 country: "British",
                 dishes: [
                     "Fish and chips",
@@ -213,7 +213,7 @@ const initialState: User = {
                 ],
             },
             {
-                like: true,
+                like: false,
                 country: "Caribbean",
                 dishes: [
                     "Ackee and saltfish",
@@ -268,7 +268,7 @@ const initialState: User = {
                 ],
             },
             {
-                like: true,
+                like: false,
                 country: "Greek",
                 dishes: [
                     "Moussaka",
@@ -362,7 +362,7 @@ const initialState: User = {
                     "Pad Thai",
                     "Tom yum soup",
                     "Green curry",
-                    "Som tam",
+                    "Phad thai",
                     "Massaman curry",
                 ],
             },
@@ -486,7 +486,18 @@ export const userSlice = createSlice({
             state.personalInfo = action.payload.personalInfo
         },
         toggleFoodPreference: (state, action: PayloadAction<string>) => {
-            
+            const country = action.payload
+            return {
+                ...state,
+                preferences: {
+                    ...state.preferences,
+                    food: state.preferences.food.map((item) =>
+                        item.country === country
+                            ? { ...item, like: !item.like }
+                            : item,
+                    ),
+                },
+            }
         },
         // TODO:
     },

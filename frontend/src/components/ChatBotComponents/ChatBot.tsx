@@ -16,8 +16,8 @@ export default function ChatBot() {
     const messageList = useSelector(
         (state: RootState) => state.chat.messageList,
     )
-    const nationalFoodList = useSelector(
-        (state: RootState) => state.user.preferences.nationalFood,
+    const foodList = useSelector(
+        (state: RootState) => state.user.preferences.food,
     )
     const [showFoodChoiceButtons, setShowFoodChoiceButtons] = useState(true)
     const [inputQuery, setInputQuery] = useState("")
@@ -94,15 +94,15 @@ export default function ChatBot() {
 
                 {showFoodChoiceButtons && (
                     <div className="flex w-11/12 flex-wrap justify-center gap-2">
-                        {nationalFoodList
+                        {foodList
                             .filter(
-                                (nationalFood) => nationalFood.like === true,
+                                (food) => food.like === true,
                             )
-                            .map((nationalFood, index) => (
+                            .map((food, index) => (
                                 <FoodPreferenceButtons
                                     key={index}
                                     onFoodChoice={handleFoodChoice}
-                                    foodPreference={nationalFood.country}
+                                    foodPreference={food.country}
                                 />
                             ))}
                     </div>

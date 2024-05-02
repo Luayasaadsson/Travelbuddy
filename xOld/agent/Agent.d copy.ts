@@ -1,7 +1,7 @@
 import Role from '../../frontend/src/types/chat/Role'
 import Capability from '../userAgent/Capability'
 import KnowledgeBase from '../userAgent/KnowledgeBase'
-import QuestionAnswer from '../userAgent/QuestionAnswer'
+// import QuestionAnswer from '../userAgent/QuestionAnswer'
 
 
 type Agent = {
