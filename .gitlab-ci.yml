@@ -26,8 +26,8 @@ build_image:
     IMAGE_TAG: travelbuddy.$CI_COMMIT_SHORT_SHA:latest
   script:
     - docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN
-    - docker build -t registry.gitlab.com/ccg-2/$IMAGE_TAG .
-    - docker push registry.gitlab.com/ccg-2/travelbuddy.$CI_COMMIT_SHORT_SHA:latest
+    - docker build -t registry.gitlab.com/ccg-2/travelbuddy/$IMAGE_TAG .
+    - docker push registry.gitlab.com/ccg-2/travelbuddy/$IMAGE_TAG
 
 build_image_arm64:
   stage: image
@@ -41,5 +41,5 @@ build_image_arm64:
     IMAGE_TAG: travelbuddy.arm64.$CI_COMMIT_SHORT_SHA:latest
   script:
     - docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN
-    - docker build --platform linux/arm64/v8 -t registry.gitlab.com/ccg-2/$IMAGE_TAG .
-    - docker push registry.gitlab.com/ccg-2/$IMAGE_TAG
+    - docker build --platform linux/arm64/v8 -t registry.gitlab.com/ccg-2/travelbuddy/$IMAGE_TAG .
+    - docker push registry.gitlab.com/ccg-2/travelbuddy/$IMAGE_TAG
