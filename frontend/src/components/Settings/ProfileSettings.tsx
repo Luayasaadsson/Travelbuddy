@@ -87,9 +87,9 @@ function ProfileSettings() {
                                 Favorite accommodation types
                             </AccordionTrigger>
                             <AccordionContent>
-                                {accommodationPreferenceList.map((item, id) => (
+                                {accommodationPreferenceList.map((item) => (
                                     <Checkbox
-                                        key={id}
+                                        key={item.id}
                                         checked={item.selected}
                                         color="neutral"
                                         onCheckedChange={() =>
@@ -113,9 +113,9 @@ function ProfileSettings() {
                                 Dietary requirements
                             </AccordionTrigger>
                             <AccordionContent>
-                                {dietPreferenceList.map((item, id) => (
+                                {dietPreferenceList.map((item) => (
                                     <Checkbox
-                                        key={id}
+                                        key={item.id}
                                         checked={item.selected}
                                         color="neutral"
                                         onCheckedChange={() =>
@@ -165,9 +165,9 @@ function ProfileSettings() {
                                 Favorite transportation
                             </AccordionTrigger>
                             <AccordionContent>
-                                {transportationPreferenceList.map((item, id) => (
+                                {transportationPreferenceList.map((item) => (
                                     <Checkbox
-                                        key={id}
+                                        key={item.id}
                                         checked={item.selected}
                                         color="neutral"
                                         onCheckedChange={() =>
@@ -191,9 +191,9 @@ function ProfileSettings() {
                                 Favorite vacation types
                             </AccordionTrigger>
                             <AccordionContent>
-                                {vacationPreferenceList.map((item, id) => (
+                                {vacationPreferenceList.map((item) => (
                                     <Checkbox
-                                        key={id}
+                                        key={item.id}
                                         checked={item.selected}
                                         color="neutral"
                                         onCheckedChange={() =>
