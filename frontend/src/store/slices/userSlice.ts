@@ -768,10 +768,10 @@ export const userSlice = createSlice({
             state.settings = action.payload.settings
             state.sessionInfo = action.payload.sessionInfo
         },
-        updateId: (state, action: PayloadAction<User>) => {
+        updateUserId: (state, action: PayloadAction<User>) => {
             state.id = action.payload.id
         },
-        updateIsLoggedIns: (state, action: PayloadAction<User>) => {
+        updateIsLoggedIn: (state, action: PayloadAction<User>) => {
             state.sessionInfo.isLoggedIn = action.payload.sessionInfo.isLoggedIn
         },
         toggleFoodPreference: (state, action: PayloadAction<string>) => {
@@ -788,7 +788,63 @@ export const userSlice = createSlice({
                 },
             }
         },
-        // TODO:
+        toggleAccommodationPreference: (state, action: PayloadAction<number>) => {
+            const id = action.payload
+            return {
+                ...state,
+                preferences: {
+                    ...state.preferences,
+                    accomodation: state.preferences.accomodation.map((item) =>
+                        item.id === id
+                            ? { ...item, selected: !item.selected }
+                            : item,
+                    ),
+                },
+            }
+        },
+        toggleDietPreference: (state, action: PayloadAction<number>) => {
+            const id = action.payload
+            return {
+                ...state,
+                preferences: {
+                    ...state.preferences,
+                    diet: state.preferences.diet.map((item) =>
+                        item.id === id
+                            ? { ...item, selected: !item.selected }
+                            : item,
+                    ),
+                },
+            }
+        },
+        toggleTransportationPreference: (state, action: PayloadAction<number>) => {
+            const id = action.payload
+            return {
+                ...state,
+                preferences: {
+                    ...state.preferences,
+                    transportation: state.preferences.transportation.map((item) =>
+                        item.id === id
+                            ? { ...item, selected: !item.selected }
+                            : item,
+                    ),
+                },
+            }
+        },
+        toggleVacationPreference: (state, action: PayloadAction<number>) => {
+            const id = action.payload
+            return {
+                ...state,
+                preferences: {
+                    ...state.preferences,
+                    vacation: state.preferences.vacation.map((item) =>
+                        item.id === id
+                            ? { ...item, selected: !item.selected }
+                            : item,
+                    ),
+                },
+            }
+        },
+        // TODO: BudgetPreference
     },
 
     //  extraReducers är en reducer som kan hantera actions från andra slices eller från createAsyncThunk
@@ -869,7 +925,7 @@ export const fetchUser = createAsyncThunk(
 )
 
 // Exporterar alla actionfunktioner
-export const { updateUser, toggleFoodPreference } = userSlice.actions // TODO:
+export const { updateUser, updateUserId, updateIsLoggedIn, toggleAccommodationPreference, toggleDietPreference, toggleFoodPreference, toggleTransportationPreference, toggleVacationPreference } = userSlice.actions // TODO:
 // Exporterar reducern
 export default userSlice.reducer
 

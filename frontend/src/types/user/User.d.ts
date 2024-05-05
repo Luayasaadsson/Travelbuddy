@@ -134,11 +134,3 @@ export default User
 
 
 
-/* type FoodDishesPreferences = {
-    [key: string]: boolean | null
-} */
-
-/* type DrinksPreferences = {
-    [key: string]: boolean
-} */
-
