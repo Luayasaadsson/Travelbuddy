@@ -53,61 +53,263 @@ const initialState: User = {
         mode: "dark",
     },
     preferences: {
-        accomodation: {
-            bedAndBreakfast: false,
-            boatOrHouseboat: false,
-            boutiqueHotel: false,
-            cabinOrChalet: false,
-            campground: false,
-            ecoLodge: false,
-            farmStay: false,
-            glamping: false,
-            guesthouse: false,
-            homestay: false,
-            hotel: false,
-            hostel: false,
-            luxuryHotel: false,
-            motel: false,
-            resort: false,
-            safariLodge: false,
-            servicedApartment: false,
-            treehouseAccommodation: false,
-            vacationRental: false,
-            youthHostel: false,
-        },
-        budget: {
-            maxAccommodationPricePerNight: null,
-            maxFoodExpense: null,
-            maxDrinkExpense: null,
-            maxTransportationExpense: null,
-            maxEntertainmentExpense: null,
-            maxTotalBudget: null,
-        },
-        dietary: {
-            vegetarian: false,
-            lactoVegetarian: false,
-            ovoVegetarian: false,
-            lactoOvo: false,
-            pescatarian: false,
-            vegan: false,
-            rawVegan: false,
-            kosher: false,
-            halal: false,
-            jain: false,
-            hindu: false,
-            glutenFree: false,
-            dairyFree: false,
-            nutFree: false,
-            soyFree: false,
-            shellFree: false,
-            eggFree: false,
-            sugarFree: false,
-            lowCarb: false,
-            lowFat: false,
-            lowSodium: false,
-            paleo: false,
-            ketogenic: false,
-        },
+        accomodation: [
+            {   
+                id: 1,
+                label: "Bed & Breakfast",
+                selected: false
+            },
+            {   
+                id: 2,
+                label: "Boat or Houseboat",
+                selected: false
+            },  
+            {
+                id: 3,
+                label: "Boutique Hotel",
+                selected: false
+            },
+            {
+                id: 4,
+                label: "Cabin or Chalet",
+                selected: false
+            },
+            {
+                id: 5,
+                label: "Campground",
+                selected: false
+            },
+            {
+                id: 6,
+                label: "Eco Lodge",
+                selected: false
+            },
+            {
+                id: 7,
+                label: "Farm Stay",
+                selected: false
+            },
+            {
+                id: 8,
+                label: "Glamping",
+                selected: false
+            },
+            {
+                id: 9,
+                label: "Guesthouse",
+                selected: false
+            },
+            {
+                id: 10,
+                label: "Homestay",
+                selected: false
+            },
+            {
+                id: 11,
+                label: "Hotel",
+                selected: false
+            },
+            {
+                id: 12,
+                label: "Hostel",
+                selected: false
+            },
+            {
+                id: 13,
+                label: "Luxury Hotel",
+                selected: false
+            },
+            {
+                id: 14,
+                label: "Motel",
+                selected: false
+            },
+            {
+                id: 15,
+                label: "Resort",
+                selected: false
+            },
+            {
+                id: 16,
+                label: "Safari Lodge",
+                selected: false
+            },
+            {
+                id: 17,
+                label: "Serviced Apartment",
+                selected: false
+            },
+            {
+                id: 18,
+                label: "Treehouse Accommodation",
+                selected: false
+            },
+            {
+                id: 19,
+                label: "Vacation Rental",
+                selected: false
+            },
+            {
+                id: 20,
+                label: "Youth Hostel",
+                selected: false
+            }
+        ],  
+        budget: [
+            {
+                id: 1,
+                label: "Max Accommodation Budget per Night per Person",
+                currency: "EUR",
+                value: 100,
+            },
+            {
+                id: 2,
+                label: "Max Food Budget per Day",
+                currency: null,
+                value: null,
+            },
+            {
+                id: 3,
+                label: "Max Drink Budget per Day",
+                currency: null,
+                value: null,
+            },
+            {
+                id: 4,
+                label: "Max Transportation Budget per Person",
+                currency: null,
+                value: null,
+            },
+            {
+                id: 5,
+                label: "Max Entertainment Budget per Day per Person",
+                currency: null,
+                value: null,
+            },
+            {
+                id: 6,
+                label: "Max Vacation Budget per Day per Person",
+                currency: null,
+                value: null,
+            },
+        ],
+        diet: [
+            {
+                id: 1,
+                label: "Vegetarian",
+                selected: false,
+            },
+            {
+                id: 2,
+                label: "Lacto Vegetarian",
+                selected: false,
+            },
+            {
+                id: 3,
+                label: "Ovo Vegetarian",
+                selected: false,
+            },
+            {
+                id: 4,
+                label: "Lacto Ovo",
+                selected: false,
+            },
+            {
+                id: 5,
+                label: "Pescatarian",
+                selected: false,
+            },
+            {
+                id: 6,
+                label: "Vegan",
+                selected: false,
+            },
+            {
+                id: 7,
+                label: "Raw Vegan",
+                selected: false,
+            },
+            {
+                id: 8,
+                label: "Kosher",
+                selected: false,
+            },
+            {
+                id: 9,
+                label: "Halal",
+                selected: false,
+            },
+            {
+                id: 10,
+                label: "Jain",
+                selected: false,
+            },
+            {
+                id: 11,
+                label: "Hindu",
+                selected: false,
+            },
+            {
+                id: 12,
+                label: "Gluten Free",
+                selected: false,
+            },
+            {
+                id: 13,
+                label: "Dairy Free",
+                selected: false,
+            },
+            {
+                id: 14,
+                label: "Nut Free",
+                selected: false,
+            },
+            {
+                id: 15,
+                label: "Soy Free",
+                selected: false,
+            },
+            {
+                id: 16,
+                label: "Shell Free",
+                selected: false,
+            },
+            {
+                id: 17,
+                label: "Egg Free",
+                selected: false,
+            },
+            {
+                id: 18,
+                label: "Sugar Free",
+                selected: false,
+            },
+            {
+                id: 19,
+                label: "Low Carb",
+                selected: false,
+            },
+            {
+                id: 20,
+                label: "Low Fat",
+                selected: false,
+            },
+            {
+                id: 21,
+                label: "Low Sodium",
+                selected: false,
+            },
+            {
+                id: 22,
+                label: "Paleo",
+                selected: false,
+            },
+            {
+                id: 23,
+                label: "Ketogenic",
+                selected: false,
+            },
+        ],
         food: [
             {
                 like: false,
@@ -335,60 +537,220 @@ const initialState: User = {
                 ],
             },
         ],
-        transportation: {
-            airplane: false,
-            bicycle: false,
-            boat: false,
-            bus: false,
-            car: false,
-            motorcycle: false,
-            publicTransport: false,
-            recreationalVehicle: false,
-            rideshare: false,
-            taxi: false,
-            train: false,
-            walking: false,
-        },
-        vacationType: {
-            adventureTravel: false,
-            backpackingAndBudgetTravel: false,
-            beachVacations: false,
-            cityBreaks: false,
-            cruiseVacations: false,
-            culturalExperiences: false,
-            ecoTourism: false,
-            familyFriendlyDestinations: false,
-            festivalAndEventTourism: false,
-            foodAndCulinaryTourism: false,
-            historicalAndHeritageTourism: false,
-            luxuryTravel: false,
-            outdoorAndNatureExploration: false,
-            photographyAndArtFocusedTravel: false,
-            roadTrips: false,
-            skiingAndSnowboardingTrips: false,
-            soloTravel: false,
-            volunteerAndCommunityBasedTourism: false,
-            wellnessAndSpaRetreats: false,
-            wildlifeAndSafariExperiences: false,
-        },
+        transportation: [
+            {
+                id: 1,
+                label: "Airplane",
+                selected: false,
+            },
+            {
+                id: 2,
+                label: "Bicycle",
+                selected: false
+            },
+            {
+                id: 3,
+                label: "Boat",
+                selected: false
+            },
+            {
+                id: 4,
+                label: "Bus",
+                selected: false
+            },
+            {
+                id: 5,
+                label: "Car",
+                selected: false
+            },
+            {
+                id: 6,
+                label: "Motorcycle",
+                selected: false
+            },
+            {
+                id: 7,
+                label: "Public Transport",
+                selected: false
+            },
+            {
+                id: 8,
+                label: "Recreational Vehicle",
+                selected: false
+            },
+            {
+                id: 9,
+                label: "Rideshare",
+                selected: false
+            },
+            {
+                id: 10,
+                label: "Taxi",
+                selected: false
+            },
+            {
+                id: 11,
+                label: "Train",
+                selected: false
+            },
+            {
+                id: 12,
+                label: "Walking",
+                selected: false
+            },
+        ], 
+        vacation: [
+            {
+                id: 1,
+                label: "Adventure Travel",
+                selected: false,
+            },
+            {
+                id: 2,
+                label: "Backpacking and Budget Travel",
+                selected: false,
+            },
+            {
+                id: 3,
+                label: "Beach Vacations",
+                selected: false,
+            },
+            {
+                id: 4,
+                label: "City Breaks",
+                selected: false,
+            },
+            {
+                id: 5,
+                label: "Cruise Vacations",
+                selected: false,
+            },
+            {
+                id: 6,
+                label: "Cultural Experiences",
+                selected: false,
+            },
+            {
+                id: 7,
+                label: "Eco-Tourism",
+                selected: false,
+            },
+            {
+                id: 8,
+                label: "Family-Friendly Destinations",
+                selected: false,
+            },
+            {
+                id: 9,
+                label: "Festival and Event Tourism",
+                selected: false,
+            },
+            {
+                id: 10,
+                label: "Food and Culinary Tourism",
+                selected: false,
+            },
+            {
+                id: 11,
+                label: "Historical and Heritage Tourism",
+                selected: false,
+            },
+            {
+                id: 12,
+                label: "Luxury Travel",
+                selected: false,
+            },
+            {
+                id: 13,
+                label: "Outdoor and Nature Exploration",
+                selected: false,
+            },
+            {
+                id: 14,
+                label: "Photography and Art-Focused Travel",
+                selected: false,
+            },
+            {
+                id: 15,
+                label: "Road Trips",
+                selected: false,
+            },
+            {
+                id: 16,
+                label: "Skiing and Snowboarding Trips",
+                selected: false,
+            },
+            {
+                id: 17,
+                label: "Solo Travel",
+                selected: false,
+            },
+            {
+                id: 18,
+                label: "Volunteer and Community-Based Tourism",
+                selected: false,
+            },
+            {
+                id: 19,
+                label: "Wellness and Spa Retreats",
+                selected: false,
+            },
+            {
+                id: 20,
+                label: "Wildlife and Safari Experiences",
+                selected: false,
+            },
+        ],
     },
-    disabilities: {
-        noDisabilty: false,
-        visualImpairment: false,
-        hearingImpairment: false,
-        speechImpairment: false,
-        mobilityImpairment: false,
-        cognitiveDisabilities: false,
-        neurologicalDisorders: false,
-        otherDisabilities: false,
-        commentOnDisabilities: "",
-    },
+    disabilities: [
+        {
+            id: 1,
+            label: "No Disability",
+            selected: false,
+        },
+        {
+            id: 2,
+            label: "Visual Impairment",
+            selected: false,
+        },
+        {
+            id: 3,
+            label: "Hearing Impairment",
+            selected: false,
+        },
+        {
+            id: 4,
+            label: "Speech Impairment",
+            selected: false,
+        },
+        {
+            id: 5,
+            label: "Mobility Impairment",
+            selected: false,
+        },
+        {
+            id: 6,
+            label: "Cognitive Disabilities",
+            selected: false,
+        },
+        {
+            id: 7,
+            label: "Neurological Disorders",
+            selected: false,
+        },
+        {
+            id: 8,
+            label: "Other Disabilities",
+            selected: false,
+        },
+    ],
     sessionInfo: {
         isLoggedIn: false,
         isLoading: false,
         messageToUser: "",
     },
 }
+
 
 // X-Slice med reducer-funktioner
 export const userSlice = createSlice({

@@ -1,8 +1,7 @@
 /* import Country from "../common/Country"
-import Gender from "../common/Gender"
 import Language from "../common/Language" */
-
 import Gender from "../common/Gender"
+import CurrencyCode from "../common/CurrencyCode"
 
 type User = {
     id: string | null
@@ -18,57 +17,71 @@ type Address = {
     country?: string | null
 }
 
-type AccommodationPreferences = {
-    [key: string]: boolean
+
+type AccommodationPreference = {
+    id: number
+    label: string
+    selected: boolean
 }
 
-type BudgetPreferences = {
-    [key: string]: number | null
+type AccommodationPreferences = AccommodationPreference[]
+
+
+type BudgetPreference = {
+    id: number
+    label: string
+    currency: CurrencyCode 
+    value: number | null
 }
 
-type DietaryPreferences = {
-    [key: string]: boolean
+type BudgetPreferences = BudgetPreference[]
+
+
+type DietPreference = {
+    id: number
+    label: string
+    selected: boolean
 }
 
-type AllergyPreferences = {
-    [key: string]: boolean
-}
+type DietPreferences = Dietreference[]
+
 
 type FoodPreference = {
-    like: boolean
     country: string
+    like: boolean
     dishes: string[]
 }
 
+
 type FoodPreferences = FoodPreference[]
 
-type FoodDishesPreferences = {
-    [key: string]: boolean | null
+
+type TransportationPreference = {
+    id: number
+    label: string
+    selected: boolean
 }
 
-type DrinksPreferences = {
-    [key: string]: boolean
+type TransportationPreferences = TransportationPreference[]
+
+
+type VacationPreference = {
+    id: number
+    label: string
+    selected: boolean
 }
 
-type TransportationPreferences = {
-    [key: string]: boolean
+type VacationPreferences = VacationPreference[]
+
+
+type Disability = {
+    id: number
+    label: string
+    selected: boolean
 }
 
-type VacationTypePreferences = {
-    [key: string]: boolean
-}
+type Disabilities = Disability[]
 
-type Disabilities = {
-    noDisabilty: boolean
-    visualImpairment: boolean
-    hearingImpairment: boolean
-    speechImpairment: boolean
-    mobilityImpairment: boolean
-    cognitiveDisabilities: boolean
-    neurologicalDisorders: boolean
-    otherDisabilities: boolean
-    commentOnDisabilities: string | null
-}
 
 type SessionInfo = {
     isLoggedIn: boolean
@@ -89,7 +102,7 @@ type Settings = {
     publicName: string
     publicAvatarUrl?: string | null
     language: "en"
-    currency: "USD" | "EUR" | "SEK"
+    currency: CurrencyCode
     mode: "light" | "dark"
 }
 
@@ -108,10 +121,24 @@ type PersonalInfo = {
 type Preferences = {
     accomodation: AccommodationPreferences
     budget: BudgetPreferences
-    dietary: DietaryPreferences
+    diet: DietPreferences
     food: FoodPreferences
     transportation: TransportationPreferences
-    vacationType: VacationTypePreferences
+    vacation: VacationPreferences
 }
 
+
+
+
 export default User
+
+
+
+/* type FoodDishesPreferences = {
+    [key: string]: boolean | null
+} */
+
+/* type DrinksPreferences = {
+    [key: string]: boolean
+} */
+
