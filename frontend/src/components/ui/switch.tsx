@@ -2,24 +2,28 @@ import * as React from "react"
 import * as SwitchPrimitives from "@radix-ui/react-switch"
 
 import { cn } from "@/lib/utils"
+import { useTheme } from "@/Theme/ThemeContext"
 
 const Switch = React.forwardRef<
     React.ElementRef<typeof SwitchPrimitives.Root>,
     React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root>
 >(({ className, ...props }, ref) => {
-    const [isDarkMode, setIsDarkMode] = React.useState(false)
+    const { theme, toggleTheme } = useTheme()
+    const isDarkMode = theme === "dark"
 
     const handleToggle = () => {
-        setIsDarkMode((prevMode) => !prevMode)
+        toggleTheme()
     }
 
     return (
         <button
             className={cn(
-                "inline-flex h-11 w-24 items-center gap-2 rounded-full border border-neutral-200 bg-neutral-900 p-1",
+                "inline-flex h-11 w-24 items-center gap-2 rounded-full",
                 {
                     "justify-end": isDarkMode,
                     "justify-start": !isDarkMode,
+                    "bg-neutral-900 ": !isDarkMode,
+                    "bg-white ": isDarkMode,
                 },
             )}
             onClick={handleToggle}
@@ -43,7 +47,11 @@ const Switch = React.forwardRef<
             ) : null}
             <div
                 className={cn(
-                    "w-12 text-center text-xs font-bold leading-tight text-secondary",
+                    "w-12 text-center text-xs font-bold leading-tight",
+                    {
+                        "text-black": isDarkMode,
+                        "text-primary": !isDarkMode,
+                    },
                 )}
             >
                 {isDarkMode ? "Light" : "Dark"}
