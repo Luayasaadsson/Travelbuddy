@@ -50,7 +50,7 @@ const Switch = React.forwardRef<
                     "w-12 text-center text-xs font-bold leading-tight",
                     {
                         "text-black": isDarkMode,
-                        "text-primary": !isDarkMode,
+                        "text-white": !isDarkMode,
                     },
                 )}
             >

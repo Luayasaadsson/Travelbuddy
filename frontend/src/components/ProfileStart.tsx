@@ -2,21 +2,34 @@ import { Link } from "react-router-dom"
 import { Button } from "./ui/button"
 import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar"
 import { useDispatch } from "react-redux"
-import { updateChatHeading, updateSubHeading, updateMessageList } from "@/store/slices/chatSlice"
+import {
+    updateChatHeading,
+    updateSubHeading,
+    updateMessageList,
+} from "@/store/slices/chatSlice"
 import Message from "@/types/chat/Message"
 
 function ProfileStart() {
     const dispatch = useDispatch()
 
-    const handleClick = (heading: string, subHeading: string, message: Message) => {
+    const handleClick = (
+        heading: string,
+        subHeading: string,
+        message: Message,
+    ) => {
         dispatch(updateChatHeading(heading))
         dispatch(updateSubHeading(subHeading))
         dispatch(updateMessageList(message))
     }
 
     return (
-        <main className="flex h-screen items-center justify-center pt-28">
-            <div className="flex w-11/12 max-w-96 flex-col items-center justify-center  gap-8">
+        <main className="flex h-screen items-center justify-center">
+            <img
+                className="absolute h-screen w-full"
+                src="./icons/Vector.svg"
+                alt="icon"
+            />
+            <div className="relative flex w-11/12 max-w-96 flex-col items-center justify-center gap-8">
                 <Avatar
                     className="border-4 border-secondary"
                     style={{
@@ -46,7 +59,11 @@ function ProfileStart() {
                             handleClick(
                                 "Let's find a bite!",
                                 "Choose below or type in your cravings at the bottom for restaurants near you!",
-                                {role: "agent", content: "Hi, what do you want to eat today?"}
+                                {
+                                    role: "agent",
+                                    content:
+                                        "Hi, what do you want to eat today?",
+                                },
                             )
                         }
                         className="justify-between"

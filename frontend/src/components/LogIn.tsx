@@ -6,8 +6,13 @@ import { Checkbox } from "./ui/checkbox"
 
 function LogIn() {
     return (
-        <main className="flex h-screen w-full items-center justify-center pt-20">
-            <div className="flex w-11/12 max-w-96 flex-col items-center gap-6">
+        <main className="flex h-screen w-full items-center justify-center">
+            <img
+                className="absolute h-screen w-full"
+                src="./icons/Vector.svg"
+                alt="icon"
+            />
+            <div className="relative flex w-11/12 max-w-96 flex-col items-center gap-6 pt-20">
                 <h1 className="text-center text-3xl text-secondary">
                     Login <br /> Welcome back!
                 </h1>

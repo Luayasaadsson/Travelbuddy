@@ -1,20 +1,20 @@
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import { Link } from "react-router-dom"
 import { useLocation } from "react-router-dom"
 import { useDispatch } from "react-redux"
-import { useEffect } from "react"
 import { clearMessageList } from "@/store/slices/chatSlice"
 
 function Header() {
     const location = useLocation()
-
     const dispatch = useDispatch()
     useEffect(() => {
         if (location.pathname !== "/chatbot") {
             dispatch(clearMessageList())
         }
     }, [location, dispatch])
+
     const [isOpen, setIsOpen] = useState<boolean>(false)
+    const menuRef = useRef<HTMLDivElement>(null)
 
     const handleMenu = () => {
         setIsOpen(!isOpen)
@@ -24,8 +24,23 @@ function Header() {
         setIsOpen(false)
     }
 
+    useEffect(() => {
+        function handleClickOutside(event: MouseEvent) {
+            if (
+                menuRef.current &&
+                !menuRef.current.contains(event.target as Node)
+            ) {
+                handleCloseMenu()
+            }
+        }
+        document.addEventListener("mousedown", handleClickOutside)
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside)
+        }
+    }, [])
+
     return (
-        <header className="absolute flex h-28 w-full flex-col justify-end bg-transparent">
+        <header className="absolute z-10 flex h-28 w-full flex-col justify-end bg-transparent">
             <nav className="z-2 flex items-center justify-between p-4">
                 <Link to="/" className="flex items-center justify-center">
                     <img
@@ -65,6 +80,7 @@ function Header() {
             )}
 
             <div
+                ref={menuRef}
                 className="absolute top-28 w-full origin-top overflow-hidden bg-white transition-transform  duration-300 ease-in-out"
                 style={{
                     transform: isOpen ? "scaleY(1)" : "scaleY(0)",
@@ -74,7 +90,7 @@ function Header() {
                 <ul className="flex flex-col items-center justify-center bg-background">
                     <li
                         style={{ opacity: isOpen ? "1" : "0" }}
-                        className="cursor-pointer py-2 text-2xl transition-opacity duration-300 ease-in-out hover:text-primary-foreground"
+                        className="cursor-pointer py-2 text-2xl transition-opacity duration-300 ease-in-out hover:text-secondary-foreground"
                     >
                         <Link to="/" onClick={handleCloseMenu}>
                             Home
@@ -82,7 +98,7 @@ function Header() {
                     </li>
                     <li
                         style={{ opacity: isOpen ? "1" : "0" }}
-                        className=" cursor-pointer py-2 text-2xl transition-opacity duration-300 ease-in-out hover:text-primary-foreground"
+                        className=" cursor-pointer py-2 text-2xl transition-opacity duration-300 ease-in-out hover:text-secondary-foreground"
                     >
                         <Link to="/profilestart" onClick={handleCloseMenu}>
                             Bot
@@ -90,7 +106,7 @@ function Header() {
                     </li>
                     <li
                         style={{ opacity: isOpen ? "1" : "0" }}
-                        className="cursor-pointer py-2 text-2xl transition-opacity duration-300 ease-in-out hover:text-primary-foreground"
+                        className="cursor-pointer py-2 text-2xl transition-opacity duration-300 ease-in-out hover:text-secondary-foreground"
                     >
                         <Link to="/settings" onClick={handleCloseMenu}>
                             Setting
@@ -98,7 +114,7 @@ function Header() {
                     </li>
                     <li
                         style={{ opacity: isOpen ? "1" : "0" }}
-                        className="cursor-pointer py-2 text-2xl transition-opacity duration-300 ease-in-out hover:text-primary-foreground"
+                        className="cursor-pointer py-2 text-2xl transition-opacity duration-300 ease-in-out hover:text-secondary-foreground"
                     >
                         <Link to="/aboutus" onClick={handleCloseMenu}>
                             About us

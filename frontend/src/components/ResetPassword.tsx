@@ -15,7 +15,12 @@ function ResetPassword() {
 
     return (
         <main className="flex h-screen items-center justify-center">
-            <div className="flex w-11/12 max-w-96 flex-col items-center gap-4">
+            <img
+                className="absolute h-screen w-full"
+                src="./icons/Vector.svg"
+                alt="icon"
+            />
+            <div className="relative flex w-11/12 max-w-96 flex-col items-center gap-4">
                 <h1 className="text-3xl text-secondary">Reset Password</h1>
                 <p className="text-xs text-secondary">
                     Enter your email account to reset your password

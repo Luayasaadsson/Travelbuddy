@@ -5,8 +5,13 @@ import { Button } from "./ui/button"
 
 function SignUp() {
     return (
-        <main className="mb-10 flex h-screen w-full items-center justify-center pt-24">
-            <div className="flex w-11/12 max-w-96 flex-col items-center gap-6">
+        <main className="mb-10 flex h-screen w-full items-center justify-center">
+            <img
+                className="absolute h-screen w-full"
+                src="./icons/Vector.svg"
+                alt="icon"
+            />
+            <div className="relative flex w-11/12 max-w-96 flex-col items-center gap-6 pt-24">
                 <h1 className="text-center text-3xl text-secondary">
                     Let's get you started
                 </h1>
@@ -40,9 +45,7 @@ function SignUp() {
                     </div>
 
                     <Link to="/moreabout">
-                        <Button >
-                            Create profile
-                        </Button>
+                        <Button>Create profile</Button>
                     </Link>
                     <p className="my-2 text-center text-sm text-neutral-200 ">
                         Already have an account?

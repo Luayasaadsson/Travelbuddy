@@ -4,7 +4,8 @@ import { Button } from "./ui/button"
 function Hero() {
     return (
         <main className="flex h-screen items-center justify-center">
-            <div className="flex flex-col gap-5 p-6">
+             <img className="absolute w-full h-screen" src="./icons/Vector.svg" alt="icon" />
+            <div className="relative flex flex-col gap-5 p-6">
                 <div className="hidden flex-row items-center text-center sm:flex ">
                     <div className="flex flex-col items-center gap-6">
                         <img
@@ -22,9 +23,9 @@ function Hero() {
                         </p>
                     </div>
                     <img
-                        className="h-80 w-96 rounded-md bg-gradient-to-b from-black to-black"
+                        className="hidden h-72 w-96 rounded-md bg-gradient-to-b from-black to-black lg:flex"
                         src="/images/unsplash-bg2.png"
-                        alt="background"
+                        alt="image"
                     />
                 </div>
                 <h1 className="w-45 text-center text-3xl sm:hidden">
@@ -32,9 +33,9 @@ function Hero() {
                 </h1>
                 <div className="flex flex-row items-center justify-center gap-6">
                     <img
-                        className="hidden h-72 w-96 rounded-md bg-gradient-to-b from-black to-black sm:flex"
+                        className="hidden h-72 w-96 rounded-md bg-gradient-to-b from-black to-black lg:flex"
                         src="/images/unsplash-bg3.png"
-                        alt="background"
+                        alt="image"
                     />
                     <div>
                         <h2 className="text-center text-3xl text-secondary mb-2">

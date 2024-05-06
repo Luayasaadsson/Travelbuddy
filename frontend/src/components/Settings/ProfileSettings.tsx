@@ -11,7 +11,13 @@ import {
 } from "@/components/ui/accordion"
 import { useSelector, useDispatch } from "react-redux"
 import { RootState } from "@/store/store"
-import { toggleAccommodationPreference, toggleDietPreference, toggleFoodPreference, toggleTransportationPreference, toggleVacationPreference } from "@/store/slices/userSlice"
+import {
+    toggleAccommodationPreference,
+    toggleDietPreference,
+    toggleFoodPreference,
+    toggleTransportationPreference,
+    toggleVacationPreference,
+} from "@/store/slices/userSlice"
 
 function ProfileSettings() {
     const dispatch = useDispatch()
@@ -26,12 +32,11 @@ function ProfileSettings() {
     )
     const transportationPreferenceList = useSelector(
         (state: RootState) => state.user.preferences.transportation,
-    ) 
+    )
 
     const vacationPreferenceList = useSelector(
         (state: RootState) => state.user.preferences.vacation,
     )
-
 
     const handleToggleAccommodationPreference = (id: number) => {
         dispatch(toggleAccommodationPreference(id))
@@ -49,9 +54,14 @@ function ProfileSettings() {
         dispatch(toggleVacationPreference(id))
     }
     return (
-        <main className="flex min-h-screen items-start justify-center pt-28">
-            <div className="flex w-11/12 max-w-96 flex-col items-center justify-center gap-6">
-                <div className="flex justify-center">
+        <main className="flex min-h-screen items-start justify-center">
+            <img
+                className="absolute h-screen w-full"
+                src="./icons/Vector.svg"
+                alt="icon"
+            />
+            <div className="relative flex w-11/12 max-w-96 flex-col items-center justify-center gap-6">
+                <div className="flex justify-center pt-28">
                     <h1 className="text-2xl font-bold">Profile settings</h1>
                 </div>
                 <div className="flex w-full flex-col items-start gap-4 text-secondary">
@@ -93,7 +103,9 @@ function ProfileSettings() {
                                         checked={item.selected}
                                         color="neutral"
                                         onCheckedChange={() =>
-                                            handleToggleAccommodationPreference(item.id)
+                                            handleToggleAccommodationPreference(
+                                                item.id,
+                                            )
                                         }
                                     >
                                         {item.label}
@@ -155,7 +167,6 @@ function ProfileSettings() {
                     </Accordion>
                 </div>
 
-                
                 <div className="flex w-full flex-col text-secondary">
                     <p className="text-xl">My transportation preferences</p>
 
@@ -171,7 +182,9 @@ function ProfileSettings() {
                                         checked={item.selected}
                                         color="neutral"
                                         onCheckedChange={() =>
-                                            handleToggleTransportationPreference(item.id)
+                                            handleToggleTransportationPreference(
+                                                item.id,
+                                            )
                                         }
                                     >
                                         {item.label}
@@ -197,7 +210,9 @@ function ProfileSettings() {
                                         checked={item.selected}
                                         color="neutral"
                                         onCheckedChange={() =>
-                                            handleToggleVacationPreference(item.id)
+                                            handleToggleVacationPreference(
+                                                item.id,
+                                            )
                                         }
                                     >
                                         {item.label}
@@ -208,9 +223,9 @@ function ProfileSettings() {
                     </Accordion>
                 </div>
                 <Link className="w-full" to="/profilestart">
-                <Button className="flex w-full max-w-96 items-center justify-center gap-2 p-3">
-                    Save changes
-                </Button>
+                    <Button className="flex w-full max-w-96 items-center justify-center gap-2 p-3">
+                        Save changes
+                    </Button>
                 </Link>
             </div>
         </main>

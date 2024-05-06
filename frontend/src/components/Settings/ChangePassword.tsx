@@ -5,17 +5,22 @@ import { Button } from "@/components/ui/button"
 
 function ChangePassword() {
     return (
-        <main className="flex h-screen flex-col items-center justify-start pt-36">
-            <div className="flex w-11/12 max-w-96 flex-col items-center justify-center gap-6">
-                <div className="flex justify-center">
+        <main className="flex h-screen flex-col items-center justify-start">
+            <img
+                className="absolute h-screen w-full"
+                src="./icons/Vector.svg"
+                alt="icon"
+            />
+            <div className="relative flex w-11/12 max-w-96 flex-col items-center justify-center gap-6">
+                <div className="flex justify-center pt-36">
                     <h1 className="text-2xl font-bold">Change password</h1>
                 </div>
-                <div className="flex w-full flex-col items-start gap-2">
+                <div className="flex w-full flex-col items-start gap-6">
                     <div className="flex w-full max-w-96 flex-col ">
                         <Label className="gap-2 text-secondary">Email *</Label>
                         <Input placeholder="Enter Your Email" />
                     </div>
-                    <div className="flex w-full max-w-96 flex-col pt-6 ">
+                    <div className="flex w-full max-w-96 flex-col">
                         <Label className="gap-2 text-secondary">
                             Current password *
                         </Label>
