@@ -105,7 +105,7 @@
 }
 
 .light {
-    --background: 140 43% 97%; 
+    --background: 140 43% 97%;
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -120,4 +120,29 @@
     --secondary: 160 14% 34%;
 
     /* Återstår att fylla i listan */
+}
+
+.error-message {
+    position: relative;
+    width: 100%;
+    background-color: #ba1a1a;
+    border: 1px solid #000000;
+    color: #ffffff;
+    padding: 4px 8px;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.error-message::after {
+    content: "";
+    position: absolute;
+    top: -9px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid #ba1a1a;
 }

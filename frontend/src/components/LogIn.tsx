@@ -1,36 +1,103 @@
-import { Link } from "react-router-dom"
+import { useState, ChangeEvent } from "react"
+import { Link, useNavigate } from "react-router-dom"
 import { Input } from "./ui/input"
 import { Label } from "./ui/label"
 import { Button } from "./ui/button"
 import { Checkbox } from "./ui/checkbox"
+import { validateEmail, validatePassword } from "./validator"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons"
 
-function LogIn() {
+function LogIn(): JSX.Element {
+    const [email, setEmail] = useState<string>("")
+    const [password, setPassword] = useState<string>("")
+    const [emailError, setEmailError] = useState<string>("")
+    const [passwordError, setPasswordError] = useState<string>("")
+    const [showPassword, setShowPassword] = useState<boolean>(false)
+    const navigate = useNavigate()
+
+    function handleEmailChange(event: ChangeEvent<HTMLInputElement>): void {
+        setEmail(event.target.value)
+        if (emailError && validateEmail(event.target.value)) {
+            setEmailError("")
+        }
+    }
+
+    function handlePasswordChange(event: ChangeEvent<HTMLInputElement>): void {
+        setPassword(event.target.value)
+        if (passwordError && validatePassword(event.target.value)) {
+            setPasswordError("")
+        }
+    }
+
+    function togglePasswordVisibility(): void {
+        setShowPassword(!showPassword)
+    }
+
+    function handleLoginClick(): void {
+        let valid = true
+        if (!validateEmail(email)) {
+            setEmailError("Please enter a valid email address")
+            valid = false
+        }
+
+        if (!validatePassword(password)) {
+            setPasswordError("Your password must contain 6 characters or more")
+            valid = false
+        }
+
+        if (valid) {
+            navigate("/moreabout")
+        }
+    }
+
     return (
-        <main className="flex h-screen w-full items-center justify-center">
+        <main className="flex h-screen w-full flex-col items-center justify-start">
             <img
                 className="absolute h-screen w-full"
                 src="./icons/Vector.svg"
                 alt="icon"
             />
-            <div className="relative flex w-11/12 max-w-96 flex-col items-center gap-6 pt-20">
+            <div className="relative flex w-11/12 max-w-96 flex-col items-center justify-center gap-6 pt-28">
                 <h1 className="text-center text-3xl text-secondary">
                     Login <br /> Welcome back!
                 </h1>
                 <div className="flex w-full flex-col gap-4">
-                    <Label className="text-secondary">Email *</Label>
-                    <Input placeholder="Enter Your Email" />
-                    <div className="relative flex w-full flex-col items-start gap-2">
-                        <Label className="pt-2 text-secondary">
+                    <div className="flex w-full max-w-96 flex-col gap-2">
+                        <Label className="text-secondary">Email *</Label>
+                        <Input
+                            placeholder="Enter Your Email"
+                            value={email}
+                            onChange={handleEmailChange}
+                        />
+                        {emailError && (
+                            <div className="error-message">
+                                <FontAwesomeIcon icon={faExclamationCircle} />{" "}
+                                {emailError}
+                            </div>
+                        )}
+                    </div>
+                    <div className="relative flex w-full max-w-96 flex-col gap-2">
+                        <Label className="gap-2 text-secondary">
                             Password *
                         </Label>
                         <Input
                             placeholder="Enter Your Password"
-                            className="pr-10"
+                            type={showPassword ? "text" : "password"}
+                            value={password}
+                            onChange={handlePasswordChange}
                         />
+                        {passwordError && (
+                            <div className="error-message">
+                                <FontAwesomeIcon icon={faExclamationCircle} />{" "}
+                                {passwordError}
+                            </div>
+                        )}
                         <img
                             src="./icons/visibility.svg"
                             alt="Show password"
-                            className="absolute inset-y-0 right-3 top-12"
+                            className="absolute inset-y-0 right-3 top-10 cursor-pointer"
+                            onClick={togglePasswordVisibility}
                         />
                     </div>
                     <Link to="/forgotpassword">
@@ -38,17 +105,14 @@ function LogIn() {
                             Forgot password?
                         </p>
                     </Link>
-
-                    <div className="flex  w-full items-center justify-end gap-2.5">
+                    <div className="flex w-full items-center justify-end gap-2.5">
                         <p className="text-sm leading-tight tracking-tight text-secondary">
                             Stay signed in?
                         </p>
                         <Checkbox shape="square" />
                     </div>
-                    <Link to="/moreabout">
-                        <Button>Login</Button>
-                    </Link>
-                    <p className=" text-center text-sm text-onBackground">
+                    <Button onClick={handleLoginClick}>Login</Button>
+                    <p className="text-center text-sm text-onBackground">
                         Don't have an account?
                         <Link to="/signup">
                             <span className="cursor-pointer pl-2 text-primary underline underline-offset-4">
@@ -65,7 +129,7 @@ function LogIn() {
                     <span className="w-[139px] border border-primary"></span>
                 </div>
                 <Button variant="facebook">
-                    <img src="./icons/facebook-logo.svg" alt="facebook Logo" />
+                    <img src="./icons/facebook-logo.svg" alt="Facebook Logo" />
                     <span className="flex-grow">Login with Facebook</span>
                 </Button>
                 <Button variant="google">
