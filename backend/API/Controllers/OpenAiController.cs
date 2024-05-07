@@ -1,11 +1,13 @@
 using API.Repository;
 using API.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
   [ApiController]
   [Route("api/[controller]")]
+  [Authorize]
   public class OpenAiController : ControllerBase
   {
     private readonly IOpenAiService _openAiService;
@@ -32,5 +34,6 @@ namespace API.Controllers
 
       return Ok(result);
     }
+
   }
 }
