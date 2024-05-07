@@ -1,5 +1,9 @@
+using System.Text;
 using API.Configurations;
 using API.Services;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +15,10 @@ builder.Services.Configure<OpenAiConfig>(config =>
   config.ApiKey = Environment.GetEnvironmentVariable("OPENAI_API_KEY") ?? throw new ArgumentNullException("OPENAI_API_KEY");
 });
 
+string? connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<ApplicationDbContext>(
+    options => options.UseSqlServer(connectionString));
+
 builder.Services.AddCors(options =>
 {
   options.AddPolicy(name: "CorsPolicy", policy =>
@@ -18,6 +26,45 @@ builder.Services.AddCors(options =>
     policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
   });
 });
+
+builder.Services.AddIdentityApiEndpoints<User>()
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultTokenProviders();
+
+builder.Services.AddAuthentication(
+  options =>
+  {
+    options.DefaultScheme = IdentityConstants.ApplicationScheme;
+    options.DefaultSignInScheme = IdentityConstants.ApplicationScheme;
+  }
+
+)
+.AddGoogle(
+  options =>
+  {
+    options.ClientId = Environment.GetEnvironmentVariable("GOOGLE_OAUTH_CLIENT_ID");
+    options.ClientSecret = Environment.GetEnvironmentVariable("GOOGLE_OAUTH_CLIENT_SECRET");
+  }
+)
+
+.AddJwtBearer(options =>
+{
+  options.RequireHttpsMetadata = false;
+  options.TokenValidationParameters = new TokenValidationParameters
+  {
+    ValidateIssuer = true,
+    ValidIssuer = builder.Configuration["Jwt:Issuer"],
+    ValidateAudience = true,
+    ValidAudience = builder.Configuration["Jwt:Audience"],
+    ValidateLifetime = true,
+    IssuerSigningKey = new SymmetricSecurityKey(
+      Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"])
+    ),
+    ValidateIssuerSigningKey = true,
+  };
+});
+
+builder.Services.AddAuthorization();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -28,13 +75,16 @@ builder.Services.AddControllers();
 
 var app = builder.Build();
 
+app.MapIdentityApi<User>();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
   app.UseSwagger();
   app.UseSwaggerUI();
 }
-
+app.UseAuthentication();
+app.UseAuthorization();
 app.UseCors("CorsPolicy");
 app.UseHttpsRedirection();
 app.MapControllers();
