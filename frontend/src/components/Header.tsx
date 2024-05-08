@@ -81,7 +81,7 @@ function Header() {
 
             <div
                 ref={menuRef}
-                className="absolute top-28 w-full origin-top overflow-hidden bg-white transition-transform  duration-300 ease-in-out"
+                className="absolute top-24 w-full origin-top overflow-hidden bg-white transition-transform  duration-300 ease-in-out"
                 style={{
                     transform: isOpen ? "scaleY(1)" : "scaleY(0)",
                     zIndex: "1000",

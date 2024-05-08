@@ -28,8 +28,8 @@
 
 @layer base {
     :root {
-        --background: 150 17% 7%; /*  */
-        --foreground: 222.2 84% 4.9%;
+        --background: 150 17% 7%;
+        --foreground: 140 10% 88%;
 
         --card: 0 0% 100%;
         --card-foreground: 222.2 84% 4.9%;
@@ -37,11 +37,11 @@
         --popover: 0 0% 100%;
         --popover-foreground: 222.2 84% 4.9%;
 
-        --primary: 162 49% 68%; /*  */
-        --primary-foreground: 167, 100%, 11%;
+        --primary: 162 49% 68%; 
+        --primary-foreground: 167 100% 11%;
 
-        --secondary: 157, 20%, 75%; /*  */
-        --secondary-foreground: 222.2 47.4% 11.2%;
+        --secondary: 157, 20%, 75%; 
+        --secondary-foreground: 88 93% 11%;
 
         --muted: 210 40% 96.1%;
         --muted-foreground: 215.4 16.3% 46.9%;
@@ -52,9 +52,9 @@
         --destructive: 0 84.2% 60.2%;
         --destructive-foreground: 210 40% 98%;
 
-        --border: 214.3 31.8% 91.4%;
-        --input: 214.3 31.8% 91.4%;
-        --ring: 222.2 84% 4.9%;
+        --border: 150 4% 56%;
+        --input: 150 4% 56%;
+        --ring: 150 4% 56%;
 
         --radius: 0.5rem;
 
@@ -66,21 +66,21 @@
         --onTertiaryContainer: 205 100% 89%;
     }
 
-    .dark {
-        --background: 150 17% 7%;
-        --foreground: 210 40% 98%;
+    .light {
+        --background: 140, 43%, 97%;
+        --foreground: 160, 12%, 10%;
 
-        --card: 222.2 84% 4.9%;
+        --card: 0 0% 100%;
         --card-foreground: 210 40% 98%;
 
         --popover: 222.2 84% 4.9%;
         --popover-foreground: 210 40% 98%;
 
-        --primary: 162 49% 68%;
-        --primary-foreground: 222.2 47.4% 11.2%;
+        --primary: 167, 75%, 24%;
+        --primary-foreground: 0, 0%, 100%;
 
-        --secondary: 157 20% 75%;
-        --secondary-foreground: 210 40% 98%;
+        --secondary: 160, 14%, 34%;
+        --secondary-foreground: 0, 0%, 100%;
 
         --muted: 217.2 32.6% 17.5%;
         --muted-foreground: 215 20.2% 65.1%;
@@ -91,35 +91,17 @@
         --destructive: 0 62.8% 30.6%;
         --destructive-foreground: 210 40% 98%;
 
-        --border: 217.2 32.6% 17.5%;
-        --input: 217.2 32.6% 17.5%;
-        --ring: 212.7 26.8% 83.9%;
+        --border: 156, 4%, 45%;
+        --input: 156, 4%, 45%;
+        --ring: 156, 4%, 45%;
 
-        --onBackground: 140 10% 88%;
-        --outline: 150 4% 56%;
+        --onBackground: 160, 12%, 10%;
+        --outline: 156, 4%, 45%;
         --onPrimaryContainer: 161 75% 79%;
-        --onPrimary: 167 100% 11%;
+        --onPrimary: 0, 0%, 100%;
         --primaryContainer: 168 100% 16%;
         --onTertiaryContainer: 205 100% 89%;
     }
-}
-
-.light {
-    --background: 140 43% 97%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 167 75% 24%;
-    --primary-foreground: 167, 100%, 11%;
-
-    --secondary: 160 14% 34%;
-
-    /* Återstår att fylla i listan */
 }
 
 .error-message {
