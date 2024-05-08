@@ -28,7 +28,12 @@ function Settings() {
 
     return (
         <main className="flex h-screen items-center justify-center">
-            <div className="flex w-11/12 max-w-96 flex-col items-center justify-center gap-3">
+            <img
+                className="absolute h-screen w-full"
+                src="./icons/Vector.svg"
+                alt="icon"
+            />
+            <div className="relative flex w-11/12 max-w-96 flex-col items-center justify-center gap-3">
                 <h1 className="text-2xl">Profil</h1>
                 <div className="flex flex-col items-center gap-4">
                     <Avatar

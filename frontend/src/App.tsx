@@ -11,7 +11,7 @@ import SignUp from "./components/SignUp"
 import ForgotPassword from "./components/ForgotPassword"
 import ResetPassword from "./components/ResetPassword"
 import ChatBot from "./components/ChatBotComponents/ChatBot"
-// import Footer from "./components/Footer"
+import Footer from "./components/Footer"
 import MoreAbout from "./components/MoreAbout"
 import Hero from "./components/Hero"
 import AboutUs from "./components/AboutUs"
@@ -64,7 +64,7 @@ function App() {
                     <Route path="/aboutus" element={<AboutUs />} />
                 </Routes>
             </BrowserRouter>
-            {/* <Footer /> */}
+            <Footer />
         </>
     )
 }

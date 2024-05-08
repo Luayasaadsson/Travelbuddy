@@ -23,8 +23,13 @@ function ProfileStart() {
     }
 
     return (
-        <main className="flex h-screen items-center justify-center pt-28">
-            <div className="flex w-11/12 max-w-96 flex-col items-center justify-center  gap-8">
+        <main className="flex h-screen items-center justify-center">
+            <img
+                className="absolute h-screen w-full"
+                src="./icons/Vector.svg"
+                alt="icon"
+            />
+            <div className="relative flex w-11/12 max-w-96 flex-col items-center justify-center gap-8">
                 <Avatar
                     className="border-4 border-secondary"
                     style={{

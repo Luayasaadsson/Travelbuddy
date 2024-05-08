@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/API.csproj": {}
+    "/Users/damianamalraj/Documents/Repos/travelbuddy/backend/API/API.csproj": {}
   },
   "projects": {
-    "/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/API.csproj": {
+    "/Users/damianamalraj/Documents/Repos/travelbuddy/backend/API/API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/API.csproj",
+        "projectUniqueName": "/Users/damianamalraj/Documents/Repos/travelbuddy/backend/API/API.csproj",
         "projectName": "API",
-        "projectPath": "/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/API.csproj",
-        "packagesPath": "/Users/dennis/.nuget/packages/",
-        "outputPath": "/Users/dennis/Documents/Chas Academy/chas-challenge-travelbuddy/travelbuddy/backend/API/obj/",
+        "projectPath": "/Users/damianamalraj/Documents/Repos/travelbuddy/backend/API/API.csproj",
+        "packagesPath": "/Users/damianamalraj/.nuget/packages/",
+        "outputPath": "/Users/damianamalraj/Documents/Repos/travelbuddy/backend/API/obj/",
         "projectStyle": "PackageReference",
-        "configFilePaths": ["/Users/dennis/.nuget/NuGet/NuGet.Config"],
-        "originalTargetFrameworks": ["net8.0"],
+        "configFilePaths": [
+          "/Users/damianamalraj/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -25,7 +29,9 @@
           }
         },
         "warningProperties": {
-          "warnAsError": ["NU1605"]
+          "warnAsError": [
+            "NU1605"
+          ]
         },
         "restoreAuditProperties": {
           "enableAudit": "true",
@@ -42,6 +48,38 @@
               "version": "[3.0.0, )"
             },
             "Microsoft.AspNetCore.Authentication.Google": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.4, )"
             },

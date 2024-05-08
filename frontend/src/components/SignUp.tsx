@@ -1,50 +1,147 @@
-import { Link } from "react-router-dom"
+import { useState, ChangeEvent } from "react"
+import { Link, useNavigate } from "react-router-dom"
 import { Input } from "./ui/input"
 import { Label } from "./ui/label"
 import { Button } from "./ui/button"
+import { validateEmail, validatePassword } from "./validator"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons"
 
-function SignUp() {
+function SignUp(): JSX.Element {
+    const [email, setEmail] = useState<string>("")
+    const [password, setPassword] = useState<string>("")
+    const [confirmPassword, setConfirmPassword] = useState<string>("")
+    const [emailError, setEmailError] = useState<string>("")
+    const [passwordError, setPasswordError] = useState<string>("")
+    const [confirmPasswordError, setConfirmPasswordError] = useState<string>("")
+    const [showPassword, setShowPassword] = useState<boolean>(false)
+    const navigate = useNavigate()
+
+    function handleEmailChange(event: ChangeEvent<HTMLInputElement>): void {
+        setEmail(event.target.value)
+        if (emailError && validateEmail(event.target.value)) setEmailError("")
+    }
+
+    function handlePasswordChange(event: ChangeEvent<HTMLInputElement>): void {
+        setPassword(event.target.value)
+        if (passwordError && validatePassword(event.target.value))
+            setPasswordError("")
+    }
+
+    function handleConfirmPasswordChange(
+        event: ChangeEvent<HTMLInputElement>,
+    ): void {
+        setConfirmPassword(event.target.value)
+        if (confirmPasswordError && event.target.value === password) {
+            setConfirmPasswordError("")
+        }
+    }
+
+    function togglePasswordVisibility(): void {
+        setShowPassword(!showPassword)
+    }
+
+    function handleSignUpClick(): void {
+        let valid = true
+        if (!validateEmail(email)) {
+            setEmailError("Please enter a valid email address")
+            valid = false
+        }
+
+        if (!validatePassword(password)) {
+            setPasswordError("Your password must contain 6 characters or more")
+            valid = false
+        }
+
+        if (password !== confirmPassword) {
+            setConfirmPasswordError("Passwords does not match")
+            valid = false
+        } else {
+            setConfirmPasswordError("")
+        }
+
+        if (valid) {
+            navigate("/moreabout")
+        }
+    }
+
     return (
-        <main className="mb-10 flex h-screen w-full items-center justify-center pt-24">
-            <div className="flex w-11/12 max-w-96 flex-col items-center gap-6">
+        <main className="flex h-screen flex-col items-center justify-start">
+            <img
+                className="absolute h-screen w-full"
+                src="./icons/Vector.svg"
+                alt="icon"
+            />
+            <div className="relative flex w-11/12 max-w-96 flex-col items-center justify-center gap-2 pt-28">
                 <h1 className="text-center text-3xl text-secondary">
                     Let's get you started
                 </h1>
                 <p className="text-center text-xs text-secondary">
                     Fields marked with * are mandatory.
                 </p>
-                <div className="flex w-full flex-col gap-4">
-                    <Label className="text-secondary ">Email *</Label>
-                    <Input placeholder="Enter Your Email" />
-                    <div className="relative flex w-full flex-col items-start gap-2">
+                <div className="flex w-full flex-col items-center gap-6">
+                    <div className="flex w-full max-w-96 flex-col gap-2">
+                        <Label className="text-secondary">Email *</Label>
+                        <Input
+                            placeholder="Enter Your Email"
+                            value={email}
+                            onChange={handleEmailChange}
+                        />
+                        {emailError && (
+                            <div className="error-message">
+                                <FontAwesomeIcon icon={faExclamationCircle} />{" "}
+                                {emailError}
+                            </div>
+                        )}
+                    </div>
+                    <div className="relative flex w-full max-w-96 flex-col gap-2">
                         <Label className="pt-2 text-secondary">
                             Password *
                         </Label>
-                        <Input placeholder="Enter Your Password" />
+                        <Input
+                            placeholder="Enter Your Password"
+                            type={showPassword ? "text" : "password"}
+                            value={password}
+                            onChange={handlePasswordChange}
+                        />
+                        {passwordError && (
+                            <div className="error-message">
+                                <FontAwesomeIcon icon={faExclamationCircle} />{" "}
+                                {passwordError}
+                            </div>
+                        )}
                         <img
                             src="./icons/visibility.svg"
                             alt="Show password"
-                            className="absolute inset-y-0 right-3 top-12"
+                            className="absolute inset-y-0 right-3 top-12 cursor-pointer"
+                            onClick={togglePasswordVisibility}
                         />
                     </div>
-                    <div className="relative flex w-full flex-col items-start gap-2">
+                    <div className="relative flex w-full max-w-96 flex-col gap-2">
                         <Label className="pt-2 text-secondary">
-                            Confirm password *
+                            Confirm Password *
                         </Label>
-                        <Input placeholder="Enter Your Password" />
+                        <Input
+                            placeholder="Confirm Your Password"
+                            type={showPassword ? "text" : "password"}
+                            value={confirmPassword}
+                            onChange={handleConfirmPasswordChange}
+                        />
+                        {confirmPasswordError && (
+                            <div className="error-message">
+                                <FontAwesomeIcon icon={faExclamationCircle} />{" "}
+                                {confirmPasswordError}
+                            </div>
+                        )}
                         <img
                             src="./icons/visibility.svg"
                             alt="Show password"
-                            className="absolute inset-y-0 right-3 top-12"
+                            className="absolute inset-y-0 right-3 top-12 cursor-pointer"
+                            onClick={togglePasswordVisibility}
                         />
                     </div>
-
-                    <Link to="/moreabout">
-                        <Button >
-                            Create profile
-                        </Button>
-                    </Link>
-                    <p className="my-2 text-center text-sm text-neutral-200 ">
+                    <Button onClick={handleSignUpClick}>Create profile</Button>
+                    <p className="my-2 text-center text-sm text-neutral-200">
                         Already have an account?
                         <Link to="/login">
                             <span className="cursor-pointer pl-2 text-primary underline underline-offset-4">
@@ -58,9 +155,8 @@ function SignUp() {
                     <p className="text-sm font-normal text-onBackground">Or</p>
                     <span className="w-[139px] border border-primary"></span>
                 </div>
-
                 <Button variant="facebook">
-                    <img src="./icons/facebook-logo.svg" alt="facebook Logo" />
+                    <img src="./icons/facebook-logo.svg" alt="Facebook Logo" />
                     <span className="flex-grow">Login with Facebook</span>
                 </Button>
                 <Button variant="google">
