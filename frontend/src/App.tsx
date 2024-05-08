@@ -64,7 +64,7 @@ function App() {
                     <Route path="/aboutus" element={<AboutUs />} />
                 </Routes>
             </BrowserRouter>
-            <Footer />
+            {/* <Footer /> */}
         </>
     )
 }
