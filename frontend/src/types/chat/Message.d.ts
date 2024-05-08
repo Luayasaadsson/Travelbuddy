@@ -1,8 +1,7 @@
-
-
 type Message = {
-    role: Role 
-    content: string
+    type: string
+    role: Role
+    content: string[]
 }
 
 export default Message

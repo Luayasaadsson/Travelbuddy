@@ -2,13 +2,21 @@ import { Link } from "react-router-dom"
 import { Button } from "./ui/button"
 import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar"
 import { useDispatch } from "react-redux"
-import { updateChatHeading, updateSubHeading, updateMessageList } from "@/store/slices/chatSlice"
+import {
+    updateChatHeading,
+    updateSubHeading,
+    updateMessageList,
+} from "@/store/slices/chatSlice"
 import Message from "@/types/chat/Message"
 
 function ProfileStart() {
     const dispatch = useDispatch()
 
-    const handleClick = (heading: string, subHeading: string, message: Message) => {
+    const handleClick = (
+        heading: string,
+        subHeading: string,
+        message: Message,
+    ) => {
         dispatch(updateChatHeading(heading))
         dispatch(updateSubHeading(subHeading))
         dispatch(updateMessageList(message))
@@ -46,7 +54,13 @@ function ProfileStart() {
                             handleClick(
                                 "Let's find a bite!",
                                 "Choose below or type in your cravings at the bottom for restaurants near you!",
-                                {role: "agent", content: "Hi, what do you want to eat today?"}
+                                {
+                                    type: "text",
+                                    role: "agent",
+                                    content: [
+                                        "Hi, what do you want to eat today?",
+                                    ],
+                                },
                             )
                         }
                         className="justify-between"
