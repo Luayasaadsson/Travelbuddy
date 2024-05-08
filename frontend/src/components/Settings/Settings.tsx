@@ -121,7 +121,7 @@ function Settings() {
 
                 <div className="mt-4 flex gap-3">
                     <Button variant="outline" size="lg">
-                        <p className="text-neutral-200">Sign out</p>
+                        <p className="text-primary">Sign out</p>
                         <img
                             className="ml-2 h-6 w-6"
                             src="/images/account.svg"
