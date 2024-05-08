@@ -75,11 +75,11 @@ function ResetPassword() {
 
     return (
         <main className="flex h-screen flex-col items-center justify-start">
-            <img
+            {/* <img
                 className="absolute h-screen w-full"
                 src="./icons/Vector.svg"
                 alt="icon"
-            />
+            /> */}
             <div className="relative flex w-11/12 max-w-96 flex-col items-center justify-center gap-4">
                 <div className="flex justify-center pt-36">
                     <h1 className="text-3xl text-secondary">Reset Password</h1>

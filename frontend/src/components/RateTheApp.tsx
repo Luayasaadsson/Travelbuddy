@@ -7,11 +7,11 @@ import { Link } from "react-router-dom"
 function RateTheApp() {
     return (
         <main className="flex h-screen flex-col items-center">
-            <img
+            {/* <img
                 className="absolute h-screen w-full"
                 src="./icons/Vector.svg"
                 alt="icon"
-            />
+            /> */}
             <div className="relative flex w-11/12 max-w-96 flex-col items-center gap-4 pt-32">
                 <h1 className="text-2xl font-bold text-primary">
                     Rate The app

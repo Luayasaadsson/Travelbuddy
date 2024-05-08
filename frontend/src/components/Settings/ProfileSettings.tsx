@@ -55,11 +55,11 @@ function ProfileSettings() {
     }
     return (
         <main className="flex min-h-screen items-start justify-center">
-            <img
+            {/* <img
                 className="absolute h-screen w-full"
                 src="./icons/Vector.svg"
                 alt="icon"
-            />
+            /> */}
             <div className="relative flex w-11/12 max-w-96 flex-col items-center justify-center gap-6">
                 <div className="flex justify-center pt-28">
                     <h1 className="text-2xl font-bold">Profile settings</h1>

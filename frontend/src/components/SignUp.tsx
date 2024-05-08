@@ -67,11 +67,11 @@ function SignUp(): JSX.Element {
 
     return (
         <main className="flex h-screen flex-col items-center justify-start">
-            <img
+            {/* <img
                 className="absolute h-screen w-full"
                 src="./icons/Vector.svg"
                 alt="icon"
-            />
+            /> */}
             <div className="relative flex w-11/12 max-w-96 flex-col items-center justify-center gap-2 pt-28">
                 <h1 className="text-center text-3xl text-secondary">
                     Let's get you started

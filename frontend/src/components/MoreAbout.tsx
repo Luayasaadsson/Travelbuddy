@@ -15,11 +15,11 @@ import {
 function MoreAbout() {
     return (
         <main className="flex items-center justify-center">
-            <img
+            {/* <img
                 className="absolute h-screen w-full"
                 src="./icons/Vector.svg"
                 alt="icon"
-            />
+            /> */}
             <div className="relative flex w-full flex-col items-center gap-4 pt-28">
                 <h1 className="text- text-center text-3xl font-semibold text-secondary">
                     Let's make it personal

@@ -53,11 +53,11 @@ function LogIn(): JSX.Element {
 
     return (
         <main className="flex h-screen w-full flex-col items-center justify-start">
-            <img
+            {/* <img
                 className="absolute h-screen w-full"
                 src="./icons/Vector.svg"
                 alt="icon"
-            />
+            /> */}
             <div className="relative flex w-11/12 max-w-96 flex-col items-center justify-center gap-6 pt-28">
                 <h1 className="text-center text-3xl text-secondary">
                     Login <br /> Welcome back!

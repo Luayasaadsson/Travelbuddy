@@ -1,11 +1,11 @@
 function AboutUs() {
     return (
         <main className="flex h-screen flex-col justify-center gap-6 p-4">
-            <img
+            {/* <img
                 className="absolute h-screen w-full"
                 src="./icons/Vector.svg"
                 alt="icon"
-            />
+            /> */}
             <div className="relative flex flex-col items-center gap-5 text-center">
                 <h1 className="text-2xl text-primary md:text-4xl">About us</h1>
                 <p className="text-xs md:text-lg">

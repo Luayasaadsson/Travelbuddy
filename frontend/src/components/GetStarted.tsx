@@ -4,11 +4,11 @@ import { Button } from "./ui/button"
 function GetStarted() {
     return (
         <main className="flex h-screen items-center justify-center">
-            <img
+           {/*  <img
                 className="absolute h-screen w-full"
                 src="./icons/Vector.svg"
                 alt="icon"
-            />
+            /> */}
             <div className="relative flex flex-col items-center justify-center gap-5 p-2">
                 <img
                     className="w-20 sm:w-2/12"

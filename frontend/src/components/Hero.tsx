@@ -4,7 +4,11 @@ import { Button } from "./ui/button"
 function Hero() {
     return (
         <main className="flex h-screen items-center justify-center">
-             <img className="absolute w-full h-screen" src="./icons/Vector.svg" alt="icon" />
+            {/* <img
+                className="absolute h-screen w-full"
+                src="./icons/Vector.svg"
+                alt="icon"
+            /> */}
             <div className="relative flex flex-col gap-5 p-6">
                 <div className="hidden flex-row items-center text-center sm:flex ">
                     <div className="flex flex-col items-center gap-6">
@@ -38,7 +42,7 @@ function Hero() {
                         alt="image"
                     />
                     <div>
-                        <h2 className="text-center text-3xl text-secondary mb-2">
+                        <h2 className="mb-2 text-center text-3xl text-secondary">
                             Tailor your travel experience to perfection
                         </h2>
                         <p className="text-center text-sm text-secondary ">
@@ -59,10 +63,10 @@ function Hero() {
                                     />
                                 </Button>
                             </Link>
-                            <img
+                            {/* <img
                                 src="./icons/vector-icon.svg"
                                 alt="Vectoricon"
-                            />
+                            /> */}
                             <Link to="/signup">
                                 <Button variant="default">
                                     <p>Create profile</p>
