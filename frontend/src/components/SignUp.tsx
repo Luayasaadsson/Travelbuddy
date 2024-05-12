@@ -66,103 +66,118 @@ function SignUp(): JSX.Element {
     }
 
     return (
-        <main className="flex h-screen flex-col items-center justify-start">
-            {/* <img
-                className="absolute h-screen w-full"
-                src="./icons/Vector.svg"
-                alt="icon"
-            /> */}
-            <div className="relative flex w-11/12 max-w-96 flex-col items-center justify-center gap-2 pt-28">
-                <h1 className="text-center text-3xl text-secondary">
-                    Let's get you started
-                </h1>
-                <p className="text-center text-xs text-secondary">
-                    Fields marked with * are mandatory.
-                </p>
-                <div className="flex w-full flex-col items-center gap-6">
-                    <div className="flex w-full max-w-96 flex-col gap-2">
-                        <Label className="text-secondary">Email *</Label>
-                        <Input
-                            placeholder="Enter Your Email"
-                            value={email}
-                            onChange={handleEmailChange}
-                        />
-                        {emailError && (
-                            <div className="error-message">
-                                <FontAwesomeIcon icon={faExclamationCircle} />{" "}
-                                {emailError}
-                            </div>
-                        )}
-                    </div>
-                    <div className="relative flex w-full max-w-96 flex-col gap-2">
-                        <Label className="pt-2 text-secondary">
-                            Password *
-                        </Label>
-                        <Input
-                            placeholder="Enter Your Password"
-                            type={showPassword ? "text" : "password"}
-                            value={password}
-                            onChange={handlePasswordChange}
-                        />
-                        {passwordError && (
-                            <div className="error-message">
-                                <FontAwesomeIcon icon={faExclamationCircle} />{" "}
-                                {passwordError}
-                            </div>
-                        )}
-                        <img
-                            src="./icons/visibility.svg"
-                            alt="Show password"
-                            className="absolute inset-y-0 right-3 top-12 cursor-pointer"
-                            onClick={togglePasswordVisibility}
-                        />
-                    </div>
-                    <div className="relative flex w-full max-w-96 flex-col gap-2">
-                        <Label className="pt-2 text-secondary">
-                            Confirm Password *
-                        </Label>
-                        <Input
-                            placeholder="Confirm Your Password"
-                            type={showPassword ? "text" : "password"}
-                            value={confirmPassword}
-                            onChange={handleConfirmPasswordChange}
-                        />
-                        {confirmPasswordError && (
-                            <div className="error-message">
-                                <FontAwesomeIcon icon={faExclamationCircle} />{" "}
-                                {confirmPasswordError}
-                            </div>
-                        )}
-                        <img
-                            src="./icons/visibility.svg"
-                            alt="Show password"
-                            className="absolute inset-y-0 right-3 top-12 cursor-pointer"
-                            onClick={togglePasswordVisibility}
-                        />
-                    </div>
-                    <Button onClick={handleSignUpClick}>Create profile</Button>
-                    <p className="my-2 text-center text-sm text-neutral-200">
-                        Already have an account?
-                        <Link to="/login">
-                            <span className="cursor-pointer pl-2 text-primary underline underline-offset-4">
-                                Login here!
-                            </span>
-                        </Link>
+        <main className="flex h-screen w-full flex-col justify-start">
+            <div className="flex w-full flex-row-reverse items-center justify-center gap-10">
+                <img
+                    className="mt-32 hidden h-5/6 lg:flex"
+                    src="./images/unsplash-bg5.png"
+                    alt="Background image"
+                />
+                <div className="relative flex w-11/12 max-w-96 flex-col items-center justify-center gap-4 pt-28">
+                    <h1 className="text-center text-3xl text-secondary md:text-4xl lg:text-5xl">
+                        Let's get you started
+                    </h1>
+                    <p className="text-center text-xs text-secondary">
+                        Fields marked with * are mandatory.
                     </p>
+                    <div className="flex w-full flex-col items-center gap-6">
+                        <div className="flex w-full max-w-96 flex-col gap-2">
+                            <Label className="text-secondary">Email *</Label>
+                            <Input
+                                placeholder="Enter Your Email"
+                                value={email}
+                                onChange={handleEmailChange}
+                            />
+                            {emailError && (
+                                <div className="error-message">
+                                    <FontAwesomeIcon
+                                        icon={faExclamationCircle}
+                                    />{" "}
+                                    {emailError}
+                                </div>
+                            )}
+                        </div>
+                        <div className="relative flex w-full max-w-96 flex-col gap-2">
+                            <Label className="pt-2 text-secondary">
+                                Password *
+                            </Label>
+                            <Input
+                                placeholder="Enter Your Password"
+                                type={showPassword ? "text" : "password"}
+                                value={password}
+                                onChange={handlePasswordChange}
+                            />
+                            {passwordError && (
+                                <div className="error-message">
+                                    <FontAwesomeIcon
+                                        icon={faExclamationCircle}
+                                    />{" "}
+                                    {passwordError}
+                                </div>
+                            )}
+                            <img
+                                src="./icons/visibility.svg"
+                                alt="Show password"
+                                className="absolute inset-y-0 right-3 top-12 cursor-pointer"
+                                onClick={togglePasswordVisibility}
+                            />
+                        </div>
+                        <div className="relative flex w-full max-w-96 flex-col gap-2">
+                            <Label className="pt-2 text-secondary">
+                                Confirm Password *
+                            </Label>
+                            <Input
+                                placeholder="Confirm Your Password"
+                                type={showPassword ? "text" : "password"}
+                                value={confirmPassword}
+                                onChange={handleConfirmPasswordChange}
+                            />
+                            {confirmPasswordError && (
+                                <div className="error-message">
+                                    <FontAwesomeIcon
+                                        icon={faExclamationCircle}
+                                    />{" "}
+                                    {confirmPasswordError}
+                                </div>
+                            )}
+                            <img
+                                src="./icons/visibility.svg"
+                                alt="Show password"
+                                className="absolute inset-y-0 right-3 top-12 cursor-pointer"
+                                onClick={togglePasswordVisibility}
+                            />
+                        </div>
+                        <Button onClick={handleSignUpClick}>
+                            Create profile
+                        </Button>
+                        <p className="my-2 text-center text-sm text-neutral-200">
+                            Already have an account?
+                            <Link to="/login">
+                                <span className="cursor-pointer pl-2 text-primary underline underline-offset-4">
+                                    Login here!
+                                </span>
+                            </Link>
+                        </p>
+                    </div>
+                    <div className="inline-flex items-center gap-[9px]">
+                        <span className="w-[139px] border border-primary"></span>
+                        <p className="text-sm font-normal text-onBackground">
+                            Or
+                        </p>
+                        <span className="w-[139px] border border-primary"></span>
+                    </div>
+                    <Button variant="facebook">
+                        <img
+                            src="./icons/facebook-logo.svg"
+                            alt="Facebook Logo"
+                        />
+                        <span className="flex-grow">Login with Facebook</span>
+                    </Button>
+                    <Button variant="google">
+                        <img src="./icons/google-logo.svg" alt="Google Logo" />
+                        <span className="flex-grow">Login with Google</span>
+                    </Button>
                 </div>
-                <div className="inline-flex items-center gap-[9px]">
-                    <span className="w-[139px] border border-primary"></span>
-                    <p className="text-sm font-normal text-onBackground">Or</p>
-                    <span className="w-[139px] border border-primary"></span>
-                </div>
-                <Button variant="facebook">
-                    <img src="./icons/facebook-logo.svg" alt="Facebook Logo" />
-                    <span className="flex-grow">Login with Facebook</span>
-                </Button>
-                <Button variant="google">
-                    <img src="./icons/google-logo.svg" alt="Google Logo" />
-                    <span className="flex-grow">Login with Google</span>
-                </Button>
             </div>
         </main>
     )
