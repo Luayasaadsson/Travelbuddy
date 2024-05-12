@@ -1,4 +1,4 @@
-import Language from "../frontend/src/types/common/Language"
+/* import Language from "../frontend/src/types/common/Language"
 import User from "../frontend/src/types/user/User"
 
 
@@ -22,6 +22,6 @@ type Setting = {
     // accessibilityTextSize?: number | null
     // Publication and Subscription
     // subscriptionIds?: string[] 
-}
+/* }
 
-export default Setting
+export default Setting */ 

@@ -1,7 +1,7 @@
-type CurrencyCode = 
+/* type CurrencyCode = 
     "EUR" | 
     "USD" | 
     "SEK" | 
     null
 
-export default CurrencyCode
+export default CurrencyCode */

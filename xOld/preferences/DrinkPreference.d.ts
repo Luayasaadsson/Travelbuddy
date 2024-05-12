@@ -1,4 +1,4 @@
-
+/* 
 type DrinkPreferences = {
     id: string
     preferBeer?: boolean | null;
@@ -18,3 +18,4 @@ type DrinkPreferences = {
 
 export default DrinkPreferences
 
+ */

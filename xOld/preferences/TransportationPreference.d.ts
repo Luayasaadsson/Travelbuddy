@@ -1,4 +1,4 @@
-
+/* 
 
 type TransportationPreferences = {
     id: string;
@@ -16,4 +16,4 @@ type TransportationPreferences = {
     preferWalking?: boolean | null;
   }
 
-  export default TransportationPreferences
+  export default TransportationPreferences */

@@ -1,4 +1,4 @@
-import Disabilties from "./user/Disabilities"
+/* import Disabilties from "./user/Disabilities"
 import Gender from "../frontend/src/types/common/Gender"
 import Language from "../frontend/src/types/common/Language"
 
@@ -13,4 +13,4 @@ type UserProfile = {
   settings: Settings,
 }
 
-export default UserProfile
+export default UserProfile */
