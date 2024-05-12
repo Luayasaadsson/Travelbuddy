@@ -9,6 +9,13 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion"
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select"
 import { useSelector, useDispatch } from "react-redux"
 import { RootState } from "@/store/store"
 import {
@@ -17,7 +24,10 @@ import {
     toggleFoodPreference,
     toggleTransportationPreference,
     toggleVacationPreference,
+    updatePreferredCurrency,
 } from "@/store/slices/userSlice"
+import Currency from "@/types/common/Currency"
+
 
 function ProfileSettings() {
     const dispatch = useDispatch()
@@ -33,9 +43,17 @@ function ProfileSettings() {
     const transportationPreferenceList = useSelector(
         (state: RootState) => state.user.preferences.transportation,
     )
-
     const vacationPreferenceList = useSelector(
         (state: RootState) => state.user.preferences.vacation,
+    )
+    const budgetPreferenceList = useSelector(
+        (state: RootState) => state.user.preferences.budget,
+    )
+    const preferredCurrency = useSelector(
+        (state: RootState) => state.user.settings.preferredCurrency,
+    ) 
+    const currencyList = useSelector(
+        (state: RootState) => state.common.currencies,
     )
 
     const handleToggleAccommodationPreference = (id: number) => {
@@ -52,6 +70,10 @@ function ProfileSettings() {
     }
     const handleToggleVacationPreference = (id: number) => {
         dispatch(toggleVacationPreference(id))
+    }
+    const handlePreferredCurrencySelected = (currency: Currency) => {
+        //update the selected currency in the dropdown. TODO:
+        dispatch(updatePreferredCurrency(currency))
     }
     return (
         <main className="flex min-h-screen items-start justify-center">
@@ -222,6 +244,48 @@ function ProfileSettings() {
                         </AccordionItem>
                     </Accordion>
                 </div>
+
+                <div className="flex w-full flex-col text-secondary">
+                    <p className="text-xl">My budget preferences</p>
+
+                    <Accordion type="single" collapsible>
+                        <AccordionItem value="item-1">
+                            <AccordionTrigger>
+                                {<Select value={preferredCurrency!.code!} /* onValueChange={() => handlePreferredCurrencySelected(currency)} */>
+                                    
+                                    <SelectTrigger className="flex h-12 w-full border-outline placeholder:text-onBackground placeholder:opacity-50">
+                                        <SelectValue
+                                            placeholder="Select your preferred currency"
+                                        />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                        {currencyList.map((currency) => (
+                                            <SelectItem
+                                             key={currency.id}
+                                             value={currency.code!}
+                                             onChange={() => handlePreferredCurrencySelected(currency)}
+                                             /* TODO: selected={preferredCurrency.code === currency.code} TODO:*/ >
+                                                {currency.code} ({currency.label})</SelectItem>
+                                            ))
+                                        }
+                                    </SelectContent>
+                                </Select> }
+                            </AccordionTrigger>
+                            <AccordionContent>
+
+                                {budgetPreferenceList.map((item)=> {
+                                    return(
+                                        <div className="flex w-full max-w-96 flex-col ">
+                                            <Label className="gap-2 text-secondary">{item.label}</Label>
+                                            <Input placeholder="Enter the amount here" />
+                                        </div>
+                                    )
+                                })}    
+                            </AccordionContent>
+                        </AccordionItem>
+                    </Accordion>
+                </div>
+
                 <Link className="w-full" to="/profilestart">
                     <Button className="flex w-full max-w-96 items-center justify-center gap-2 p-3">
                         Save changes
