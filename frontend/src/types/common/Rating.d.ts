@@ -1,4 +1,12 @@
-type Rating = 
+type Rating = {
+    id: number
+    label: string | null
+}
+
+export default Rating
+
+
+/* type Rating = 
     0 |
     1 |
     2 | 
@@ -11,4 +19,4 @@ type Rating =
     9 |
     10
 
-export default Rating
+export default Rating */
