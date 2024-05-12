@@ -4,11 +4,6 @@ import { Button } from "./ui/button"
 function Hero() {
     return (
         <main className="flex h-screen items-center justify-center">
-            {/* <img
-                className="absolute h-screen w-full"
-                src="./icons/Vector.svg"
-                alt="icon"
-            /> */}
             <div className="relative flex flex-col gap-5 p-6">
                 <div className="hidden flex-row items-center text-center sm:flex ">
                     <div className="flex flex-col items-center gap-6">
@@ -63,13 +58,13 @@ function Hero() {
                                     />
                                 </Button>
                             </Link>
-                            {/* <img
+                            <img
                                 src="./icons/vector-icon.svg"
                                 alt="Vectoricon"
-                            /> */}
+                            />
                             <Link to="/signup">
                                 <Button variant="default">
-                                    <p>Create profile</p>
+                                    <p>Sign up</p>
                                     <img
                                         className="ml-2 h-6 w-6"
                                         src="/images/account2.svg"

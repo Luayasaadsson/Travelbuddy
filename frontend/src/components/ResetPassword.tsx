@@ -74,87 +74,97 @@ function ResetPassword() {
     }
 
     return (
-        <main className="flex h-screen flex-col items-center justify-start">
-            {/* <img
-                className="absolute h-screen w-full"
-                src="./icons/Vector.svg"
-                alt="icon"
-            /> */}
-            <div className="relative flex w-11/12 max-w-96 flex-col items-center justify-center gap-4">
-                <div className="flex justify-center pt-36">
-                    <h1 className="text-3xl text-secondary">Reset Password</h1>
+        <main className="flex h-screen w-full flex-col justify-start">
+            <div className="flex w-full flex-row-reverse items-center justify-center gap-10">
+                <img
+                    className="mt-48 hidden h-5/6 lg:flex"
+                    src="./images/unsplash-bg6.png"
+                    alt="Background image"
+                />
+                <div className="relative flex w-11/12 max-w-96 flex-col items-center justify-center gap-4">
+                    <div className="flex justify-center pt-36">
+                        <h1 className="text-3xl text-secondary">
+                            Reset Password
+                        </h1>
+                    </div>
+                    <p className="text-xs text-secondary">
+                        Enter your email account to reset your password
+                    </p>
+                    <div className="flex w-full max-w-96 flex-col gap-2">
+                        <Label className="text-secondary">Email *</Label>
+                        <Input
+                            placeholder="Enter Your Email"
+                            value={email}
+                            onChange={handleEmailChange}
+                        />
+                        {emailError && (
+                            <div className="error-message">
+                                <FontAwesomeIcon icon={faExclamationCircle} />{" "}
+                                {emailError}
+                            </div>
+                        )}
+                    </div>
+                    <div className="relative flex w-full flex-col items-start gap-2">
+                        <Label className="pt-2 text-secondary">
+                            Password *
+                        </Label>
+                        <Input
+                            placeholder="Enter Your Password"
+                            type={showPassword ? "text" : "password"}
+                            value={password}
+                            onChange={handlePasswordChange}
+                        />
+                        {passwordError && (
+                            <div className="error-message">
+                                <FontAwesomeIcon icon={faExclamationCircle} />{" "}
+                                {passwordError}
+                            </div>
+                        )}
+                        <img
+                            src="./icons/visibility.svg"
+                            alt="Show password"
+                            className="absolute inset-y-0 right-3 top-12 cursor-pointer"
+                            onClick={togglePasswordVisibility}
+                        />
+                    </div>
+                    <div className="relative flex w-full max-w-96 flex-col gap-2">
+                        <Label className="pt-2 text-secondary">
+                            Confirm Password *
+                        </Label>
+                        <Input
+                            placeholder="Confirm Your Password"
+                            type={showPassword ? "text" : "password"}
+                            value={confirmPassword}
+                            onChange={handleConfirmPasswordChange}
+                        />
+                        {confirmPasswordError && (
+                            <div className="error-message">
+                                <FontAwesomeIcon icon={faExclamationCircle} />{" "}
+                                {confirmPasswordError}
+                            </div>
+                        )}
+                        <img
+                            src="./icons/visibility.svg"
+                            alt="Show password"
+                            className="absolute inset-y-0 right-3 top-12 cursor-pointer"
+                            onClick={togglePasswordVisibility}
+                        />
+                    </div>
+                    <Button
+                        onClick={handleShowResetPasswordOverlay}
+                        className="w-full"
+                        disabled={
+                            !!(
+                                emailError ||
+                                passwordError ||
+                                confirmPasswordError
+                            )
+                        }
+                    >
+                        Reset Password
+                    </Button>
+                    <Overlay />
                 </div>
-                <p className="text-xs text-secondary">
-                    Enter your email account to reset your password
-                </p>
-                <div className="flex w-full max-w-96 flex-col gap-2">
-                    <Label className="text-secondary">Email *</Label>
-                    <Input
-                        placeholder="Enter Your Email"
-                        value={email}
-                        onChange={handleEmailChange}
-                    />
-                    {emailError && (
-                        <div className="error-message">
-                            <FontAwesomeIcon icon={faExclamationCircle} />{" "}
-                            {emailError}
-                        </div>
-                    )}
-                </div>
-                <div className="relative flex w-full flex-col items-start gap-2">
-                    <Label className="pt-2 text-secondary">Password *</Label>
-                    <Input
-                        placeholder="Enter Your Password"
-                        type={showPassword ? "text" : "password"}
-                        value={password}
-                        onChange={handlePasswordChange}
-                    />
-                    {passwordError && (
-                        <div className="error-message">
-                            <FontAwesomeIcon icon={faExclamationCircle} />{" "}
-                            {passwordError}
-                        </div>
-                    )}
-                    <img
-                        src="./icons/visibility.svg"
-                        alt="Show password"
-                        className="absolute inset-y-0 right-3 top-12 cursor-pointer"
-                        onClick={togglePasswordVisibility}
-                    />
-                </div>
-                <div className="relative flex w-full max-w-96 flex-col gap-2">
-                    <Label className="pt-2 text-secondary">
-                        Confirm Password *
-                    </Label>
-                    <Input
-                        placeholder="Confirm Your Password"
-                        type={showPassword ? "text" : "password"}
-                        value={confirmPassword}
-                        onChange={handleConfirmPasswordChange}
-                    />
-                    {confirmPasswordError && (
-                        <div className="error-message">
-                            <FontAwesomeIcon icon={faExclamationCircle} />{" "}
-                            {confirmPasswordError}
-                        </div>
-                    )}
-                    <img
-                        src="./icons/visibility.svg"
-                        alt="Show password"
-                        className="absolute inset-y-0 right-3 top-12 cursor-pointer"
-                        onClick={togglePasswordVisibility}
-                    />
-                </div>
-                <Button
-                    onClick={handleShowResetPasswordOverlay}
-                    className="w-full"
-                    disabled={
-                        !!(emailError || passwordError || confirmPasswordError)
-                    }
-                >
-                    Reset Password
-                </Button>
-                <Overlay />
             </div>
         </main>
     )

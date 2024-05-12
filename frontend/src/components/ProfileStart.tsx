@@ -24,12 +24,7 @@ function ProfileStart() {
 
     return (
         <main className="flex h-screen items-center justify-center">
-            {/* <img
-                className="absolute h-screen w-full"
-                src="./icons/Vector.svg"
-                alt="icon"
-            /> */}
-            <div className="relative flex w-11/12 max-w-96 flex-col items-center justify-center gap-8">
+            <div className="relative flex w-11/12 max-w-96 flex-col items-center justify-center gap-8 lg:max-w-3xl">
                 <Avatar
                     className="border-4 border-secondary"
                     style={{
@@ -45,40 +40,45 @@ function ProfileStart() {
                         How can i help you today?
                     </p>
                 </div>
-                <Button className="justify-between">
-                    Find your dream vacation
-                    <img src="./icons/icon-location.svg" alt="" />
-                </Button>
-                <Button className="justify-between">
-                    Places to stay nearby
-                    <img src="./icons/icon-bed.svg" alt="" />
-                </Button>
-                <Link className="w-full" to="/chatbot">
-                    <Button
-                        onClick={() =>
-                            handleClick(
-                                "Let's find a bite!",
-                                "Choose below or type in your cravings at the bottom for restaurants near you!",
-                                {
-                                    type: "text",
-                                    role: "agent",
-                                    content: [
-                                        "Hi, what do you want to eat today?",
-                                    ],
-                                },
-                            )
-                        }
-                        className="justify-between"
-                    >
-                        Let’s find a place to eat nearby
-                        <img src="./icons/icon-food.svg" alt="" />
-                    </Button>
-                </Link>
-                <Button className="justify-between">
-                    Experiences & Activities
-                    <img src="./icons/icon-activity.svg" alt="" />
-                </Button>
-                {/* </div> */}
+                <div className="flex w-full flex-col items-center justify-center gap-4 lg:flex-row">
+                    <div className="flex w-full flex-col items-start gap-4">
+                        <Button className="justify-between">
+                            Find your dream vacation
+                            <img src="./icons/icon-location.svg" alt="" />
+                        </Button>
+                        <Button className="justify-between">
+                            Places to stay nearby
+                            <img src="./icons/icon-bed.svg" alt="" />
+                        </Button>
+                    </div>
+                    <div className="flex w-full flex-col items-start gap-4">
+                        <Link className="w-full" to="/chatbot">
+                            <Button
+                                onClick={() =>
+                                    handleClick(
+                                        "Let's find a bite!",
+                                        "Choose below or type in your cravings at the bottom for restaurants near you!",
+                                        {
+                                            type: "text",
+                                            role: "agent",
+                                            content: [
+                                                "Hi, what do you want to eat today?",
+                                            ],
+                                        },
+                                    )
+                                }
+                                className="justify-between"
+                            >
+                                Let’s find a place to eat nearby
+                                <img src="./icons/icon-food.svg" alt="" />
+                            </Button>
+                        </Link>
+                        <Button className="justify-between">
+                            Experiences & Activities
+                            <img src="./icons/icon-activity.svg" alt="" />
+                        </Button>
+                    </div>
+                </div>
             </div>
         </main>
     )
