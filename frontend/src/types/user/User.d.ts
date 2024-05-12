@@ -2,6 +2,7 @@
 import Language from "../common/Language" 
 import Gender from "../common/Gender"
 import CurrencyCode from "../common/Currency"
+import BudgetPreference from "./BudgetPreference"
 
 type User = {
     id: string | null
@@ -27,11 +28,7 @@ type AccommodationPreference = {
 type AccommodationPreferences = AccommodationPreference[]
 
 
-type BudgetPreference = {
-    id: number
-    label: string 
-    amount: number | null
-}
+
 
 type BudgetPreferences = BudgetPreference[]
 

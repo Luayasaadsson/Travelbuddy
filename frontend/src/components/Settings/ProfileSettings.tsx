@@ -25,8 +25,12 @@ import {
     toggleTransportationPreference,
     toggleVacationPreference,
     updatePreferredCurrency,
+    updateBudgetPreference,
 } from "@/store/slices/userSlice"
 import Currency from "@/types/common/Currency"
+import BudgetPreference from "@/types/user/BudgetPreference"
+
+
 
 
 function ProfileSettings() {
@@ -75,6 +79,10 @@ function ProfileSettings() {
         //update the selected currency in the dropdown. TODO:
         dispatch(updatePreferredCurrency(currency))
     }
+    const handleBudgetPreferenceUpdated = (budgetPreference: BudgetPreference) => {
+        dispatch(updateBudgetPreference(budgetPreference)) //
+    }
+
     return (
         <main className="flex min-h-screen items-start justify-center">
             {/* <img
@@ -277,7 +285,10 @@ function ProfileSettings() {
                                     return(
                                         <div className="flex w-full max-w-96 flex-col ">
                                             <Label className="gap-2 text-secondary">{item.label}</Label>
-                                            <Input placeholder="Enter the amount here" />
+                                            <Input
+                                                key={item.id}
+                                                onChange={() => handleBudgetPreferenceUpdated(item)} //item
+                                                placeholder="Enter the amount here" />
                                         </div>
                                     )
                                 })}    

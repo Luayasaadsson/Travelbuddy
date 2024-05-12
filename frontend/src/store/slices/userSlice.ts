@@ -2,6 +2,8 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import type { PayloadAction } from "@reduxjs/toolkit" // För att typa action.payload i reducer-funktioner
 import User from "../../types/user/User"
 import Currency from "@/types/common/Currency"
+import BudgetPreference from "@/types/user/BudgetPreference"
+
 
 
 // Initial state
@@ -132,37 +134,37 @@ const initialState: User = {
         budget: [
             {
                 id: 1,
-                label: "Total Vacation Budget p.p.",
+                label: "Total Vacation Budget per person",
                 amount: 1000,
             },
             {
                 id: 2,
-                label: "Transporation Budget p.p.",
+                label: "Transporation Budget per person",
                 amount: 300,
             },
             {
                 id: 3,
-                label: "Accommodation Budget p.p.",
+                label: "Accommodation Budget per person",
                 amount: null,
             },
             {
                 id: 4,
-                label: "Food & Drink Budget p.p.",
+                label: "Food & Drink Budget per person",
                 amount: null,
             },
             {
                 id: 5,
-                label: "Entertainment Budget p.p.",
+                label: "Entertainment Budget per person",
                 amount: null,
             },
             {
                 id: 6,
-                label: "Other Budget p.a.",
+                label: "Other Budget per person",
                 amount: null,
             },
             {
                 id: 7,
-                label: "Restaurant Price per Meal",
+                label: "Restaurant Price per meal",
                 amount: null,
             },
         ],
@@ -820,8 +822,20 @@ export const userSlice = createSlice({
                 },
             }
         },
-        updateBudgetPreferences: (state, action: PayloadAction<User>) => {
-            state.preferences.budget = action.payload.preferences.budget
+        updateBudgetPreference: (state, action: PayloadAction<BudgetPreference>) => {
+            const budgetPreference = action.payload
+            console.log("budgetPreference:",budgetPreference)
+            return {
+                ...state,
+                preferences: {
+                    ...state.preferences,
+                    budget: state.preferences.budget.map((item) =>
+                        item.id === budgetPreference.id
+                            ? { ...item, amount: budgetPreference.amount }
+                            : item,
+                    ),
+                },
+            }
         },
         updatePreferredCurrency: (state, action: PayloadAction<Currency>) => {
             state.settings.preferredCurrency = action.payload
@@ -875,7 +889,7 @@ export const fetchUser = createAsyncThunk(
 )
 
 // Exporterar alla actionfunktioner
-export const { updateUser, updateUserId, updateIsLoggedIn, toggleAccommodationPreference, toggleDietPreference, toggleFoodPreference, toggleTransportationPreference, toggleVacationPreference, updatePreferredCurrency } = userSlice.actions // TODO:
+export const { updateUser, updateUserId, updateIsLoggedIn, toggleAccommodationPreference, toggleDietPreference, toggleFoodPreference, toggleTransportationPreference, toggleVacationPreference, updatePreferredCurrency, updateBudgetPreference } = userSlice.actions // TODO:
 // Exporterar reducern
 export default userSlice.reducer
 
