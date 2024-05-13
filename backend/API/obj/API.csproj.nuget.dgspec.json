@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/damianamalraj/Documents/Repos/travelbuddy/backend/API/API.csproj": {}
+    "/Users/damianamalraj/Documents/Development/travelbuddy/backend/API/API.csproj": {}
   },
   "projects": {
-    "/Users/damianamalraj/Documents/Repos/travelbuddy/backend/API/API.csproj": {
+    "/Users/damianamalraj/Documents/Development/travelbuddy/backend/API/API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/damianamalraj/Documents/Repos/travelbuddy/backend/API/API.csproj",
+        "projectUniqueName": "/Users/damianamalraj/Documents/Development/travelbuddy/backend/API/API.csproj",
         "projectName": "API",
-        "projectPath": "/Users/damianamalraj/Documents/Repos/travelbuddy/backend/API/API.csproj",
+        "projectPath": "/Users/damianamalraj/Documents/Development/travelbuddy/backend/API/API.csproj",
         "packagesPath": "/Users/damianamalraj/.nuget/packages/",
-        "outputPath": "/Users/damianamalraj/Documents/Repos/travelbuddy/backend/API/obj/",
+        "outputPath": "/Users/damianamalraj/Documents/Development/travelbuddy/backend/API/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/damianamalraj/.nuget/NuGet/NuGet.Config"
