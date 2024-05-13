@@ -1,9 +1,13 @@
-
+import React, { ReactNode } from 'react';
 import { Navigate } from 'react-router-dom';
-import { Route, Redirect } from 'react-router-dom';
 
-const PrivateRoute = ({children, isLoggedIn}) => {
-  return <div> {isLoggedIn ? children : <Navigate to='/' /> }</div>;
-};
+interface PrivateRouteProps{
+  children: ReactNode;
+  isLoggedIn: boolean;
+}
 
-export default PrivateRoute;
+const PrivateRoute: React.FC<PrivateRouteProps> = ({ children, isLoggedIn}) => {
+  return <>{isLoggedIn ? children : <Navigate to="/" />} </>
+}
+
+export default PrivateRoute; 
