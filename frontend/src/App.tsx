@@ -53,14 +53,14 @@ function App() {
                     <DesktopVector />
                     </div>
                 } />
-
+                    {/* Protected route */}
                     <Route path="/hero" element={
                     <div>
                     <Hero />
                     <DesktopVector />
                     </div>
                 } />
-
+                    {/* Protected route */}
                     <Route path="/chatbot" element={
                     <div>
                     <ChatBot />
@@ -74,14 +74,14 @@ function App() {
                     <DesktopVector />
                     </div>
                 } />
-
+                    {/* Protected route */}
                     <Route path="/settings" element={
                     <div>
                     <Settings />
                     <DesktopVector />
                     </div>
                 } />
-
+                    {/* Protected route */}
                     <Route path="/profilesettings" element={
                     <div>
                     <ProfileSettings />
@@ -89,7 +89,7 @@ function App() {
                     </div>
                     }
                     />
-
+                    {/* Protected route */}
                     <Route
                         path="/changepassword"
                         element={
