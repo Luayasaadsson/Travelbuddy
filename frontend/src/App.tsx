@@ -17,6 +17,7 @@ import Hero from "./components/Hero"
 import AboutUs from "./components/AboutUs"
 import RateTheApp from "./components/RateTheApp"
 import DesktopVector from "./components/DesktopVector"
+// import PrivateRoute from "./components/PrivateRoute"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 function App() {
