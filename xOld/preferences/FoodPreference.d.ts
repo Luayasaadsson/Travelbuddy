@@ -1,4 +1,4 @@
-
+/* 
 
 type FoodPreference = {
     id: string
@@ -30,4 +30,4 @@ type FoodPreference = {
     preferVietnameseFood?: boolean | null 
 }
 
-export default FoodPreference
+export default FoodPreference */

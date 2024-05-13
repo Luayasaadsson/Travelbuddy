@@ -109,7 +109,7 @@ function Header() {
                         className="cursor-pointer py-2 text-2xl transition-opacity duration-300 ease-in-out hover:text-secondary-foreground"
                     >
                         <Link to="/settings" onClick={handleCloseMenu}>
-                            Setting
+                            Settings
                         </Link>
                     </li>
                     <li

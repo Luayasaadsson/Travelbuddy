@@ -1,7 +1,8 @@
 import StreetAddress from "./StreetAddress"
 
 // TODO:  Can we use Google Maps API to find cities/villages/locations? 
-type Address = {
+
+/* type Address = {
     id: string
     streetName?: string | null,
     houseNumber?: string | null,
@@ -19,4 +20,4 @@ type Address = {
     longitude?: string | null
 }
 
-export default Address
+export default Address */

@@ -1,4 +1,4 @@
-
+/* 
 
 type BudgetPreference = {
     id: string
@@ -10,4 +10,4 @@ type BudgetPreference = {
     maxTotalBudget?: number | null;
 };
 
-export default BudgetPreference
+export default BudgetPreference */
