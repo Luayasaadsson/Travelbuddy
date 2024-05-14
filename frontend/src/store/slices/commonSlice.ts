@@ -1,4 +1,5 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
+//import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit"
 import type { PayloadAction } from "@reduxjs/toolkit" // För att typa action.payload i reducer-funktioner
 import Common from "../../types/common/Common"
 
@@ -332,7 +333,7 @@ export const commonSlice = createSlice({
     // builder är ett objekt som innehåller metoder för att lägga till case reducers
     // med addCase kan vi fånga upp olika action från den asynkrona hämtningen (pending, fulfilled, rejected)
     // https://redux-toolkit.js.org/api/createAsyncThunk
-    extraReducers: (builder) => {
+    /* extraReducers: (builder) => {
         builder.addCase(fetchCommon.pending, (state) => {
             state = initialState
         })
@@ -345,11 +346,11 @@ export const commonSlice = createSlice({
         builder.addCase(fetchCommon.rejected, () => {
             console.error("Error fetching common data")
         })
-    },
+    }, */
 })
 
 // createAsyncThunk tar två argument, ett namn och en funktion som returnerar en promise
-export const fetchCommon = createAsyncThunk(
+/* export const fetchCommon = createAsyncThunk(
     "common/fetchCommon",
     async (urlEndpoint: string) => {
         const response: Response = await fetch(urlEndpoint)
@@ -362,7 +363,7 @@ export const fetchCommon = createAsyncThunk(
             return fetchedCommon
         }
     },
-)
+) */
 
 // Exporterar alla actionfunktioner
 export const { updateCommon } = commonSlice.actions 
