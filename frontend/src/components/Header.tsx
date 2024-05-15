@@ -41,23 +41,23 @@ function Header() {
 
     return (
         <header className="absolute z-10 flex h-16 w-full flex-col bg-transparent">
-            <nav className="z-2 flex items-center justify-between p-4">
+            <nav className="z-2 flex items-center items-center justify-between p-4">
                 <Link to="/" className="flex items-center justify-center">
                     <img
                         src="/images/logo.svg"
                         alt=""
                         className="w-11 md:w-16"
                     />
-                    <h1 className="font-semibold tracking-wide pl-3 text-lg md:text-2xl">
+                    <h1 className="pl-3 text-lg font-semibold tracking-wide md:text-2xl">
                         TravelBuddy
                     </h1>
                 </Link>
                 <div className="flex gap-4">
-                    <Link to="/settings">
+                    <Link to="/settings" className="flex items-center">
                         <img
                             src="/images/account_circle.svg"
                             alt=""
-                            className="w-11 hover:cursor-pointer"
+                            className="w-10 hover:cursor-pointer"
                         />
                     </Link>
 
@@ -87,10 +87,10 @@ function Header() {
                     zIndex: "1000",
                 }}
             >
-                <ul className="flex flex-col items-center justify-center bg-background">
+                <ul className="flex flex-col items-center justify-center gap-2 bg-background py-2">
                     <li
                         style={{ opacity: isOpen ? "1" : "0" }}
-                        className="cursor-pointer py-2 text-2xl transition-opacity duration-300 ease-in-out hover:text-secondary-foreground"
+                        className="flex h-12 cursor-pointer items-center text-2xl transition-opacity duration-300 ease-in-out hover:text-secondary-foreground"
                     >
                         <Link to="/" onClick={handleCloseMenu}>
                             Home
@@ -98,7 +98,7 @@ function Header() {
                     </li>
                     <li
                         style={{ opacity: isOpen ? "1" : "0" }}
-                        className=" cursor-pointer py-2 text-2xl transition-opacity duration-300 ease-in-out hover:text-secondary-foreground"
+                        className="flex h-12 cursor-pointer items-center text-2xl transition-opacity duration-300 ease-in-out hover:text-secondary-foreground"
                     >
                         <Link to="/profilestart" onClick={handleCloseMenu}>
                             Bot
@@ -106,7 +106,7 @@ function Header() {
                     </li>
                     <li
                         style={{ opacity: isOpen ? "1" : "0" }}
-                        className="cursor-pointer py-2 text-2xl transition-opacity duration-300 ease-in-out hover:text-secondary-foreground"
+                        className="flex h-12 cursor-pointer items-center text-2xl transition-opacity duration-300 ease-in-out hover:text-secondary-foreground"
                     >
                         <Link to="/settings" onClick={handleCloseMenu}>
                             Settings
@@ -114,7 +114,7 @@ function Header() {
                     </li>
                     <li
                         style={{ opacity: isOpen ? "1" : "0" }}
-                        className="cursor-pointer py-2 text-2xl transition-opacity duration-300 ease-in-out hover:text-secondary-foreground"
+                        className="flex h-12 cursor-pointer items-center text-2xl transition-opacity duration-300 ease-in-out hover:text-secondary-foreground"
                     >
                         <Link to="/aboutus" onClick={handleCloseMenu}>
                             About us
