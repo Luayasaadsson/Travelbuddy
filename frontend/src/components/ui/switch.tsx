@@ -110,7 +110,7 @@ const Switch = React.forwardRef<
     return (
         <button
             className={cn(
-                "inline-flex h-11 w-24 items-center gap-2 rounded-full",
+                "inline-flex h-10 w-20 items-center gap-1 rounded-full",
                 {
                     "justify-end": isDarkMode,
                     "justify-start": !isDarkMode,
@@ -122,7 +122,7 @@ const Switch = React.forwardRef<
         >
             {isDarkMode ? (
                 <SwitchPrimitives.Root
-                    className={cn("h-9 w-9 rounded-full", {
+                    className={cn("h-8 w-8 rounded-full", {
                         "bg-emerald-300": isDarkMode,
                         "bg-neutral-200": !isDarkMode,
                     })}
@@ -139,7 +139,7 @@ const Switch = React.forwardRef<
             ) : null}
             <div
                 className={cn(
-                    "w-12 text-center text-xs font-bold leading-tight",
+                    "w-10 text-center text-xs font-bold leading-tight",
                     {
                         "text-black": isDarkMode,
                         "text-white": !isDarkMode,
@@ -150,7 +150,7 @@ const Switch = React.forwardRef<
             </div>
             {!isDarkMode ? (
                 <SwitchPrimitives.Root
-                    className={cn("h-9 w-9 rounded-full", {
+                    className={cn("h-8 w-8 rounded-full", {
                         "bg-neutral-200": !isDarkMode,
                         "bg-emerald-300": isDarkMode,
                     })}

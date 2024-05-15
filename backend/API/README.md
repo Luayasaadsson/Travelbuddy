@@ -7,10 +7,8 @@
 1. **Create an `.env` File**
    Create a `.env` file in the root directory (`backend/API/.env`) of the project with the following content:
 
-   ```bash
-   OPENAI_API_KEY=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
-   GOOGLE_OAUTH_CLIENT_ID=299817103719-sgecp2fpqbapdk20c4b8go2e6g8v9t4f.apps.googleusercontent.com
-   GOOGLE_OAUTH_CLIENT_SECRET=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
+   ```json
+   // Ask Damian for the values
    ```
 
 2. **Run the Project**
