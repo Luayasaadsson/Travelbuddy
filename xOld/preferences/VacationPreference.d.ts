@@ -1,4 +1,4 @@
-
+/* 
 
 type VacationPreference = {
     id: string | null;
@@ -24,4 +24,4 @@ type VacationPreference = {
     preferWildlifeAndSafariExperiences?: boolean | null;
 }
 
-export default VacationPreference
+export default VacationPreference */

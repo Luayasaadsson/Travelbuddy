@@ -1,7 +1,8 @@
-/* import Country from "../common/Country"
-import Language from "../common/Language" */
+
+import Language from "../common/Language" 
 import Gender from "../common/Gender"
-import CurrencyCode from "../common/CurrencyCode"
+import CurrencyCode from "../common/Currency"
+import BudgetPreference from "./BudgetPreference"
 
 type User = {
     id: string | null
@@ -27,12 +28,7 @@ type AccommodationPreference = {
 type AccommodationPreferences = AccommodationPreference[]
 
 
-type BudgetPreference = {
-    id: number
-    label: string
-    currency: CurrencyCode 
-    value: number | null
-}
+
 
 type BudgetPreferences = BudgetPreference[]
 
@@ -43,7 +39,7 @@ type DietPreference = {
     selected: boolean
 }
 
-type DietPreferences = Dietreference[]
+type DietPreferences = DietPreference[]
 
 
 type FoodPreference = {
@@ -92,20 +88,21 @@ type SessionInfo = {
 type Profile = {
     firstName: string | null
     lastName?: string | null
-    gender: Gender
+    gender: Gender | null
     address?: Address
 }
 
 type Settings = {
-    email: string |null
+    email: string | null
     password: string
     publicName: string
     publicAvatarUrl?: string | null
     language: "en"
-    currency: CurrencyCode
+    preferredCurrency: Currency | null
     mode: "light" | "dark"
 }
 
+// TODO:  update gender type below
 type PersonalInfo = {
     dateOfBirth?: Date | null
     gender?: "Female" | "Male" | "Non-binary" | "Transgender" | null

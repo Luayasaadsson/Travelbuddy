@@ -1,7 +1,7 @@
-/* import Country from "../common/Country"
+/* /* import Country from "../common/Country"
 import Gender from "../common/Gender"
 import Language from "../common/Language" */
-
+/* 
 type User = {
     id: string | null;
     profile: {
@@ -227,4 +227,5 @@ type User = {
     };
 };
 
-export default User;
+export default User; */
+ 

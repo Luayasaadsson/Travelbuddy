@@ -1,4 +1,4 @@
-
+/* 
 
 type DietaryPreference = {
     id: string
@@ -26,4 +26,4 @@ type DietaryPreference = {
     avoidGluten?: boolean | null
 }
 
-export default DietaryPreference
+export default DietaryPreference */

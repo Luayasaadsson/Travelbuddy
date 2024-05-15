@@ -1,7 +1,0 @@
-type CurrencyCode = 
-    "EUR" | 
-    "USD" | 
-    "SEK" | 
-    null
-
-export default CurrencyCode

@@ -1,4 +1,4 @@
-type Relation = 
+/* type Relation = 
     "Solo" |
     "Family" |
     "Friend" |
@@ -7,4 +7,4 @@ type Relation =
     "Other" 
 
 
-export default Relation
+export default Relation */

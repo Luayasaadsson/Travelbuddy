@@ -1,34 +1,10 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import type { PayloadAction } from "@reduxjs/toolkit" // För att typa action.payload i reducer-funktioner
 import User from "../../types/user/User"
+import Currency from "@/types/common/Currency"
+import BudgetPreference from "@/types/user/BudgetPreference"
 
-/* if (!localStorage.getItem("favouriteJobs")) {
-  localStorage.setItem("favouriteJobs", JSON.stringify([]));
-}
-if (!localStorage.getItem("currentSkillsOperand")) {
-  localStorage.setItem("currentSkillsOperand", JSON.stringify("OCH"));
-}
-if (!localStorage.getItem("currentWorkingHoursTypeLabel")) {
-  localStorage.setItem("currentWorkingHoursTypeLabel", JSON.stringify("Heltid"));
-}
-if (!localStorage.getItem("currentSkillsFilters")) {
-  localStorage.setItem("currentSkillsFilters", JSON.stringify([]));
-}
-if (!localStorage.getItem("currentLocationFilters")) {
-  localStorage.setItem("currentLocationFilters", JSON.stringify([]));
-}
-if (!localStorage.getItem("maxSearchResultsChosen")) {
-  localStorage.setItem("maxSearchResultsChosen", JSON.stringify(10));
-} */
 
-/* const favouriteJobsFromLocalStorage = JSON.parse(localStorage.getItem("favouriteJobs")!);
-const currentSkillsOperand = JSON.parse(localStorage.getItem("currentSkillsOperand")!);
-const currentWorkingHoursTypeLabel = JSON.parse(localStorage.getItem("currentWorkingHoursTypeLabel")!);
-
-const currentSkillsFilters = JSON.parse(localStorage.getItem("currentSkillsFilters")!);
-const currentLocationFilters = JSON.parse(localStorage.getItem("currentLocationFilters")!);
-const maxSearchResultsChosen = Number(JSON.parse(localStorage.getItem("maxSearchResultsChosen")!))
- */
 
 // Initial state
 
@@ -43,13 +19,13 @@ const initialState: User = {
             country: "",
         },
     },
-    settings: {
+     settings: {
         email: "",
         password: "",
         publicName: "",
         publicAvatarUrl: "",
         language: "en",
-        currency: "SEK",
+        preferredCurrency: {id: 1, label: "US-Dollar", code:"USD", currencyPerUsd: 1.0}, 
         mode: "dark",
     },
     preferences: {
@@ -158,39 +134,38 @@ const initialState: User = {
         budget: [
             {
                 id: 1,
-                label: "Max Accommodation Budget per Night per Person",
-                currency: "EUR",
-                value: 100,
+                label: "Total Vacation Budget per person",
+                amount: 1000,
             },
             {
                 id: 2,
-                label: "Max Food Budget per Day",
-                currency: null,
-                value: null,
+                label: "Transporation Budget per person",
+                amount: 300,
             },
             {
                 id: 3,
-                label: "Max Drink Budget per Day",
-                currency: null,
-                value: null,
+                label: "Accommodation Budget per person",
+                amount: null,
             },
             {
                 id: 4,
-                label: "Max Transportation Budget per Person",
-                currency: null,
-                value: null,
+                label: "Food & Drink Budget per person",
+                amount: null,
             },
             {
                 id: 5,
-                label: "Max Entertainment Budget per Day per Person",
-                currency: null,
-                value: null,
+                label: "Entertainment Budget per person",
+                amount: null,
             },
             {
                 id: 6,
-                label: "Max Vacation Budget per Day per Person",
-                currency: null,
-                value: null,
+                label: "Other Budget per person",
+                amount: null,
+            },
+            {
+                id: 7,
+                label: "Restaurant Price per meal",
+                amount: null,
             },
         ],
         diet: [
@@ -771,6 +746,9 @@ export const userSlice = createSlice({
         updateUserId: (state, action: PayloadAction<User>) => {
             state.id = action.payload.id
         },
+        updateSessionInfo: (state, action: PayloadAction<User["sessionInfo"]>) =>{
+            state.sessionInfo = action.payload   
+        },
         updateIsLoggedIn: (state, action: PayloadAction<User>) => {
             state.sessionInfo.isLoggedIn = action.payload.sessionInfo.isLoggedIn
         },
@@ -844,7 +822,24 @@ export const userSlice = createSlice({
                 },
             }
         },
-        // TODO: BudgetPreference
+        updateBudgetPreference: (state, action: PayloadAction<BudgetPreference>) => {
+            const budgetPreference = action.payload
+            console.log("budgetPreference:",budgetPreference)
+            return {
+                ...state,
+                preferences: {
+                    ...state.preferences,
+                    budget: state.preferences.budget.map((item) =>
+                        item.id === budgetPreference.id
+                            ? { ...item, amount: budgetPreference.amount }
+                            : item,
+                    ),
+                },
+            }
+        },
+        updatePreferredCurrency: (state, action: PayloadAction<Currency>) => {
+            state.settings.preferredCurrency = action.payload
+        },
     },
 
     //  extraReducers är en reducer som kan hantera actions från andra slices eller från createAsyncThunk
@@ -865,38 +860,7 @@ export const userSlice = createSlice({
                 // TODO:
                 state = action.payload
                 state.sessionInfo.isLoading = false
-                /* if(state.allJobs.length === 0){
-        state.messageToUser = "Sorry, there are no such jobs available."
-      } else {
-        state.messageToUser = ""
-      }
-      console.log("state.allJobs after update:", state.allJobs); 
-       */
-                // If all filters are empty, set currentJobs to allJobs
-                /* const stateCurrentSkillsFilters = [...state.currentSkillsFilters]  
-      const stateCurrentLocationFilters = [...state.currentLocationFilters] 
-      const stateCurrentSkillsOperand = state.currentSkillsOperand  // no shallow copy needed 
-      console.log("stateCurrentSkillsFilters in fetchJobs reducer:",stateCurrentSkillsFilters);
-      console.log("stateCurrentLocationFilters in fetchJobs reducer:",stateCurrentLocationFilters)
-      console.log("stateCurrentSkillsOperand in fetchJobs-reducer: ",stateCurrentSkillsOperand);
-       */
-                /*  if((!stateCurrentSkillsFilters && !stateCurrentLocationFilters) || (stateCurrentSkillsOperand === "ELLER")){
-        state.currentJobs = state.allJobs
-        state.numberOfHits = state.allJobs.length
-      } else if (stateCurrentSkillsOperand === "OCH"){
-
-          console.log("state.currentSkillsFilters in OCH:",stateCurrentSkillsFilters);
-          const newCurrentJobs: Job[] = state.allJobs.filter((job: Job) => {
-            return stateCurrentSkillsFilters.every(filterValue => job.description.text?.toLowerCase()!.includes(filterValue.toLowerCase())); 
-          });
-          state.currentJobs = newCurrentJobs 
-          state.numberOfHits = newCurrentJobs.length
-      } else {
-          console.log("Error: CurrentSkillsOperand is not working");
-          throw new Error
-      } 
-      console.log("state.currentJobs after update:", state.currentJobs);
-      */
+               
             },
         )
         builder.addCase(fetchUser.rejected, (state) => {
@@ -925,9 +889,42 @@ export const fetchUser = createAsyncThunk(
 )
 
 // Exporterar alla actionfunktioner
-export const { updateUser, updateUserId, updateIsLoggedIn, toggleAccommodationPreference, toggleDietPreference, toggleFoodPreference, toggleTransportationPreference, toggleVacationPreference } = userSlice.actions // TODO:
+export const { updateUser, updateUserId, updateIsLoggedIn, toggleAccommodationPreference, toggleDietPreference, toggleFoodPreference, toggleTransportationPreference, toggleVacationPreference, updatePreferredCurrency, updateBudgetPreference } = userSlice.actions // TODO:
 // Exporterar reducern
 export default userSlice.reducer
+
+
+
+
+/* if (!localStorage.getItem("favouriteJobs")) {
+  localStorage.setItem("favouriteJobs", JSON.stringify([]));
+}
+if (!localStorage.getItem("currentSkillsOperand")) {
+  localStorage.setItem("currentSkillsOperand", JSON.stringify("OCH"));
+}
+if (!localStorage.getItem("currentWorkingHoursTypeLabel")) {
+  localStorage.setItem("currentWorkingHoursTypeLabel", JSON.stringify("Heltid"));
+}
+if (!localStorage.getItem("currentSkillsFilters")) {
+  localStorage.setItem("currentSkillsFilters", JSON.stringify([]));
+}
+if (!localStorage.getItem("currentLocationFilters")) {
+  localStorage.setItem("currentLocationFilters", JSON.stringify([]));
+}
+if (!localStorage.getItem("maxSearchResultsChosen")) {
+  localStorage.setItem("maxSearchResultsChosen", JSON.stringify(10));
+} */
+
+/* const favouriteJobsFromLocalStorage = JSON.parse(localStorage.getItem("favouriteJobs")!);
+const currentSkillsOperand = JSON.parse(localStorage.getItem("currentSkillsOperand")!);
+const currentWorkingHoursTypeLabel = JSON.parse(localStorage.getItem("currentWorkingHoursTypeLabel")!);
+
+const currentSkillsFilters = JSON.parse(localStorage.getItem("currentSkillsFilters")!);
+const currentLocationFilters = JSON.parse(localStorage.getItem("currentLocationFilters")!);
+const maxSearchResultsChosen = Number(JSON.parse(localStorage.getItem("maxSearchResultsChosen")!))
+ */
+
+
 
 /*     updatePersonalInfo: (state, action: PayloadAction<Job[]>) =>{
       state.favouriteJobs = action.payload
@@ -969,3 +966,38 @@ export default userSlice.reducer
     updateMaxSearchResultsChosen: (state, action: PayloadAction<number>) => {
       state.maxSearchResultsChosen = action.payload
     }, */
+
+
+     /* if(state.allJobs.length === 0){
+        state.messageToUser = "Sorry, there are no such jobs available."
+      } else {
+        state.messageToUser = ""
+      }
+      console.log("state.allJobs after update:", state.allJobs); 
+       */
+                // If all filters are empty, set currentJobs to allJobs
+                /* const stateCurrentSkillsFilters = [...state.currentSkillsFilters]  
+      const stateCurrentLocationFilters = [...state.currentLocationFilters] 
+      const stateCurrentSkillsOperand = state.currentSkillsOperand  // no shallow copy needed 
+      console.log("stateCurrentSkillsFilters in fetchJobs reducer:",stateCurrentSkillsFilters);
+      console.log("stateCurrentLocationFilters in fetchJobs reducer:",stateCurrentLocationFilters)
+      console.log("stateCurrentSkillsOperand in fetchJobs-reducer: ",stateCurrentSkillsOperand);
+       */
+                /*  if((!stateCurrentSkillsFilters && !stateCurrentLocationFilters) || (stateCurrentSkillsOperand === "ELLER")){
+        state.currentJobs = state.allJobs
+        state.numberOfHits = state.allJobs.length
+      } else if (stateCurrentSkillsOperand === "OCH"){
+
+          console.log("state.currentSkillsFilters in OCH:",stateCurrentSkillsFilters);
+          const newCurrentJobs: Job[] = state.allJobs.filter((job: Job) => {
+            return stateCurrentSkillsFilters.every(filterValue => job.description.text?.toLowerCase()!.includes(filterValue.toLowerCase())); 
+          });
+          state.currentJobs = newCurrentJobs 
+          state.numberOfHits = newCurrentJobs.length
+      } else {
+          console.log("Error: CurrentSkillsOperand is not working");
+          throw new Error
+      } 
+      console.log("state.currentJobs after update:", state.currentJobs);
+      */
+

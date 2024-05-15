@@ -1,4 +1,4 @@
-import Language from "../frontend/src/types/common/Language"
+/* import Language from "../frontend/src/types/common/Language"
 import User from "./UserOld"
 
 
@@ -18,4 +18,4 @@ type Settings = {
     // subscriptionIds?: string[] 
 }
 
-export default Settings
+export default Settings */

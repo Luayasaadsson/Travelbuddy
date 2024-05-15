@@ -1,4 +1,4 @@
-
+/* 
 
 
 type UserPreference = {
@@ -13,4 +13,4 @@ type UserPreference = {
     drinkPreferenceId?: string | null
 }
 
-export default UserPreference
+export default UserPreference */

@@ -30,38 +30,42 @@ function ForgotPassword() {
     }
 
     return (
-        <main className="flex h-screen flex-col items-center justify-start">
-           {/*  <img
-                className="absolute h-screen w-full"
-                src="./icons/Vector.svg"
-                alt="icon"
-            /> */}
-            <div className="relative flex w-11/12 max-w-96 flex-col items-center gap-4">
-                <div className="flex justify-center pt-64">
-                    <h1 className="text-3xl text-secondary">Forgot password</h1>
+        <main className="flex h-screen w-full flex-col justify-start">
+            <div className="flex w-full flex-row-reverse items-center justify-center gap-10">
+                <img
+                    className="mt-48 hidden h-5/6 lg:flex"
+                    src="./images/unsplash-bg6.png"
+                    alt="Background image"
+                />
+                <div className="relative flex w-11/12 max-w-96 flex-col items-center gap-4">
+                    <div className="flex justify-center pt-64">
+                        <h1 className="text-3xl text-secondary">
+                            Forgot password
+                        </h1>
+                    </div>
+                    <p className="text-xs text-secondary">
+                        Enter your email account to reset your password
+                    </p>
+                    <div className="flex w-full flex-col items-start gap-2">
+                        <Label className="text-secondary">Email *</Label>
+                        <Input
+                            placeholder="Enter Your Email"
+                            value={email}
+                            onChange={handleEmailChange}
+                        />
+                        {emailError && (
+                            <div className="error-message">{emailError}</div>
+                        )}
+                    </div>
+                    <Button
+                        onClick={handleShowForgotPasswordOverlay}
+                        className="w-full"
+                    >
+                        Reset Password
+                    </Button>
                 </div>
-                <p className="text-xs text-secondary">
-                    Enter your email account to reset your password
-                </p>
-                <div className="flex w-full flex-col items-start gap-2">
-                    <Label className="text-secondary">Email *</Label>
-                    <Input
-                        placeholder="Enter Your Email"
-                        value={email}
-                        onChange={handleEmailChange}
-                    />
-                    {emailError && (
-                        <div className="error-message">{emailError}</div>
-                    )}
-                </div>
-                <Button
-                    onClick={handleShowForgotPasswordOverlay}
-                    className="w-full"
-                >
-                    Reset Password
-                </Button>
+                <Overlay />
             </div>
-            <Overlay />
         </main>
     )
 }
