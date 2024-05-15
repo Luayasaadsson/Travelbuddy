@@ -43,6 +43,7 @@ function MoreAbout() {
                     <button className="cursor-pointer border-b-[1px] border-primary pb-[2px] text-center text-[14px] text-xs font-bold text-primary">
                         Upload profile picture
                     </button>
+                   
 
                     <div className="flex w-11/12 max-w-96 flex-col items-start gap-4 text-[13px] font-semibold text-onBackground">
                         <div className="flex w-full flex-col gap-1">
