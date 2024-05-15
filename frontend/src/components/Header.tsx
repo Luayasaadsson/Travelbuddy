@@ -41,7 +41,7 @@ function Header() {
 
     return (
         <header className="absolute z-10 flex h-16 w-full flex-col bg-transparent">
-            <nav className="z-2 flex items-center items-center justify-between p-4">
+            <nav className="z-2 flex items-center justify-between p-4">
                 <Link to="/" className="flex items-center justify-center">
                     <img
                         src="/images/logo.svg"
