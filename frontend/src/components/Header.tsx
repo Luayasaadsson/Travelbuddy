@@ -40,7 +40,7 @@ function Header() {
     }, [])
 
     return (
-        <header className="absolute z-10 flex h-28 w-full flex-col justify-end bg-transparent">
+        <header className="absolute z-10 flex h-16 w-full flex-col bg-transparent">
             <nav className="z-2 flex items-center justify-between p-4">
                 <Link to="/" className="flex items-center justify-center">
                     <img
@@ -48,7 +48,7 @@ function Header() {
                         alt=""
                         className="w-11 md:w-16"
                     />
-                    <h1 className="text-base font-light md:text-2xl">
+                    <h1 className="font-semibold tracking-wide pl-3 text-lg md:text-2xl">
                         TravelBuddy
                     </h1>
                 </Link>
@@ -81,7 +81,7 @@ function Header() {
 
             <div
                 ref={menuRef}
-                className="absolute top-24 w-full origin-top overflow-hidden bg-white transition-transform  duration-300 ease-in-out"
+                className="absolute top-16 w-full origin-top overflow-hidden bg-white transition-transform  duration-300 ease-in-out"
                 style={{
                     transform: isOpen ? "scaleY(1)" : "scaleY(0)",
                     zIndex: "1000",
