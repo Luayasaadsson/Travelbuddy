@@ -4,7 +4,7 @@ WORKDIR /source
 
 COPY . .
 
-RUN dotnet publish -r linux-amd64 --self-contained true
+RUN dotnet publish -r linux-x64 --self-contained true
 
 FROM --platform=linux/amd64 ubuntu/dotnet-deps:8.0-24.04_stable
 
