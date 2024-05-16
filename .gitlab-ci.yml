@@ -44,8 +44,8 @@ build_image_frontend:
 
 build_image_backend:
   stage: image
-  dependencies:
-    - build_artifact_backend
+#  dependencies:
+#    - build_artifact_backend
   image: docker:26.1.0
   services:
     - docker:26.1.0-dind
