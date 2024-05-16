@@ -14,16 +14,16 @@ build_artifact_frontend:
     paths:
       - frontend/dist/*
 
-build_artifact_backend:
-  stage: build
-  image: mcr.microsoft.com/dotnet/sdk:8.0-cbl-mariner2.0-arm64v8
-  before_script:
-    - cd backend/API
-  script:
-    - dotnet publish
-  artifacts:
-    paths:
-      - backend/API/bin/Release/net8.0/publish/*
+#build_artifact_backend:
+#  stage: build
+#  image: mcr.microsoft.com/dotnet/sdk:8.0-cbl-mariner2.0-arm64v8
+#  before_script:
+#    - cd backend/API
+#  script:
+#    - dotnet publish
+#  artifacts:
+#    paths:
+#      - backend/API/bin/Release/net8.0/publish/*
 
 build_image_frontend:
   stage: image
@@ -53,10 +53,10 @@ build_image_backend:
     DOCKER_TLS_CERTDIR: "/certs"
     IMAGE_TAG: travelbuddy-backend:$CI_COMMIT_SHORT_SHA
   before_script:
-    - cd backend
+    - cd backend/API
   script:
     - docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN
-    - docker build -t $CI_REGISTRY/ccg-2/travelbuddy/$IMAGE_TAG .
+    - docker build -t $CI_REGISTRY/ccg-2/travelbuddy/$IMAGE_TAG -f Dockerfile.prod .
     - docker push $CI_REGISTRY/ccg-2/travelbuddy/$IMAGE_TAG
 
 build_image_frontend_arm64:
@@ -77,19 +77,19 @@ build_image_frontend_arm64:
     - docker push $CI_REGISTRY/ccg-2/travelbuddy/$IMAGE_TAG
 
 
-build_image_backend-arm64:
-  stage: image
-  dependencies:
-    - build_artifact_backend
-  image: docker:26.1.0
-  services:
-    - docker:26.1.0-dind
-  variables:
-    DOCKER_TLS_CERTDIR: "/certs"
-    IMAGE_TAG: travelbuddy-backend-arm64:$CI_COMMIT_SHORT_SHA
-  before_script:
-    - cd backend
-  script:
-    - docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN
-    - docker build --platform linux/arm64/v8 -t $CI_REGISTRY/ccg-2/travelbuddy/$IMAGE_TAG .
-    - docker push $CI_REGISTRY/ccg-2/travelbuddy/$IMAGE_TAG
+#build_image_backend-arm64:
+#  stage: image
+#  dependencies:
+#    - build_artifact_backend
+#  image: docker:26.1.0
+#  services:
+#    - docker:26.1.0-dind
+#  variables:
+#    DOCKER_TLS_CERTDIR: "/certs"
+#    IMAGE_TAG: travelbuddy-backend-arm64:$CI_COMMIT_SHORT_SHA
+#  before_script:
+#    - cd backend
+#  script:
+#    - docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN
+#    - docker build --platform linux/arm64/v8 -t $CI_REGISTRY/ccg-2/travelbuddy/$IMAGE_TAG .
+#    - docker push $CI_REGISTRY/ccg-2/travelbuddy/$IMAGE_TAG
