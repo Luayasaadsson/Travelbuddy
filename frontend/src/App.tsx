@@ -26,12 +26,15 @@ function App() {
             <BrowserRouter>
                 <Header />
                 <Routes>
-                    <Route path="/" element={
-                    <div>
-                    <GetStarted />
-                    <DesktopVector />
-                    </div>
-                } />
+                    <Route
+                        path="/"
+                        element={
+                            <div>
+                                <GetStarted />
+                                <DesktopVector />
+                            </div>
+                        }
+                    />
                     <Route
                         path="/login"
                         element={
@@ -41,67 +44,87 @@ function App() {
                             </div>
                         }
                     />
-                    <Route path="/signup" element={
-                    <div>
-                    <SignUp />
-                    <DesktopVector />
-                    </div>
-                } />
+                    <Route
+                        path="/signup"
+                        element={
+                            <div>
+                                <SignUp />
+                                <DesktopVector />
+                            </div>
+                        }
+                    />
 
-                    <Route path="/profilestart" element={
-                    <div>
-                    <ProfileStart />
-                    <DesktopVector />
-                    </div>
-                } />
+                    <Route
+                        path="/profilestart"
+                        element={
+                            <div>
+                                <ProfileStart />
+                                <DesktopVector />
+                            </div>
+                        }
+                    />
                     {/* Protected route */}
-                    <Route path="/hero" element={
-                    <div>
-                    <Hero />
-                    <DesktopVector />
-                    </div>
-                } />
+                    <Route
+                        path="/hero"
+                        element={
+                            <div>
+                                <Hero />
+                                <DesktopVector />
+                            </div>
+                        }
+                    />
                     {/* Protected route */}
-                    <Route path="/chatbot" element={
-                    <div>
-                    <ChatBot />
-                    <DesktopVector />
-                    </div>
-                } />
+                    <Route
+                        path="/chatbot"
+                        element={
+                            <div>
+                                <ChatBot />
+                                <DesktopVector />
+                            </div>
+                        }
+                    />
 
-                    <Route path="/moreabout" element={
-                    <div>
-                    <MoreAbout />
-                    <DesktopVector />
-                    </div>
-                } />
+                    <Route
+                        path="/moreabout"
+                        element={
+                            <div>
+                                <MoreAbout />
+                                <DesktopVector />
+                            </div>
+                        }
+                    />
                     {/* Protected route */}
-                    <Route path="/settings" element={
-                    <div>
-                    <Settings />
-                    <DesktopVector />
-                    </div>
-                } />
+                    <Route
+                        path="/settings"
+                        element={
+                            <div>
+                                <Settings />
+                                <DesktopVector />
+                            </div>
+                        }
+                    />
                     {/* Protected route */}
-                    <Route path="/profilesettings" element={
-                    <div>
-                    <ProfileSettings />
-                    <DesktopVector />
-                    </div>
-                    }
+                    <Route
+                        path="/profilesettings"
+                        element={
+                            <div>
+                                <ProfileSettings />
+                                <DesktopVector />
+                            </div>
+                        }
                     />
                     {/* Protected route */}
                     <Route
                         path="/changepassword"
                         element={
-                        <div>
-                        <ChangePassword />
-                       <DesktopVector />
-                        </div>
+                            <div>
+                                <ChangePassword />
+                                <DesktopVector />
+                            </div>
                         }
                     />
 
-                  {/*   <Route path="/notifications" element={
+                    {/*   <Route path="/notifications" element={
                     <div>
                     <Notifications />
                     <DesktopVector />
@@ -111,36 +134,43 @@ function App() {
                     <Route
                         path="/forgotpassword"
                         element={
-                        <div>
-                        <ForgotPassword />
-                        <DesktopVector />
-                        </div>
+                            <div>
+                                <ForgotPassword />
+                                <DesktopVector />
+                            </div>
                         }
                     />
-                    <Route path="/resetpassword" element={
-                    <div>
-                    <ResetPassword />
-                    <DesktopVector />
-                    </div>
-                } />
+                    <Route
+                        path="/resetpassword"
+                        element={
+                            <div>
+                                <ResetPassword />
+                                <DesktopVector />
+                            </div>
+                        }
+                    />
 
-             {/*        <Route path="/myprofile" element={<MyProfile />} /> */}
+                    {/*        <Route path="/myprofile" element={<MyProfile />} /> */}
 
-                    <Route path="/ratetheapp" element={
-                    <div>
-                    <RateTheApp />
-                    <DesktopVector />
-                    </div>
-                } />
+                    <Route
+                        path="/ratetheapp"
+                        element={
+                            <div>
+                                <RateTheApp />
+                                <DesktopVector />
+                            </div>
+                        }
+                    />
 
-                    <Route path="/aboutus" element={
-                    <div>
-                    <AboutUs />
-                    <DesktopVector />
-                    </div>
-                } 
-                />
-
+                    <Route
+                        path="/aboutus"
+                        element={
+                            <div>
+                                <AboutUs />
+                                <DesktopVector />
+                            </div>
+                        }
+                    />
                 </Routes>
             </BrowserRouter>
             {/* <Footer /> */}

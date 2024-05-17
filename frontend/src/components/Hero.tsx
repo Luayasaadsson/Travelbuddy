@@ -4,48 +4,63 @@ import { Button } from "./ui/button"
 function Hero() {
     return (
         <main className="flex h-screen items-center justify-center">
-            <div className="relative flex flex-col gap-5 p-6">
-                <div className="hidden flex-row items-center text-center sm:flex ">
-                    <div className="flex flex-col items-center gap-6">
+            <div className="flex max-h-screen w-full flex-col gap-4 px-4 md:px-10 lg:gap-8 lg:px-40 ">
+                <div className="flex flex-col items-center justify-center text-center lg:min-w-[500px] lg:flex-row lg:gap-10">
+                    <div className="flex flex-col items-center justify-center gap-4">
                         <img
-                            className="h-14 w-14"
                             src="/images/logo.svg"
-                            alt="logo"
+                            alt="Logo"
+                            className="hidden lg:inline lg:w-10 xl:w-16"
                         />
-                        <h1 className="text-4xl text-secondary sm:text-5xl md:text-6xl">
-                            Discover Your Perfect Journey
+                        <h1 className="text-3xl text-primary lg:text-4xl lg:text-secondary xl:text-6xl">
+                            <span className="lg:hidden">First step</span>
+                            <span className="hidden lg:inline">
+                                Discover Your <br /> Perfect Journey
+                            </span>
                         </h1>
-                        <p className="text-sm text-secondary">
-                            Unleash the power of personalized travel. Let our
-                            AI-assistant guide you effortlessly from inspiration
-                            to exploration. Your dream trip starts here.
-                        </p>
+                        <h2 className="text-3xl text-secondary lg:text-xl">
+                            <span className="lg:hidden">
+                                Tailor your travel <br /> experience to <br />
+                                perfection
+                            </span>
+                            <span
+                                className="hidden lg:inline
+                             "
+                            >
+                                Unleash the power of personalized travel. Let
+                                our AI-assistant guide you effortlessly from
+                                inspiration to exploration. Your dream trip
+                                starts here.
+                            </span>
+                        </h2>
                     </div>
                     <img
-                        className="hidden h-72 w-96 rounded-md bg-gradient-to-b from-black to-black lg:flex"
+                        className="hidden rounded-md bg-gradient-to-b from-black to-black lg:flex lg:w-[383px] xl:w-[480px]"
                         src="/images/unsplash-bg2.png"
                         alt="image"
                     />
                 </div>
-                <h1 className="w-45 text-center text-3xl sm:hidden">
-                    First step
-                </h1>
-                <div className="flex flex-row items-center justify-center gap-6">
+                <div className="flex flex-col items-center justify-center text-center lg:flex-row lg:justify-between lg:gap-10">
                     <img
-                        className="hidden h-72 w-96 rounded-md bg-gradient-to-b from-black to-black lg:flex"
+                        className="hidden rounded-md bg-gradient-to-b from-black to-black lg:flex lg:w-[383px] xl:w-[480px]"
                         src="/images/unsplash-bg3.png"
                         alt="image"
                     />
-                    <div>
-                        <h2 className="mb-2 text-center text-3xl text-secondary">
-                            Tailor your travel experience to perfection
-                        </h2>
-                        <p className="text-center text-sm text-secondary ">
-                            Share your preferences and interests to unlock
-                            personalized recommendations and seamless
-                            adventures. Let's craft your journey together.
+                    <div className="flex w-2/3 flex-col items-center lg:gap-4 justify-center">
+                        <h1 className="text-3xl text-primary lg:text-4xl lg:text-secondary xl:text-6xl">
+                            <span className="hidden lg:inline">
+                                Tailor your travel <br /> experience to <br />
+                                perfection
+                            </span>
+                        </h1>
+                        <p className="text-sm text-secondary lg:text-xl pb-4">
+                            <span className="flex break-words text-center">
+                                Share your preferences and interests to unlock
+                                personalized recommendations and seamless
+                                adventures. Let's craft your journey together.
+                            </span>
                         </p>
-                        <div className="mt-4 flex justify-center gap-3">
+                        <div className="flex justify-center gap-3">
                             <Link to="/login">
                                 <Button variant="outline" size="md">
                                     <p className="text-neutral-200">

@@ -14,14 +14,14 @@ import {
 
 function MoreAbout() {
     return (
-        <main className="flex h-screen w-full flex-col">
-            <div className="flex w-full items-center justify-center">
+        <main className="pt-20 md:pt-32 lg:pt-44">
+            <div className="flex items-center justify-center lg:gap-10">
                 <img
                     className="hidden lg:flex"
                     src="./images/unsplash-bg7.png"
                     alt="Background image"
                 />
-                <div className="relative flex w-full flex-col items-center gap-4 pt-20 px-4">
+                <div className="relative flex w-full max-w-[544px] flex-col items-center gap-4 px-4">
                     <div className="flex flex-col gap-2">
                         <h1 className="text-center text-3xl text-secondary md:text-4xl lg:text-5xl">
                             Let's make it personal
@@ -47,21 +47,21 @@ function MoreAbout() {
                         </button>
                     </div>
 
-                    <div className="flex w-full flex-col gap-1">
+                    <div className="flex w-full flex-col">
                         <Label>First name *</Label>
                         <Input
                             className="border-outline placeholder:text-onBackground placeholder:opacity-50"
                             placeholder="Enter your first name"
                         />
                     </div>
-                    <div className="flex w-full flex-col gap-1 ">
+                    <div className="flex w-full flex-col">
                         <Label>Last name *</Label>
                         <Input
                             className="border-outline placeholder:text-onBackground placeholder:opacity-50"
                             placeholder="Enter your first name"
                         />
                     </div>
-                    <div className="flex w-full flex-col gap-1">
+                    <div className="flex w-full flex-col">
                         <Label>City *</Label>
                         <Input
                             className="border-outline placeholder:text-onBackground placeholder:opacity-50"
