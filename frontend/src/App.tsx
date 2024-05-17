@@ -3,7 +3,7 @@ import Header from "./components/Header"
 import GetStarted from "./components/GetStarted"
 import ProfileStart from "./components/ProfileStart"
 /* import MyProfile from "./components/Settings/MyProfile" */
-import ProfileSettings from "./components/Settings/ProfileSettings"
+import ProfileSettings from "./components/Settings/profileSettingsComponents/ProfileSettings"
 import ChangePassword from "./components/Settings/ChangePassword"
 /* import Notifications from "./components/Settings/Notifications" */
 import LogIn from "./components/LogIn"
