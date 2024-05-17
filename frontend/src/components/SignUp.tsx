@@ -83,14 +83,14 @@ function SignUp(): JSX.Element {
     }
 
     return (
-        <main className="flex h-screen w-full flex-col justify-start">
-            <div className="flex w-full flex-row-reverse items-center justify-center gap-10">
+        <main className="h-screen">
+            <div className="flex w-full flex-row-reverse items-center justify-center gap-10 px-4 pt-20 md:px-24 md:pt-28 lg:px-40 lg:pt-40">
                 <img
-                    className="mt-32 hidden h-5/6 lg:flex"
+                    className=" hidden xl:flex xl:w-1/2 2xl:w-[800px]"
                     src="./images/unsplash-bg5.png"
                     alt="Background image"
                 />
-                <div className="relative flex w-11/12 max-w-96 flex-col items-center justify-center gap-4 pt-28">
+                <div className="flex w-full max-w-[800px] flex-col items-center justify-center gap-4">
                     <h1 className="text-center text-3xl text-secondary md:text-4xl lg:text-5xl">
                         Let's get you started
                     </h1>
@@ -98,7 +98,7 @@ function SignUp(): JSX.Element {
                         Fields marked with * are mandatory.
                     </p>
                     <div className="flex w-full flex-col items-center gap-6">
-                        <div className="flex w-full max-w-96 flex-col gap-2">
+                        <div className="flex w-full flex-col gap-2">
                             <Label className="text-secondary">Email *</Label>
                             <Input
                                 placeholder="Enter Your Email"
@@ -114,7 +114,7 @@ function SignUp(): JSX.Element {
                                 </div>
                             )}
                         </div>
-                        <div className="relative flex w-full max-w-96 flex-col gap-2">
+                        <div className="relative flex w-full flex-col gap-2">
                             <Label className="pt-2 text-secondary">
                                 Password *
                             </Label>
@@ -139,7 +139,7 @@ function SignUp(): JSX.Element {
                                 onClick={togglePasswordVisibility}
                             />
                         </div>
-                        <div className="relative flex w-full max-w-96 flex-col gap-2">
+                        <div className="relative flex w-full flex-col gap-2">
                             <Label className="pt-2 text-secondary">
                                 Confirm Password *
                             </Label>

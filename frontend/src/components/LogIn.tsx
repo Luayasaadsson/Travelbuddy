@@ -103,7 +103,7 @@ function LogIn(): JSX.Element {
                                 </div>
                             )}
                         </div>
-                        <div className="flex flex-col gap-2">
+                        <div className="relative flex flex-col gap-2">
                             <Label className="gap-2 text-secondary">
                                 Password *
                             </Label>
