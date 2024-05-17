@@ -3,11 +3,7 @@ import type { PayloadAction } from "@reduxjs/toolkit" // För att typa action.pa
 import User from "../../types/user/User"
 import Currency from "@/types/common/Currency"
 import BudgetPreference from "@/types/user/BudgetPreference"
-<<<<<<< HEAD
 import Gender from "@/types/common/Gender"
-
-=======
->>>>>>> 80c1097a3540ab551cc91ca88aaea8f0301b74dc
 
 // Initial state
 
@@ -31,17 +27,14 @@ const initialState: User = {
         publicName: "",
         publicAvatarUrl: "",
         language: "en",
-<<<<<<< HEAD
-        preferredCurrency: {id: 1, label: "US-Dollar", code:"USD", currencyPerUsd: 1.0}, 
-=======
+
+
         preferredCurrency: {
             id: 1,
             label: "US-Dollar",
             code: "USD",
             currencyPerUsd: 1.0,
         },
-        mode: "dark",
->>>>>>> 80c1097a3540ab551cc91ca88aaea8f0301b74dc
     },
     preferences: {
         accomodation: [
@@ -809,7 +802,6 @@ export const fetchUser = createAsyncThunk(
 )
 
 // Exporterar alla actionfunktioner
-<<<<<<< HEAD
 export const { 
     updateUser, 
     updateUserId, 
@@ -831,23 +823,6 @@ export default userSlice.reducer
 
 
 
-=======
-export const {
-    updateUser,
-    updateUserId,
-    updateIsLoggedIn,
-    toggleAccommodationPreference,
-    toggleDietPreference,
-    toggleFoodPreference,
-    toggleTransportationPreference,
-    toggleVacationPreference,
-    updatePreferredCurrency,
-    updateBudgetPreference,
-} = userSlice.actions // TODO:
-// Exporterar reducern
-export default userSlice.reducer
-
->>>>>>> 80c1097a3540ab551cc91ca88aaea8f0301b74dc
 /* if (!localStorage.getItem("favouriteJobs")) {
   localStorage.setItem("favouriteJobs", JSON.stringify([]));
 }
