@@ -255,35 +255,38 @@ function ProfileSettings() {
 
                 <div className="flex w-full flex-col text-secondary">
                     <p className="text-xl">My budget preferences</p>
+                    {<Select value={preferredCurrency!.code!} /* onValueChange={() => handlePreferredCurrencySelected(currency)} */>
+                        
+                        <SelectTrigger className="flex h-12 w-full border-outline placeholder:text-onBackground placeholder:opacity-50">
+                            <SelectValue
+                                placeholder="Select your preferred currency"
+                            />
+                        </SelectTrigger>
+                        <SelectContent>
+                            {currencyList.map((currency) => (
+                                <SelectItem
+                                    key={currency.id}
+                                    value={currency.code!}
+                                    onChange={() => handlePreferredCurrencySelected(currency)}
+                                    /* TODO: selected={preferredCurrency.code === currency.code} TODO:*/ >
+                                    {currency.code} ({currency.label})</SelectItem>
+                                ))
+                            }
+                        </SelectContent>
+                    </Select> }
 
-                    <Accordion type="single" collapsible>
+                    {<Accordion type="single" collapsible>
                         <AccordionItem value="item-1">
                             <AccordionTrigger>
-                                {<Select value={preferredCurrency!.code!} /* onValueChange={() => handlePreferredCurrencySelected(currency)} */>
-                                    
-                                    <SelectTrigger className="flex h-12 w-full border-outline placeholder:text-onBackground placeholder:opacity-50">
-                                        <SelectValue
-                                            placeholder="Select your preferred currency"
-                                        />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        {currencyList.map((currency) => (
-                                            <SelectItem
-                                             key={currency.id}
-                                             value={currency.code!}
-                                             onChange={() => handlePreferredCurrencySelected(currency)}
-                                             /* TODO: selected={preferredCurrency.code === currency.code} TODO:*/ >
-                                                {currency.code} ({currency.label})</SelectItem>
-                                            ))
-                                        }
-                                    </SelectContent>
-                                </Select> }
+                                My budget preferences
                             </AccordionTrigger>
                             <AccordionContent>
 
                                 {budgetPreferenceList.map((item)=> {
                                     return(
-                                        <div className="flex w-full max-w-96 flex-col ">
+                                        <div className="flex w-full max-w-96 flex-col"
+                                            key={item.id}
+                                            >
                                             <Label className="gap-2 text-secondary">{item.label}</Label>
                                             <Input
                                                 key={item.id}
@@ -294,7 +297,7 @@ function ProfileSettings() {
                                 })}    
                             </AccordionContent>
                         </AccordionItem>
-                    </Accordion>
+                    </Accordion>}
                 </div>
 
                 <Link className="w-full" to="/profilestart">

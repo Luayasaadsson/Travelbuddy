@@ -30,6 +30,7 @@ function MoreAbout() {
                             Fields marked with * are mandatory.
                         </p>
                     </div>
+                
                     <div className="flex flex-col items-center justify-center gap-2">
                         <Avatar
                             //isAvatarImageUploaded && className="border-4 border-onBackground" TODO:
@@ -41,27 +42,27 @@ function MoreAbout() {
                             <AvatarImage src="./images/profile-picture.jpg" />
                             <AvatarFallback>CN</AvatarFallback>
                         </Avatar>
-
-                        <button className="cursor-pointer border-b-[1px] border-primary pb-[2px] text-center text-[14px] text-xs font-bold text-primary">
-                            Upload profile picture
-                        </button>
                     </div>
 
-                    <div className="flex w-full flex-col">
+                    <button className="cursor-pointer border-b-[1px] border-primary pb-[2px] text-center text-[14px] text-xs font-bold text-primary">
+                        Upload profile picture
+                    </button>
+
+                    <div className="flex w-full flex-col gap-1">
                         <Label>First name *</Label>
                         <Input
                             className="border-outline placeholder:text-onBackground placeholder:opacity-50"
                             placeholder="Enter your first name"
                         />
                     </div>
-                    <div className="flex w-full flex-col">
+                    <div className="flex w-full flex-col gap-1 ">
                         <Label>Last name *</Label>
                         <Input
                             className="border-outline placeholder:text-onBackground placeholder:opacity-50"
                             placeholder="Enter your first name"
                         />
                     </div>
-                    <div className="flex w-full flex-col">
+                    <div className="flex w-full flex-col gap-1">
                         <Label>City *</Label>
                         <Input
                             className="border-outline placeholder:text-onBackground placeholder:opacity-50"

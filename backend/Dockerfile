@@ -10,8 +10,6 @@ WORKDIR /app
 COPY --from=build /app/out .
 ENTRYPOINT ["dotnet", "API.dll"]
 
-ENV OPENAI_API_KEY=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
-ENV GOOGLE_OAUTH_CLIENT_ID=299817103719-sgecp2fpqbapdk20c4b8go2e6g8v9t4f.apps.googleusercontent.com
-ENV GOOGLE_OAUTH_CLIENT_SECRET=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
+#ENV - Ask Damian for the value
 
 EXPOSE 8080
