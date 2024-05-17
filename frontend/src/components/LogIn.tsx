@@ -71,15 +71,15 @@ function LogIn(): JSX.Element {
     }
 
     return (
-        <main className="flex h-screen w-full flex-col justify-start">
-            <div className="flex w-full flex-row-reverse items-center justify-center gap-10">
+        <main className="h-screen">
+            <div className="flex w-full flex-row-reverse items-center justify-center gap-10 px-4 pt-20 md:px-24 lg:px-40 lg:pt-40">
                 <img
-                    className="mt-32 hidden h-5/6 lg:flex"
+                    className=" hidden xl:flex xl:w-1/2 2xl:w-[800px]"
                     src="./images/unsplash-bg4.png"
                     alt="Background image"
                 />
 
-                <div className="relative flex w-11/12 max-w-96 flex-col items-center justify-center gap-4 pt-28">
+                <div className="flex w-full max-w-[800px] flex-col items-center justify-center gap-4">
                     <h1 className="text-center text-3xl text-secondary md:text-4xl lg:text-5xl">
                         Login <br /> Welcome back!
                     </h1>
@@ -87,7 +87,7 @@ function LogIn(): JSX.Element {
                         Fields marked with * are mandatory.
                     </h2>
                     <div className="flex w-full flex-col gap-4">
-                        <div className="flex w-full max-w-96 flex-col gap-2">
+                        <div className="flex flex-col gap-2">
                             <Label className="text-secondary">Email *</Label>
                             <Input
                                 placeholder="Enter Your Email"
@@ -98,12 +98,12 @@ function LogIn(): JSX.Element {
                                 <div className="error-message">
                                     <FontAwesomeIcon
                                         icon={faExclamationCircle}
-                                    />{" "}
+                                    />
                                     {emailError}
                                 </div>
                             )}
                         </div>
-                        <div className="relative flex w-full max-w-96 flex-col gap-2">
+                        <div className="flex flex-col gap-2">
                             <Label className="gap-2 text-secondary">
                                 Password *
                             </Label>
@@ -117,7 +117,7 @@ function LogIn(): JSX.Element {
                                 <div className="error-message">
                                     <FontAwesomeIcon
                                         icon={faExclamationCircle}
-                                    />{" "}
+                                    />
                                     {passwordError}
                                 </div>
                             )}
