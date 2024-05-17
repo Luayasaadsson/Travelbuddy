@@ -15,8 +15,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "@/store/store"
 import {
     addBasicUserProfileInfo,
-    updateIsLoading,
-    updateMessageToUser
+    /* updateIsLoading,  TODO: TODO:
+    updateMessageToUser */
 } from "@/store/slices/userSlice"
 import React, { useState } from "react";
 import Gender from "@/types/common/Gender"
@@ -85,7 +85,7 @@ function MoreAbout() {
     }
 
     // TODO: TODO: TODO: TODO:
-    const addBasicUserProfileDataToDatabase = async (
+    /* const addBasicUserProfileDataToDatabase = async (
         firstName: string,
         lastName: string,
         city: string,
@@ -106,7 +106,7 @@ function MoreAbout() {
             dispatch(updateMessageToUser("User data has been saved."))
 
         }
-    }
+    } */
 
     
 
