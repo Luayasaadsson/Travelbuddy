@@ -43,9 +43,9 @@ type DietPreferences = DietPreference[]
 
 
 type FoodPreference = {
-    country: string
-    like: boolean
-    dishes: string[]
+    id:number
+    selected: boolean
+    label: string
 }
 
 

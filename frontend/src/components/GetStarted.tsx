@@ -4,24 +4,18 @@ import { Button } from "./ui/button"
 function GetStarted() {
     return (
         <main className="flex h-screen items-center justify-center">
-            <div className="relative flex flex-col items-center justify-center gap-5 p-2">
-                <img
-                    className="w-20 sm:w-2/12"
-                    src="/images/logo.svg"
-                    alt="logo"
-                />
-                <h1 className="text-center text-3xl text-secondary sm:text-6xl">
+            <div className="flex w-full flex-col items-center justify-center gap-5 px-16 md:px-32">
+                <img className="w-28" src="/images/logo.svg" alt="logo" />
+                <h1 className=" text-secondary text-center text-4xl">
                     Discover Your Perfect Journey
                 </h1>
-                <p className="p-2 text-center text-sm text-secondary sm:text-3xl">
+                <p className="p-2 text-center text-lg text-secondary">
                     Unleash the power of personalized travel. Let our
                     AI-assistant guide you effortlessly from inspiration to
                     exploration. Your dream trip starts here.
                 </p>
-                <Link className="flex w-full justify-center" to="/hero">
-                    <Button className="z-10 h-full w-full items-center p-3 sm:text-2xl">
-                        Get started
-                    </Button>
+                <Link className="w-full" to="/hero">
+                    <Button className="text-xl">Get started</Button>
                 </Link>
             </div>
         </main>

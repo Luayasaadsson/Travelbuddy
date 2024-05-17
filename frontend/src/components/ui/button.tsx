@@ -10,14 +10,14 @@ const buttonVariants = cva(
         variants: {
             variant: {
                 default:
-                    "bg-primary w-full text-primary-foreground font-bold hover:bg-primary/70 max-w-[400px]",
+                    "bg-primary w-full text-primary-foreground font-bold hover:bg-primary/70",
                 destructive:
                     "bg-destructive text-destructive-foreground hover:bg-destructive/80",
                 outline:
                     "border border-input text-primary border-primary bg-background",
-                google: "flex w-full max-w-[400px] items-center justify-center rounded-md border bg-background text-sm font-medium text-onBackground hover:bg-onBackground/20",
+                google: "flex w-full items-center justify-center rounded-md border bg-background text-sm font-medium text-onBackground hover:bg-onBackground/20",
                 facebook:
-                    "flex w-full max-w-[400px] items-center justify-center rounded-md bg-blue-600 text-sm font-medium text-onBackground hover:bg-blue-800",
+                    "flex w-full items-center justify-center rounded-md bg-blue-600 text-sm font-medium text-onBackground hover:bg-blue-800",
                 greenOutline:
                     "border-2 text-primary rounded-2xl border-primary bg-background hover:bg-primary-foreground",
                 secondary:

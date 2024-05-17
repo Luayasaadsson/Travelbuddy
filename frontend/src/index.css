@@ -15,12 +15,12 @@
         @apply bg-background text-primary;
     }
     .botPrompt {
-        @apply self-start bg-[#A9CBE3] p-3 text-base font-normal leading-5 tracking-tight text-primary-foreground max-w-full;
+        @apply max-w-full self-start bg-[#A9CBE3] p-3 text-base font-normal leading-5 tracking-tight text-primary-foreground;
         border-radius: 16px 16px 16px 0px; /* Användning av border-radius inline-stil */
         white-space: pre-line; /* Användning av white-space inline-stil */
     }
     .userPrompt {
-        @apply gap-2 self-end bg-primary p-3 text-base font-normal leading-5 tracking-tight text-primary-foreground max-w-full;
+        @apply max-w-full gap-2 self-end bg-primary p-3 text-base font-normal leading-5 tracking-tight text-primary-foreground;
         border-radius: 16px 16px 0px 16px; /* Användning av border-radius inline-stil */
         white-space: pre-line; /* Användning av white-space inline-stil */
     }
@@ -37,10 +37,10 @@
         --popover: 0 0% 100%;
         --popover-foreground: 222.2 84% 4.9%;
 
-        --primary: 162 49% 68%; 
+        --primary: 162 49% 68%;
         --primary-foreground: 167 100% 11%;
 
-        --secondary: 157, 20%, 75%; 
+        --secondary: 157, 20%, 75%;
         --secondary-foreground: 88 93% 11%;
 
         --muted: 210 40% 96.1%;
@@ -113,7 +113,7 @@
     padding: 4px 8px;
     font-size: 0.8rem;
     border-radius: 5px;
-    margin-top: 5px;
+    margin-top: 15px;
     margin-bottom: 5px;
     text-align: center;
 }
@@ -127,4 +127,34 @@
     border-left: 7px solid transparent;
     border-right: 7px solid transparent;
     border-bottom: 7px solid #ba1a1a;
+}
+/* För WebKit-baserade webbläsare (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 12px; /* Justera bredden om det behövs */
+}
+
+::-webkit-scrollbar-track {
+    background: hsla(0, 0%, 0%, 0.435);
+}
+
+::-webkit-scrollbar-thumb {
+    background: hsl(162, 49%, 68%);
+    border-radius: 10px;
+    border: 3px solid transparent; /* Gör att thumb ser mer separerad ut från track */
+    background-clip: content-box; /* Gör att bakgrunden av thumb inte syns under den transparenta gränsen */
+}
+
+/* För Firefox */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(162, 49%, 68%) rgba(0, 0, 0, 0.5);
+}
+
+/* För Internet Explorer och Edge */
+body {
+    -ms-overflow-style: none; /* För IE och Edge */
+}
+
+body::-webkit-scrollbar {
+    display: none; /* För att dölja scrollbaren helt i IE och Edge */
 }

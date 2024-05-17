@@ -111,14 +111,14 @@ function MoreAbout() {
     
 
     return (
-        <main className="flex h-screen w-full flex-col">
-            <div className="flex w-full items-center justify-center">
+        <main className="h-screen">
+            <div className="flex items-center justify-center px-4 pt-20 md:px-24 md:pt-28 lg:gap-10 lg:px-40 lg:pt-40">
                 <img
-                    className="hidden lg:flex"
+                    className=" hidden xl:flex xl:w-1/2 2xl:w-[600px]"
                     src="./images/unsplash-bg7.png"
                     alt="Background image"
                 />
-                <div className="relative flex w-full flex-col items-center gap-4 pt-20 px-4">
+                <div className="relative flex w-full max-w-[600px] flex-col items-center gap-4">
                     <div className="flex flex-col gap-2">
                         <h1 className="text-center text-3xl text-secondary md:text-4xl lg:text-5xl">
                             Let's make it personal
@@ -127,7 +127,7 @@ function MoreAbout() {
                             Fields marked with * are mandatory.
                         </p>
                     </div>
-                
+
                     <div className="flex flex-col items-center justify-center gap-2">
                         <Avatar
                             //isAvatarImageUploaded && className="border-4 border-onBackground" TODO:
@@ -145,6 +145,7 @@ function MoreAbout() {
                         Upload profile picture
                     </button>
 
+<<<<<<< HEAD
                     <div className="flex w-11/12 max-w-96 flex-col items-start gap-4 text-[13px] font-semibold text-onBackground">
                         <div className="flex w-full flex-col gap-1">
                             <Label>First name *</Label>
@@ -224,7 +225,57 @@ function MoreAbout() {
                                 >Add to your profile
                             </Button>
                         </Link>
+=======
+                    <div className="flex w-full flex-col gap-1">
+                        <Label>First name *</Label>
+                        <Input
+                            className="border-outline placeholder:text-onBackground placeholder:opacity-50"
+                            placeholder="Enter your first name"
+                        />
+>>>>>>> 80c1097a3540ab551cc91ca88aaea8f0301b74dc
                     </div>
+                    <div className="flex w-full flex-col gap-1 ">
+                        <Label>Last name *</Label>
+                        <Input
+                            className="border-outline placeholder:text-onBackground placeholder:opacity-50"
+                            placeholder="Enter your first name"
+                        />
+                    </div>
+                    <div className="flex w-full flex-col gap-1">
+                        <Label>City *</Label>
+                        <Input
+                            className="border-outline placeholder:text-onBackground placeholder:opacity-50"
+                            placeholder="Enter the name of your city"
+                        />
+                    </div>
+                    <div className="flex w-full flex-col gap-1">
+                        <Label>Gender</Label>
+                        <Select>
+                            <SelectTrigger className="flex h-12 w-full border-outline placeholder:text-onBackground placeholder:opacity-50">
+                                <SelectValue
+                                    /* className="placeholder:text-onBackground placeholder:opacity-50" */
+                                    placeholder="Select your gender"
+                                />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="Female">Female</SelectItem>
+                                <SelectItem value="Male">Male</SelectItem>
+                                <SelectItem value="Non-binary">
+                                    Non-binary
+                                </SelectItem>
+                            </SelectContent>
+                        </Select>
+                    </div>
+                    <div className="flex h-9 w-full items-center  justify-between text-secondary">
+                        <p className="flex flex-row-reverse gap-3">
+                            Appearance
+                            <img src="./icons/sun.svg" alt="Sunicon" />
+                        </p>
+                        <Switch />
+                    </div>
+                    <Link className="w-full" to="/profilestart">
+                        <Button>Add to your profile</Button>
+                    </Link>
                 </div>
             </div>
         </main>
