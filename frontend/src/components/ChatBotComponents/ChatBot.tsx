@@ -153,7 +153,7 @@ export default function ChatBot() {
         )
     }
     return (
-        <main className="flex h-screen w-full flex-col items-center justify-between gap-4 px-4 pt-20 md:px-24 lg:px-40 lg:pt-40">
+        <main className="flex h-screen w-full flex-col items-center justify-between gap-4">
             <ChatHeading />
             <ChatLog>
                 {messageList.map((message, index) =>
