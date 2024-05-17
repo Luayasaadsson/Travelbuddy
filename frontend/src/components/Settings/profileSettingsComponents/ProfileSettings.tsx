@@ -85,7 +85,7 @@ const ProfileSettings: React.FC = () => {
 
                 {/* Username and Profile Information */}
                 <ProfileDetailsSection />
-                <p className="text-xl">Preferences</p>
+                <p className="self-start text-xl">Preferences</p>
                 {/* Preferences Sections */}
                 <PreferencesSection
                     title="Accommodation"
