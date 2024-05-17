@@ -18,7 +18,7 @@ function Hero() {
                                 Discover Your <br /> Perfect Journey
                             </span>
                         </h1>
-                        <h2 className="text-3xl text-secondary lg:text-xl">
+                        <h2 className="max-w-[800px] text-3xl text-secondary lg:text-xl">
                             <span className="lg:hidden">
                                 Tailor your travel <br /> experience to <br />
                                 perfection
@@ -46,14 +46,14 @@ function Hero() {
                         src="/images/unsplash-bg3.png"
                         alt="image"
                     />
-                    <div className="flex w-2/3 flex-col items-center lg:gap-4 justify-center">
+                    <div className="flex w-2/3 flex-col items-center justify-center lg:gap-4">
                         <h1 className="text-3xl text-primary lg:text-4xl lg:text-secondary xl:text-6xl">
                             <span className="hidden lg:inline">
                                 Tailor your travel <br /> experience to <br />
                                 perfection
                             </span>
                         </h1>
-                        <p className="text-sm text-secondary lg:text-xl pb-4">
+                        <p className="max-w-[800px] pb-4 text-sm text-secondary lg:text-xl">
                             <span className="flex break-words text-center">
                                 Share your preferences and interests to unlock
                                 personalized recommendations and seamless

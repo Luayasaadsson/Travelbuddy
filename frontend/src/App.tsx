@@ -19,8 +19,22 @@ import RateTheApp from "./components/RateTheApp"
 import DesktopVector from "./components/DesktopVector"
 // import PrivateRoute from "./components/PrivateRoute"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { useState, useEffect } from "react"
 
 function App() {
+    const [isLargeScreen, setIsLargeScreen] = useState(false)
+    useEffect(() => {
+        const handleResize = () => {
+            setIsLargeScreen(window.innerWidth >= 1024) // 1024px är standard lg brytpunkt i Tailwind
+        }
+
+        handleResize()
+        window.addEventListener("resize", handleResize)
+
+        return () => {
+            window.removeEventListener("resize", handleResize)
+        }
+    }, [])
     return (
         <>
             <BrowserRouter>
@@ -30,7 +44,7 @@ function App() {
                         path="/"
                         element={
                             <div>
-                                <GetStarted />
+                                {isLargeScreen ? <Hero /> : <GetStarted />}
                                 <DesktopVector />
                             </div>
                         }
