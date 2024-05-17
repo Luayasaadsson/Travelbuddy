@@ -3,7 +3,7 @@ import type { PayloadAction } from "@reduxjs/toolkit" // För att typa action.pa
 import User from "../../types/user/User"
 import Currency from "@/types/common/Currency"
 import BudgetPreference from "@/types/user/BudgetPreference"
-
+import Gender from "@/types/common/Gender"
 
 
 // Initial state
@@ -13,7 +13,10 @@ const initialState: User = {
     profile: {
         firstName: "",
         lastName: "",
-        gender: null,
+        gender: {   
+                    id: 0,
+                    label: "",
+                },
         address: {
             city: "",
             country: "",
@@ -26,7 +29,6 @@ const initialState: User = {
         publicAvatarUrl: "",
         language: "en",
         preferredCurrency: {id: 1, label: "US-Dollar", code:"USD", currencyPerUsd: 1.0}, 
-        mode: "dark",
     },
     preferences: {
         accomodation: [
@@ -749,8 +751,14 @@ export const userSlice = createSlice({
         updateSessionInfo: (state, action: PayloadAction<User["sessionInfo"]>) =>{
             state.sessionInfo = action.payload   
         },
-        updateIsLoggedIn: (state, action: PayloadAction<User>) => {
-            state.sessionInfo.isLoggedIn = action.payload.sessionInfo.isLoggedIn
+        updateIsLoading: (state, action: PayloadAction<boolean> )=>{
+            state.sessionInfo.isLoading = action.payload
+        },
+        updateMessageToUser: (state, action: PayloadAction<string>) => {
+            state.sessionInfo.messageToUser = action.payload
+        },
+        updateIsLoggedIn: (state, action: PayloadAction<boolean>)=>{
+            state.sessionInfo.isLoggedIn = action.payload
         },
         toggleFoodPreference: (state, action: PayloadAction<string>) => {
             const country = action.payload
@@ -840,6 +848,14 @@ export const userSlice = createSlice({
         updatePreferredCurrency: (state, action: PayloadAction<Currency>) => {
             state.settings.preferredCurrency = action.payload
         },
+        addBasicUserProfileInfo: (state, action: PayloadAction<{firstName: string, lastName: string, city: string, country: string, gender: Gender}>  ) => {
+            // update state
+            state.profile.firstName = action.payload.firstName
+            state.profile.lastName = action.payload.lastName
+            state.profile.address.city = action.payload.city
+            state.profile.address.country = action.payload.country
+            state.profile.gender = action.payload.gender
+        }
     },
 
     //  extraReducers är en reducer som kan hantera actions från andra slices eller från createAsyncThunk
@@ -889,10 +905,24 @@ export const fetchUser = createAsyncThunk(
 )
 
 // Exporterar alla actionfunktioner
-export const { updateUser, updateUserId, updateIsLoggedIn, toggleAccommodationPreference, toggleDietPreference, toggleFoodPreference, toggleTransportationPreference, toggleVacationPreference, updatePreferredCurrency, updateBudgetPreference } = userSlice.actions // TODO:
+export const { 
+    updateUser, 
+    updateUserId, 
+    updateIsLoggedIn, 
+    toggleAccommodationPreference, 
+    toggleDietPreference, 
+    toggleFoodPreference, 
+    toggleTransportationPreference, 
+    toggleVacationPreference, 
+    updatePreferredCurrency, 
+    updateBudgetPreference, 
+    updateSessionInfo, 
+    addBasicUserProfileInfo,
+    updateIsLoading,
+    updateMessageToUser,
+} = userSlice.actions 
 // Exporterar reducern
 export default userSlice.reducer
-
 
 
 
