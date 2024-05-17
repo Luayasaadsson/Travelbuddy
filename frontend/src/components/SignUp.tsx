@@ -33,7 +33,7 @@ function SignUp(): JSX.Element {
         }
 
         if (password !== confirmPassword) {
-            setConfirmPasswordError("Passwords do not match")
+            setConfirmPasswordError("Passwords does not match")
             valid = false
         }
 

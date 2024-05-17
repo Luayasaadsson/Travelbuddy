@@ -79,7 +79,7 @@ function LogIn(): JSX.Element {
                     alt="Background image"
                 />
 
-                <div className="flex pb-5 w-full max-w-[800px] flex-col items-center justify-center gap-4">
+                <div className="flex w-full max-w-[800px] flex-col items-center justify-center gap-4 pb-5">
                     <h1 className="text-center text-3xl text-secondary md:text-4xl lg:text-5xl">
                         Login <br /> Welcome back!
                     </h1>
@@ -96,15 +96,13 @@ function LogIn(): JSX.Element {
                         />
                         {emailError && (
                             <div className="error-message">
-                                <FontAwesomeIcon icon={faExclamationCircle} />
+                                <FontAwesomeIcon icon={faExclamationCircle} />{" "}
                                 {emailError}
                             </div>
                         )}
                     </div>
                     <div className="relative flex w-full flex-col">
-                        <Label className="text-secondary">
-                            Password *
-                        </Label>
+                        <Label className="text-secondary">Password *</Label>
                         <Input
                             placeholder="Enter Your Password"
                             type={showPassword ? "text" : "password"}
@@ -113,7 +111,7 @@ function LogIn(): JSX.Element {
                         />
                         {passwordError && (
                             <div className="error-message">
-                                <FontAwesomeIcon icon={faExclamationCircle} />
+                                <FontAwesomeIcon icon={faExclamationCircle} />{" "}
                                 {passwordError}
                             </div>
                         )}
