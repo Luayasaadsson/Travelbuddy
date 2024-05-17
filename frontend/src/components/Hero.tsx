@@ -61,7 +61,10 @@ function Hero() {
                             </span>
                         </p>
                         <div className="flex justify-center gap-3">
-                            <Link to="/login">
+                            <Link
+                                to="/login"
+                                className="border-r-2 border-primary pr-3"
+                            >
                                 <Button variant="outline" size="md">
                                     <p className="text-neutral-200">
                                         Login now
@@ -73,10 +76,6 @@ function Hero() {
                                     />
                                 </Button>
                             </Link>
-                            <img
-                                src="./icons/vector-icon.svg"
-                                alt="Vectoricon"
-                            />
                             <Link to="/signup">
                                 <Button variant="default">
                                     <p>Sign up</p>
