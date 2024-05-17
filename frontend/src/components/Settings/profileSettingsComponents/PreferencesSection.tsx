@@ -20,7 +20,6 @@ const PreferencesSection: React.FC<PreferencesSectionProps> = ({
 }) => {
     return (
         <div className="flex w-full flex-col text-secondary">
-            <p className="text-xl">{title}</p>
             <Accordion type="single" collapsible>
                 <AccordionItem value={accordionKey}>
                     <AccordionTrigger>{title}</AccordionTrigger>

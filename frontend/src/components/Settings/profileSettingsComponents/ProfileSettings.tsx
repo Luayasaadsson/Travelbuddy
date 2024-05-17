@@ -90,38 +90,38 @@ const ProfileSettings: React.FC = () => {
 
                 {/* Username and Profile Information */}
                 <ProfileDetailsSection />
-
+                <p className="text-xl">Preferences</p>
                 {/* Preferences Sections */}
                 <PreferencesSection
-                    title="My preferences"
+                    title="Accommodation"
                     items={accommodationPreferenceList}
                     handleToggle={handleToggleAccommodationPreference}
                     accordionKey="accommodation"
                 />
 
                 <PreferencesSection
-                    title="My dietary preferences"
+                    title="Dietary"
                     items={dietPreferenceList}
                     handleToggle={handleToggleDietPreference}
                     accordionKey="dietary"
                 />
 
                 <PreferencesSection
-                    title="My food preferences"
+                    title="Food"
                     items={foodList}
                     handleToggle={handleToggleFoodPreference}
                     accordionKey="food"
                 />
 
                 <PreferencesSection
-                    title="My transportation preferences"
+                    title="Transportation"
                     items={transportationPreferenceList}
                     handleToggle={handleToggleTransportationPreference}
                     accordionKey="transportation"
                 />
 
                 <PreferencesSection
-                    title="My vacation preferences"
+                    title="Vacation"
                     items={vacationPreferenceList}
                     handleToggle={handleToggleVacationPreference}
                     accordionKey="vacation"
