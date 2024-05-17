@@ -14,14 +14,14 @@ import {
 
 function MoreAbout() {
     return (
-        <main className="pt-20 md:pt-32 lg:pt-44">
-            <div className="flex items-center justify-center lg:gap-10">
+        <main className="h-screen">
+            <div className="flex items-center justify-center px-4 pt-20 md:px-24 md:pt-28 lg:gap-10 lg:px-40 lg:pt-40">
                 <img
-                    className="hidden lg:flex"
+                    className=" hidden xl:flex xl:w-1/2 2xl:w-[600px]"
                     src="./images/unsplash-bg7.png"
                     alt="Background image"
                 />
-                <div className="relative flex w-full max-w-[544px] flex-col items-center gap-4 px-4">
+                <div className="relative flex w-full max-w-[600px] flex-col items-center gap-4">
                     <div className="flex flex-col gap-2">
                         <h1 className="text-center text-3xl text-secondary md:text-4xl lg:text-5xl">
                             Let's make it personal
@@ -30,7 +30,7 @@ function MoreAbout() {
                             Fields marked with * are mandatory.
                         </p>
                     </div>
-                
+
                     <div className="flex flex-col items-center justify-center gap-2">
                         <Avatar
                             //isAvatarImageUploaded && className="border-4 border-onBackground" TODO:
