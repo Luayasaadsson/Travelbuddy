@@ -7,7 +7,7 @@ type ProfileDetailsSectionProps = {}
 const ProfileDetailsSection: React.FC<ProfileDetailsSectionProps> = () => {
     return (
         <div className="flex w-full flex-col items-start gap-4 text-secondary">
-            <p className="text-xl">Username</p>
+            <p className="text-xl text-primary">Username</p>
             <div className="flex w-full max-w-96 flex-col">
                 <Label className="gap-2 text-secondary">Name *</Label>
                 <Input placeholder="Enter Your Public Name" />
