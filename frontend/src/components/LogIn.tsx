@@ -45,7 +45,7 @@ function LogIn(): JSX.Element {
                 console.log("Logging in with password:", password)
                 console.log("Login successful.", response.data)
 
-                navigate("/chatbot")
+                navigate("/profilestart")
             } catch (error) {
                 console.error("Error logging in:", error)
             }
