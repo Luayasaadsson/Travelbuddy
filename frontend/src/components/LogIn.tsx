@@ -74,7 +74,7 @@ function LogIn(): JSX.Element {
         <main className="h-screen">
             <div className="flex w-full flex-row-reverse items-center justify-center gap-10 px-4 pt-20 md:px-24 md:pt-28 lg:px-40 lg:pt-40">
                 <img
-                    className=" hidden xl:flex xl:w-1/2 2xl:w-[800px]"
+                    className="hidden xl:flex xl:w-1/2 2xl:size-[650px]"
                     src="./images/unsplash-bg4.png"
                     alt="Background image"
                 />
@@ -86,70 +86,65 @@ function LogIn(): JSX.Element {
                     <h2 className="text-secondary">
                         Fields marked with * are mandatory.
                     </h2>
-                    <div className="flex w-full flex-col gap-4">
-                        <div className="flex flex-col gap-2">
-                            <Label className="text-secondary">Email *</Label>
-                            <Input
-                                placeholder="Enter Your Email"
-                                value={email}
-                                onChange={handleEmailChange}
-                            />
-                            {emailError && (
-                                <div className="error-message">
-                                    <FontAwesomeIcon
-                                        icon={faExclamationCircle}
-                                    />
-                                    {emailError}
-                                </div>
-                            )}
-                        </div>
-                        <div className="relative flex flex-col gap-2">
-                            <Label className="gap-2 text-secondary">
-                                Password *
-                            </Label>
-                            <Input
-                                placeholder="Enter Your Password"
-                                type={showPassword ? "text" : "password"}
-                                value={password}
-                                onChange={handlePasswordChange}
-                            />
-                            {passwordError && (
-                                <div className="error-message">
-                                    <FontAwesomeIcon
-                                        icon={faExclamationCircle}
-                                    />
-                                    {passwordError}
-                                </div>
-                            )}
-                            <img
-                                src="./icons/visibility.svg"
-                                alt="Show password"
-                                className="absolute inset-y-0 right-3 top-10 cursor-pointer"
-                                onClick={togglePasswordVisibility}
-                            />
-                        </div>
-                        <Link to="/forgotpassword">
-                            <p className="flex w-full cursor-pointer justify-end pt-2 text-sm underline underline-offset-4">
-                                Forgot password?
-                            </p>
-                        </Link>
-                        <div className="flex w-full items-center justify-end gap-2.5">
-                            <p className="text-sm leading-tight tracking-tight text-secondary">
-                                Stay signed in?
-                            </p>
-                            <Checkbox shape="square" />
-                        </div>
-                        <Button onClick={handleLoginClick}>Login</Button>
-                        <p className="text-center text-sm text-onBackground">
-                            Don't have an account?
-                            <Link to="/signup">
-                                <span className="cursor-pointer pl-2 text-primary underline underline-offset-4">
-                                    Signup here!
-                                </span>
-                            </Link>
-                        </p>
+
+                    <div className="flex w-full flex-col gap-2">
+                        <Label className="text-secondary">Email *</Label>
+                        <Input
+                            placeholder="Enter Your Email"
+                            value={email}
+                            onChange={handleEmailChange}
+                        />
+                        {emailError && (
+                            <div className="error-message">
+                                <FontAwesomeIcon icon={faExclamationCircle} />
+                                {emailError}
+                            </div>
+                        )}
                     </div>
-                    <div className="flex items-center gap-[9px]">
+                    <div className="relative flex w-full flex-col gap-2">
+                        <Label className="gap-2 text-secondary">
+                            Password *
+                        </Label>
+                        <Input
+                            placeholder="Enter Your Password"
+                            type={showPassword ? "text" : "password"}
+                            value={password}
+                            onChange={handlePasswordChange}
+                        />
+                        {passwordError && (
+                            <div className="error-message">
+                                <FontAwesomeIcon icon={faExclamationCircle} />
+                                {passwordError}
+                            </div>
+                        )}
+                        <img
+                            src="./icons/visibility.svg"
+                            alt="Show password"
+                            className="absolute inset-y-0 right-3 top-10 cursor-pointer"
+                            onClick={togglePasswordVisibility}
+                        />
+                    </div>
+                    <Link to="/forgotpassword" className="self-end">
+                        <p className="cursor-pointer pt-2 text-sm underline underline-offset-4">
+                            Forgot password?
+                        </p>
+                    </Link>
+                    <div className="flex w-full items-center justify-end gap-2.5">
+                        <p className="text-sm leading-tight tracking-tight text-secondary">
+                            Stay signed in?
+                        </p>
+                        <Checkbox shape="square" />
+                    </div>
+                    <Button onClick={handleLoginClick}>Login</Button>
+                    <p className="text-center text-sm text-onBackground">
+                        Don't have an account?
+                        <Link to="/signup">
+                            <span className="cursor-pointer pl-2 text-primary underline underline-offset-4">
+                                Signup here!
+                            </span>
+                        </Link>
+                    </p>
+                    <div className="flex items-center gap-2">
                         <span className="w-[139px] border border-primary"></span>
                         <div className="text-sm font-normal text-onBackground">
                             Or

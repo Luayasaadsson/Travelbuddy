@@ -130,7 +130,7 @@ function Header() {
                         to="/login"
                         className="h-10 border-r-2 border-primary pr-3"
                     >
-                        <Button variant="outline" size="md" className="h-10">
+                        <Button onClick={handleCloseMenu} variant="outline" size="md" className="h-10">
                             <p className="text-neutral-200">Log in</p>
                             <img
                                 className="ml-2 h-5 w-5"
@@ -140,7 +140,7 @@ function Header() {
                         </Button>
                     </Link>
                     <Link to="/signup">
-                        <Button variant="default" className="h-10">
+                        <Button onClick={handleCloseMenu} variant="default" className="h-10">
                             <p>Sign up</p>
                             <img
                                 className="ml-2 h-5 w-5"

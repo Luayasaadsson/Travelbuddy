@@ -3,8 +3,8 @@ import { Button } from "./ui/button"
 
 function Hero() {
     return (
-        <main className="flex h-screen items-center justify-center">
-            <div className="flex max-h-screen w-full flex-col gap-4 px-4 md:px-10 lg:gap-8 lg:px-40 ">
+        <main className="flex h-screen justify-center">
+            <div className="flex max-h-screen w-full flex-col gap-4 px-4 md:px-10 lg:gap-8 lg:px-40 xl:max-w-[1325px] lg:pt-40 ">
                 <div className="flex flex-col items-center justify-center text-center lg:min-w-[500px] lg:flex-row lg:gap-10">
                     <div className="flex flex-col items-center justify-center gap-4">
                         <img
@@ -40,13 +40,13 @@ function Hero() {
                         alt="image"
                     />
                 </div>
-                <div className="flex flex-col items-center justify-center text-center lg:flex-row lg:justify-between lg:gap-10">
+                <div className="lg:min-w-500px] flex flex-col items-center justify-center text-center lg:flex-row lg:gap-10">
                     <img
                         className="hidden rounded-md bg-gradient-to-b from-black to-black lg:flex lg:w-[383px] xl:w-[480px]"
                         src="/images/unsplash-bg3.png"
                         alt="image"
                     />
-                    <div className="flex w-2/3 flex-col items-center justify-center lg:gap-4">
+                    <div className="flex flex-col items-center justify-center gap-4">
                         <h1 className="text-3xl text-primary lg:text-4xl lg:text-secondary xl:text-6xl">
                             <span className="hidden lg:inline">
                                 Tailor your travel <br /> experience to <br />

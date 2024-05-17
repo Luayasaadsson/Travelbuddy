@@ -86,7 +86,7 @@ function SignUp(): JSX.Element {
         <main className="h-screen">
             <div className="flex w-full flex-row-reverse items-center justify-center gap-10 px-4 pt-20 md:px-24 md:pt-28 lg:px-40 lg:pt-40">
                 <img
-                    className=" hidden xl:flex xl:w-1/2 2xl:w-[800px]"
+                    className="2xl:size-[650px] hidden xl:flex xl:w-1/2"
                     src="./images/unsplash-bg5.png"
                     alt="Background image"
                 />
