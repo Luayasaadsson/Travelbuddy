@@ -25,11 +25,6 @@ import BudgetPreferencesSection from "./BudgetPreferencesSection"
 import ProfileDetailsSection from "./ProfileDetailsSection"
 import PreferencesSection from "./PreferencesSection"
 
-
-
-
-
-
 const ProfileSettings: React.FC = () => {
     const dispatch = useDispatch()
     const accommodationPreferenceList = useSelector(
@@ -38,7 +33,7 @@ const ProfileSettings: React.FC = () => {
     const dietPreferenceList = useSelector(
         (state: RootState) => state.user.preferences.diet,
     )
-    const foodList = useSelector(
+    const foodPreferenceList = useSelector(
         (state: RootState) => state.user.preferences.food,
     )
     const transportationPreferenceList = useSelector(
@@ -108,7 +103,7 @@ const ProfileSettings: React.FC = () => {
 
                 <PreferencesSection
                     title="Food"
-                    items={foodList}
+                    items={foodPreferenceList}
                     handleToggle={handleToggleFoodPreference}
                     accordionKey="food"
                 />
