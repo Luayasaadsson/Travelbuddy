@@ -86,7 +86,7 @@ function SignUp(): JSX.Element {
         <main className="h-screen">
             <div className="flex w-full flex-row-reverse items-center justify-center gap-10 px-4 pt-20 md:px-24 md:pt-28 lg:px-40 lg:pt-40">
                 <img
-                    className="2xl:size-[650px] hidden xl:flex xl:w-1/2"
+                    className="hidden xl:flex xl:w-1/2 2xl:size-[650px]"
                     src="./images/unsplash-bg5.png"
                     alt="Background image"
                 />
@@ -97,85 +97,76 @@ function SignUp(): JSX.Element {
                     <p className="text-center text-xs text-secondary">
                         Fields marked with * are mandatory.
                     </p>
-                    <div className="flex w-full flex-col items-center gap-6">
-                        <div className="flex w-full flex-col gap-2">
-                            <Label className="text-secondary">Email *</Label>
-                            <Input
-                                placeholder="Enter Your Email"
-                                value={email}
-                                onChange={handleEmailChange}
-                            />
-                            {emailError && (
-                                <div className="error-message">
-                                    <FontAwesomeIcon
-                                        icon={faExclamationCircle}
-                                    />{" "}
-                                    {emailError}
-                                </div>
-                            )}
-                        </div>
-                        <div className="relative flex w-full flex-col gap-2">
-                            <Label className="pt-2 text-secondary">
-                                Password *
-                            </Label>
-                            <Input
-                                placeholder="Enter Your Password"
-                                type={showPassword ? "text" : "password"}
-                                value={password}
-                                onChange={handlePasswordChange}
-                            />
-                            {passwordError && (
-                                <div className="error-message">
-                                    <FontAwesomeIcon
-                                        icon={faExclamationCircle}
-                                    />{" "}
-                                    {passwordError}
-                                </div>
-                            )}
-                            <img
-                                src="./icons/visibility.svg"
-                                alt="Show password"
-                                className="absolute inset-y-0 right-3 top-12 cursor-pointer"
-                                onClick={togglePasswordVisibility}
-                            />
-                        </div>
-                        <div className="relative flex w-full flex-col gap-2">
-                            <Label className="pt-2 text-secondary">
-                                Confirm Password *
-                            </Label>
-                            <Input
-                                placeholder="Confirm Your Password"
-                                type={showPassword ? "text" : "password"}
-                                value={confirmPassword}
-                                onChange={handleConfirmPasswordChange}
-                            />
-                            {confirmPasswordError && (
-                                <div className="error-message">
-                                    <FontAwesomeIcon
-                                        icon={faExclamationCircle}
-                                    />{" "}
-                                    {confirmPasswordError}
-                                </div>
-                            )}
-                            <img
-                                src="./icons/visibility.svg"
-                                alt="Show password"
-                                className="absolute inset-y-0 right-3 top-12 cursor-pointer"
-                                onClick={togglePasswordVisibility}
-                            />
-                        </div>
-                        <Button onClick={handleSignUpClick}>
-                            Create profile
-                        </Button>
-                        <p className="my-2 text-center text-sm text-neutral-200">
-                            Already have an account?
-                            <Link to="/login">
-                                <span className="cursor-pointer pl-2 text-primary underline underline-offset-4">
-                                    Login here!
-                                </span>
-                            </Link>
-                        </p>
+
+                    <div className="flex w-full flex-col">
+                        <Label className="text-secondary">Email *</Label>
+                        <Input
+                            placeholder="Enter Your Email"
+                            value={email}
+                            onChange={handleEmailChange}
+                        />
+                        {emailError && (
+                            <div className="error-message">
+                                <FontAwesomeIcon icon={faExclamationCircle} />{" "}
+                                {emailError}
+                            </div>
+                        )}
                     </div>
+                    <div className="relative flex w-full flex-col">
+                        <Label className="text-secondary">
+                            Password *
+                        </Label>
+                        <Input
+                            placeholder="Enter Your Password"
+                            type={showPassword ? "text" : "password"}
+                            value={password}
+                            onChange={handlePasswordChange}
+                        />
+                        {passwordError && (
+                            <div className="error-message">
+                                <FontAwesomeIcon icon={faExclamationCircle} />{" "}
+                                {passwordError}
+                            </div>
+                        )}
+                        <img
+                            src="./icons/visibility.svg"
+                            alt="Show password"
+                            className="absolute inset-y-0 right-3 top-9 cursor-pointer"
+                            onClick={togglePasswordVisibility}
+                        />
+                    </div>
+                    <div className="relative flex w-full flex-col">
+                        <Label className="text-secondary">
+                            Confirm Password *
+                        </Label>
+                        <Input
+                            placeholder="Confirm Your Password"
+                            type={showPassword ? "text" : "password"}
+                            value={confirmPassword}
+                            onChange={handleConfirmPasswordChange}
+                        />
+                        {confirmPasswordError && (
+                            <div className="error-message">
+                                <FontAwesomeIcon icon={faExclamationCircle} />{" "}
+                                {confirmPasswordError}
+                            </div>
+                        )}
+                        <img
+                            src="./icons/visibility.svg"
+                            alt="Show password"
+                            className="absolute inset-y-0 right-3 top-9 cursor-pointer"
+                            onClick={togglePasswordVisibility}
+                        />
+                    </div>
+                    <Button onClick={handleSignUpClick}>Create profile</Button>
+                    <p className="my-2 text-center text-sm text-neutral-200">
+                        Already have an account?
+                        <Link to="/login">
+                            <span className="cursor-pointer pl-2 text-primary underline underline-offset-4">
+                                Login here!
+                            </span>
+                        </Link>
+                    </p>
                     <div className="inline-flex items-center gap-[9px]">
                         <span className="w-[139px] border border-primary"></span>
                         <p className="text-sm font-normal text-onBackground">

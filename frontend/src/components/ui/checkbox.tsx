@@ -19,7 +19,7 @@ const checkboxVariants = cva(
             },
             shape: {
                 circle: "border-none",
-                square: "rounded-sm",
+                square: "rounded-sm w-7 h-7",
             },
         },
         defaultVariants: {
