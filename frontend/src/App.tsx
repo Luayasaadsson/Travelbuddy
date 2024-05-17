@@ -46,6 +46,7 @@ function App() {
                             <div>
                                 {isLargeScreen ? <Hero /> : <GetStarted />}
                                 <DesktopVector />
+                                {isLargeScreen && <Footer />}
                             </div>
                         }
                     />
@@ -55,6 +56,7 @@ function App() {
                             <div>
                                 <LogIn />
                                 <DesktopVector />
+                                {isLargeScreen && <Footer />}
                             </div>
                         }
                     />
@@ -64,6 +66,7 @@ function App() {
                             <div>
                                 <SignUp />
                                 <DesktopVector />
+                                {isLargeScreen && <Footer />}
                             </div>
                         }
                     />
@@ -84,6 +87,7 @@ function App() {
                             <div>
                                 <Hero />
                                 <DesktopVector />
+                                {isLargeScreen && <Footer />}
                             </div>
                         }
                     />
@@ -104,6 +108,7 @@ function App() {
                             <div>
                                 <MoreAbout />
                                 <DesktopVector />
+                                {isLargeScreen && <Footer />}
                             </div>
                         }
                     />
@@ -114,6 +119,7 @@ function App() {
                             <div>
                                 <Settings />
                                 <DesktopVector />
+                                {isLargeScreen && <Footer />}
                             </div>
                         }
                     />
@@ -124,6 +130,7 @@ function App() {
                             <div>
                                 <ProfileSettings />
                                 <DesktopVector />
+                                {isLargeScreen && <Footer />}
                             </div>
                         }
                     />
@@ -134,6 +141,7 @@ function App() {
                             <div>
                                 <ChangePassword />
                                 <DesktopVector />
+                                {isLargeScreen && <Footer />}
                             </div>
                         }
                     />
@@ -151,6 +159,7 @@ function App() {
                             <div>
                                 <ForgotPassword />
                                 <DesktopVector />
+                                {isLargeScreen && <Footer />}
                             </div>
                         }
                     />
@@ -160,6 +169,7 @@ function App() {
                             <div>
                                 <ResetPassword />
                                 <DesktopVector />
+                                {isLargeScreen && <Footer />}
                             </div>
                         }
                     />
@@ -172,6 +182,7 @@ function App() {
                             <div>
                                 <RateTheApp />
                                 <DesktopVector />
+                                {isLargeScreen && <Footer />}
                             </div>
                         }
                     />
@@ -182,12 +193,12 @@ function App() {
                             <div>
                                 <AboutUs />
                                 <DesktopVector />
+                                {isLargeScreen && <Footer />}
                             </div>
                         }
                     />
                 </Routes>
             </BrowserRouter>
-            {isLargeScreen && <Footer />}
         </>
     )
 }
