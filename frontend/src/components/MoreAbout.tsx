@@ -39,7 +39,7 @@ function MoreAbout() {
     const [lastName, setLastName] = useState<string>('')
     const [city, setCity] = useState<string>('')
     const [country, setCountry] = useState<string>('')
-    const [gender, setGender] = useState<Gender>({id: 0, label: "", selected: true})
+    const [gender, setGender] = useState<Gender>({id: 0, label: ""})
     const [genderLabel, setGenderLabel] = useState<string>('');
 
 
@@ -145,7 +145,6 @@ function MoreAbout() {
                         Upload profile picture
                     </button>
 
-<<<<<<< HEAD
                     <div className="flex w-11/12 max-w-96 flex-col items-start gap-4 text-[13px] font-semibold text-onBackground">
                         <div className="flex w-full flex-col gap-1">
                             <Label>First name *</Label>
@@ -153,7 +152,7 @@ function MoreAbout() {
                                 value={firstName}
                                 onChange= {handleFirstNameChange}
                                 className="border-outline placeholder:text-onBackground placeholder:opacity-50"
-                                placeholder="Enter your first name"
+                            placeholder="Enter your first name"
                             />
                         </div>
                         <div className="flex w-full flex-col gap-1 ">
@@ -162,7 +161,7 @@ function MoreAbout() {
                                 value={lastName}
                                 onChange= {handleLastNameChange}
                                 className="border-outline placeholder:text-onBackground placeholder:opacity-50"
-                                placeholder="Enter your first name"
+                            placeholder="Enter your first name"
                             />
                         </div>
                         <div className="flex w-full flex-col gap-1">
@@ -209,73 +208,20 @@ function MoreAbout() {
                             </Select>
                         </div>
 
-                        <div className="mt-4 flex h-9 w-full items-center  justify-between px-4 text-secondary">
+                        <div className="flex h-9 w-full items-center  justify-between text-secondary">
                             <p className="flex flex-row-reverse gap-3">
                                 Appearance
                                 <img src="./icons/sun.svg" alt="Sunicon" />
                             </p>
-                            <Switch 
-
-                            />
+                            <Switch/>
                         </div>
                         <Link className="w-full" to="/profilestart">
                             <Button
                                 onClick={handleAddBasicUserProfileInfo}
-
                                 >Add to your profile
                             </Button>
                         </Link>
-=======
-                    <div className="flex w-full flex-col gap-1">
-                        <Label>First name *</Label>
-                        <Input
-                            className="border-outline placeholder:text-onBackground placeholder:opacity-50"
-                            placeholder="Enter your first name"
-                        />
->>>>>>> 80c1097a3540ab551cc91ca88aaea8f0301b74dc
                     </div>
-                    <div className="flex w-full flex-col gap-1 ">
-                        <Label>Last name *</Label>
-                        <Input
-                            className="border-outline placeholder:text-onBackground placeholder:opacity-50"
-                            placeholder="Enter your first name"
-                        />
-                    </div>
-                    <div className="flex w-full flex-col gap-1">
-                        <Label>City *</Label>
-                        <Input
-                            className="border-outline placeholder:text-onBackground placeholder:opacity-50"
-                            placeholder="Enter the name of your city"
-                        />
-                    </div>
-                    <div className="flex w-full flex-col gap-1">
-                        <Label>Gender</Label>
-                        <Select>
-                            <SelectTrigger className="flex h-12 w-full border-outline placeholder:text-onBackground placeholder:opacity-50">
-                                <SelectValue
-                                    /* className="placeholder:text-onBackground placeholder:opacity-50" */
-                                    placeholder="Select your gender"
-                                />
-                            </SelectTrigger>
-                            <SelectContent>
-                                <SelectItem value="Female">Female</SelectItem>
-                                <SelectItem value="Male">Male</SelectItem>
-                                <SelectItem value="Non-binary">
-                                    Non-binary
-                                </SelectItem>
-                            </SelectContent>
-                        </Select>
-                    </div>
-                    <div className="flex h-9 w-full items-center  justify-between text-secondary">
-                        <p className="flex flex-row-reverse gap-3">
-                            Appearance
-                            <img src="./icons/sun.svg" alt="Sunicon" />
-                        </p>
-                        <Switch />
-                    </div>
-                    <Link className="w-full" to="/profilestart">
-                        <Button>Add to your profile</Button>
-                    </Link>
                 </div>
             </div>
         </main>
