@@ -120,7 +120,7 @@ function LogIn(): JSX.Element {
                         <img
                             src="./icons/visibility.svg"
                             alt="Show password"
-                            className="absolute inset-y-0 right-3 top-10 cursor-pointer"
+                            className="absolute inset-y-0 right-3 top-9 cursor-pointer"
                             onClick={togglePasswordVisibility}
                         />
                     </div>
