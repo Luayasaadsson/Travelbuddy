@@ -81,13 +81,13 @@ function Header() {
 
             <div
                 ref={menuRef}
-                className="absolute top-16 w-full origin-top overflow-hidden bg-white transition-transform duration-300  ease-in-out md:top-20"
+                className="absolute top-16 w-full origin-top overflow-hidden transition-transform duration-300  ease-in-out md:top-20"
                 style={{
                     transform: isOpen ? "scaleY(1)" : "scaleY(0)",
                     zIndex: "1000",
                 }}
             >
-                <ul className="flex flex-col md:flex-row md:justify-around items-center justify-center gap-2 bg-background py-2">
+                <ul className="flex flex-col items-center justify-center gap-2 bg-background lg:bg-transparent py-2 lg:flex-row lg:justify-around">
                     <li
                         style={{ opacity: isOpen ? "1" : "0" }}
                         className="flex h-12 cursor-pointer items-center text-2xl transition-opacity duration-300 ease-in-out hover:text-secondary-foreground"
