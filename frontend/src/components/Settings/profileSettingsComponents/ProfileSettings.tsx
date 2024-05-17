@@ -77,7 +77,7 @@ const ProfileSettings: React.FC = () => {
     }
 
     return (
-        <main className="flex min-h-screen items-start justify-center">
+        <main className="flex min-h-screen items-start justify-center mb-10">
             <div className="relative flex w-11/12 max-w-96 flex-col items-center justify-center gap-6">
                 <div className="flex justify-center pt-28">
                     <h1 className="text-2xl font-bold">Profile settings</h1>
