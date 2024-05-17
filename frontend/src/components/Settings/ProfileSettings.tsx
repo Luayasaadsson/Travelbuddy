@@ -30,9 +30,6 @@ import {
 import Currency from "@/types/common/Currency"
 import BudgetPreference from "@/types/user/BudgetPreference"
 
-
-
-
 function ProfileSettings() {
     const dispatch = useDispatch()
     const accommodationPreferenceList = useSelector(
@@ -55,7 +52,7 @@ function ProfileSettings() {
     )
     const preferredCurrency = useSelector(
         (state: RootState) => state.user.settings.preferredCurrency,
-    ) 
+    )
     const currencyList = useSelector(
         (state: RootState) => state.common.currencies,
     )
@@ -79,7 +76,9 @@ function ProfileSettings() {
         //update the selected currency in the dropdown. TODO:
         dispatch(updatePreferredCurrency(currency))
     }
-    const handleBudgetPreferenceUpdated = (budgetPreference: BudgetPreference) => {
+    const handleBudgetPreferenceUpdated = (
+        budgetPreference: BudgetPreference,
+    ) => {
         dispatch(updateBudgetPreference(budgetPreference)) //
     }
 
@@ -119,28 +118,36 @@ function ProfileSettings() {
                     </div>
                 </div>
                 <div className="flex w-full flex-col text-secondary">
-                    <p className="text-xl">My accommodation preferences</p>
+                    <p className="text-xl">My preferences</p>
 
                     <Accordion type="single" collapsible>
                         <AccordionItem value="item-1">
-                            <AccordionTrigger>
-                                Favorite accommodation types
-                            </AccordionTrigger>
+                            <AccordionTrigger>Accommodation</AccordionTrigger>
                             <AccordionContent>
-                                {accommodationPreferenceList.map((item) => (
-                                    <Checkbox
-                                        key={item.id}
-                                        checked={item.selected}
-                                        color="neutral"
-                                        onCheckedChange={() =>
-                                            handleToggleAccommodationPreference(
-                                                item.id,
-                                            )
-                                        }
-                                    >
-                                        {item.label}
-                                    </Checkbox>
-                                ))}
+                                {accommodationPreferenceList.map(
+                                    (item, index) => (
+                                        <Checkbox
+                                            key={item.id}
+                                            checked={item.selected}
+                                            color="neutral"
+                                            className={`h-14 border-secondary ${
+                                                // Ta bort bottengränsen för sista elementet
+                                                index ===
+                                                accommodationPreferenceList.length -
+                                                    1
+                                                    ? "border-b-0"
+                                                    : "border-b"
+                                            }`}
+                                            onCheckedChange={() =>
+                                                handleToggleAccommodationPreference(
+                                                    item.id,
+                                                )
+                                            }
+                                        >
+                                            {item.label}
+                                        </Checkbox>
+                                    ),
+                                )}
                             </AccordionContent>
                         </AccordionItem>
                     </Accordion>
@@ -255,49 +262,66 @@ function ProfileSettings() {
 
                 <div className="flex w-full flex-col text-secondary">
                     <p className="text-xl">My budget preferences</p>
-                    {<Select value={preferredCurrency!.code!} /* onValueChange={() => handlePreferredCurrencySelected(currency)} */>
-                        
-                        <SelectTrigger className="flex h-12 w-full border-outline placeholder:text-onBackground placeholder:opacity-50">
-                            <SelectValue
-                                placeholder="Select your preferred currency"
-                            />
-                        </SelectTrigger>
-                        <SelectContent>
-                            {currencyList.map((currency) => (
-                                <SelectItem
-                                    key={currency.id}
-                                    value={currency.code!}
-                                    onChange={() => handlePreferredCurrencySelected(currency)}
-                                    /* TODO: selected={preferredCurrency.code === currency.code} TODO:*/ >
-                                    {currency.code} ({currency.label})</SelectItem>
-                                ))
-                            }
-                        </SelectContent>
-                    </Select> }
+                    {
+                        <Select
+                            value={
+                                preferredCurrency!.code!
+                            } /* onValueChange={() => handlePreferredCurrencySelected(currency)} */
+                        >
+                            <SelectTrigger className="flex h-12 w-full border-outline placeholder:text-onBackground placeholder:opacity-50">
+                                <SelectValue placeholder="Select your preferred currency" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                {currencyList.map((currency) => (
+                                    <SelectItem
+                                        key={currency.id}
+                                        value={currency.code!}
+                                        onChange={() =>
+                                            handlePreferredCurrencySelected(
+                                                currency,
+                                            )
+                                        }
+                                        /* TODO: selected={preferredCurrency.code === currency.code} TODO:*/
+                                    >
+                                        {currency.code} ({currency.label})
+                                    </SelectItem>
+                                ))}
+                            </SelectContent>
+                        </Select>
+                    }
 
-                    {<Accordion type="single" collapsible>
-                        <AccordionItem value="item-1">
-                            <AccordionTrigger>
-                                My budget preferences
-                            </AccordionTrigger>
-                            <AccordionContent>
-
-                                {budgetPreferenceList.map((item)=> {
-                                    return(
-                                        <div className="flex w-full max-w-96 flex-col"
-                                            key={item.id}
-                                            >
-                                            <Label className="gap-2 text-secondary">{item.label}</Label>
-                                            <Input
+                    {
+                        <Accordion type="single" collapsible>
+                            <AccordionItem value="item-1">
+                                <AccordionTrigger>
+                                    My budget preferences
+                                </AccordionTrigger>
+                                <AccordionContent>
+                                    {budgetPreferenceList.map((item) => {
+                                        return (
+                                            <div
+                                                className="flex w-full max-w-96 flex-col"
                                                 key={item.id}
-                                                onChange={() => handleBudgetPreferenceUpdated(item)} //item
-                                                placeholder="Enter the amount here" />
-                                        </div>
-                                    )
-                                })}    
-                            </AccordionContent>
-                        </AccordionItem>
-                    </Accordion>}
+                                            >
+                                                <Label className="gap-2 text-secondary">
+                                                    {item.label}
+                                                </Label>
+                                                <Input
+                                                    key={item.id}
+                                                    onChange={() =>
+                                                        handleBudgetPreferenceUpdated(
+                                                            item,
+                                                        )
+                                                    } //item
+                                                    placeholder="Enter the amount here"
+                                                />
+                                            </div>
+                                        )
+                                    })}
+                                </AccordionContent>
+                            </AccordionItem>
+                        </Accordion>
+                    }
                 </div>
 
                 <Link className="w-full" to="/profilestart">
