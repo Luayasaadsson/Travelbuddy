@@ -7,6 +7,7 @@ import { Checkbox } from "./ui/checkbox"
 import { validateEmail, validatePassword } from "./validator"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons"
+import axios from "axios"
 
 function LogIn(): JSX.Element {
     const [email, setEmail] = useState<string>("")
@@ -15,6 +16,41 @@ function LogIn(): JSX.Element {
     const [passwordError, setPasswordError] = useState<string>("")
     const [showPassword, setShowPassword] = useState<boolean>(false)
     const navigate = useNavigate()
+
+    async function handleLoginClick(): Promise<void> {
+        let valid = true
+        if (!validateEmail(email)) {
+            setEmailError("Please enter a valid email address")
+            valid = false
+        }
+
+        if (!validatePassword(password)) {
+            setPasswordError(
+                "Your password must be at least 6 characters long and include a capital letter, a number, and a special character",
+            )
+            valid = false
+        }
+
+        if (valid) {
+            try {
+                const response = await axios.post(
+                    "https://localhost:7038/login?useCookies=true",
+                    {
+                        email: email,
+                        password: password,
+                    },
+                )
+
+                console.log("Logging in with email:", email)
+                console.log("Logging in with password:", password)
+                console.log("Login successful.", response.data)
+
+                navigate("/chatbot")
+            } catch (error) {
+                console.error("Error logging in:", error)
+            }
+        }
+    }
 
     function handleEmailChange(event: ChangeEvent<HTMLInputElement>): void {
         setEmail(event.target.value)
@@ -32,23 +68,6 @@ function LogIn(): JSX.Element {
 
     function togglePasswordVisibility(): void {
         setShowPassword(!showPassword)
-    }
-
-    function handleLoginClick(): void {
-        let valid = true
-        if (!validateEmail(email)) {
-            setEmailError("Please enter a valid email address")
-            valid = false
-        }
-
-        if (!validatePassword(password)) {
-            setPasswordError("Your password must contain 6 characters or more")
-            valid = false
-        }
-
-        if (valid) {
-            navigate("/moreabout")
-        }
     }
 
     return (

@@ -6,6 +6,7 @@ import { Button } from "./ui/button"
 import { validateEmail, validatePassword } from "./validator"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons"
+import axios from "axios"
 
 function SignUp(): JSX.Element {
     const [email, setEmail] = useState<string>("")
@@ -16,6 +17,46 @@ function SignUp(): JSX.Element {
     const [confirmPasswordError, setConfirmPasswordError] = useState<string>("")
     const [showPassword, setShowPassword] = useState<boolean>(false)
     const navigate = useNavigate()
+
+    async function handleSignUpClick(): Promise<void> {
+        let valid = true
+        if (!validateEmail(email)) {
+            setEmailError("Please enter a valid email address")
+            valid = false
+        }
+
+        if (!validatePassword(password)) {
+            setPasswordError(
+                "Your password must be at least 6 characters long and include a capital letter, a number, and a special character",
+            )
+            valid = false
+        }
+
+        if (password !== confirmPassword) {
+            setConfirmPasswordError("Passwords do not match")
+            valid = false
+        }
+
+        if (valid) {
+            try {
+                const response = await axios.post(
+                    "https://localhost:7038/register",
+                    {
+                        email: email,
+                        password: password,
+                    },
+                )
+
+                console.log("New user registered:", response.data)
+                console.log("Signed up with email:", email)
+                console.log("Signed up with password:", password)
+
+                navigate("/moreabout")
+            } catch (error) {
+                console.error("Error registering user:", error)
+            }
+        }
+    }
 
     function handleEmailChange(event: ChangeEvent<HTMLInputElement>): void {
         setEmail(event.target.value)
@@ -39,30 +80,6 @@ function SignUp(): JSX.Element {
 
     function togglePasswordVisibility(): void {
         setShowPassword(!showPassword)
-    }
-
-    function handleSignUpClick(): void {
-        let valid = true
-        if (!validateEmail(email)) {
-            setEmailError("Please enter a valid email address")
-            valid = false
-        }
-
-        if (!validatePassword(password)) {
-            setPasswordError("Your password must contain 6 characters or more")
-            valid = false
-        }
-
-        if (password !== confirmPassword) {
-            setConfirmPasswordError("Passwords does not match")
-            valid = false
-        } else {
-            setConfirmPasswordError("")
-        }
-
-        if (valid) {
-            navigate("/moreabout")
-        }
     }
 
     return (
