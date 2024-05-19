@@ -118,7 +118,7 @@ function MoreAbout() {
                     src="./images/unsplash-bg7.png"
                     alt="Background image"
                 />
-                <div className="relative flex w-full max-w-[600px] flex-col items-center gap-4">
+                <div className="relative flex w-full max-w-[800px] flex-col items-center gap-4">
                     <div className="flex flex-col gap-2">
                         <h1 className="text-center text-3xl text-secondary md:text-4xl lg:text-5xl">
                             Let's make it personal
@@ -145,13 +145,12 @@ function MoreAbout() {
                         Upload profile picture
                     </button>
 
-                    <div className="flex w-11/12 max-w-96 flex-col items-start gap-4 text-[13px] font-semibold text-onBackground">
+                    <div className="flex w-full flex-col items-start gap-4 text-[13px] font-semibold text-onBackground">
                         <div className="flex w-full flex-col gap-1">
                             <Label>First name *</Label>
                             <Input
                                 value={firstName}
                                 onChange= {handleFirstNameChange}
-                                className="border-outline placeholder:text-onBackground placeholder:opacity-50"
                             placeholder="Enter your first name"
                             />
                         </div>
@@ -160,7 +159,6 @@ function MoreAbout() {
                             <Input
                                 value={lastName}
                                 onChange= {handleLastNameChange}
-                                className="border-outline placeholder:text-onBackground placeholder:opacity-50"
                             placeholder="Enter your first name"
                             />
                         </div>
@@ -169,7 +167,6 @@ function MoreAbout() {
                             <Input
                                 value={city}
                                 onChange={handleCityChange}
-                                className="border-outline placeholder:text-onBackground placeholder:opacity-50"
                                 placeholder="Enter the name of your city"
                             />
                         </div>
@@ -178,7 +175,6 @@ function MoreAbout() {
                             <Input
                                 value={country}
                                 onChange={handleCountryChange}
-                                className="border-outline placeholder:text-onBackground placeholder:opacity-50"
                                 placeholder="Enter the name of your country"
                             />
                         </div>
@@ -191,7 +187,6 @@ function MoreAbout() {
                                 >
                                 <SelectTrigger className="flex h-12 w-full border-outline placeholder:text-onBackground placeholder:opacity-50">
                                     <SelectValue
-                                        /* className="placeholder:text-onBackground placeholder:opacity-50" */
                                         placeholder="Select your gender"
                                     />
                                 </SelectTrigger>
