@@ -1,3 +1,4 @@
+import axios from "axios"
 import { useState, ChangeEvent } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { Input } from "./ui/input"
@@ -7,7 +8,6 @@ import { Checkbox } from "./ui/checkbox"
 import { validateEmail, validatePassword } from "./validator"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons"
-import axios from "axios"
 
 function LogIn(): JSX.Element {
     const [email, setEmail] = useState<string>("")
