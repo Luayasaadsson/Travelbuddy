@@ -91,7 +91,7 @@ function Header() {
                     zIndex: "1000",
                 }}
             >
-                <ul className="flex flex-col items-center justify-center gap-2 bg-background py-2 lg:w-1/3 lg:flex-row lg:justify-around lg:bg-transparent lg:py-0 lg:pl-10">
+                <ul className="flex flex-col items-center justify-center gap-2 bg-background py-2 lg:w-2/5 lg:flex-row lg:justify-around lg:bg-transparent lg:py-0 lg:pl-10">
                     <li
                         style={{ opacity: isOpen ? "1" : "0" }}
                         className="flex h-12 cursor-pointer items-center text-2xl transition-opacity duration-300 ease-in-out hover:text-secondary-foreground lg:items-start lg:pt-[2px]"
