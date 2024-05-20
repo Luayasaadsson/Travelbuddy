@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JNuEgUKlfmBQi23VTZcx7LMp0rNAwMNvZg2cOyHwUgmQ4ADy3Y97CWv4qGK3PhSqCJM2Avmk5GKKyEB1Ap54sQ==",
+  "dgSpecHash": "9XP903j0q9xdWch+v97pi4HPeVdSTbyA+eKiZPmSzoX4XUBxA1PaEYRw8O/zbDmUHYsb+EsHy+s82fv3cptcpQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\hobor\\ChasAcademy\\Source code\\TravelBuddyNew\\travelbuddy\\backend\\api\\API.csproj",
+  "projectFilePath": "C:\\Users\\hobor\\ChasAcademy\\Source code\\TravelBuddyNew\\travelbuddy\\backend\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hobor\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\hobor\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

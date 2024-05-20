@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hobor\\ChasAcademy\\Source code\\TravelBuddyNew\\travelbuddy\\backend\\api\\API.csproj": {}
+    "C:\\Users\\hobor\\ChasAcademy\\Source code\\TravelBuddyNew\\travelbuddy\\backend\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hobor\\ChasAcademy\\Source code\\TravelBuddyNew\\travelbuddy\\backend\\api\\API.csproj": {
+    "C:\\Users\\hobor\\ChasAcademy\\Source code\\TravelBuddyNew\\travelbuddy\\backend\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hobor\\ChasAcademy\\Source code\\TravelBuddyNew\\travelbuddy\\backend\\api\\API.csproj",
+        "projectUniqueName": "C:\\Users\\hobor\\ChasAcademy\\Source code\\TravelBuddyNew\\travelbuddy\\backend\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\hobor\\ChasAcademy\\Source code\\TravelBuddyNew\\travelbuddy\\backend\\api\\API.csproj",
+        "projectPath": "C:\\Users\\hobor\\ChasAcademy\\Source code\\TravelBuddyNew\\travelbuddy\\backend\\API\\API.csproj",
         "packagesPath": "C:\\Users\\hobor\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hobor\\ChasAcademy\\Source code\\TravelBuddyNew\\travelbuddy\\backend\\api\\obj\\",
+        "outputPath": "C:\\Users\\hobor\\ChasAcademy\\Source code\\TravelBuddyNew\\travelbuddy\\backend\\API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
