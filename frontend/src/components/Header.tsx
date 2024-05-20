@@ -91,7 +91,7 @@ function Header() {
                     zIndex: "1000",
                 }}
             >
-                <ul className="flex flex-col items-center justify-center gap-2 bg-background py-2 lg:w-1/3 lg:flex-row lg:justify-around lg:bg-transparent lg:py-0 lg:pl-10">
+                <ul className="flex flex-col items-center justify-center gap-2 bg-background py-2 lg:w-2/5 lg:flex-row lg:justify-around lg:bg-transparent lg:py-0 lg:pl-10">
                     <li
                         style={{ opacity: isOpen ? "1" : "0" }}
                         className="flex h-12 cursor-pointer items-center text-2xl transition-opacity duration-300 ease-in-out hover:text-secondary-foreground lg:items-start lg:pt-[2px]"
@@ -125,13 +125,21 @@ function Header() {
                         </Link>
                     </li>
                 </ul>
-                <div className="hidden justify-center gap-3 pb-3 pr-14 lg:flex">
+                <div
+                    style={{ opacity: isOpen ? "1" : "0" }}
+                    className="hidden justify-center gap-3 pb-3 pr-14 transition-opacity duration-300 ease-in-out lg:flex"
+                >
                     <Link
                         to="/login"
                         className="h-10 border-r-2 border-primary pr-3"
                     >
-                        <Button onClick={handleCloseMenu} variant="outline" size="md" className="h-10">
-                            <p className="text-neutral-200">Log in</p>
+                        <Button
+                            onClick={handleCloseMenu}
+                            variant="outline"
+                            size="md"
+                            className="h-10"
+                        >
+                            <p className="text-neutral-200">Login now</p>
                             <img
                                 className="ml-2 h-5 w-5"
                                 src="/images/account.svg"
@@ -140,7 +148,11 @@ function Header() {
                         </Button>
                     </Link>
                     <Link to="/signup">
-                        <Button onClick={handleCloseMenu} variant="default" className="h-10">
+                        <Button
+                            onClick={handleCloseMenu}
+                            variant="default"
+                            className="h-10"
+                        >
                             <p>Sign up</p>
                             <img
                                 className="ml-2 h-5 w-5"

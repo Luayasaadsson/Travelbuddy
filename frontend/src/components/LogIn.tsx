@@ -1,3 +1,4 @@
+import axios from "axios"
 import { useState, ChangeEvent } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { Input } from "./ui/input"
@@ -7,7 +8,6 @@ import { Checkbox } from "./ui/checkbox"
 import { validateEmail, validatePassword } from "./validator"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons"
-import axios from "axios"
 
 function LogIn(): JSX.Element {
     const [email, setEmail] = useState<string>("")
@@ -43,7 +43,7 @@ function LogIn(): JSX.Element {
 
                 console.log("Logging in with email:", email)
                 console.log("Logging in with password:", password)
-                console.log("Login successful.", response.data)
+                console.log("Login successful.", response)
 
                 navigate("/profilestart")
             } catch (error) {
@@ -72,14 +72,14 @@ function LogIn(): JSX.Element {
 
     return (
         <main className="h-screen">
-            <div className="flex w-full flex-row-reverse items-center justify-center gap-10 px-4 pt-20 md:px-24 md:pt-28 lg:px-40 lg:pt-40">
+            <div className="flex w-full flex-row-reverse items-end justify-end gap-10 px-4 pt-20 md:px-24 md:pt-28 lg:px-40 lg:pt-40">
                 <img
-                    className="hidden xl:flex xl:w-1/2 2xl:size-[650px]"
+                    className="hidden xl:flex xl:w-1/2 2xl:size-[660px]"
                     src="./images/unsplash-bg4.png"
                     alt="Background image"
                 />
 
-                <div className="flex w-full max-w-[800px] flex-col items-center justify-center gap-4 pb-5">
+                <div className="flex w-full max-w-[800px] flex-col items-center justify-center gap-4">
                     <h1 className="text-center text-3xl text-secondary md:text-4xl lg:text-5xl">
                         Login <br /> Welcome back!
                     </h1>
@@ -123,7 +123,7 @@ function LogIn(): JSX.Element {
                         />
                     </div>
                     <Link to="/forgotpassword" className="self-end">
-                        <p className="cursor-pointer pt-2 text-sm underline underline-offset-4">
+                        <p className="cursor-pointer text-sm underline underline-offset-4">
                             Forgot password?
                         </p>
                     </Link>
