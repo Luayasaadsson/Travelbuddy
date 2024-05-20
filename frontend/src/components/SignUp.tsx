@@ -84,9 +84,9 @@ function SignUp(): JSX.Element {
 
     return (
         <main className="h-screen">
-            <div className="flex w-full flex-row-reverse items-center justify-center gap-10 px-4 pt-20 md:px-24 md:pt-28 lg:px-40 lg:pt-40">
+            <div className="flex w-full flex-row-reverse items-end justify-center gap-10 px-4 pt-20 md:px-24 md:pt-28 lg:px-40 lg:pt-40">
                 <img
-                    className="hidden xl:flex xl:w-1/2 2xl:size-[650px]"
+                    className="hidden xl:flex xl:w-1/2 2xl:size-[660px]"
                     src="./images/unsplash-bg5.png"
                     alt="Background image"
                 />
@@ -159,7 +159,7 @@ function SignUp(): JSX.Element {
                         />
                     </div>
                     <Button onClick={handleSignUpClick}>Create profile</Button>
-                    <p className="my-2 text-center text-sm text-neutral-200">
+                    <p className="text-center text-sm text-neutral-200">
                         Already have an account?
                         <Link to="/login">
                             <span className="cursor-pointer pl-2 text-primary underline underline-offset-4">
@@ -167,11 +167,11 @@ function SignUp(): JSX.Element {
                             </span>
                         </Link>
                     </p>
-                    <div className="inline-flex items-center gap-[9px]">
+                    <div className="flex items-center gap-2">
                         <span className="w-[139px] border border-primary"></span>
-                        <p className="text-sm font-normal text-onBackground">
+                        <div className="text-sm font-normal text-onBackground">
                             Or
-                        </p>
+                        </div>
                         <span className="w-[139px] border border-primary"></span>
                     </div>
                     <Button variant="facebook">
