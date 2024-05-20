@@ -9,5 +9,8 @@ export function validateEmail(email: string): boolean {
 }
 
 export function validatePassword(password: string): boolean {
-    return password.length >= 6
+    // Regular expression för att kräva minst 6 tecken, en stor bokstav, en siffra och ett specialtecken.
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/
+    
+    return passwordRegex.test(password)
 }

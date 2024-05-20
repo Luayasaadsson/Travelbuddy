@@ -139,7 +139,7 @@ function Header() {
                             size="md"
                             className="h-10"
                         >
-                            <p className="text-neutral-200">Log in</p>
+                            <p className="text-neutral-200">Login now</p>
                             <img
                                 className="ml-2 h-5 w-5"
                                 src="/images/account.svg"
