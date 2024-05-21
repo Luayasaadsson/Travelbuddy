@@ -1,18 +1,11 @@
+import "./ChatLoader.css"
+
 export default function ChatLoader() {
     return (
-        <span className="botPrompt flex h-10 items-center gap-2">
-            <img
-                src="./icons/circle-solid.svg"
-                className="size-[8px] animate-pulse"
-            />
-            <img
-                src="./icons/circle-solid.svg"
-                className="size-[8px] animate-pulse"
-            />
-            <img
-                src="./icons/circle-solid.svg"
-                className="size-[8px] animate-pulse"
-            />
-        </span>
+        <div className="loading-message">
+            <span className="circle animation-delay-1 animation mb-5 rounded-full bg-background" />
+            <span className="circle animation-delay-2 animation mb-5 rounded-full bg-background" />
+            <span className="circle animation-delay-3 animation mb-5 rounded-full bg-background" />
+        </div>
     )
 }
