@@ -181,7 +181,7 @@ function SignUp(): JSX.Element {
                                 onClick={() => setShowPassword2(!showPassword2)}
                             />
                         </div>
-                        <Button onClick={handleSignUpSubmit}>
+                        <Button type="submit">
                             Create profile
                         </Button>
                     </form>
