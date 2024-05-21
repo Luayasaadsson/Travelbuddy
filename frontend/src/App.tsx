@@ -20,7 +20,7 @@ import DesktopVector from "./components/DesktopVector"
 // import PrivateRoute from "./components/PrivateRoute"
 import { Routes, Route } from "react-router-dom"
 import { useState, useEffect } from "react"
-import PrivateRoutes from "./context/PrivateRoutes"
+import PrivateRoutes from "./PrivateRoutes/PrivateRoutes"
 
 function App() {
     const [isLargeScreen, setIsLargeScreen] = useState(false)

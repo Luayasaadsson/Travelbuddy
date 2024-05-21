@@ -6,80 +6,89 @@ import { Input } from "./ui/input"
 import { Label } from "./ui/label"
 import { Button } from "./ui/button"
 import { Checkbox } from "./ui/checkbox"
-import { validateEmail, validatePassword } from "./validator"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons"
 import { loginUser } from "@/store/slices/userSlice"
+import { FormEvent } from "react"
 
 function LogIn(): JSX.Element {
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const location = useLocation()
+    const requestedLocation = location.state?.from?.pathname || "/profilestart"
     const [email, setEmail] = useState<string>("")
     const [password, setPassword] = useState<string>("")
     const [emailError, setEmailError] = useState<string>("")
     const [passwordError, setPasswordError] = useState<string>("")
     const [showPassword, setShowPassword] = useState<boolean>(false)
-    const navigate = useNavigate()
-    const dispatch = useDispatch()
-    const location = useLocation()
-    const from = location.state?.from?.pathname || "/profilestart"
 
-    async function handleLoginClick(): Promise<void> {
-        let valid = true
-        if (!validateEmail(email)) {
-            setEmailError("Please enter a valid email address")
-            valid = false
-        }
-
-        if (!validatePassword(password)) {
-            setPasswordError(
-                "Your password must be at least 6 characters long and include a capital letter, a number, and a special character",
+    const handleLoginSubmit = async (
+        e: FormEvent<HTMLFormElement>,
+    ): Promise<void> => {
+        e.preventDefault()
+        try {
+            const response = await axios.post(
+                "https://localhost:7038/login?useCookies=true",
+                {
+                    email: email,
+                    password: password,
+                },
+                { withCredentials: true },
             )
-            valid = false
-        }
 
-        if (valid) {
-            try {
-                const response = await axios.post(
-                    "https://localhost:7038/login?useCookies=true",
-                    {
-                        email: email,
-                        password: password,
-                    },
-                    { withCredentials: true },
+            console.log("Logging in with email:", email)
+            console.log("Logging in with password:", password)
+            console.log("Login successful.", response)
+
+            dispatch(loginUser())
+            navigate(requestedLocation, { replace: true })
+        } catch (error: any) {
+            if (error.response) {
+                // Server responded with a status other than 2xx
+                setEmailError(
+                    "Login failed. Please check your credentials and try again.",
                 )
-
-                console.log("Logging in with email:", email)
-                console.log("Logging in with password:", password)
-                console.log("Login successful.", response)
-                dispatch(loginUser())
-
-                navigate(from, { replace: true })
-            } catch (error) {
-                console.error("Error logging in:", error)
+                setPasswordError(
+                    "Login failed. Please check your credentials and try again.",
+                )
+            } else if (error.request) {
+                // Request was made but no response was received
+                setEmailError(
+                    "Login failed due to network issues. Please try again later.",
+                )
+                setPasswordError(
+                    "Login failed due to network issues. Please try again later.",
+                )
+            } else {
+                // Something happened in setting up the request
+                setEmailError(
+                    "An unexpected error occurred. Please try again later.",
+                )
+                setPasswordError(
+                    "An unexpected error occurred. Please try again later.",
+                )
             }
+            console.error("Error logging in:", error)
         }
     }
 
-    function handleEmailChange(event: ChangeEvent<HTMLInputElement>): void {
+    const handleEmailChange = (event: ChangeEvent<HTMLInputElement>): void => {
         setEmail(event.target.value)
-        if (emailError && validateEmail(event.target.value)) {
-            setEmailError("")
-        }
+        setEmailError("")
+        setPasswordError("")
     }
 
-    function handlePasswordChange(event: ChangeEvent<HTMLInputElement>): void {
+    const handlePasswordChange = (
+        event: ChangeEvent<HTMLInputElement>,
+    ): void => {
         setPassword(event.target.value)
-        if (passwordError && validatePassword(event.target.value)) {
-            setPasswordError("")
-        }
-    }
-
-    function togglePasswordVisibility(): void {
-        setShowPassword(!showPassword)
+        setEmailError("")
+        setPasswordError("")
     }
 
     return (
         <main className="h-screen">
-            <div className="flex w-full flex-row-reverse items-end justify-end gap-10 px-4 pt-20 md:px-24 md:pt-28 lg:px-40 lg:pt-40">
+            <div className="flex w-full flex-row-reverse items-end justify-center gap-10 px-4 pt-20 md:px-24 md:pt-28 lg:px-40 lg:pt-40">
                 <img
                     className="hidden xl:flex xl:w-1/2 2xl:size-[660px]"
                     src="./images/unsplash-bg4.png"
@@ -93,54 +102,62 @@ function LogIn(): JSX.Element {
                     <h2 className="text-secondary">
                         Fields marked with * are mandatory.
                     </h2>
-
-                    <div className="flex w-full flex-col">
-                        <Label className="text-secondary">Email *</Label>
-                        <Input
-                            placeholder="Enter Your Email"
-                            value={email}
-                            onChange={handleEmailChange}
-                        />
-                        {emailError && (
-                            <div className="error-message">
-                                <FontAwesomeIcon icon={faExclamationCircle} />{" "}
-                                {emailError}
-                            </div>
-                        )}
-                    </div>
-                    <div className="relative flex w-full flex-col">
-                        <Label className="text-secondary">Password *</Label>
-                        <Input
-                            placeholder="Enter Your Password"
-                            type={showPassword ? "text" : "password"}
-                            value={password}
-                            onChange={handlePasswordChange}
-                        />
-                        {passwordError && (
-                            <div className="error-message">
-                                <FontAwesomeIcon icon={faExclamationCircle} />{" "}
-                                {passwordError}
-                            </div>
-                        )}
-                        <img
-                            src="./icons/visibility.svg"
-                            alt="Show password"
-                            className="absolute inset-y-0 right-3 top-9 cursor-pointer"
-                            onClick={togglePasswordVisibility}
-                        />
-                    </div>
-                    <Link to="/forgotpassword" className="self-end">
-                        <p className="cursor-pointer text-sm underline underline-offset-4">
-                            Forgot password?
-                        </p>
-                    </Link>
-                    <div className="flex w-full items-center justify-end gap-2.5">
-                        <p className="text-sm leading-tight tracking-tight text-secondary">
-                            Stay signed in?
-                        </p>
-                        <Checkbox shape="square" />
-                    </div>
-                    <Button onClick={handleLoginClick}>Login</Button>
+                    <form
+                        className="flex w-full flex-col gap-4"
+                        onSubmit={handleLoginSubmit}
+                    >
+                        <div className="flex w-full flex-col">
+                            <Label className="text-secondary">Email *</Label>
+                            <Input
+                                placeholder="Enter Your Email"
+                                value={email}
+                                onChange={handleEmailChange}
+                            />
+                            {emailError && (
+                                <div className="error-message">
+                                    <FontAwesomeIcon
+                                        icon={faExclamationCircle}
+                                    />{" "}
+                                    {emailError}
+                                </div>
+                            )}
+                        </div>
+                        <div className="relative flex w-full flex-col">
+                            <Label className="text-secondary">Password *</Label>
+                            <Input
+                                placeholder="Enter Your Password"
+                                type={showPassword ? "text" : "password"}
+                                value={password}
+                                onChange={handlePasswordChange}
+                            />
+                            {passwordError && (
+                                <div className="error-message">
+                                    <FontAwesomeIcon
+                                        icon={faExclamationCircle}
+                                    />{" "}
+                                    {passwordError}
+                                </div>
+                            )}
+                            <img
+                                src="./icons/visibility.svg"
+                                alt="Show password"
+                                className="absolute inset-y-0 right-3 top-9 cursor-pointer"
+                                onClick={() => setShowPassword(!showPassword)}
+                            />
+                        </div>
+                        <Link to="/forgotpassword" className="self-end">
+                            <p className="cursor-pointer text-sm underline underline-offset-4">
+                                Forgot password?
+                            </p>
+                        </Link>
+                        <div className="flex w-full items-center justify-end gap-2.5">
+                            <p className="text-sm leading-tight tracking-tight text-secondary">
+                                Stay signed in?
+                            </p>
+                            <Checkbox shape="square" />
+                        </div>
+                        <Button type="submit">Login</Button>
+                    </form>
                     <p className="text-center text-sm text-onBackground">
                         Don't have an account?
                         <Link to="/signup">
