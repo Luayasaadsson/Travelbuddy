@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useState, ChangeEvent } from "react"
-import { Link, useNavigate } from "react-router-dom"
+import { useDispatch } from "react-redux"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import { Input } from "./ui/input"
 import { Label } from "./ui/label"
 import { Button } from "./ui/button"
@@ -8,6 +9,7 @@ import { Checkbox } from "./ui/checkbox"
 import { validateEmail, validatePassword } from "./validator"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons"
+import { loginUser } from "@/store/slices/userSlice"
 
 function LogIn(): JSX.Element {
     const [email, setEmail] = useState<string>("")
@@ -16,6 +18,9 @@ function LogIn(): JSX.Element {
     const [passwordError, setPasswordError] = useState<string>("")
     const [showPassword, setShowPassword] = useState<boolean>(false)
     const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || "/profilestart"
 
     async function handleLoginClick(): Promise<void> {
         let valid = true
@@ -45,8 +50,9 @@ function LogIn(): JSX.Element {
                 console.log("Logging in with email:", email)
                 console.log("Logging in with password:", password)
                 console.log("Login successful.", response)
+                dispatch(loginUser())
 
-                navigate("/profilestart")
+                navigate(from, { replace: true })
             } catch (error) {
                 console.error("Error logging in:", error)
             }

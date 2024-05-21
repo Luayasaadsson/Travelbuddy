@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import axios from "axios"
+import { signOutUser } from "@/store/slices/userSlice"
 
 function Settings() {
     // Hämtar dispatch funktionen från Redux store.
@@ -60,6 +61,7 @@ function Settings() {
             await axios.get("https://localhost:7038/api/Auth/logout", {
                 withCredentials: true,
             })
+            dispatch(signOutUser())
         } catch (error) {
             console.error("Error logging out:", error)
         }
@@ -70,6 +72,7 @@ function Settings() {
             await axios.delete("https://localhost:7038/api/Auth/user", {
                 withCredentials: true,
             })
+            dispatch(signOutUser())
         } catch (error) {
             console.error("Error logging out:", error)
         }

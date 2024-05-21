@@ -18,14 +18,15 @@ import AboutUs from "./components/AboutUs"
 import RateTheApp from "./components/RateTheApp"
 import DesktopVector from "./components/DesktopVector"
 // import PrivateRoute from "./components/PrivateRoute"
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { Routes, Route } from "react-router-dom"
 import { useState, useEffect } from "react"
+import PrivateRoutes from "./context/PrivateRoutes"
 
 function App() {
     const [isLargeScreen, setIsLargeScreen] = useState(false)
     useEffect(() => {
         const handleResize = () => {
-            setIsLargeScreen(window.innerWidth >= 1024) // 1024px är standard lg brytpunkt i Tailwind
+            setIsLargeScreen(window.innerWidth >= 1024)
         }
 
         handleResize()
@@ -37,71 +38,86 @@ function App() {
     }, [])
     return (
         <>
-            <BrowserRouter>
-                <Header />
-                <Routes>
-                    <Route
-                        path="/"
-                        element={
-                            <div>
-                                {isLargeScreen ? <Hero /> : <GetStarted />}
-                                <DesktopVector />
-                                {isLargeScreen && <Footer />}
-                            </div>
-                        }
-                    />
-                    <Route
-                        path="/login"
-                        element={
-                            <div>
-                                <LogIn />
-                                <DesktopVector />
-                                {isLargeScreen && <Footer />}
-                            </div>
-                        }
-                    />
-                    <Route
-                        path="/signup"
-                        element={
-                            <div>
-                                <SignUp />
-                                <DesktopVector />
-                                {isLargeScreen && <Footer />}
-                            </div>
-                        }
-                    />
+            <Header />
+            <Routes>
+                <Route
+                    path="/"
+                    element={
+                        <div>
+                            {isLargeScreen ? <Hero /> : <GetStarted />}
+                            <DesktopVector />
+                            {isLargeScreen && <Footer />}
+                        </div>
+                    }
+                />
+                <Route
+                    path="/login"
+                    element={
+                        <div>
+                            <LogIn />
+                            <DesktopVector />
+                            {isLargeScreen && <Footer />}
+                        </div>
+                    }
+                />
+                <Route
+                    path="/signup"
+                    element={
+                        <div>
+                            <SignUp />
+                            <DesktopVector />
+                            {isLargeScreen && <Footer />}
+                        </div>
+                    }
+                />
 
-                    <Route
-                        path="/profilestart"
-                        element={
-                            <div>
-                                <ProfileStart />
-                                <DesktopVector />
-                            </div>
-                        }
-                    />
-                    {/* Protected route */}
-                    <Route
-                        path="/hero"
-                        element={
-                            <div>
-                                <Hero />
-                                <DesktopVector />
-                                {isLargeScreen && <Footer />}
-                            </div>
-                        }
-                    />
-                    {/* Protected route */}
-                    <Route
-                        path="/chatbot"
-                        element={
-                            <div>
-                                <ChatBot />
-                                <DesktopVector />
-                            </div>
-                        }
-                    />
+                <Route
+                    path="/hero"
+                    element={
+                        <div>
+                            <Hero />
+                            <DesktopVector />
+                            {isLargeScreen && <Footer />}
+                        </div>
+                    }
+                />
 
+                <Route
+                    path="/forgotpassword"
+                    element={
+                        <div>
+                            <ForgotPassword />
+                            <DesktopVector />
+                            {isLargeScreen && <Footer />}
+                        </div>
+                    }
+                />
+                {/*        <Route path="/myprofile" element={<MyProfile />} /> */}
+
+                <Route
+                    path="/ratetheapp"
+                    element={
+                        <div>
+                            <RateTheApp />
+                            <DesktopVector />
+                            {isLargeScreen && <Footer />}
+                        </div>
+                    }
+                />
+
+                <Route
+                    path="/aboutus"
+                    element={
+                        <div>
+                            <AboutUs />
+                            <DesktopVector />
+                            {isLargeScreen && <Footer />}
+                        </div>
+                    }
+                />
+
+                {/* Protected routes */}
+                <Route element={<PrivateRoutes route="/login" />}>
                     <Route
                         path="/moreabout"
                         element={
@@ -112,54 +128,12 @@ function App() {
                             </div>
                         }
                     />
-                    {/* Protected route */}
                     <Route
-                        path="/settings"
+                        path="/profilestart"
                         element={
                             <div>
-                                <Settings />
+                                <ProfileStart />
                                 <DesktopVector />
-                                {isLargeScreen && <Footer />}
-                            </div>
-                        }
-                    />
-                    {/* Protected route */}
-                    <Route
-                        path="/profilesettings"
-                        element={
-                            <div>
-                                <ProfileSettings />
-                                <DesktopVector />
-                                {isLargeScreen && <Footer />}
-                            </div>
-                        }
-                    />
-                    {/* Protected route */}
-                    <Route
-                        path="/changepassword"
-                        element={
-                            <div>
-                                <ChangePassword />
-                                <DesktopVector />
-                                {isLargeScreen && <Footer />}
-                            </div>
-                        }
-                    />
-
-                    {/*   <Route path="/notifications" element={
-                    <div>
-                    <Notifications />
-                    <DesktopVector />
-                    </div>
-                } /> */}
-
-                    <Route
-                        path="/forgotpassword"
-                        element={
-                            <div>
-                                <ForgotPassword />
-                                <DesktopVector />
-                                {isLargeScreen && <Footer />}
                             </div>
                         }
                     />
@@ -174,31 +148,47 @@ function App() {
                         }
                     />
 
-                    {/*        <Route path="/myprofile" element={<MyProfile />} /> */}
-
                     <Route
-                        path="/ratetheapp"
+                        path="/chatbot"
                         element={
                             <div>
-                                <RateTheApp />
+                                <ChatBot />
+                                <DesktopVector />
+                            </div>
+                        }
+                    />
+                    <Route
+                        path="/settings"
+                        element={
+                            <div>
+                                <Settings />
                                 <DesktopVector />
                                 {isLargeScreen && <Footer />}
                             </div>
                         }
                     />
-
                     <Route
-                        path="/aboutus"
+                        path="/profilesettings"
                         element={
                             <div>
-                                <AboutUs />
+                                <ProfileSettings />
                                 <DesktopVector />
                                 {isLargeScreen && <Footer />}
                             </div>
                         }
                     />
-                </Routes>
-            </BrowserRouter>
+                    <Route
+                        path="/changepassword"
+                        element={
+                            <div>
+                                <ChangePassword />
+                                <DesktopVector />
+                                {isLargeScreen && <Footer />}
+                            </div>
+                        }
+                    />
+                </Route>
+            </Routes>
         </>
     )
 }
