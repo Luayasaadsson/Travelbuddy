@@ -1,4 +1,5 @@
 import ChatLoader from "./ChatLoader"
+import axios from "axios"
 import ChatHeading from "./ChatHeading"
 import ChatLog from "./ChatLog"
 import FoodPreferenceButtons from "./FoodPreferenceButtons"
@@ -84,26 +85,26 @@ export default function ChatBot() {
                 .join("\n")
             const fullQuery = `${context}\n${query}`
 
-            const response = await fetch(
-                "http://localhost:5127/api/OpenAi/AskAiAssistant",
+            const response = await axios.post(
+                "https://localhost:7038/api/OpenAi/AskAiAssistant",
                 {
-                    method: "POST",
+                    question: fullQuery,
+                    prompt: selectPrompt(),
+                },
+                {
                     headers: {
                         Accept: "application/json",
                         "Content-Type": "application/json",
                     },
-                    body: JSON.stringify({
-                        question: fullQuery,
-                        prompt: selectPrompt(),
-                    }),
+                    withCredentials: true, // This line ensures cookies are sent with the request
                 },
             )
 
-            if (!response.ok) {
+            if (response.status !== 200) {
                 throw new Error("Nätverksproblem")
             }
 
-            const data = await response.json()
+            const data = response.data
             filterAgentResponse(data.response)
         } catch (error) {
             console.error("Något gick fel i fetchen:", error)
