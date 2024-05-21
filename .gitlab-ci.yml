@@ -2,7 +2,7 @@ stages:
   - build
   - image
 
-build_artifact_frontend:
+.build_artifact_frontend:
   stage: build
   image: node
   before_script:
@@ -25,7 +25,7 @@ build_artifact_frontend:
 #    paths:
 #      - backend/API/bin/Release/net8.0/publish/*
 
-build_image_frontend:
+.build_image_frontend:
   stage: image
   dependencies:
     - build_artifact_frontend
@@ -42,7 +42,7 @@ build_image_frontend:
     - docker build -t $CI_REGISTRY/ccg-2/travelbuddy/$IMAGE_TAG .
     - docker push $CI_REGISTRY/ccg-2/travelbuddy/$IMAGE_TAG
 
-build_image_backend:
+.build_image_backend:
   stage: image
 #  dependencies:
 #    - build_artifact_backend
@@ -59,7 +59,7 @@ build_image_backend:
     - docker build -t $CI_REGISTRY/ccg-2/travelbuddy/$IMAGE_TAG -f Dockerfile.prod .
     - docker push $CI_REGISTRY/ccg-2/travelbuddy/$IMAGE_TAG
 
-build_image_frontend_arm64:
+.build_image_frontend_arm64:
   stage: image
   dependencies:
     - build_artifact_frontend
