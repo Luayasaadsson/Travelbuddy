@@ -45,6 +45,7 @@ function SignUp(): JSX.Element {
                         email: email,
                         password: password,
                     },
+                    { withCredentials: true },
                 )
 
                 console.log("New user registered:", response.data)

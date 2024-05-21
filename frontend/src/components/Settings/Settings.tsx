@@ -65,6 +65,16 @@ function Settings() {
         }
     }
 
+    const handleDeleteAccount = async () => {
+        try {
+            await axios.delete("https://localhost:7038/api/Auth/user", {
+                withCredentials: true,
+            })
+        } catch (error) {
+            console.error("Error logging out:", error)
+        }
+    }
+
     return (
         <main className="flex h-screen items-center justify-center">
             <div className="relative flex w-11/12 max-w-96 flex-col items-center justify-center gap-3">
@@ -164,7 +174,10 @@ function Settings() {
                     </Button>
                     <img src="./icons/vector-icon.svg" alt="Vectoricon" />
                     <Button
-                        onClick={() => dispatch(showOverlay({}))}
+                        onClick={() => {
+                            dispatch(showOverlay({}))
+                            handleDeleteAccount()
+                        }}
                         variant="destructive"
                     >
                         <p>Delete account</p>
