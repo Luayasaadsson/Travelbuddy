@@ -1,20 +1,27 @@
 @keyframes pulse {
+    0%{
+        opacity: 0.4;
+    }
     50% {
+        opacity: 1;
+    }
+    100%{
         opacity: 0.4;
     }
 }
 
 @keyframes size {
     50% {
-        width: 7px;
-        height: 7px;
-        margin-top: 90px;
+        width:16px;
+        height: 16px;
+        margin-top: 0px;
     }
 }
 
 .circle {
-    width: 16px;
-    height: 16px;
+    width: 7px;
+    height: 7px;
+    margin-top: 90px;
     display: inline-block;
     margin-right: 6px;
 }

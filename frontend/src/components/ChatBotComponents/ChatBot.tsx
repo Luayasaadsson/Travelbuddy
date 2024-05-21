@@ -76,16 +76,20 @@ export default function ChatBot() {
         }
     }
 
+    const delay = (ms: number) =>
+        new Promise((resolve) => setTimeout(resolve, ms))
+
     const fetchAgentResponse = async (query: string) => {
         setIsLoading(true)
         selectPrompt()
+
         try {
             const context = messageList
                 .map((message) => message.content)
                 .join("\n")
             const fullQuery = `${context}\n${query}`
 
-            const response = await axios.post(
+            const fetchPromise = axios.post(
                 "https://localhost:7038/api/OpenAi/AskAiAssistant",
                 {
                     question: fullQuery,
@@ -99,6 +103,12 @@ export default function ChatBot() {
                     withCredentials: true, // This line ensures cookies are sent with the request
                 },
             )
+
+            // Delay promise
+            const delayPromise = delay(2500)
+
+            // Wait for both promises to resolve
+            const [response] = await Promise.all([fetchPromise, delayPromise])
 
             if (response.status !== 200) {
                 throw new Error("Nätverksproblem")
