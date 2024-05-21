@@ -188,7 +188,6 @@ export default function ChatBot() {
                     </div>
                 )}
                 {isLoading && <ChatLoader />}
-                <ChatLoader />
             </ChatLog>
             <ChatInput
                 handleInputSubmit={handleInputSubmit}
