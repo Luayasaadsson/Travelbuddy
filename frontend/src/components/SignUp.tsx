@@ -4,83 +4,93 @@ import { Link, useNavigate } from "react-router-dom"
 import { Input } from "./ui/input"
 import { Label } from "./ui/label"
 import { Button } from "./ui/button"
-import { validateEmail, validatePassword } from "./validator"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons"
+import { FormEvent } from "react"
 
 function SignUp(): JSX.Element {
     const [email, setEmail] = useState<string>("")
     const [password, setPassword] = useState<string>("")
     const [confirmPassword, setConfirmPassword] = useState<string>("")
     const [emailError, setEmailError] = useState<string>("")
-    const [passwordError, setPasswordError] = useState<string>("")
-    const [confirmPasswordError, setConfirmPasswordError] = useState<string>("")
-    const [showPassword, setShowPassword] = useState<boolean>(false)
+    const [passwordError, setPasswordError] = useState<string[]>([])
+    const [confirmPasswordError, setConfirmPasswordError] = useState<string[]>(
+        [],
+    )
+    const [showPassword1, setShowPassword1] = useState<boolean>(false)
+    const [showPassword2, setShowPassword2] = useState<boolean>(false)
     const navigate = useNavigate()
 
-    async function handleSignUpClick(): Promise<void> {
-        let valid = true
-        if (!validateEmail(email)) {
-            setEmailError("Please enter a valid email address")
-            valid = false
-        }
-
-        if (!validatePassword(password)) {
-            setPasswordError(
-                "Your password must be at least 6 characters long and include a capital letter, a number, and a special character",
-            )
-            valid = false
-        }
-
+    const handleSignUpSubmit = async (
+        e: FormEvent<HTMLFormElement>,
+    ): Promise<void> => {
+        e.preventDefault()
         if (password !== confirmPassword) {
-            setConfirmPasswordError("Passwords does not match")
-            valid = false
+            setConfirmPasswordError(["Passwords do not match."])
+            setPasswordError(["Passwords do not match."])
+            return
         }
 
-        if (valid) {
-            try {
-                const response = await axios.post(
-                    "https://localhost:7038/register",
-                    {
-                        email: email,
-                        password: password,
-                    },
-                    { withCredentials: true },
+        try {
+            const response = await axios.post(
+                "https://localhost:7038/register",
+                {
+                    email: email,
+                    password: password,
+                },
+                { withCredentials: true },
+            )
+            console.log(response)
+
+            navigate("/moreabout")
+        } catch (error: any) {
+            if (error.response) {
+                const errors = error.response.data.errors
+                if (errors.InvalidEmail)
+                    setEmailError(errors.InvalidEmail || "")
+                if (errors.DuplicateUserName)
+                    setEmailError(errors.DuplicateUserName || "")
+                const passwordErrors: string[] = []
+                if (errors.PasswordRequiresDigit)
+                    passwordErrors.push(errors.PasswordRequiresDigit)
+                if (errors.PasswordRequiresNonAlphanumeric)
+                    passwordErrors.push(errors.PasswordRequiresNonAlphanumeric)
+                if (errors.PasswordRequiresUpper)
+                    passwordErrors.push(errors.PasswordRequiresUpper)
+                if (errors.PasswordTooShort)
+                    passwordErrors.push(errors.PasswordTooShort)
+                setPasswordError(passwordErrors)
+                setConfirmPasswordError(passwordErrors)
+            } else if (error.request) {
+                setEmailError(
+                    "Login failed due to network issues. Please try again later.",
                 )
-
-                console.log("New user registered:", response.data)
-                console.log("Signed up with email:", email)
-                console.log("Signed up with password:", password)
-
-                navigate("/moreabout")
-            } catch (error) {
-                console.error("Error registering user:", error)
+            } else {
+                setEmailError(
+                    "An unexpected error occurred. Please try again later.",
+                )
             }
+            console.error("Error logging in:", error)
         }
     }
 
-    function handleEmailChange(event: ChangeEvent<HTMLInputElement>): void {
+    const handleEmailChange = (event: ChangeEvent<HTMLInputElement>): void => {
         setEmail(event.target.value)
-        if (emailError && validateEmail(event.target.value)) setEmailError("")
+        setEmailError("")
     }
 
-    function handlePasswordChange(event: ChangeEvent<HTMLInputElement>): void {
-        setPassword(event.target.value)
-        if (passwordError && validatePassword(event.target.value))
-            setPasswordError("")
-    }
-
-    function handleConfirmPasswordChange(
+    const handlePasswordChange = (
         event: ChangeEvent<HTMLInputElement>,
-    ): void {
-        setConfirmPassword(event.target.value)
-        if (confirmPasswordError && event.target.value === password) {
-            setConfirmPasswordError("")
-        }
+    ): void => {
+        setPassword(event.target.value)
+        setPasswordError([])
     }
 
-    function togglePasswordVisibility(): void {
-        setShowPassword(!showPassword)
+    const handleConfirmPasswordChange = (
+        event: ChangeEvent<HTMLInputElement>,
+    ): void => {
+        setConfirmPassword(event.target.value)
+        setConfirmPasswordError([])
     }
 
     return (
@@ -98,68 +108,83 @@ function SignUp(): JSX.Element {
                     <p className="text-center text-xs text-secondary">
                         Fields marked with * are mandatory.
                     </p>
-
-                    <div className="flex w-full flex-col">
-                        <Label className="text-secondary">Email *</Label>
-                        <Input
-                            placeholder="Enter Your Email"
-                            value={email}
-                            onChange={handleEmailChange}
-                        />
-                        {emailError && (
-                            <div className="error-message">
-                                <FontAwesomeIcon icon={faExclamationCircle} />{" "}
-                                {emailError}
-                            </div>
-                        )}
-                    </div>
-                    <div className="relative flex w-full flex-col">
-                        <Label className="text-secondary">
-                            Password *
-                        </Label>
-                        <Input
-                            placeholder="Enter Your Password"
-                            type={showPassword ? "text" : "password"}
-                            value={password}
-                            onChange={handlePasswordChange}
-                        />
-                        {passwordError && (
-                            <div className="error-message">
-                                <FontAwesomeIcon icon={faExclamationCircle} />{" "}
-                                {passwordError}
-                            </div>
-                        )}
-                        <img
-                            src="./icons/visibility.svg"
-                            alt="Show password"
-                            className="absolute inset-y-0 right-3 top-9 cursor-pointer"
-                            onClick={togglePasswordVisibility}
-                        />
-                    </div>
-                    <div className="relative flex w-full flex-col">
-                        <Label className="text-secondary">
-                            Confirm Password *
-                        </Label>
-                        <Input
-                            placeholder="Confirm Your Password"
-                            type={showPassword ? "text" : "password"}
-                            value={confirmPassword}
-                            onChange={handleConfirmPasswordChange}
-                        />
-                        {confirmPasswordError && (
-                            <div className="error-message">
-                                <FontAwesomeIcon icon={faExclamationCircle} />{" "}
-                                {confirmPasswordError}
-                            </div>
-                        )}
-                        <img
-                            src="./icons/visibility.svg"
-                            alt="Show password"
-                            className="absolute inset-y-0 right-3 top-9 cursor-pointer"
-                            onClick={togglePasswordVisibility}
-                        />
-                    </div>
-                    <Button onClick={handleSignUpClick}>Create profile</Button>
+                    <form
+                        className="flex w-full flex-col gap-4"
+                        onSubmit={handleSignUpSubmit}
+                    >
+                        <div className="flex w-full flex-col">
+                            <Label className="text-secondary">Email *</Label>
+                            <Input
+                                placeholder="Enter Your Email"
+                                value={email}
+                                onChange={handleEmailChange}
+                            />
+                            {emailError && (
+                                <div className="error-message">
+                                    <FontAwesomeIcon
+                                        icon={faExclamationCircle}
+                                    />{" "}
+                                    <p className="self-center">{emailError}</p>
+                                </div>
+                            )}
+                        </div>
+                        <div className="relative flex w-full flex-col">
+                            <Label className="text-secondary">Password *</Label>
+                            <Input
+                                placeholder="Enter Your Password"
+                                type={showPassword1 ? "text" : "password"}
+                                value={password}
+                                onChange={handlePasswordChange}
+                            />
+                            {passwordError.length > 0 && (
+                                <div className="error-message">
+                                    <FontAwesomeIcon
+                                        icon={faExclamationCircle}
+                                        className="self-center"
+                                    />
+                                    {passwordError.map((error, index) => (
+                                        <p className="pl-2" key={index}>
+                                            {error}
+                                        </p>
+                                    ))}
+                                </div>
+                            )}
+                            <img
+                                src="./icons/visibility.svg"
+                                alt="Show password"
+                                className="absolute inset-y-0 right-3 top-9 cursor-pointer"
+                                onClick={() => setShowPassword1(!showPassword1)}
+                            />
+                        </div>
+                        <div className="relative flex w-full flex-col">
+                            <Label className="text-secondary">
+                                Confirm Password *
+                            </Label>
+                            <Input
+                                placeholder="Confirm Your Password"
+                                type={showPassword2 ? "text" : "password"}
+                                value={confirmPassword}
+                                onChange={handleConfirmPasswordChange}
+                            />
+                            {confirmPasswordError.length > 0 && (
+                                <div className="error-message">
+                                    <FontAwesomeIcon
+                                        icon={faExclamationCircle}
+                                    />
+                                    {confirmPasswordError}
+                                </div>
+                            )}
+                            <img
+                                src="./icons/visibility.svg"
+                                alt="Show password"
+                                className="absolute inset-y-0 right-3 top-9 cursor-pointer"
+                                onClick={() => setShowPassword2(!showPassword2)}
+                            />
+                        </div>
+                        <Button onClick={handleSignUpSubmit}>
+                            Create profile
+                        </Button>
+                    </form>
                     <p className="text-center text-sm text-neutral-200">
                         Already have an account?
                         <Link to="/login">
