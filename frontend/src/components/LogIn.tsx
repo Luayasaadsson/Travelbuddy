@@ -39,6 +39,7 @@ function LogIn(): JSX.Element {
                         email: email,
                         password: password,
                     },
+                    { withCredentials: true },
                 )
 
                 console.log("Logging in with email:", email)

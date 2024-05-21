@@ -10,6 +10,7 @@ import { validatePassword } from "@/components/validator"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import axios from "axios"
 
 function Settings() {
     // Hämtar dispatch funktionen från Redux store.
@@ -53,6 +54,9 @@ function Settings() {
                 setShowSuccessOverlay(true)
             }, 200) // Fördröjer visningen av den andra overlayen i 200 millisekunder.
         }
+    }
+    const handleSignOut = async () => {
+        await axios.get("https://localhost:7038/api/Auth/logout")
     }
 
     return (
@@ -144,7 +148,7 @@ function Settings() {
                 </div>
 
                 <div className="mt-4 flex gap-3">
-                    <Button variant="outline" size="lg">
+                    <Button variant="outline" onClick={handleSignOut} size="lg">
                         <p className="text-primary">Sign out</p>
                         <img
                             className="ml-2 h-6 w-6"
@@ -175,8 +179,8 @@ function Settings() {
                             src="./icons/lock-square.svg"
                             alt="icon"
                         />
-                        <div className="relative w-56 flex flex-col items-center">
-                            <p className="w-56 mb-2 text-center text-secondary">
+                        <div className="relative flex w-56 flex-col items-center">
+                            <p className="mb-2 w-56 text-center text-secondary">
                                 Confirm your password to delete your account
                             </p>
                             <Input
@@ -200,7 +204,7 @@ function Settings() {
                                 onClick={togglePasswordVisibility}
                             />
 
-                            <div className="flex items-center mt-2 gap-6">
+                            <div className="mt-2 flex items-center gap-6">
                                 <Button
                                     variant="outline"
                                     size="lg"
