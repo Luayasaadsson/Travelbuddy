@@ -56,7 +56,13 @@ function Settings() {
         }
     }
     const handleSignOut = async () => {
-        await axios.get("https://localhost:7038/api/Auth/logout")
+        try {
+            await axios.get("https://localhost:7038/api/Auth/logout", {
+                withCredentials: true,
+            })
+        } catch (error) {
+            console.error("Error logging out:", error)
+        }
     }
 
     return (
