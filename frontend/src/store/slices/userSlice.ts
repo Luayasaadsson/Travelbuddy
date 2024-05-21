@@ -3,8 +3,7 @@ import type { PayloadAction } from "@reduxjs/toolkit" // För att typa action.pa
 import User from "../../types/user/User"
 import Currency from "@/types/common/Currency"
 import BudgetPreference from "@/types/user/BudgetPreference"
-
-
+import Gender from "@/types/common/Gender"
 
 // Initial state
 
@@ -13,124 +12,133 @@ const initialState: User = {
     profile: {
         firstName: "",
         lastName: "",
-        gender: null,
+        gender: {   
+                    id: 0,
+                    label: "",
+                },
         address: {
             city: "",
             country: "",
         },
     },
-     settings: {
+    settings: {
         email: "",
         password: "",
         publicName: "",
         publicAvatarUrl: "",
         language: "en",
-        preferredCurrency: {id: 1, label: "US-Dollar", code:"USD", currencyPerUsd: 1.0}, 
-        mode: "dark",
+
+
+        preferredCurrency: {
+            id: 1,
+            label: "US-Dollar",
+            code: "USD",
+            currencyPerUsd: 1.0,
+        },
     },
     preferences: {
         accomodation: [
-            {   
+            {
                 id: 1,
                 label: "Bed & Breakfast",
-                selected: false
+                selected: false,
             },
-            {   
+            {
                 id: 2,
                 label: "Boat or Houseboat",
-                selected: false
-            },  
+                selected: false,
+            },
             {
                 id: 3,
                 label: "Boutique Hotel",
-                selected: false
+                selected: false,
             },
             {
                 id: 4,
                 label: "Cabin or Chalet",
-                selected: false
+                selected: false,
             },
             {
                 id: 5,
                 label: "Campground",
-                selected: false
+                selected: false,
             },
             {
                 id: 6,
                 label: "Eco Lodge",
-                selected: false
+                selected: false,
             },
             {
                 id: 7,
                 label: "Farm Stay",
-                selected: false
+                selected: false,
             },
             {
                 id: 8,
                 label: "Glamping",
-                selected: false
+                selected: false,
             },
             {
                 id: 9,
                 label: "Guesthouse",
-                selected: false
+                selected: false,
             },
             {
                 id: 10,
                 label: "Homestay",
-                selected: false
+                selected: false,
             },
             {
                 id: 11,
                 label: "Hotel",
-                selected: false
+                selected: false,
             },
             {
                 id: 12,
                 label: "Hostel",
-                selected: false
+                selected: false,
             },
             {
                 id: 13,
                 label: "Luxury Hotel",
-                selected: false
+                selected: false,
             },
             {
                 id: 14,
                 label: "Motel",
-                selected: false
+                selected: false,
             },
             {
                 id: 15,
                 label: "Resort",
-                selected: false
+                selected: false,
             },
             {
                 id: 16,
                 label: "Safari Lodge",
-                selected: false
+                selected: false,
             },
             {
                 id: 17,
                 label: "Serviced Apartment",
-                selected: false
+                selected: false,
             },
             {
                 id: 18,
                 label: "Treehouse Accommodation",
-                selected: false
+                selected: false,
             },
             {
                 id: 19,
                 label: "Vacation Rental",
-                selected: false
+                selected: false,
             },
             {
                 id: 20,
                 label: "Youth Hostel",
-                selected: false
-            }
-        ],  
+                selected: false,
+            },
+        ],
         budget: [
             {
                 id: 1,
@@ -287,229 +295,109 @@ const initialState: User = {
         ],
         food: [
             {
-                like: false,
-                country: "American",
-                dishes: [
-                    "Hamburgare",
-                    "Hotdogs",
-                    "BBQ ribs",
-                    "Macaroni and cheese",
-                    "Chicken and waffles",
-                ],
+                id: 1,
+                selected: false,
+                label: "American",
             },
             {
-                like: false,
-                country: "Australian",
-                dishes: [
-                    "Anzac biscuits",
-                    "Meat pie",
-                    "Pavlova",
-                    "Vegemite on toast",
-                    "Lamington",
-                ],
+                id: 2,
+                selected: false,
+                label: "Australian",
             },
             {
-                like: false,
-                country: "Brazilian",
-                dishes: [
-                    "Feijoada",
-                    "Pão de queijo",
-                    "Churrasco",
-                    "Coxinha",
-                    "Moqueca",
-                ],
+                id: 3,
+                selected: false,
+                label: "Brazilian",
             },
             {
-                like: false,
-                country: "British",
-                dishes: [
-                    "Fish and chips",
-                    "Roast beef with Yorkshire pudding",
-                    "Full English breakfast",
-                    "Shepherd's pie",
-                    "Bangers and mash",
-                ],
+                id: 4,
+                selected: false,
+                label: "British",
             },
             {
-                like: false,
-                country: "Cajun Creole",
-                dishes: [
-                    "Gumbo",
-                    "Jambalaya",
-                    "Crawfish étouffée",
-                    "Red beans and rice",
-                    "Shrimp and grits",
-                ],
+                id: 5,
+                selected: false,
+                label: "Cajun Creole",
             },
             {
-                like: false,
-                country: "Caribbean",
-                dishes: [
-                    "Ackee and saltfish",
-                    "Jerk chicken",
-                    "Curried goat",
-                    "Roti",
-                    "Plantains",
-                ],
+                id: 6,
+                selected: false,
+                label: "Caribbean",
             },
             {
-                like: false,
-                country: "Chinese",
-                dishes: [
-                    "Kung Pao chicken",
-                    "Peking duck",
-                    "Dim sum",
-                    "Sweet and sour pork",
-                    "Mapo tofu",
-                ],
+                id: 7,
+                selected: false,
+                label: "Chinese",
             },
             {
-                like: false,
-                country: "Ethiopian",
-                dishes: [
-                    "Injera with wat",
-                    "Doro wat",
-                    "Kitfo",
-                    "Tibs",
-                    "Shiro",
-                ],
+                id: 8,
+                selected: false,
+                label: "Ethiopian",
             },
             {
-                like: false,
-                country: "French",
-                dishes: [
-                    "Coq au vin",
-                    "Croissants",
-                    "Bouillabaisse",
-                    "Ratatouille",
-                    "Quiche Lorraine",
-                ],
+                id: 9,
+                selected: false,
+                label: "French",
             },
             {
-                like: false,
-                country: "German",
-                dishes: [
-                    "Bratwurst with sauerkraut",
-                    "Schnitzel",
-                    "Pretzels",
-                    "Sauerbraten",
-                    "Black Forest cake",
-                ],
+                id: 10,
+                selected: false,
+                label: "German",
             },
             {
-                like: false,
-                country: "Greek",
-                dishes: [
-                    "Moussaka",
-                    "Souvlaki",
-                    "Tzatziki",
-                    "Dolmades",
-                    "Spanakopita",
-                ],
+                id: 11,
+                selected: false,
+                label: "Greek",
             },
             {
-                like: false,
-                country: "Indian",
-                dishes: [
-                    "Butter chicken",
-                    "Tandoori chicken",
-                    "Naan bread",
-                    "Samosas",
-                    "Palak paneer",
-                ],
+                id: 12,
+                selected: false,
+                label: "Indian",
             },
             {
-                like: false,
-                country: "Italian",
-                dishes: [
-                    "Pizza Margherita",
-                    "Spaghetti carbonara",
-                    "Risotto",
-                    "Lasagna",
-                    "Tiramisu",
-                ],
+                id: 13,
+                selected: false,
+                label: "Italian",
             },
             {
-                like: false,
-                country: "Japanese",
-                dishes: [
-                    "Sushi",
-                    "Ramen",
-                    "Tempura",
-                    "Udon noodles",
-                    "Tonkatsu",
-                ],
+                id: 14,
+                selected: false,
+                label: "Japanese",
             },
             {
-                like: false,
-                country: "Korean",
-                dishes: [
-                    "Kimchi",
-                    "Bulgogi",
-                    "Bibimbap",
-                    "Kimchi jjigae",
-                    "Japchae",
-                ],
+                id: 15,
+                selected: false,
+                label: "Korean",
             },
             {
-                like: false,
-                country: "Mexican",
-                dishes: [
-                    "Tacos",
-                    "Enchiladas",
-                    "Chiles rellenos",
-                    "Guacamole",
-                    "Mole",
-                ],
+                id: 16,
+                selected: false,
+                label: "Mexican",
             },
             {
-                like: false,
-                country: "Middle Eastern",
-                dishes: [
-                    "Hummus",
-                    "Falafel",
-                    "Shawarma",
-                    "Tabbouleh",
-                    "Baklava",
-                ],
+                id: 17,
+                selected: false,
+                label: "Middle Eastern",
             },
             {
-                like: false,
-                country: "Spanish",
-                dishes: [
-                    "Paella",
-                    "Tortilla española",
-                    "Gazpacho",
-                    "Patatas bravas",
-                    "Churros",
-                ],
+                id: 18,
+                selected: false,
+                label: "Spanish",
             },
             {
-                like: false,
-                country: "Thai",
-                dishes: [
-                    "Pad Thai",
-                    "Tom yum soup",
-                    "Green curry",
-                    "Phad thai",
-                    "Massaman curry",
-                ],
+                id: 19,
+                selected: false,
+                label: "Thai",
             },
             {
-                like: false,
-                country: "Vietnamese",
-                dishes: ["Pho", "Banh mi", "Goi cuon", "Bun cha", "Com tam"],
+                id: 20,
+                selected: false,
+                label: "Vietnamese",
             },
             {
-                like: false,
-                country: "Mediterranean",
-                dishes: [
-                    "Greek salad",
-                    "Hummus with pita",
-                    "Moussaka",
-                    "Falafel",
-                    "Baba ganoush",
-                ],
+                id: 21,
+                selected: false,
+                label: "Mediterranean",
             },
         ],
         transportation: [
@@ -521,59 +409,59 @@ const initialState: User = {
             {
                 id: 2,
                 label: "Bicycle",
-                selected: false
+                selected: false,
             },
             {
                 id: 3,
                 label: "Boat",
-                selected: false
+                selected: false,
             },
             {
                 id: 4,
                 label: "Bus",
-                selected: false
+                selected: false,
             },
             {
                 id: 5,
                 label: "Car",
-                selected: false
+                selected: false,
             },
             {
                 id: 6,
                 label: "Motorcycle",
-                selected: false
+                selected: false,
             },
             {
                 id: 7,
                 label: "Public Transport",
-                selected: false
+                selected: false,
             },
             {
                 id: 8,
                 label: "Recreational Vehicle",
-                selected: false
+                selected: false,
             },
             {
                 id: 9,
                 label: "Rideshare",
-                selected: false
+                selected: false,
             },
             {
                 id: 10,
                 label: "Taxi",
-                selected: false
+                selected: false,
             },
             {
                 id: 11,
                 label: "Train",
-                selected: false
+                selected: false,
             },
             {
                 id: 12,
                 label: "Walking",
-                selected: false
+                selected: false,
             },
-        ], 
+        ],
         vacation: [
             {
                 id: 1,
@@ -726,7 +614,6 @@ const initialState: User = {
     },
 }
 
-
 // X-Slice med reducer-funktioner
 export const userSlice = createSlice({
     name: "user",
@@ -746,27 +633,39 @@ export const userSlice = createSlice({
         updateUserId: (state, action: PayloadAction<User>) => {
             state.id = action.payload.id
         },
-        updateSessionInfo: (state, action: PayloadAction<User["sessionInfo"]>) =>{
-            state.sessionInfo = action.payload   
+        updateSessionInfo: (
+            state,
+            action: PayloadAction<User["sessionInfo"]>,
+        ) => {
+            state.sessionInfo = action.payload
         },
-        updateIsLoggedIn: (state, action: PayloadAction<User>) => {
-            state.sessionInfo.isLoggedIn = action.payload.sessionInfo.isLoggedIn
+        updateIsLoading: (state, action: PayloadAction<boolean> )=>{
+            state.sessionInfo.isLoading = action.payload
         },
-        toggleFoodPreference: (state, action: PayloadAction<string>) => {
-            const country = action.payload
+        updateMessageToUser: (state, action: PayloadAction<string>) => {
+            state.sessionInfo.messageToUser = action.payload
+        },
+        updateIsLoggedIn: (state, action: PayloadAction<boolean>)=>{
+            state.sessionInfo.isLoggedIn = action.payload
+        },
+        toggleFoodPreference: (state, action: PayloadAction<number>) => {
+            const id = action.payload
             return {
                 ...state,
                 preferences: {
                     ...state.preferences,
                     food: state.preferences.food.map((item) =>
-                        item.country === country
-                            ? { ...item, like: !item.like }
+                        item.id === id
+                            ? { ...item, selected: !item.selected }
                             : item,
                     ),
                 },
             }
         },
-        toggleAccommodationPreference: (state, action: PayloadAction<number>) => {
+        toggleAccommodationPreference: (
+            state,
+            action: PayloadAction<number>,
+        ) => {
             const id = action.payload
             return {
                 ...state,
@@ -794,16 +693,20 @@ export const userSlice = createSlice({
                 },
             }
         },
-        toggleTransportationPreference: (state, action: PayloadAction<number>) => {
+        toggleTransportationPreference: (
+            state,
+            action: PayloadAction<number>,
+        ) => {
             const id = action.payload
             return {
                 ...state,
                 preferences: {
                     ...state.preferences,
-                    transportation: state.preferences.transportation.map((item) =>
-                        item.id === id
-                            ? { ...item, selected: !item.selected }
-                            : item,
+                    transportation: state.preferences.transportation.map(
+                        (item) =>
+                            item.id === id
+                                ? { ...item, selected: !item.selected }
+                                : item,
                     ),
                 },
             }
@@ -822,9 +725,12 @@ export const userSlice = createSlice({
                 },
             }
         },
-        updateBudgetPreference: (state, action: PayloadAction<BudgetPreference>) => {
+        updateBudgetPreference: (
+            state,
+            action: PayloadAction<BudgetPreference>,
+        ) => {
             const budgetPreference = action.payload
-            console.log("budgetPreference:",budgetPreference)
+            console.log("budgetPreference:", budgetPreference)
             return {
                 ...state,
                 preferences: {
@@ -840,6 +746,14 @@ export const userSlice = createSlice({
         updatePreferredCurrency: (state, action: PayloadAction<Currency>) => {
             state.settings.preferredCurrency = action.payload
         },
+        addBasicUserProfileInfo: (state, action: PayloadAction<{firstName: string, lastName: string, city: string, country: string, gender: Gender}>  ) => {
+            // update state
+            state.profile.firstName = action.payload.firstName
+            state.profile.lastName = action.payload.lastName
+            state.profile.address.city = action.payload.city
+            state.profile.address.country = action.payload.country
+            state.profile.gender = action.payload.gender
+        }
     },
 
     //  extraReducers är en reducer som kan hantera actions från andra slices eller från createAsyncThunk
@@ -860,7 +774,6 @@ export const userSlice = createSlice({
                 // TODO:
                 state = action.payload
                 state.sessionInfo.isLoading = false
-               
             },
         )
         builder.addCase(fetchUser.rejected, (state) => {
@@ -889,10 +802,24 @@ export const fetchUser = createAsyncThunk(
 )
 
 // Exporterar alla actionfunktioner
-export const { updateUser, updateUserId, updateIsLoggedIn, toggleAccommodationPreference, toggleDietPreference, toggleFoodPreference, toggleTransportationPreference, toggleVacationPreference, updatePreferredCurrency, updateBudgetPreference } = userSlice.actions // TODO:
+export const { 
+    updateUser, 
+    updateUserId, 
+    updateIsLoggedIn, 
+    toggleAccommodationPreference, 
+    toggleDietPreference, 
+    toggleFoodPreference, 
+    toggleTransportationPreference, 
+    toggleVacationPreference, 
+    updatePreferredCurrency, 
+    updateBudgetPreference, 
+    updateSessionInfo, 
+    addBasicUserProfileInfo,
+    updateIsLoading,
+    updateMessageToUser,
+} = userSlice.actions 
 // Exporterar reducern
 export default userSlice.reducer
-
 
 
 
@@ -923,8 +850,6 @@ const currentSkillsFilters = JSON.parse(localStorage.getItem("currentSkillsFilte
 const currentLocationFilters = JSON.parse(localStorage.getItem("currentLocationFilters")!);
 const maxSearchResultsChosen = Number(JSON.parse(localStorage.getItem("maxSearchResultsChosen")!))
  */
-
-
 
 /*     updatePersonalInfo: (state, action: PayloadAction<Job[]>) =>{
       state.favouriteJobs = action.payload
@@ -967,23 +892,22 @@ const maxSearchResultsChosen = Number(JSON.parse(localStorage.getItem("maxSearch
       state.maxSearchResultsChosen = action.payload
     }, */
 
-
-     /* if(state.allJobs.length === 0){
+/* if(state.allJobs.length === 0){
         state.messageToUser = "Sorry, there are no such jobs available."
       } else {
         state.messageToUser = ""
       }
       console.log("state.allJobs after update:", state.allJobs); 
        */
-                // If all filters are empty, set currentJobs to allJobs
-                /* const stateCurrentSkillsFilters = [...state.currentSkillsFilters]  
+// If all filters are empty, set currentJobs to allJobs
+/* const stateCurrentSkillsFilters = [...state.currentSkillsFilters]  
       const stateCurrentLocationFilters = [...state.currentLocationFilters] 
       const stateCurrentSkillsOperand = state.currentSkillsOperand  // no shallow copy needed 
       console.log("stateCurrentSkillsFilters in fetchJobs reducer:",stateCurrentSkillsFilters);
       console.log("stateCurrentLocationFilters in fetchJobs reducer:",stateCurrentLocationFilters)
       console.log("stateCurrentSkillsOperand in fetchJobs-reducer: ",stateCurrentSkillsOperand);
        */
-                /*  if((!stateCurrentSkillsFilters && !stateCurrentLocationFilters) || (stateCurrentSkillsOperand === "ELLER")){
+/*  if((!stateCurrentSkillsFilters && !stateCurrentLocationFilters) || (stateCurrentSkillsOperand === "ELLER")){
         state.currentJobs = state.allJobs
         state.numberOfHits = state.allJobs.length
       } else if (stateCurrentSkillsOperand === "OCH"){
@@ -1000,4 +924,3 @@ const maxSearchResultsChosen = Number(JSON.parse(localStorage.getItem("maxSearch
       } 
       console.log("state.currentJobs after update:", state.currentJobs);
       */
-

@@ -43,9 +43,9 @@ type DietPreferences = DietPreference[]
 
 
 type FoodPreference = {
-    country: string
-    like: boolean
-    dishes: string[]
+    id:number
+    selected: boolean
+    label: string
 }
 
 
@@ -88,8 +88,8 @@ type SessionInfo = {
 type Profile = {
     firstName: string | null
     lastName?: string | null
-    gender: Gender | null
-    address?: Address
+    gender: Gender
+    address: Address
 }
 
 type Settings = {
@@ -99,13 +99,12 @@ type Settings = {
     publicAvatarUrl?: string | null
     language: "en"
     preferredCurrency: Currency | null
-    mode: "light" | "dark"
 }
 
 // TODO:  update gender type below
 type PersonalInfo = {
     dateOfBirth?: Date | null
-    gender?: "Female" | "Male" | "Non-binary" | "Transgender" | null
+    gender?: Gender | null
     partnerId?: string | null
     childrenIds?: string[]
     grandChildrenIds?: string[]

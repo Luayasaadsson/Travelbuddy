@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, ChangeEvent } from "react"
 import { Link } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import { Switch } from "../ui/switch"
@@ -6,6 +6,9 @@ import { Input } from "@/components/ui/input"
 import { useSelector, useDispatch } from "react-redux"
 import { RootState, AppDispatch } from "@/store/store"
 import { showOverlay, hideOverlay } from "@/store/slices/overlaySlice"
+import { validatePassword } from "@/components/validator"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 function Settings() {
@@ -16,23 +19,44 @@ function Settings() {
     const overlayVisible = useSelector(
         (state: RootState) => state.overlay.isVisible,
     )
+
+    const [password, setPassword] = useState<string>("")
+    const [passwordError, setPasswordError] = useState<string>("")
     const [showSuccessOverlay, setShowSuccessOverlay] = useState(false)
+    const [showPassword, setShowPassword] = useState<boolean>(false)
+
+    function handlePasswordChange(event: ChangeEvent<HTMLInputElement>): void {
+        const newPassword = event.target.value
+        setPassword(newPassword)
+        if (newPassword.trim() === "") {
+            setPasswordError("")
+        } else if (passwordError && validatePassword(newPassword)) {
+            setPasswordError("")
+        }
+    }
+
+    function togglePasswordVisibility(): void {
+        setShowPassword(!showPassword)
+    }
 
     // En callback-funktion som kör efter 2 sekunder.
     const handleConfirm = () => {
-        dispatch(hideOverlay())
-        setTimeout(() => {
-            setShowSuccessOverlay(true)
-        }, 200) // Fördröjer visningen av den andra overlayen i 200 millisekunder.
+        if (!password) {
+            setPasswordError("Please enter your password")
+        } else if (!validatePassword(password)) {
+            setPasswordError(
+                "Your password must be at least 6 characters long and include a capital letter, a number, and a special character",
+            )
+        } else {
+            dispatch(hideOverlay())
+            setTimeout(() => {
+                setShowSuccessOverlay(true)
+            }, 200) // Fördröjer visningen av den andra overlayen i 200 millisekunder.
+        }
     }
 
     return (
         <main className="flex h-screen items-center justify-center">
-            {/* <img
-                className="absolute h-screen w-full"
-                src="./icons/Vector.svg"
-                alt="icon"
-            /> */}
             <div className="relative flex w-11/12 max-w-96 flex-col items-center justify-center gap-3">
                 <h1 className="text-2xl">Profil</h1>
                 <div className="flex flex-col items-center gap-4">
@@ -145,22 +169,38 @@ function Settings() {
             {/* Renderar overlay om overlayVisible är true. */}
             {overlayVisible && (
                 <div className="absolute inset-0 flex items-center justify-center bg-background/70">
-                    <div className="flex h-72 w-80 flex-col items-center justify-center gap-6 rounded-xl border border-primary bg-background ">
+                    <div className="flex h-[350px] w-80 flex-col items-center justify-center gap-2 rounded-xl border border-primary bg-background ">
                         <img
                             className="rounded-full bg-primary p-2"
                             src="./icons/lock-square.svg"
                             alt="icon"
                         />
-                        <div className="flex flex-col items-center gap-2">
-                            <p className="w-56 text-center text-secondary">
+                        <div className="relative w-56 flex flex-col items-center">
+                            <p className="w-56 mb-2 text-center text-secondary">
                                 Confirm your password to delete your account
                             </p>
                             <Input
-                                className="h-9 w-56"
                                 placeholder="Enter Your Password"
+                                type={showPassword ? "text" : "password"}
+                                value={password}
+                                onChange={handlePasswordChange}
+                            />
+                            {passwordError && (
+                                <div className="error-message">
+                                    <FontAwesomeIcon
+                                        icon={faExclamationCircle}
+                                    />{" "}
+                                    {passwordError}
+                                </div>
+                            )}
+                            <img
+                                src="./icons/visibility.svg"
+                                alt="Show password"
+                                className="absolute right-3 top-[68px] cursor-pointer"
+                                onClick={togglePasswordVisibility}
                             />
 
-                            <div className="flex items-center gap-6">
+                            <div className="flex items-center mt-2 gap-6">
                                 <Button
                                     variant="outline"
                                     size="lg"

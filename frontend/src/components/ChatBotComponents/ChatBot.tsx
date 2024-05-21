@@ -153,7 +153,7 @@ export default function ChatBot() {
         )
     }
     return (
-        <main className="flex h-screen w-full flex-col items-center justify-between gap-4 pt-28">
+        <main className="flex h-screen w-full flex-col items-center justify-between gap-4">
             <ChatHeading />
             <ChatLog>
                 {messageList.map((message, index) =>
@@ -176,12 +176,12 @@ export default function ChatBot() {
                 {showFoodPreferenceButtons && (
                     <div className="flex w-11/12 flex-wrap justify-center gap-2">
                         {foodList
-                            .filter((food) => food.like === true)
+                            .filter((food) => food.selected === true)
                             .map((food, index) => (
                                 <FoodPreferenceButtons
                                     key={index}
                                     onFoodChoice={handleFoodChoice}
-                                    foodPreference={food.country}
+                                    foodPreference={food.label}
                                 />
                             ))}
                     </div>

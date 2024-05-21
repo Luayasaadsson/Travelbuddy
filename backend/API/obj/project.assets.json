@@ -9819,19 +9819,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/damianamalraj/.nuget/packages/": {}
+    "/Users/luayasaadsson/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/damianamalraj/Documents/Development/travelbuddy/backend/API/API.csproj",
+      "projectUniqueName": "/Users/luayasaadsson/Desktop/travelbuddy/backend/API/API.csproj",
       "projectName": "API",
-      "projectPath": "/Users/damianamalraj/Documents/Development/travelbuddy/backend/API/API.csproj",
-      "packagesPath": "/Users/damianamalraj/.nuget/packages/",
-      "outputPath": "/Users/damianamalraj/Documents/Development/travelbuddy/backend/API/obj/",
+      "projectPath": "/Users/luayasaadsson/Desktop/travelbuddy/backend/API/API.csproj",
+      "packagesPath": "/Users/luayasaadsson/.nuget/packages/",
+      "outputPath": "/Users/luayasaadsson/Desktop/travelbuddy/backend/API/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/damianamalraj/.nuget/NuGet/NuGet.Config"
+        "/Users/luayasaadsson/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
