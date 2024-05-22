@@ -95,7 +95,7 @@ function LogIn(): JSX.Element {
                     alt="Background image"
                 />
 
-                <div className="flex w-full max-w-[800px] flex-col items-center justify-center gap-4">
+                <div className="flex w-full max-w-[660px] flex-col items-center justify-center gap-4">
                     <h1 className="text-center text-3xl text-secondary md:text-4xl lg:text-5xl">
                         Login <br /> Welcome back!
                     </h1>
@@ -146,12 +146,12 @@ function LogIn(): JSX.Element {
                             />
                         </div>
                         <Link to="/forgotpassword" className="self-end">
-                            <p className="cursor-pointer text-sm underline underline-offset-4">
+                            <p className="cursor-pointer pb-[3px] pt-[3px] text-sm underline underline-offset-4">
                                 Forgot password?
                             </p>
                         </Link>
                         <div className="flex w-full items-center justify-end gap-2.5">
-                            <p className="text-sm leading-tight tracking-tight text-secondary">
+                            <p className="pb-1 text-sm leading-tight tracking-tight text-secondary">
                                 Stay signed in?
                             </p>
                             <Checkbox shape="square" />

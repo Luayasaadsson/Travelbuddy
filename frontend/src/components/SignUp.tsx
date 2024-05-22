@@ -101,13 +101,13 @@ function SignUp(): JSX.Element {
                     src="./images/unsplash-bg5.png"
                     alt="Background image"
                 />
-                <div className="flex w-full max-w-[800px] flex-col items-center justify-center gap-4">
+                <div className="flex w-full max-w-[660px] flex-col items-center justify-center gap-4">
                     <h1 className="text-center text-3xl text-secondary md:text-4xl lg:text-5xl">
                         Let's get you started
                     </h1>
-                    <p className="text-center text-xs text-secondary">
+                    <h2 className="text-secondary">
                         Fields marked with * are mandatory.
-                    </p>
+                    </h2>
                     <form
                         className="flex w-full flex-col gap-4"
                         onSubmit={handleSignUpSubmit}
@@ -181,9 +181,7 @@ function SignUp(): JSX.Element {
                                 onClick={() => setShowPassword2(!showPassword2)}
                             />
                         </div>
-                        <Button type="submit">
-                            Create profile
-                        </Button>
+                        <Button type="submit">Create profile</Button>
                     </form>
                     <p className="text-center text-sm text-neutral-200">
                         Already have an account?
