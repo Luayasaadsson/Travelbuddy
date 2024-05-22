@@ -4,6 +4,8 @@ import { useLocation } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { clearMessageList } from "@/store/slices/chatSlice"
 import { Button } from "./ui/button"
+import { useSelector } from "react-redux"
+import { RootState } from "@/store/store"
 
 function Header() {
     const location = useLocation()
@@ -13,9 +15,12 @@ function Header() {
             dispatch(clearMessageList())
         }
     }, [location, dispatch])
-
+    
     const [isOpen, setIsOpen] = useState<boolean>(false)
     const menuRef = useRef<HTMLDivElement>(null)
+    const isAuth = useSelector(
+        (state: RootState) => state.user.sessionInfo.isLoggedIn,
+    )
 
     const handleMenu = () => {
         setIsOpen(!isOpen)
@@ -125,43 +130,45 @@ function Header() {
                         </Link>
                     </li>
                 </ul>
-                <div
-                    style={{ opacity: isOpen ? "1" : "0" }}
-                    className="hidden justify-center gap-3 pb-3 pr-14 transition-opacity duration-300 ease-in-out lg:flex"
-                >
-                    <Link
-                        to="/login"
-                        className="h-10 border-r-2 border-primary pr-3"
+                {!isAuth && (
+                    <div
+                        style={{ opacity: isOpen ? "1" : "0" }}
+                        className="hidden justify-center gap-3 pb-3 pr-14 transition-opacity duration-300 ease-in-out lg:flex"
                     >
-                        <Button
-                            onClick={handleCloseMenu}
-                            variant="outline"
-                            size="md"
-                            className="h-10"
+                        <Link
+                            to="/login"
+                            className="h-10 border-r-2 border-primary pr-3"
                         >
-                            <p className="text-neutral-200">Login now</p>
-                            <img
-                                className="ml-2 h-5 w-5"
-                                src="/images/account.svg"
-                                alt="Profileicon"
-                            />
-                        </Button>
-                    </Link>
-                    <Link to="/signup">
-                        <Button
-                            onClick={handleCloseMenu}
-                            variant="default"
-                            className="h-10"
-                        >
-                            <p>Sign up</p>
-                            <img
-                                className="ml-2 h-5 w-5"
-                                src="/images/account2.svg"
-                                alt="Profileicon"
-                            />
-                        </Button>
-                    </Link>
-                </div>
+                            <Button
+                                onClick={handleCloseMenu}
+                                variant="outline"
+                                size="md"
+                                className="h-10"
+                            >
+                                <p className="text-neutral-200">Login now</p>
+                                <img
+                                    className="ml-2 h-5 w-5"
+                                    src="/images/account.svg"
+                                    alt="Profileicon"
+                                />
+                            </Button>
+                        </Link>
+                        <Link to="/signup">
+                            <Button
+                                onClick={handleCloseMenu}
+                                variant="default"
+                                className="h-10"
+                            >
+                                <p>Sign up</p>
+                                <img
+                                    className="ml-2 h-5 w-5"
+                                    src="/images/account2.svg"
+                                    alt="Profileicon"
+                                />
+                            </Button>
+                        </Link>
+                    </div>
+                )}
             </div>
         </header>
     )
