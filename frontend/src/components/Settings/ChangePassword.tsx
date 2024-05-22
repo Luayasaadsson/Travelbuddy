@@ -1,3 +1,4 @@
+import axios from "axios"
 import { useState, ChangeEvent } from "react"
 import { useNavigate } from "react-router-dom"
 import { Input } from "@/components/ui/input"
@@ -58,7 +59,7 @@ function ChangePassword(): JSX.Element {
         setShowPassword(!showPassword)
     }
 
-    function handleSaveChangesClick(): void {
+    async function handleSaveChangesClick(): Promise<void> {
         let valid = true
 
         if (!validateEmail(email)) {
@@ -86,7 +87,22 @@ function ChangePassword(): JSX.Element {
         }
 
         if (valid) {
-            navigate("/profilestart")
+            try {
+                const response = await axios.post(
+                    "https://localhost:7038/manage/info",
+                    {
+                        oldPassword: currentPassword,
+                        newPassword: newPassword,
+                    },
+                    { withCredentials: true },
+                )
+
+                console.log("Password changed successfully.", response)
+
+                navigate("/profilestart")
+            } catch (error) {
+                console.error("Error logging in:", error)
+            }
         }
     }
 
