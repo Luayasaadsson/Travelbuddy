@@ -105,7 +105,7 @@ export default function ChatBot() {
             )
 
             // Delay promise
-            const delayPromise = delay(2500)
+            const delayPromise = delay(2000)
 
             // Wait for both promises to resolve
             const [response] = await Promise.all([fetchPromise, delayPromise])
@@ -198,6 +198,7 @@ export default function ChatBot() {
                     </div>
                 )}
                 {isLoading && <ChatLoader />}
+                {/* <ChatLoader /> */}
             </ChatLog>
             <ChatInput
                 handleInputSubmit={handleInputSubmit}

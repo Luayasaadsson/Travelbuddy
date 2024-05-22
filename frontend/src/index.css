@@ -15,12 +15,12 @@
         @apply bg-background text-primary;
     }
     .botPrompt {
-        @apply max-w-full self-start bg-[#A9CBE3] px-4 py-3 font-normal leading-6 tracking-normal text-primary-foreground;
+        @apply max-w-[90%] self-start bg-[#A9CBE3] px-4 py-3 font-normal leading-6 tracking-normal text-primary-foreground;
         border-radius: 16px 16px 16px 0px; /* Användning av border-radius inline-stil */
         white-space: pre-line; /* Användning av white-space inline-stil */
     }
     .userPrompt {
-        @apply max-w-full gap-2 self-end bg-primary px-4 py-3 font-normal leading-6 tracking-normal text-primary-foreground;
+        @apply max-w-[90%] gap-2 self-end bg-primary px-4 py-3 font-normal leading-6 tracking-normal text-primary-foreground;
         border-radius: 16px 16px 0px 16px; /* Användning av border-radius inline-stil */
         white-space: pre-line; /* Användning av white-space inline-stil */
     }
