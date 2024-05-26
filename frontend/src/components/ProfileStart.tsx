@@ -7,14 +7,16 @@ import {
     updateSubHeading,
     updateMessageList,
 } from "@/store/slices/chatSlice"
-import { RootState } from "@/store/store";
+import { RootState } from "@/store/store"
 import Message from "@/types/chat/Message"
 
 function ProfileStart() {
     const dispatch = useDispatch()
 
     // Hämtar användarinformation från Redux store
-    const userName = useSelector((state: RootState) => state.user.profile.userName);
+    const userName = useSelector(
+        (state: RootState) => state.user.profile.userName,
+    )
 
     const handleClick = (
         heading: string,

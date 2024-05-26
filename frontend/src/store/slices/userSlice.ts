@@ -4,7 +4,7 @@ import User from "../../types/user/User"
 import Currency from "@/types/common/Currency"
 import BudgetPreference from "@/types/user/BudgetPreference"
 import Gender from "@/types/common/Gender"
-import axios from 'axios';
+import axios from "axios"
 
 // Initial state
 
@@ -804,7 +804,15 @@ export const userSlice = createSlice({
             console.error("Error fetching user data")
         })
         builder.addCase(fetchUserProfile.fulfilled, (state, action) => {
-            const { firstName, lastName, userName, phoneNumber, city, country, gender } = action.payload;
+            const {
+                firstName,
+                lastName,
+                userName,
+                phoneNumber,
+                city,
+                country,
+                gender,
+            } = action.payload
             state.profile = {
                 ...state.profile,
                 firstName,
@@ -817,23 +825,25 @@ export const userSlice = createSlice({
                     country,
                 },
                 gender,
-            };
-        });
-        
+            }
+        })
     },
 })
 
 // Async thunk för att hämta användarens profil
 export const fetchUserProfile = createAsyncThunk(
-    'user/fetchUserProfile',
+    "user/fetchUserProfile",
     async () => {
-        const response = await axios.get('https://localhost:7038/api/Auth/user', {
-            withCredentials: true,
-        });
-        console.log('Profile data:', response.data);
-        return response.data;
-    }
-);
+        const response = await axios.get(
+            "https://localhost:7038/api/Auth/user",
+            {
+                withCredentials: true,
+            },
+        )
+        console.log("Profile data:", response.data)
+        return response.data
+    },
+)
 
 // createAsyncThunk tar två argument, ett namn och en funktion som returnerar en promise
 export const fetchUser = createAsyncThunk(

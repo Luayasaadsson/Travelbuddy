@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios"
 import { Link } from "react-router-dom"
 import { Input } from "./ui/input"
 import { Label } from "./ui/label"
@@ -19,32 +19,30 @@ import {
     /* updateIsLoading,  TODO: TODO:
     updateMessageToUser */
 } from "@/store/slices/userSlice"
-import React, { useState } from "react";
+import React, { useState } from "react"
 import Gender from "@/types/common/Gender"
 
 // Assumption: The user will only forwarded to MoreAbout, if the user is totally new and has just registered as a user
-// => no need to check whether there is any user data already 
-
-
+// => no need to check whether there is any user data already
 
 // Component Function
 
 function MoreAbout() {
-    
     // GLOBAL STATES
-    const { genders } : {genders: Gender[]} = useSelector((state: RootState) => state.common)  
+    const { genders }: { genders: Gender[] } = useSelector(
+        (state: RootState) => state.common,
+    )
     const dispatch = useDispatch()
-    
-    // Local states
-    const [firstName, setFirstName] = useState<string>('')
-    const [lastName, setLastName] = useState<string>('')
-    const [userName, setUserName] = useState<string>('')
-    const [phoneNumber, setPhoneNumber] = useState<string>('')
-    const [city, setCity] = useState<string>('')
-    const [country, setCountry] = useState<string>('')
-    const [gender, setGender] = useState<Gender>({id: 0, label: ""})
-    const [genderLabel, setGenderLabel] = useState<string>('');
 
+    // Local states
+    const [firstName, setFirstName] = useState<string>("")
+    const [lastName, setLastName] = useState<string>("")
+    const [userName, setUserName] = useState<string>("")
+    const [phoneNumber, setPhoneNumber] = useState<string>("")
+    const [city, setCity] = useState<string>("")
+    const [country, setCountry] = useState<string>("")
+    const [gender, setGender] = useState<Gender>({ id: 0, label: "" })
+    const [genderLabel, setGenderLabel] = useState<string>("")
 
     // Handle-functions
     const handleFirstNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -59,7 +57,9 @@ function MoreAbout() {
         e.preventDefault()
         setUserName(e.target.value)
     }
-    const handlePhoneNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handlePhoneNumberChange = (
+        e: React.ChangeEvent<HTMLInputElement>,
+    ) => {
         e.preventDefault()
         setPhoneNumber(e.target.value)
     }
@@ -73,13 +73,25 @@ function MoreAbout() {
     }
     const handleGenderLabelChange = (selectedGenderLabel: string) => {
         setGenderLabel(selectedGenderLabel)
-        const selectedGender = genders.filter((gender)=>(gender.label === selectedGenderLabel))
+        const selectedGender = genders.filter(
+            (gender) => gender.label === selectedGenderLabel,
+        )
         setGender(selectedGender[0])
     }
 
-
     const handleAddBasicUserProfileInfo = () => {
-        dispatch(addBasicUserProfileInfo({
+        dispatch(
+            addBasicUserProfileInfo({
+                firstName: firstName,
+                lastName: lastName,
+                userName: userName,
+                phoneNumber: phoneNumber,
+                city: city,
+                country: country,
+                gender: gender,
+            }),
+        )
+        addBasicUserProfileDataToDatabase({
             firstName: firstName,
             lastName: lastName,
             userName: userName,
@@ -87,15 +99,6 @@ function MoreAbout() {
             city: city,
             country: country,
             gender: gender,
-        }))
-         addBasicUserProfileDataToDatabase({
-            firstName: firstName, 
-            lastName: lastName, 
-            userName: userName,
-            phoneNumber: phoneNumber,
-            city: city, 
-            country: country, 
-            gender: gender, 
         })
     }
 
@@ -123,7 +126,7 @@ function MoreAbout() {
         }
     } */
 
-    const apiUrl = 'https://localhost:7038/api/Auth/user';
+    const apiUrl = "https://localhost:7038/api/Auth/user"
 
     const addBasicUserProfileDataToDatabase = async ({
         firstName,
@@ -131,41 +134,40 @@ function MoreAbout() {
         userName,
         phoneNumber,
         city,
-        country
+        country,
     }: {
-        firstName: string,
-        lastName: string,
-        userName: string,
-        phoneNumber: string,
-        city: string,
-        country: string,
+        firstName: string
+        lastName: string
+        userName: string
+        phoneNumber: string
+        city: string
+        country: string
         gender: Gender
     }) => {
         try {
             const axiosConfig = {
                 headers: {
-                    'Content-Type': 'application/json',
+                    "Content-Type": "application/json",
                 },
-                withCredentials: true // ( Med eller utan detta funkar det lika bra) Vet inte om vi ska ha med det eller inte ?
-            };
-    
+                withCredentials: true, // ( Med eller utan detta funkar det lika bra) Vet inte om vi ska ha med det eller inte ?
+            }
+
             const userData = {
                 firstname: firstName,
                 lastname: lastName,
                 userName: userName,
                 phoneNumber: phoneNumber,
                 city: city,
-                country: country
-            };
-    
-            const response = await axios.patch(apiUrl, userData, axiosConfig);
-    
-            console.log(response.data);
-    
+                country: country,
+            }
+
+            const response = await axios.patch(apiUrl, userData, axiosConfig)
+
+            console.log(response.data)
         } catch (error) {
-            console.error('Det uppstod ett problem med Axios:', error);
+            console.error("Det uppstod ett problem med Axios:", error)
         }
-    }    
+    }
 
     return (
         <main className="h-screen">
@@ -207,32 +209,32 @@ function MoreAbout() {
                             <Label>First name *</Label>
                             <Input
                                 value={firstName}
-                                onChange= {handleFirstNameChange}
-                            placeholder="Enter your first name"
+                                onChange={handleFirstNameChange}
+                                placeholder="Enter your first name"
                             />
                         </div>
                         <div className="flex w-full flex-col gap-1 ">
                             <Label>Last name *</Label>
                             <Input
                                 value={lastName}
-                                onChange= {handleLastNameChange}
-                            placeholder="Enter your first name"
+                                onChange={handleLastNameChange}
+                                placeholder="Enter your first name"
                             />
                         </div>
                         <div className="flex w-full flex-col gap-1 ">
                             <Label>Username *</Label>
                             <Input
                                 value={userName}
-                                onChange= {handleUserNameChange}
-                            placeholder="Enter your username"
+                                onChange={handleUserNameChange}
+                                placeholder="Enter your username"
                             />
                         </div>
                         <div className="flex w-full flex-col gap-1 ">
                             <Label>Phone number *</Label>
                             <Input
                                 value={phoneNumber}
-                                onChange= {handlePhoneNumberChange}
-                            placeholder="Enter your phone number"
+                                onChange={handlePhoneNumberChange}
+                                placeholder="Enter your phone number"
                             />
                         </div>
                         <div className="flex w-full flex-col gap-1">
@@ -254,22 +256,20 @@ function MoreAbout() {
 
                         <div className="flex w-full flex-col gap-1">
                             <Label>Gender</Label>
-                            <Select 
+                            <Select
                                 value={genderLabel}
                                 onValueChange={handleGenderLabelChange}
-                                >
+                            >
                                 <SelectTrigger className="flex h-12 w-full border-outline placeholder:text-onBackground placeholder:opacity-50">
-                                    <SelectValue
-                                        placeholder="Select your gender"
-                                    />
+                                    <SelectValue placeholder="Select your gender" />
                                 </SelectTrigger>
                                 <SelectContent>
-                                    {genders.map((gender) =>(
+                                    {genders.map((gender) => (
                                         <SelectItem
                                             key={gender.id}
-                                            value={gender.label!}                                          
-                                        >  
-                                            {gender.label!} 
+                                            value={gender.label!}
+                                        >
+                                            {gender.label!}
                                         </SelectItem>
                                     ))}
                                 </SelectContent>
@@ -281,12 +281,11 @@ function MoreAbout() {
                                 Appearance
                                 <img src="./icons/sun.svg" alt="Sunicon" />
                             </p>
-                            <Switch/>
+                            <Switch />
                         </div>
                         <Link className="w-full" to="/profilestart">
-                            <Button
-                                onClick={handleAddBasicUserProfileInfo}
-                                >Add to your profile
+                            <Button onClick={handleAddBasicUserProfileInfo}>
+                                Add to your profile
                             </Button>
                         </Link>
                     </div>

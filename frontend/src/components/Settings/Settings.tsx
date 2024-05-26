@@ -23,9 +23,15 @@ function Settings() {
     )
 
     // Hämtar användarinformation från Redux store
-    const userName = useSelector((state: RootState) => state.user.profile.userName);
-    const city = useSelector((state: RootState) => state.user.profile.address.city);
-    const country = useSelector((state: RootState) => state.user.profile.address.country);
+    const userName = useSelector(
+        (state: RootState) => state.user.profile.userName,
+    )
+    const city = useSelector(
+        (state: RootState) => state.user.profile.address.city,
+    )
+    const country = useSelector(
+        (state: RootState) => state.user.profile.address.country,
+    )
 
     const [password, setPassword] = useState<string>("")
     const [passwordError, setPasswordError] = useState<string>("")
@@ -105,7 +111,9 @@ function Settings() {
                                 src="/icons/Location.svg"
                                 alt="icon"
                             />
-                                <p className="text-sm">{city}, {country}</p>
+                            <p className="text-sm">
+                                {city}, {country}
+                            </p>
                         </div>
                     </div>
                 </div>

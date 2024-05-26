@@ -1,5 +1,4 @@
-
-import Language from "../common/Language" 
+import Language from "../common/Language"
 import Gender from "../common/Gender"
 import CurrencyCode from "../common/Currency"
 import BudgetPreference from "./BudgetPreference"
@@ -18,7 +17,6 @@ type Address = {
     country?: string | null
 }
 
-
 type AccommodationPreference = {
     id: number
     label: string
@@ -27,11 +25,7 @@ type AccommodationPreference = {
 
 type AccommodationPreferences = AccommodationPreference[]
 
-
-
-
 type BudgetPreferences = BudgetPreference[]
-
 
 type DietPreference = {
     id: number
@@ -41,16 +35,13 @@ type DietPreference = {
 
 type DietPreferences = DietPreference[]
 
-
 type FoodPreference = {
-    id:number
+    id: number
     selected: boolean
     label: string
 }
 
-
 type FoodPreferences = FoodPreference[]
-
 
 type TransportationPreference = {
     id: number
@@ -60,7 +51,6 @@ type TransportationPreference = {
 
 type TransportationPreferences = TransportationPreference[]
 
-
 type VacationPreference = {
     id: number
     label: string
@@ -69,7 +59,6 @@ type VacationPreference = {
 
 type VacationPreferences = VacationPreference[]
 
-
 type Disability = {
     id: number
     label: string
@@ -77,7 +66,6 @@ type Disability = {
 }
 
 type Disabilities = Disability[]
-
 
 type SessionInfo = {
     isLoggedIn: boolean
@@ -125,10 +113,4 @@ type Preferences = {
     vacation: VacationPreferences
 }
 
-
-
-
 export default User
-
-
-

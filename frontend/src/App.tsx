@@ -20,14 +20,14 @@ import DesktopVector from "./components/DesktopVector"
 // import PrivateRoute from "./components/PrivateRoute"
 import { Routes, Route } from "react-router-dom"
 import { useState, useEffect } from "react"
-import { AppDispatch } from './store/store';
-import { useDispatch } from 'react-redux';
-import { fetchUserProfile } from './store/slices/userSlice';
+import { AppDispatch } from "./store/store"
+import { useDispatch } from "react-redux"
+import { fetchUserProfile } from "./store/slices/userSlice"
 import PrivateRoutes from "./PrivateRoutes/PrivateRoutes"
 
 function App() {
     const [isLargeScreen, setIsLargeScreen] = useState(false)
-    const dispatch: AppDispatch = useDispatch();
+    const dispatch: AppDispatch = useDispatch()
 
     useEffect(() => {
         const handleResize = () => {
@@ -42,10 +42,10 @@ function App() {
         }
     }, [])
 
-      // Anropar fetchUserProfile vid applikationsstart
-      useEffect(() => {
-        dispatch(fetchUserProfile());
-    }, [dispatch]);
+    // Anropar fetchUserProfile vid applikationsstart
+    useEffect(() => {
+        dispatch(fetchUserProfile())
+    }, [dispatch])
 
     return (
         <>
