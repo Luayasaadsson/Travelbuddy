@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react"
 import { Link } from "react-router-dom"
+import { Switch } from "@/components/ui/switch"
 import { useLocation } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { clearMessageList } from "@/store/slices/chatSlice"
@@ -15,7 +16,7 @@ function Header() {
             dispatch(clearMessageList())
         }
     }, [location, dispatch])
-    
+
     const [isOpen, setIsOpen] = useState<boolean>(false)
     const menuRef = useRef<HTMLDivElement>(null)
     const isAuth = useSelector(
@@ -62,6 +63,9 @@ function Header() {
                     </h1>
                 </Link>
                 <div className="flex gap-4 md:pr-5">
+                    <div className="hidden lg:flex">
+                        <Switch />
+                    </div>
                     <Link to="/settings" className="flex items-center">
                         <img
                             src="/images/account_circle.svg"
