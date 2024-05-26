@@ -22,6 +22,11 @@ function Settings() {
         (state: RootState) => state.overlay.isVisible,
     )
 
+    // Hämtar användarinformation från Redux store
+    const userName = useSelector((state: RootState) => state.user.profile.userName);
+    const city = useSelector((state: RootState) => state.user.profile.address.city);
+    const country = useSelector((state: RootState) => state.user.profile.address.country);
+
     const [password, setPassword] = useState<string>("")
     const [passwordError, setPasswordError] = useState<string>("")
     const [showSuccessOverlay, setShowSuccessOverlay] = useState(false)
@@ -93,14 +98,14 @@ function Settings() {
                         <AvatarFallback>CN</AvatarFallback>
                     </Avatar>
                     <div className="text-center text-secondary">
-                        <p className="text-lg">Sofia</p>
+                        <p className="text-lg">{userName}</p>
                         <div className="flex gap-1">
                             <img
                                 className="w-5"
                                 src="/icons/Location.svg"
                                 alt="icon"
                             />
-                            <p className="text-sm">Stockholm, Sweden</p>
+                                <p className="text-sm">{city}, {country}</p>
                         </div>
                     </div>
                 </div>

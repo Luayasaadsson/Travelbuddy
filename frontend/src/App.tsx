@@ -20,10 +20,15 @@ import DesktopVector from "./components/DesktopVector"
 // import PrivateRoute from "./components/PrivateRoute"
 import { Routes, Route } from "react-router-dom"
 import { useState, useEffect } from "react"
+import { AppDispatch } from './store/store';
+import { useDispatch } from 'react-redux';
+import { fetchUserProfile } from './store/slices/userSlice';
 import PrivateRoutes from "./PrivateRoutes/PrivateRoutes"
 
 function App() {
     const [isLargeScreen, setIsLargeScreen] = useState(false)
+    const dispatch: AppDispatch = useDispatch();
+
     useEffect(() => {
         const handleResize = () => {
             setIsLargeScreen(window.innerWidth >= 1024)
@@ -36,6 +41,12 @@ function App() {
             window.removeEventListener("resize", handleResize)
         }
     }, [])
+
+      // Anropar fetchUserProfile vid applikationsstart
+      useEffect(() => {
+        dispatch(fetchUserProfile());
+    }, [dispatch]);
+
     return (
         <>
             <Header />

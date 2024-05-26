@@ -88,8 +88,10 @@ type SessionInfo = {
 type Profile = {
     firstName: string | null
     lastName?: string | null
+    userName: string | null
+    phoneNumber?: string | null
     gender: Gender
-    address: Address
+    address: Address | { city: string | null; country: string | null }
 }
 
 type Settings = {

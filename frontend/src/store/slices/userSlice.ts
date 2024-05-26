@@ -4,6 +4,7 @@ import User from "../../types/user/User"
 import Currency from "@/types/common/Currency"
 import BudgetPreference from "@/types/user/BudgetPreference"
 import Gender from "@/types/common/Gender"
+import axios from 'axios';
 
 // Initial state
 
@@ -12,6 +13,8 @@ const initialState: User = {
     profile: {
         firstName: "",
         lastName: "",
+        userName: "",
+        phoneNumber: "",
         gender: {
             id: 0,
             label: "",
@@ -756,6 +759,8 @@ export const userSlice = createSlice({
             action: PayloadAction<{
                 firstName: string
                 lastName: string
+                userName: string
+                phoneNumber: string
                 city: string
                 country: string
                 gender: Gender
@@ -764,6 +769,8 @@ export const userSlice = createSlice({
             // update state
             state.profile.firstName = action.payload.firstName
             state.profile.lastName = action.payload.lastName
+            state.profile.userName = action.payload.userName
+            state.profile.phoneNumber = action.payload.phoneNumber
             state.profile.address.city = action.payload.city
             state.profile.address.country = action.payload.country
             state.profile.gender = action.payload.gender
@@ -796,8 +803,37 @@ export const userSlice = createSlice({
                 "The user profile cannot be loaded. Please try again later."
             console.error("Error fetching user data")
         })
+        builder.addCase(fetchUserProfile.fulfilled, (state, action) => {
+            const { firstName, lastName, userName, phoneNumber, city, country, gender } = action.payload;
+            state.profile = {
+                ...state.profile,
+                firstName,
+                lastName,
+                userName,
+                phoneNumber,
+                address: {
+                    ...state.profile.address,
+                    city,
+                    country,
+                },
+                gender,
+            };
+        });
+        
     },
 })
+
+// Async thunk för att hämta användarens profil
+export const fetchUserProfile = createAsyncThunk(
+    'user/fetchUserProfile',
+    async () => {
+        const response = await axios.get('https://localhost:7038/api/Auth/user', {
+            withCredentials: true,
+        });
+        console.log('Profile data:', response.data);
+        return response.data;
+    }
+);
 
 // createAsyncThunk tar två argument, ett namn och en funktion som returnerar en promise
 export const fetchUser = createAsyncThunk(

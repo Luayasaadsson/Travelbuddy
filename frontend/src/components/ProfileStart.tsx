@@ -1,16 +1,20 @@
 import { Link } from "react-router-dom"
 import { Button } from "./ui/button"
 import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import {
     updateChatHeading,
     updateSubHeading,
     updateMessageList,
 } from "@/store/slices/chatSlice"
+import { RootState } from "@/store/store";
 import Message from "@/types/chat/Message"
 
 function ProfileStart() {
     const dispatch = useDispatch()
+
+    // Hämtar användarinformation från Redux store
+    const userName = useSelector((state: RootState) => state.user.profile.userName);
 
     const handleClick = (
         heading: string,
@@ -35,7 +39,7 @@ function ProfileStart() {
                     <AvatarFallback>?</AvatarFallback>
                 </Avatar>
                 <div>
-                    <h1 className="text-center text-3xl">Hi, Sofia!</h1>
+                    <h1 className="text-center text-3xl">Hi, {userName}!</h1>
                     <p className="text-center text-sm text-secondary">
                         How can i help you today?
                     </p>

@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { Link } from "react-router-dom"
 import { Input } from "./ui/input"
 import { Label } from "./ui/label"
@@ -37,6 +38,8 @@ function MoreAbout() {
     // Local states
     const [firstName, setFirstName] = useState<string>('')
     const [lastName, setLastName] = useState<string>('')
+    const [userName, setUserName] = useState<string>('')
+    const [phoneNumber, setPhoneNumber] = useState<string>('')
     const [city, setCity] = useState<string>('')
     const [country, setCountry] = useState<string>('')
     const [gender, setGender] = useState<Gender>({id: 0, label: ""})
@@ -51,6 +54,14 @@ function MoreAbout() {
     const handleLastNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         e.preventDefault()
         setLastName(e.target.value)
+    }
+    const handleUserNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        e.preventDefault()
+        setUserName(e.target.value)
+    }
+    const handlePhoneNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        e.preventDefault()
+        setPhoneNumber(e.target.value)
     }
     const handleCityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         e.preventDefault()
@@ -71,17 +82,21 @@ function MoreAbout() {
         dispatch(addBasicUserProfileInfo({
             firstName: firstName,
             lastName: lastName,
+            userName: userName,
+            phoneNumber: phoneNumber,
             city: city,
             country: country,
             gender: gender,
         }))
-        {/* addBasicUserProfileDataToDatabase({
+         addBasicUserProfileDataToDatabase({
             firstName: firstName, 
             lastName: lastName, 
+            userName: userName,
+            phoneNumber: phoneNumber,
             city: city, 
             country: country, 
             gender: gender, 
-        }) */}
+        })
     }
 
     // TODO: TODO: TODO: TODO:
@@ -108,7 +123,49 @@ function MoreAbout() {
         }
     } */
 
+    const apiUrl = 'https://localhost:7038/api/Auth/user';
+
+    const addBasicUserProfileDataToDatabase = async ({
+        firstName,
+        lastName,
+        userName,
+        phoneNumber,
+        city,
+        country
+    }: {
+        firstName: string,
+        lastName: string,
+        userName: string,
+        phoneNumber: string,
+        city: string,
+        country: string,
+        gender: Gender
+    }) => {
+        try {
+            const axiosConfig = {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                withCredentials: true // ( Med eller utan detta funkar det lika bra) Vet inte om vi ska ha med det eller inte ?
+            };
     
+            const userData = {
+                firstname: firstName,
+                lastname: lastName,
+                userName: userName,
+                phoneNumber: phoneNumber,
+                city: city,
+                country: country
+            };
+    
+            const response = await axios.patch(apiUrl, userData, axiosConfig);
+    
+            console.log(response.data);
+    
+        } catch (error) {
+            console.error('Det uppstod ett problem med Axios:', error);
+        }
+    }    
 
     return (
         <main className="h-screen">
@@ -160,6 +217,22 @@ function MoreAbout() {
                                 value={lastName}
                                 onChange= {handleLastNameChange}
                             placeholder="Enter your first name"
+                            />
+                        </div>
+                        <div className="flex w-full flex-col gap-1 ">
+                            <Label>Username *</Label>
+                            <Input
+                                value={userName}
+                                onChange= {handleUserNameChange}
+                            placeholder="Enter your username"
+                            />
+                        </div>
+                        <div className="flex w-full flex-col gap-1 ">
+                            <Label>Phone number *</Label>
+                            <Input
+                                value={phoneNumber}
+                                onChange= {handlePhoneNumberChange}
+                            placeholder="Enter your phone number"
                             />
                         </div>
                         <div className="flex w-full flex-col gap-1">
