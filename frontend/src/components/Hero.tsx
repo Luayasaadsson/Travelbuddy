@@ -20,7 +20,7 @@ function Hero() {
                         </h1>
                         <h2 className="max-w-[800px] text-3xl text-secondary lg:text-xl">
                             <span className="lg:hidden">
-                                Tailor your travel <br /> experience to <br />
+                                Tailor your travel experience to <br />
                                 perfection
                             </span>
                             <span
@@ -53,11 +53,11 @@ function Hero() {
                                 perfection
                             </span>
                         </h1>
-                        <p className="max-w-[800px] pb-4 text-sm text-secondary lg:text-xl">
+                        <p className="max-w-[490px] pb-4 text-sm text-secondary lg:text-xl">
                             <span className="flex break-words text-center">
                                 Share your preferences and interests to unlock
                                 personalized recommendations and seamless
-                                adventures. Let's craft your journey together.
+                                adventures. Let's craft your journey together
                             </span>
                         </p>
                         <div className="flex justify-center gap-3">
@@ -65,7 +65,7 @@ function Hero() {
                                 to="/login"
                                 className="border-r-2 border-primary pr-3"
                             >
-                                <Button variant="outline" size="md">
+                                <Button variant="outline" size="lg">
                                     <p className="text-neutral-200">
                                         Login now
                                     </p>
@@ -77,7 +77,7 @@ function Hero() {
                                 </Button>
                             </Link>
                             <Link to="/signup">
-                                <Button variant="default">
+                                <Button variant="default" size="lg">
                                     <p>Sign up</p>
                                     <img
                                         className="ml-2 h-6 w-6"
