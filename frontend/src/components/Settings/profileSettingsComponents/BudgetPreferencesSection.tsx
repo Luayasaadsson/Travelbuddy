@@ -25,7 +25,7 @@ const BudgetPreferencesSection: React.FC<BudgetPreferencesSectionProps> = ({
                     <AccordionContent>
                         {budgetPreferenceList.map((item) => (
                             <div
-                                className="flex w-full max-w-96 flex-col"
+                                className="flex w-full max-w-96 flex-col pb-5"
                                 key={item.id}
                             >
                                 <Label className="gap-2 text-secondary">
