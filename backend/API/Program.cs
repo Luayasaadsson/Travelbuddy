@@ -67,6 +67,12 @@ builder.Services.AddAuthentication(
   };
 });
 
+.AddFacebook(opt => 
+{
+   opt.AppId=Environment.GetEnvironmentVariable("FACEBOOK_APP_ID");;
+   opt.AppSecret=Environment.GetEnvironmentVariable("FACEBOOK_APP_SECRET");
+});
+
 builder.Services.AddAuthorization();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
