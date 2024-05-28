@@ -48,14 +48,48 @@ function ProfileStart() {
                 </div>
                 <div className="flex w-full flex-col items-center justify-center gap-4 lg:flex-row">
                     <div className="flex w-full flex-col items-start gap-4">
-                        <Button className="justify-between">
-                            Find your dream vacation
-                            <img src="./icons/icon-location.svg" alt="" />
-                        </Button>
-                        <Button className="justify-between">
-                            Places to stay nearby
-                            <img src="./icons/icon-bed.svg" alt="" />
-                        </Button>
+                        <Link className="w-full" to="/chatbot">
+                            <Button
+                                onClick={() =>
+                                    handleClick(
+                                        "Let's find a bite!",
+                                        "Choose below or type in your cravings at the bottom for restaurants near you!",
+                                        {
+                                            type: "text",
+                                            role: "agent",
+                                            content: [
+                                                "Hi, find your dream vacation?",
+                                            ],
+                                        },
+                                    )
+                                }
+                                className="justify-between"
+                            >
+                                Find your dream vacation
+                                <img src="./icons/icon-location.svg" alt="" />
+                            </Button>
+                        </Link>
+                        <Link className="w-full" to="/chatbot">
+                            <Button
+                                onClick={() =>
+                                    handleClick(
+                                        "Let's find a bite!",
+                                        "Choose below or type in your cravings at the bottom for restaurants near you!",
+                                        {
+                                            type: "text",
+                                            role: "agent",
+                                            content: [
+                                                "Hi, where do you want to stay?",
+                                            ],
+                                        },
+                                    )
+                                }
+                                className="justify-between"
+                            >
+                                Places to stay nearby
+                                <img src="./icons/icon-bed.svg" alt="" />
+                            </Button>
+                        </Link>
                     </div>
                     <div className="flex w-full flex-col items-start gap-4">
                         <Link className="w-full" to="/chatbot">
@@ -79,10 +113,27 @@ function ProfileStart() {
                                 <img src="./icons/icon-food.svg" alt="" />
                             </Button>
                         </Link>
-                        <Button className="justify-between">
-                            Experiences & Activities
-                            <img src="./icons/icon-activity.svg" alt="" />
-                        </Button>
+                        <Link className="w-full" to="/chatbot">
+                            <Button
+                                onClick={() =>
+                                    handleClick(
+                                        "Let's find a bite!",
+                                        "Choose below or type in your cravings at the bottom for restaurants near you!",
+                                        {
+                                            type: "text",
+                                            role: "agent",
+                                            content: [
+                                                "Hi, Experiences & Activities?",
+                                            ],
+                                        },
+                                    )
+                                }
+                                className="justify-between"
+                            >
+                                Experiences & Activities
+                                <img src="./icons/icon-activity.svg" alt="" />
+                            </Button>
+                        </Link>
                     </div>
                 </div>
             </div>
