@@ -1,4 +1,4 @@
-import "./MainLoader.css"
+
 
 function MainLoader() {
     return (
