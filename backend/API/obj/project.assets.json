@@ -9819,19 +9819,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/luayasaadsson/.nuget/packages/": {}
+    "/Users/damianamalraj/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/luayasaadsson/Desktop/travelbuddy/backend/API/API.csproj",
+      "projectUniqueName": "/Users/damianamalraj/Documents/Development/travelbuddy/backend/API/API.csproj",
       "projectName": "API",
-      "projectPath": "/Users/luayasaadsson/Desktop/travelbuddy/backend/API/API.csproj",
-      "packagesPath": "/Users/luayasaadsson/.nuget/packages/",
-      "outputPath": "/Users/luayasaadsson/Desktop/travelbuddy/backend/API/obj/",
+      "projectPath": "/Users/damianamalraj/Documents/Development/travelbuddy/backend/API/API.csproj",
+      "packagesPath": "/Users/damianamalraj/.nuget/packages/",
+      "outputPath": "/Users/damianamalraj/Documents/Development/travelbuddy/backend/API/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/luayasaadsson/.nuget/NuGet/NuGet.Config"
+        "/Users/damianamalraj/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -9931,5 +9931,13 @@
         "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.204/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file /Users/damianamalraj/Documents/Development/travelbuddy/backend/API/obj/project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
