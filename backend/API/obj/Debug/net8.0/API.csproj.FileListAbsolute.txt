@@ -598,3 +598,4 @@ C:/Users/hobor/ChasAcademy/Source code/TravelBuddyNew/travelbuddy/backend/api/ob
 C:/Users/hobor/ChasAcademy/Source code/TravelBuddyNew/travelbuddy/backend/api/obj/Debug/net8.0/API.pdb
 C:/Users/hobor/ChasAcademy/Source code/TravelBuddyNew/travelbuddy/backend/api/obj/Debug/net8.0/API.genruntimeconfig.cache
 C:/Users/hobor/ChasAcademy/Source code/TravelBuddyNew/travelbuddy/backend/api/obj/Debug/net8.0/ref/API.dll
+/Users/damianamalraj/Documents/Development/travelbuddy/backend/API/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.Facebook.dll

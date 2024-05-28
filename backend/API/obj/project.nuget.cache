@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ijaM5yIR9i08ng8TEKDitkgsCKr0Iuv2V+mCCtXuxmh9u/YzAGs0YY4ZBfaeVydKY9jf+HWPLtHaysqbe1pPuA==",
+  "dgSpecHash": "6scgnpJwiawWeWjQd/HOJ4sqk6ZbvID3ZP/O3s6Iu92wr3mxH4gcWwiMjrjGYIPt7dQZmYswNWXLJLFE6x+AZw==",
   "success": true,
   "projectFilePath": "/Users/damianamalraj/Documents/Development/travelbuddy/backend/API/API.csproj",
   "expectedPackageFiles": [
@@ -12,6 +12,7 @@
     "/Users/damianamalraj/.nuget/packages/microsoft.aspnetcore.authentication.abstractions/2.2.0/microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "/Users/damianamalraj/.nuget/packages/microsoft.aspnetcore.authentication.cookies/2.2.0/microsoft.aspnetcore.authentication.cookies.2.2.0.nupkg.sha512",
     "/Users/damianamalraj/.nuget/packages/microsoft.aspnetcore.authentication.core/2.2.0/microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",
+    "/Users/damianamalraj/.nuget/packages/microsoft.aspnetcore.authentication.facebook/8.0.6/microsoft.aspnetcore.authentication.facebook.8.0.6.nupkg.sha512",
     "/Users/damianamalraj/.nuget/packages/microsoft.aspnetcore.authentication.google/8.0.4/microsoft.aspnetcore.authentication.google.8.0.4.nupkg.sha512",
     "/Users/damianamalraj/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/8.0.4/microsoft.aspnetcore.authentication.jwtbearer.8.0.4.nupkg.sha512",
     "/Users/damianamalraj/.nuget/packages/microsoft.aspnetcore.cryptography.internal/8.0.4/microsoft.aspnetcore.cryptography.internal.8.0.4.nupkg.sha512",
@@ -188,12 +189,5 @@
     "/Users/damianamalraj/.nuget/packages/system.xml.readerwriter/4.3.0/system.xml.readerwriter.4.3.0.nupkg.sha512",
     "/Users/damianamalraj/.nuget/packages/system.xml.xdocument/4.3.0/system.xml.xdocument.4.3.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file /Users/damianamalraj/Documents/Development/travelbuddy/backend/API/obj/project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

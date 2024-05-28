@@ -67,12 +67,12 @@ builder.Services.AddAuthentication(
     ),
     ValidateIssuerSigningKey = true,
   };
-});
+})
 
-.AddFacebook(opt => 
+.AddFacebook(opt =>
 {
-   opt.AppId=Environment.GetEnvironmentVariable("FACEBOOK_APP_ID");;
-   opt.AppSecret=Environment.GetEnvironmentVariable("FACEBOOK_APP_SECRET");
+  opt.AppId = Environment.GetEnvironmentVariable("FACEBOOK_APP_ID"); ;
+  opt.AppSecret = Environment.GetEnvironmentVariable("FACEBOOK_APP_SECRET");
 });
 
 builder.Services.AddAuthorization();
