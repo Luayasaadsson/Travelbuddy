@@ -10,7 +10,7 @@ import LogIn from "./components/LogIn"
 import SignUp from "./components/SignUp"
 import ForgotPassword from "./components/ForgotPassword"
 import ResetPassword from "./components/ResetPassword"
-import ChatBot from "./components/ChatBotComponents/ChatBot"
+import FoodChatBot from "./components/ChatComponents/FoodChatBot/FoodChatBot"
 import Footer from "./components/Footer"
 import MoreAbout from "./components/MoreAbout"
 import Hero from "./components/Hero"
@@ -24,6 +24,7 @@ import { AppDispatch } from "./store/store"
 import { useDispatch } from "react-redux"
 import { fetchUserProfile } from "./store/slices/userSlice"
 import PrivateRoutes from "./PrivateRoutes/PrivateRoutes"
+import VacationChatBot from "./components/ChatComponents/VacationChatBot/VacationChatBot"
 
 function App() {
     const [isLargeScreen, setIsLargeScreen] = useState(false)
@@ -160,10 +161,19 @@ function App() {
                     />
 
                     <Route
-                        path="/chatbot"
+                        path="/foodchat"
                         element={
                             <div>
-                                <ChatBot />
+                                <FoodChatBot />
+                                <DesktopVector />
+                            </div>
+                        }
+                    />
+                    <Route
+                        path="/vacationchat"
+                        element={
+                            <div>
+                                <VacationChatBot />
                                 <DesktopVector />
                             </div>
                         }

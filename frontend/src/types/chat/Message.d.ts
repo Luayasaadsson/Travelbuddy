@@ -1,7 +1,7 @@
 type Message = {
     type: string
     role: Role
-    content: string[]
+    content: string
 }
 
 export default Message

@@ -1,13 +1,13 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import { Button } from "@/components/ui/button"
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select"
+// import {
+//     Select,
+//     SelectContent,
+//     SelectItem,
+//     SelectTrigger,
+//     SelectValue,
+// } from "@/components/ui/select"
 import { useSelector, useDispatch } from "react-redux"
 import { RootState } from "@/store/store"
 import {
@@ -16,11 +16,11 @@ import {
     toggleFoodPreference,
     toggleTransportationPreference,
     toggleVacationPreference,
-    updatePreferredCurrency,
-    updateBudgetPreference,
+    // updatePreferredCurrency,
+    // updateBudgetPreference,
 } from "@/store/slices/userSlice"
-import Currency from "@/types/common/Currency"
-import BudgetPreference from "@/types/user/BudgetPreference"
+// import Currency from "@/types/common/Currency"
+// import BudgetPreference from "@/types/user/BudgetPreference"
 // import BudgetPreferencesSection from "./BudgetPreferencesSection"
 import ProfileDetailsSection from "./ProfileDetailsSection"
 import PreferencesSection from "./PreferencesSection"
@@ -42,7 +42,7 @@ const ProfileSettings: React.FC = () => {
     const vacationPreferenceList = useSelector(
         (state: RootState) => state.user.preferences.vacation,
     )
-    const budgetPreferenceList = useSelector(
+ /*    const budgetPreferenceList = useSelector(
         (state: RootState) => state.user.preferences.budget,
     )
     const preferredCurrency = useSelector(
@@ -50,7 +50,7 @@ const ProfileSettings: React.FC = () => {
     )
     const currencyList = useSelector(
         (state: RootState) => state.common.currencies,
-    )
+    ) */
 
     const handleToggleAccommodationPreference = (id: number) => {
         dispatch(toggleAccommodationPreference(id))
@@ -67,14 +67,14 @@ const ProfileSettings: React.FC = () => {
     const handleToggleVacationPreference = (id: number) => {
         dispatch(toggleVacationPreference(id))
     }
-    const handlePreferredCurrencySelected = (currency: Currency) => {
+  /*   const handlePreferredCurrencySelected = (currency: Currency) => {
         dispatch(updatePreferredCurrency(currency))
     }
     const handleBudgetPreferenceUpdated = (
         budgetPreference: BudgetPreference,
     ) => {
         dispatch(updateBudgetPreference(budgetPreference))
-    }
+    } */
 
     return (
         <main className="flex min-h-screen items-start justify-center mb-10">

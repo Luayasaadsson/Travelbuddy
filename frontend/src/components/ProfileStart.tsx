@@ -48,18 +48,16 @@ function ProfileStart() {
                 </div>
                 <div className="flex w-full flex-col items-center justify-center gap-4 lg:flex-row">
                     <div className="flex w-full flex-col items-start gap-4">
-                        <Link className="w-full" to="/chatbot">
+                        <Link className="w-full" to="/vacationchat">
                             <Button
                                 onClick={() =>
                                     handleClick(
-                                        "Let's find a bite!",
-                                        "Choose below or type in your cravings at the bottom for restaurants near you!",
+                                        "Let's find your dream vacation!",
+                                        "Choose below or type in your dream vacation at the bottom!",
                                         {
                                             type: "text",
                                             role: "agent",
-                                            content: [
-                                                "Hi, find your dream vacation?",
-                                            ],
+                                            content:"test",
                                         },
                                     )
                                 }
@@ -69,7 +67,7 @@ function ProfileStart() {
                                 <img src="./icons/icon-location.svg" alt="" />
                             </Button>
                         </Link>
-                        <Link className="w-full" to="/chatbot">
+                        <Link className="w-full" to="/foodchat">
                             <Button
                                 onClick={() =>
                                     handleClick(
@@ -78,9 +76,8 @@ function ProfileStart() {
                                         {
                                             type: "text",
                                             role: "agent",
-                                            content: [
+                                            content:
                                                 "Hi, where do you want to stay?",
-                                            ],
                                         },
                                     )
                                 }
@@ -92,7 +89,7 @@ function ProfileStart() {
                         </Link>
                     </div>
                     <div className="flex w-full flex-col items-start gap-4">
-                        <Link className="w-full" to="/chatbot">
+                        <Link className="w-full" to="/foodchat">
                             <Button
                                 onClick={() =>
                                     handleClick(
@@ -101,9 +98,8 @@ function ProfileStart() {
                                         {
                                             type: "text",
                                             role: "agent",
-                                            content: [
+                                            content:
                                                 "Hi, what do you want to eat today?",
-                                            ],
                                         },
                                     )
                                 }
@@ -113,7 +109,7 @@ function ProfileStart() {
                                 <img src="./icons/icon-food.svg" alt="" />
                             </Button>
                         </Link>
-                        <Link className="w-full" to="/chatbot">
+                        <Link className="w-full" to="/foodchat">
                             <Button
                                 onClick={() =>
                                     handleClick(
@@ -122,9 +118,8 @@ function ProfileStart() {
                                         {
                                             type: "text",
                                             role: "agent",
-                                            content: [
+                                            content:
                                                 "Hi, Experiences & Activities?",
-                                            ],
                                         },
                                     )
                                 }

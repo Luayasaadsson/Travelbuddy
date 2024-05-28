@@ -1,10 +1,12 @@
-import { Button } from "../ui/button"
+import { Button } from "../../ui/button"
+import ReactMarkdown from "react-markdown"
+
 type ChatButtonsProps = {
     onFoodChoice: (foodPreference: string) => void
     foodPreference: string
     onCloseButtonContainer: () => void
-    key: number
 }
+
 export default function ChatButtons({
     onFoodChoice,
     foodPreference,
@@ -15,11 +17,11 @@ export default function ChatButtons({
             variant="greenOutline"
             size="prompt"
             onClick={() => {
-                onFoodChoice(foodPreference)
+                onFoodChoice(`I crave ${foodPreference}`)
                 onCloseButtonContainer()
             }}
         >
-            {foodPreference}
+            <ReactMarkdown>{foodPreference}</ReactMarkdown>
         </Button>
     )
 }

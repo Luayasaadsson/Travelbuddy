@@ -1,30 +1,29 @@
-import ChatLoader from "./ChatLoader"
 import axios from "axios"
-import ChatHeading from "./ChatHeading"
-import ChatLog from "./ChatLog"
-import FoodPreferenceButtons from "./FoodPreferenceButtons"
-import ChatInput from "./ChatInput"
-import ChatMessage from "./ChatMessage"
-import ButtonContainer from "./ButtonContainer"
 import { useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { RootState } from "@/store/store"
 import { updateMessageList } from "@/store/slices/chatSlice"
+import ChatLoader from "../ChatLoader"
+import ChatHeading from "../ChatHeading"
+import ChatLog from "../ChatLog"
+import FoodPreferenceButtons from "./FoodPreferenceButtons"
+import ChatInput from "../ChatInput"
+import ChatMessage from "../ChatMessage"
+import ButtonContainer from "../ButtonContainer"
 
-export default function ChatBot() {
+export default function VacationChatBot() {
     const dispatch = useDispatch()
     const [inputQuery, setInputQuery] = useState("")
     const [isLoading, setIsLoading] = useState(false)
     const messageList = useSelector(
         (state: RootState) => state.chat.messageList,
     )
-    const foodList = useSelector(
-        (state: RootState) => state.user.preferences.food,
+    const vacationPreferenceList = useSelector(
+        (state: RootState) => state.user.preferences.vacation,
     )
-    const [showPreferenceButtons, setShowPreferenceButtons] =
-        useState(true)
+    const [showPreferenceButtons, setShowPreferenceButtons] = useState(true)
 
-    //Delay som avgör hur länge ChatLoader ska visas
+    // Delay function
     const delay = (ms: number) =>
         new Promise((resolve) => setTimeout(resolve, ms))
 
@@ -35,12 +34,13 @@ export default function ChatBot() {
             updateMessageList({
                 type: "text",
                 role: "user",
-                content: [`I'm hungry for some ${buttonChoice} food`],
+                content: buttonChoice,
             }),
         )
 
         fetchAgentResponse(buttonChoice)
     }
+
     const handleInputSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
         e.preventDefault()
         setShowPreferenceButtons(false)
@@ -48,35 +48,67 @@ export default function ChatBot() {
             updateMessageList({
                 type: "text",
                 role: "user",
-                content: [inputQuery],
+                content: inputQuery,
             }),
         )
         setInputQuery("")
         fetchAgentResponse(inputQuery)
     }
 
+    const generatePrompt = (context: string, query: string): string => {
+        const countryKeywords = vacationPreferenceList.map((food) =>
+            food.label.toLowerCase(),
+        )
+        const foodKeywords = ["want", "crave", "for", "like"]
+
+        let isCountryQuery = false
+        let isFoodQuery = false
+
+        for (const keyword of countryKeywords) {
+            if (query.toLowerCase().includes(keyword)) {
+                isCountryQuery = true
+                break
+            }
+        }
+
+        for (const keyword of foodKeywords) {
+            if (query.toLowerCase().includes(keyword)) {
+                isFoodQuery = true
+                break
+            }
+        }
+
+        if (isCountryQuery) {
+            return `User Query: "${query}"\n\nResponse: *name of food*, *name of food*, *name of food*, *name of food*, *name of food*,[no external text]`
+        } else if (isFoodQuery) {
+            return `${context}\n\nUser Query: "${query}"\n\nResponse: x5 #name to restaurant#\n\n a short description\n *Adress:* **[adress to restaurant]**\n *Visit:* **[name of restaurant]**(url to restaurant)\n`
+        } else {
+            return `${context}\n\nUser Query: "${query}"\n\nResponse: You are a helpful assistant. Answer the user's question in a friendly and informative manner.`
+        }
+    }
 
     const fetchAgentResponse = async (query: string) => {
         setIsLoading(true)
 
         try {
             const context = messageList
-                .map((message) => message.content)
+                .map((message) => `${message.role}: ${message.content}`)
                 .join("\n")
-            const fullQuery = `${context}\n${query}`
+            const prompt = generatePrompt(context, query)
 
             const fetchPromise = axios.post(
                 "https://localhost:7038/api/OpenAi/AskAiAssistant",
                 {
-                    question: fullQuery,
+                    question: prompt,
                     prompt: "",
+                    token: 500,
                 },
                 {
                     headers: {
                         Accept: "application/json",
                         "Content-Type": "application/json",
                     },
-                    withCredentials: true, // This line ensures cookies are sent with the request
+                    withCredentials: true, // Ensure cookies are sent with the request
                 },
             )
 
@@ -87,24 +119,41 @@ export default function ChatBot() {
             const [response] = await Promise.all([fetchPromise, delayPromise])
 
             if (response.status !== 200) {
-                throw new Error("Nätverksproblem")
+                throw new Error("Network problem")
             }
 
             const data = response.data
-            /* filterAgentResponse(data.response) */
-            dispatch(
-                updateMessageList({
-                    type: "text",
-                    role: "agent",
-                    content: data.response,
-                }),
-            )
+            filterAgentResponse(data.response)
         } catch (error) {
-            console.error("Något gick fel i fetchen:", error)
+            console.error("Something went wrong in fetch:", error)
         } finally {
             setIsLoading(false)
         }
     }
+
+    const filterAgentResponse = (message: string) => {
+        // Split message into words
+        const words = message.split(",")
+
+        if (words.length === 5) {
+            dispatch(
+                updateMessageList({
+                    type: "button",
+                    role: "agent",
+                    content: message,
+                }),
+            )
+        } else {
+            dispatch(
+                updateMessageList({
+                    type: "text",
+                    role: "agent",
+                    content: message,
+                }),
+            )
+        }
+    }
+
     return (
         <main className="flex h-screen w-full flex-col items-center justify-between gap-4">
             <ChatHeading />
@@ -128,7 +177,7 @@ export default function ChatBot() {
 
                 {showPreferenceButtons && (
                     <div className="flex w-11/12 flex-wrap justify-center gap-2">
-                        {foodList
+                        {vacationPreferenceList
                             .filter((food) => food.selected === true)
                             .map((food, index) => (
                                 <FoodPreferenceButtons
@@ -140,7 +189,6 @@ export default function ChatBot() {
                     </div>
                 )}
                 {isLoading && <ChatLoader />}
-                {/* <ChatLoader /> */}
             </ChatLog>
             <ChatInput
                 handleInputSubmit={handleInputSubmit}

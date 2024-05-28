@@ -12,7 +12,10 @@ function Header() {
     const location = useLocation()
     const dispatch = useDispatch()
     useEffect(() => {
-        if (location.pathname !== "/chatbot") {
+        if (
+            location.pathname !== "/foodchat" &&
+            location.pathname !== "/vacationchat"
+        ) {
             dispatch(clearMessageList())
         }
     }, [location, dispatch])
