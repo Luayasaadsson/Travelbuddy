@@ -190,10 +190,7 @@ function Settings() {
                     </Button>
                     <img src="./icons/vector-icon.svg" alt="Vectoricon" />
                     <Button
-                        onClick={() => {
-                            dispatch(showOverlay({}))
-                            handleDeleteAccount()
-                        }}
+                        onClick={()=>dispatch(showOverlay({}))}
                         variant="destructive"
                     >
                         <p>Delete account</p>
@@ -251,7 +248,10 @@ function Settings() {
 
                                 <Button
                                     variant={"destructive"}
-                                    onClick={handleConfirm}
+                                    onClick={() => {
+                                        handleConfirm()
+                                        handleDeleteAccount()
+                                    }}
                                     className="mt-2 p-4 uppercase"
                                 >
                                     confirm
