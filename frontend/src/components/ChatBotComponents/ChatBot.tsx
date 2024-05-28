@@ -24,6 +24,10 @@ export default function ChatBot() {
     const [inputQuery, setInputQuery] = useState("")
     const [isLoading, setIsLoading] = useState(false)
 
+    //Delay som avgör hur länge ChatLoader ska visas
+    const delay = (ms: number) =>
+        new Promise((resolve) => setTimeout(resolve, ms))
+
     const handleFoodChoice = (buttonChoice: string): void => {
         setShowFoodPreferenceButtons(false)
         if (messageList.length < 2) {
@@ -68,20 +72,17 @@ export default function ChatBot() {
         setInputQuery("")
         fetchAgentResponse(inputQuery)
     }
-    const selectPrompt = () => {
+    /*    const selectPrompt = () => {
         if (messageList.length < 2) {
             return "Answer the previus question with 5 main dishes  that belongs to the country. The format should be: X, X, X, X, X"
         } else if (messageList.length < 5) {
             return "Answer the previus question with 3 https links to resturants in Stockholm that serves that type of food. The format should be links without name: 1. https://x.x 2. https://x.x 3. https://x.x"
         }
-    }
-
-    const delay = (ms: number) =>
-        new Promise((resolve) => setTimeout(resolve, ms))
+    } */
 
     const fetchAgentResponse = async (query: string) => {
         setIsLoading(true)
-        selectPrompt()
+        /* selectPrompt() */
 
         try {
             const context = messageList
@@ -93,7 +94,7 @@ export default function ChatBot() {
                 "https://localhost:7038/api/OpenAi/AskAiAssistant",
                 {
                     question: fullQuery,
-                    prompt: selectPrompt(),
+                    prompt: "",
                 },
                 {
                     headers: {
@@ -115,7 +116,14 @@ export default function ChatBot() {
             }
 
             const data = response.data
-            filterAgentResponse(data.response)
+            /* filterAgentResponse(data.response) */
+            dispatch(
+                updateMessageList({
+                    type: "text",
+                    role: "agent",
+                    content: data.response,
+                }),
+            )
         } catch (error) {
             console.error("Något gick fel i fetchen:", error)
         } finally {
@@ -123,7 +131,7 @@ export default function ChatBot() {
         }
     }
 
-    const filterAgentResponse = (agentResponse: string) => {
+    /*  const filterAgentResponse = (agentResponse: string) => {
         let responseType
         let textContent
 
@@ -162,7 +170,7 @@ export default function ChatBot() {
                 content: textContent,
             }),
         )
-    }
+    } */
     return (
         <main className="flex h-screen w-full flex-col items-center justify-between gap-4">
             <ChatHeading />
