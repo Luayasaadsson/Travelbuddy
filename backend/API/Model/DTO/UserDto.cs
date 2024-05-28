@@ -9,13 +9,12 @@ namespace API.Model
     public string? FirstName { get; set; }
     [Required(ErrorMessage = "Last name is required")]
     public string? LastName { get; set; }
-    [Required(ErrorMessage = "Username is required")]
-    public string? UserName { get; set; }
     [Required(ErrorMessage = "City is required")]
     public string? City { get; set; }
     [Required(ErrorMessage = "Country is required")]
     public string? Country { get; set; }
-    [Required(ErrorMessage = "Gender is required")]
+
+    public string? UserName { get; set; }
     public string? Gender { get; set; }
 
     public ICollection<AccommodationDto>? Accommodations { get; set; }
