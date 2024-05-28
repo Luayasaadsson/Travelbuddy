@@ -218,7 +218,7 @@ function MoreAbout() {
                             <Input
                                 value={lastName}
                                 onChange={handleLastNameChange}
-                                placeholder="Enter your first name"
+                                placeholder="Enter your last name"
                             />
                         </div>
                         <div className="flex w-full flex-col gap-1 ">

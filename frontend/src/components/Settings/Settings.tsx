@@ -1,3 +1,4 @@
+import axios from "axios"
 import { useState, ChangeEvent } from "react"
 import { Link } from "react-router-dom"
 import { Button } from "@/components/ui/button"
@@ -10,7 +11,6 @@ import { validatePassword } from "@/components/validator"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import axios from "axios"
 import { signOutUser } from "@/store/slices/userSlice"
 
 function Settings() {
