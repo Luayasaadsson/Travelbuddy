@@ -57,7 +57,8 @@ function ProfileStart() {
                                         {
                                             type: "text",
                                             role: "agent",
-                                            content:"test",
+                                            content:
+                                                "Hi, find your dream vacation?",
                                         },
                                     )
                                 }

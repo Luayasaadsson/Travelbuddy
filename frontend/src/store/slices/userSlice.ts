@@ -267,6 +267,9 @@ export const userSlice = createSlice({
         loginUser: (state) => {
             state.sessionInfo.isLoggedIn = true
         },
+        logoutUser: (state) => {
+            state.sessionInfo.isLoggedIn = false
+        },
         signOutUser: (state) => {
             state.sessionInfo.isLoggedIn = false
         },
@@ -510,6 +513,7 @@ export const {
     updateIsLoading,
     updateMessageToUser,
     loginUser,
+    logoutUser,
     signOutUser,
 } = userSlice.actions
 // Exporterar reducern

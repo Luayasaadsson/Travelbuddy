@@ -1,11 +1,14 @@
+import React, { useState, useEffect } from "react"
+import { Routes, Route } from "react-router-dom"
+import { useDispatch } from "react-redux"
+import axios from "axios"
+
 import Settings from "./components/Settings/Settings"
 import Header from "./components/Header"
 import GetStarted from "./components/GetStarted"
 import ProfileStart from "./components/ProfileStart"
-/* import MyProfile from "./components/Settings/MyProfile" */
 import ProfileSettings from "./components/Settings/profileSettingsComponents/ProfileSettings"
 import ChangePassword from "./components/Settings/ChangePassword"
-/* import Notifications from "./components/Settings/Notifications" */
 import LogIn from "./components/LogIn"
 import SignUp from "./components/SignUp"
 import ForgotPassword from "./components/ForgotPassword"
@@ -17,17 +20,19 @@ import Hero from "./components/Hero"
 import AboutUs from "./components/AboutUs"
 import RateTheApp from "./components/RateTheApp"
 import DesktopVector from "./components/DesktopVector"
-// import PrivateRoute from "./components/PrivateRoute"
-import { Routes, Route } from "react-router-dom"
-import { useState, useEffect } from "react"
-import { AppDispatch } from "./store/store"
-import { useDispatch } from "react-redux"
-import { fetchUserProfile } from "./store/slices/userSlice"
 import PrivateRoutes from "./PrivateRoutes/PrivateRoutes"
 import VacationChatBot from "./components/ChatComponents/VacationChatBot/VacationChatBot"
+import { AppDispatch } from "./store/store"
+import {
+    fetchUserProfile,
+    loginUser,
+    logoutUser,
+} from "./store/slices/userSlice"
+import MainLoader from "./components/MainLoader"
 
 function App() {
     const [isLargeScreen, setIsLargeScreen] = useState(false)
+    const [loading, setLoading] = useState(true)
     const dispatch: AppDispatch = useDispatch()
 
     useEffect(() => {
@@ -43,10 +48,43 @@ function App() {
         }
     }, [])
 
-    // Anropar fetchUserProfile vid applikationsstart
     useEffect(() => {
         dispatch(fetchUserProfile())
     }, [dispatch])
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(
+                    "https://localhost:7038/api/Auth/user",
+                    { withCredentials: true },
+                )
+
+                if (response.status === 200) {
+                    dispatch(loginUser())
+                } else {
+                    dispatch(logoutUser())
+                }
+            } catch (error) {
+                dispatch(logoutUser())
+            } finally {
+                setLoading(false)
+            }
+        }
+
+        fetchData()
+    }, [dispatch])
+
+    if (loading) {
+        return (
+            <>
+                <Header />
+                <div className="flex h-screen items-center justify-center">
+                    <MainLoader />
+                </div>
+            </>
+        )
+    }
 
     return (
         <>
@@ -104,7 +142,7 @@ function App() {
                         </div>
                     }
                 />
-                {/*        <Route path="/myprofile" element={<MyProfile />} /> */}
+                {/* <Route path="/myprofile" element={<MyProfile />} /> */}
 
                 <Route
                     path="/ratetheapp"
