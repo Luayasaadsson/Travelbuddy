@@ -42,102 +42,32 @@ const initialState: User = {
         accomodation: [
             {
                 id: 1,
-                label: "Bed & Breakfast",
-                selected: false,
-            },
-            {
-                id: 2,
-                label: "Boat or Houseboat",
-                selected: false,
-            },
-            {
-                id: 3,
-                label: "Boutique Hotel",
-                selected: false,
-            },
-            {
-                id: 4,
-                label: "Cabin or Chalet",
-                selected: false,
-            },
-            {
-                id: 5,
-                label: "Campground",
-                selected: false,
-            },
-            {
-                id: 6,
-                label: "Eco Lodge",
-                selected: false,
-            },
-            {
-                id: 7,
-                label: "Farm Stay",
-                selected: false,
-            },
-            {
-                id: 8,
-                label: "Glamping",
-                selected: false,
-            },
-            {
-                id: 9,
-                label: "Guesthouse",
-                selected: false,
-            },
-            {
-                id: 10,
-                label: "Homestay",
-                selected: false,
-            },
-            {
-                id: 11,
                 label: "Hotel",
                 selected: false,
             },
             {
-                id: 12,
+                id: 2,
                 label: "Hostel",
                 selected: false,
             },
             {
-                id: 13,
-                label: "Luxury Hotel",
+                id: 3,
+                label: "Airbnb",
                 selected: false,
             },
             {
-                id: 14,
+                id: 4,
+                label: "Campground",
+                selected: false,
+            },
+            {
+                id: 5,
                 label: "Motel",
                 selected: false,
             },
             {
-                id: 15,
+                id: 6,
                 label: "Resort",
-                selected: false,
-            },
-            {
-                id: 16,
-                label: "Safari Lodge",
-                selected: false,
-            },
-            {
-                id: 17,
-                label: "Serviced Apartment",
-                selected: false,
-            },
-            {
-                id: 18,
-                label: "Treehouse Accommodation",
-                selected: false,
-            },
-            {
-                id: 19,
-                label: "Vacation Rental",
-                selected: false,
-            },
-            {
-                id: 20,
-                label: "Youth Hostel",
                 selected: false,
             },
         ],
@@ -186,112 +116,17 @@ const initialState: User = {
             },
             {
                 id: 2,
-                label: "Lacto Vegetarian",
-                selected: false,
-            },
-            {
-                id: 3,
-                label: "Ovo Vegetarian",
-                selected: false,
-            },
-            {
-                id: 4,
-                label: "Lacto Ovo",
-                selected: false,
-            },
-            {
-                id: 5,
-                label: "Pescatarian",
-                selected: false,
-            },
-            {
-                id: 6,
                 label: "Vegan",
                 selected: false,
             },
             {
-                id: 7,
-                label: "Raw Vegan",
-                selected: false,
-            },
-            {
-                id: 8,
-                label: "Kosher",
-                selected: false,
-            },
-            {
-                id: 9,
+                id: 3,
                 label: "Halal",
                 selected: false,
             },
             {
-                id: 10,
-                label: "Jain",
-                selected: false,
-            },
-            {
-                id: 11,
-                label: "Hindu",
-                selected: false,
-            },
-            {
-                id: 12,
-                label: "Gluten Free",
-                selected: false,
-            },
-            {
-                id: 13,
-                label: "Dairy Free",
-                selected: false,
-            },
-            {
-                id: 14,
-                label: "Nut Free",
-                selected: false,
-            },
-            {
-                id: 15,
-                label: "Soy Free",
-                selected: false,
-            },
-            {
-                id: 16,
-                label: "Shell Free",
-                selected: false,
-            },
-            {
-                id: 17,
-                label: "Egg Free",
-                selected: false,
-            },
-            {
-                id: 18,
-                label: "Sugar Free",
-                selected: false,
-            },
-            {
-                id: 19,
-                label: "Low Carb",
-                selected: false,
-            },
-            {
-                id: 20,
-                label: "Low Fat",
-                selected: false,
-            },
-            {
-                id: 21,
-                label: "Low Sodium",
-                selected: false,
-            },
-            {
-                id: 22,
-                label: "Paleo",
-                selected: false,
-            },
-            {
-                id: 23,
-                label: "Ketogenic",
+                id: 4,
+                label: "Gluten Fre",
                 selected: false,
             },
         ],
@@ -304,102 +139,37 @@ const initialState: User = {
             {
                 id: 2,
                 selected: false,
-                label: "Australian",
+                label: "Chinese",
             },
             {
                 id: 3,
                 selected: false,
-                label: "Brazilian",
+                label: "French",
             },
             {
                 id: 4,
                 selected: false,
-                label: "British",
+                label: "Indian",
             },
             {
                 id: 5,
                 selected: false,
-                label: "Cajun Creole",
+                label: "Italian",
             },
             {
                 id: 6,
                 selected: false,
-                label: "Caribbean",
+                label: "Japanese",
             },
             {
                 id: 7,
                 selected: false,
-                label: "Chinese",
+                label: "Mexican",
             },
             {
                 id: 8,
                 selected: false,
-                label: "Ethiopian",
-            },
-            {
-                id: 9,
-                selected: false,
-                label: "French",
-            },
-            {
-                id: 10,
-                selected: false,
-                label: "German",
-            },
-            {
-                id: 11,
-                selected: false,
-                label: "Greek",
-            },
-            {
-                id: 12,
-                selected: false,
-                label: "Indian",
-            },
-            {
-                id: 13,
-                selected: false,
-                label: "Italian",
-            },
-            {
-                id: 14,
-                selected: false,
-                label: "Japanese",
-            },
-            {
-                id: 15,
-                selected: false,
-                label: "Korean",
-            },
-            {
-                id: 16,
-                selected: false,
-                label: "Mexican",
-            },
-            {
-                id: 17,
-                selected: false,
-                label: "Middle Eastern",
-            },
-            {
-                id: 18,
-                selected: false,
-                label: "Spanish",
-            },
-            {
-                id: 19,
-                selected: false,
-                label: "Thai",
-            },
-            {
-                id: 20,
-                selected: false,
-                label: "Vietnamese",
-            },
-            {
-                id: 21,
-                selected: false,
-                label: "Mediterranean",
+                label: "Middle East",
             },
         ],
         transportation: [
@@ -410,57 +180,22 @@ const initialState: User = {
             },
             {
                 id: 2,
-                label: "Bicycle",
-                selected: false,
-            },
-            {
-                id: 3,
-                label: "Boat",
-                selected: false,
-            },
-            {
-                id: 4,
                 label: "Bus",
                 selected: false,
             },
             {
-                id: 5,
+                id: 3,
                 label: "Car",
                 selected: false,
             },
             {
-                id: 6,
-                label: "Motorcycle",
-                selected: false,
-            },
-            {
-                id: 7,
-                label: "Public Transport",
-                selected: false,
-            },
-            {
-                id: 8,
-                label: "Recreational Vehicle",
-                selected: false,
-            },
-            {
-                id: 9,
-                label: "Rideshare",
-                selected: false,
-            },
-            {
-                id: 10,
-                label: "Taxi",
-                selected: false,
-            },
-            {
-                id: 11,
+                id: 4,
                 label: "Train",
                 selected: false,
             },
             {
-                id: 12,
-                label: "Walking",
+                id: 5,
+                label: "Taxi",
                 selected: false,
             },
         ],
@@ -472,7 +207,7 @@ const initialState: User = {
             },
             {
                 id: 2,
-                label: "Backpacking and Budget Travel",
+                label: "Backpacking",
                 selected: false,
             },
             {
@@ -482,133 +217,31 @@ const initialState: User = {
             },
             {
                 id: 4,
-                label: "City Breaks",
-                selected: false,
-            },
-            {
-                id: 5,
-                label: "Cruise Vacations",
-                selected: false,
-            },
-            {
-                id: 6,
                 label: "Cultural Experiences",
                 selected: false,
             },
             {
-                id: 7,
-                label: "Eco-Tourism",
-                selected: false,
-            },
-            {
-                id: 8,
-                label: "Family-Friendly Destinations",
-                selected: false,
-            },
-            {
-                id: 9,
+                id: 5,
                 label: "Festival and Event Tourism",
                 selected: false,
             },
             {
-                id: 10,
-                label: "Food and Culinary Tourism",
-                selected: false,
-            },
-            {
-                id: 11,
-                label: "Historical and Heritage Tourism",
-                selected: false,
-            },
-            {
-                id: 12,
-                label: "Luxury Travel",
-                selected: false,
-            },
-            {
-                id: 13,
-                label: "Outdoor and Nature Exploration",
-                selected: false,
-            },
-            {
-                id: 14,
-                label: "Photography and Art-Focused Travel",
-                selected: false,
-            },
-            {
-                id: 15,
+                id: 6,
                 label: "Road Trips",
                 selected: false,
             },
             {
-                id: 16,
+                id: 7,
                 label: "Skiing and Snowboarding Trips",
                 selected: false,
             },
             {
-                id: 17,
-                label: "Solo Travel",
-                selected: false,
-            },
-            {
-                id: 18,
-                label: "Volunteer and Community-Based Tourism",
-                selected: false,
-            },
-            {
-                id: 19,
+                id: 8,
                 label: "Wellness and Spa Retreats",
-                selected: false,
-            },
-            {
-                id: 20,
-                label: "Wildlife and Safari Experiences",
                 selected: false,
             },
         ],
     },
-    disabilities: [
-        {
-            id: 1,
-            label: "No Disability",
-            selected: false,
-        },
-        {
-            id: 2,
-            label: "Visual Impairment",
-            selected: false,
-        },
-        {
-            id: 3,
-            label: "Hearing Impairment",
-            selected: false,
-        },
-        {
-            id: 4,
-            label: "Speech Impairment",
-            selected: false,
-        },
-        {
-            id: 5,
-            label: "Mobility Impairment",
-            selected: false,
-        },
-        {
-            id: 6,
-            label: "Cognitive Disabilities",
-            selected: false,
-        },
-        {
-            id: 7,
-            label: "Neurological Disorders",
-            selected: false,
-        },
-        {
-            id: 8,
-            label: "Other Disabilities",
-            selected: false,
-        },
-    ],
     sessionInfo: {
         isLoggedIn: false,
         isLoading: false,
@@ -628,7 +261,6 @@ export const userSlice = createSlice({
             )
             state.profile = action.payload.profile
             state.preferences = action.payload.preferences
-            state.disabilities = action.payload.disabilities
             state.settings = action.payload.settings
             state.sessionInfo = action.payload.sessionInfo
         },

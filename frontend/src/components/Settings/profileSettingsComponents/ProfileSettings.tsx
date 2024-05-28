@@ -21,7 +21,7 @@ import {
 } from "@/store/slices/userSlice"
 import Currency from "@/types/common/Currency"
 import BudgetPreference from "@/types/user/BudgetPreference"
-import BudgetPreferencesSection from "./BudgetPreferencesSection"
+// import BudgetPreferencesSection from "./BudgetPreferencesSection"
 import ProfileDetailsSection from "./ProfileDetailsSection"
 import PreferencesSection from "./PreferencesSection"
 
@@ -123,19 +123,19 @@ const ProfileSettings: React.FC = () => {
                 />
 
                 {/* Budget Preferences */}
-                <BudgetPreferencesSection
+                {/* <BudgetPreferencesSection
                     budgetPreferenceList={budgetPreferenceList}
                     handleBudgetPreferenceUpdated={
                         handleBudgetPreferenceUpdated
                     }
-                />
+                /> */}
 
                 {/* Select Currency */}
-                <div className="flex w-full flex-col text-secondary">
+                {/* <div className="flex w-full flex-col text-secondary">
                     <p className="text-xl">Preferred Currency</p>
                     <Select
                         value={preferredCurrency!.code!}
-                        /* onValueChange={() => handlePreferredCurrencySelected(currency)} */
+                        
                     >
                         <SelectTrigger className="flex h-12 w-full border-outline placeholder:text-onBackground placeholder:opacity-50">
                             <SelectValue placeholder="Select your preferred currency" />
@@ -150,14 +150,14 @@ const ProfileSettings: React.FC = () => {
                                             currency,
                                         )
                                     }
-                                    /* TODO: selected={preferredCurrency.code === currency.code} TODO:*/
+                                    
                                 >
                                     {currency.code} ({currency.label})
                                 </SelectItem>
                             ))}
                         </SelectContent>
                     </Select>
-                </div>
+                </div> */}
 
                 {/* Save Changes Button */}
                 <Link className="w-full" to="/profilestart">

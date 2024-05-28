@@ -8,7 +8,6 @@ type User = {
     profile: Profile
     settings: Settings
     preferences: Preferences
-    disabilities: Disabilities
     sessionInfo: SessionInfo
 }
 
@@ -58,12 +57,6 @@ type VacationPreference = {
 }
 
 type VacationPreferences = VacationPreference[]
-
-type Disability = {
-    id: number
-    label: string
-    selected: boolean
-}
 
 type Disabilities = Disability[]
 

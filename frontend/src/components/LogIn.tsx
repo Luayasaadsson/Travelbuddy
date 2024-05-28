@@ -86,6 +86,10 @@ function LogIn(): JSX.Element {
         setPasswordError("")
     }
 
+    const loginWithGoogle=()=>{
+        
+    }
+
     return (
         <main className="h-screen">
             <div className="flex w-full flex-row-reverse items-end justify-center gap-10 px-4 pt-20 md:px-24 md:pt-28 lg:px-40 lg:pt-40">
