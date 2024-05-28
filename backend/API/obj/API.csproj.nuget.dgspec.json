@@ -1,34 +1,20 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-    "C:\\Users\\hobor\\ChasAcademy\\Source code\\TravelBuddyNew\\travelbuddy\\backend\\API\\API.csproj": {}
+    "/Users/damianamalraj/Documents/Development/travelbuddy/backend/API/API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hobor\\ChasAcademy\\Source code\\TravelBuddyNew\\travelbuddy\\backend\\API\\API.csproj": {
+    "/Users/damianamalraj/Documents/Development/travelbuddy/backend/API/API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hobor\\ChasAcademy\\Source code\\TravelBuddyNew\\travelbuddy\\backend\\API\\API.csproj",
+        "projectUniqueName": "/Users/damianamalraj/Documents/Development/travelbuddy/backend/API/API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\hobor\\ChasAcademy\\Source code\\TravelBuddyNew\\travelbuddy\\backend\\API\\API.csproj",
-        "packagesPath": "C:\\Users\\hobor\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hobor\\ChasAcademy\\Source code\\TravelBuddyNew\\travelbuddy\\backend\\API\\obj\\",
-=======
-    "/Users/luayasaadsson/Desktop/travelbuddy/backend/API/API.csproj": {}
-  },
-  "projects": {
-    "/Users/luayasaadsson/Desktop/travelbuddy/backend/API/API.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "/Users/luayasaadsson/Desktop/travelbuddy/backend/API/API.csproj",
-        "projectName": "API",
-        "projectPath": "/Users/luayasaadsson/Desktop/travelbuddy/backend/API/API.csproj",
-        "packagesPath": "/Users/luayasaadsson/.nuget/packages/",
-        "outputPath": "/Users/luayasaadsson/Desktop/travelbuddy/backend/API/obj/",
->>>>>>> d8fc2eefd1137543c259126aa785b84879ae9568
+        "projectPath": "/Users/damianamalraj/Documents/Development/travelbuddy/backend/API/API.csproj",
+        "packagesPath": "/Users/damianamalraj/.nuget/packages/",
+        "outputPath": "/Users/damianamalraj/Documents/Development/travelbuddy/backend/API/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/luayasaadsson/.nuget/NuGet/NuGet.Config"
+          "/Users/damianamalraj/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
