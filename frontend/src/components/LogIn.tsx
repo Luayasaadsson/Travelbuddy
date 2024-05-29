@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons"
 import { loginUser } from "@/store/slices/userSlice"
 import { FormEvent } from "react"
+import GoogleLoginButton from "./GoogleLoginButton"
 
 function LogIn(): JSX.Element {
     const navigate = useNavigate()
@@ -180,10 +181,7 @@ function LogIn(): JSX.Element {
                         />
                         <span className="flex-grow">Login with Facebook</span>
                     </Button>
-                    <Button variant="google">
-                        <img src="./icons/google-logo.svg" alt="Google Logo" />
-                        <span className="flex-grow">Login with Google</span>
-                    </Button>
+                    <GoogleLoginButton />
                 </div>
             </div>
         </main>
