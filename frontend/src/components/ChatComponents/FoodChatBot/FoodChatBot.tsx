@@ -111,7 +111,7 @@ export default function FoodChatBot() {
         } else if (isFoodQuery) {
             console.log("väler prompt 2")
 
-            return `${context}\n\nUser Query: "I am located in ${location} and ${query}"\n\nResponse: Provide details of exactly four restaurants. For each restaurant, include the following format: \n\n**Name of the Restaurant**\nA short description\n*Address:* **[Name of the Address](https://www.google.com/maps/search/name+of+the+restaurant+mylocation/)**\n*Visit:* **[Name of the Restaurant](URL to restaurant's website)**\n\nInclude no additional text.`
+            return `${context}\n\nUser Query: "I am located in ${location} and ${query}"\n\nResponse: Provide details of exactly six restaurants at my location. For each restaurant, include the following format: \n\n**Name of the Restaurant**\nA short description\n**Address:** <a href="https://www.google.com/maps/search/name+of+the+restaurant+mylocation/" target="_blank">Name of the Address</a>\n**Visit:** <a href="URL to restaurant's website" target="_blank">Name of the Restaurant</a>\n\nInclude no additional text.`
         } else {
             console.log("väljer prompt 3")
 
@@ -161,7 +161,7 @@ export default function FoodChatBot() {
 
     const filterAgentResponse = (message: string) => {
         // Split message into words
-        const words = message.split(',').map(word => word.trim());
+        const words = message.split(",").map((word) => word.trim())
 
         if (words.length === 5) {
             dispatch(
