@@ -246,6 +246,9 @@ const initialState: User = {
         isLoggedIn: false,
         isLoading: false,
         messageToUser: "",
+        longitude: null,
+        latitude: null,
+        city: "",
     },
 }
 
@@ -263,6 +266,9 @@ export const userSlice = createSlice({
             state.preferences = action.payload.preferences
             state.settings = action.payload.settings
             state.sessionInfo = action.payload.sessionInfo
+        },
+        setUserLocation: (state, action: PayloadAction<{ city: string }>) => {
+            state.sessionInfo.city = action.payload
         },
         loginUser: (state) => {
             state.sessionInfo.isLoggedIn = true
@@ -515,6 +521,7 @@ export const {
     loginUser,
     logoutUser,
     signOutUser,
+    setUserLocation,
 } = userSlice.actions
 // Exporterar reducern
 export default userSlice.reducer

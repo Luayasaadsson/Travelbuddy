@@ -4,12 +4,12 @@ import FoodChatButtons from "./FoodChatButtons"
 
 type ButtonContainerProps = {
     message: Message
-    handleFoodChoice: (buttonChoice: string) => void
+    handleChatButtonClick: (buttonChoice: string) => void
 }
 
 export default function FoodButtonContainer({
     message,
-    handleFoodChoice,
+    handleChatButtonClick,
 }: ButtonContainerProps) {
     const [isOpen, setIsOpen] = useState<boolean>(true)
 
@@ -31,7 +31,7 @@ export default function FoodButtonContainer({
                         ? message.content.map((item: string, index: number) => (
                               <FoodChatButtons
                                   key={index}
-                                  onFoodChoice={handleFoodChoice}
+                                  onFoodChoice={handleChatButtonClick}
                                   foodPreference={item.trim()}
                                   onCloseButtonContainer={
                                       handleCloseButtonContainer
@@ -42,7 +42,7 @@ export default function FoodButtonContainer({
                               (item: string, index: number) => (
                                   <FoodChatButtons
                                       key={index}
-                                      onFoodChoice={handleFoodChoice}
+                                      onFoodChoice={handleChatButtonClick}
                                       foodPreference={item.trim()}
                                       onCloseButtonContainer={
                                           handleCloseButtonContainer

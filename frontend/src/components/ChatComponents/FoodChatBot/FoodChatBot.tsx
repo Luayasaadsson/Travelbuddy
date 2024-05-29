@@ -13,6 +13,9 @@ import FoodButtonContainer from "./FoodButtonContainer"
 
 export default function FoodChatBot() {
     const dispatch = useDispatch()
+    const location = useSelector(
+        (state: RootState) => state.user.sessionInfo.city,
+    )
     const [inputQuery, setInputQuery] = useState("")
     const [isLoading, setIsLoading] = useState(false)
     const messageList = useSelector(
@@ -23,22 +26,47 @@ export default function FoodChatBot() {
     )
     const [showPreferenceButtons, setShowPreferenceButtons] = useState(true)
 
-    // Delay function
-    const delay = (ms: number) =>
-        new Promise((resolve) => setTimeout(resolve, ms))
+    const handleChatButtonClick = (buttonChoice: string): void => {
+        const countryKeywords = foodList.map((food) => food.label.toLowerCase())
+        let isCountryQuery = false
+        for (const keyword of countryKeywords) {
+            if (buttonChoice.toLowerCase().includes(keyword.toLowerCase())) {
+                isCountryQuery = true
+                break
+            }
+        }
+        let message
 
-    const handleFoodChoice = (buttonChoice: string): void => {
+        if (isCountryQuery) {
+            message = `I'm down to eat some ${buttonChoice} food`
+            dispatch(
+                updateMessageList({
+                    type: "text",
+                    role: "user",
+                    content: message,
+                }),
+            )
+            dispatch(
+                updateMessageList({
+                    type: "text",
+                    role: "agent",
+                    content: "Okay! What type of food are you after?",
+                }),
+            )
+        } else {
+            message = `I crave ${buttonChoice.toLowerCase()}`
+            dispatch(
+                updateMessageList({
+                    type: "text",
+                    role: "user",
+                    content: `I crave ${buttonChoice.toLowerCase()}`,
+                }),
+            )
+        }
+
         setShowPreferenceButtons(false)
 
-        dispatch(
-            updateMessageList({
-                type: "text",
-                role: "user",
-                content: buttonChoice,
-            }),
-        )
-
-        fetchAgentResponse(buttonChoice)
+        fetchAgentResponse(message)
     }
 
     const handleInputSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
@@ -51,36 +79,42 @@ export default function FoodChatBot() {
                 content: inputQuery,
             }),
         )
-        setInputQuery("")
         fetchAgentResponse(inputQuery)
+        setInputQuery("")
     }
 
     const generatePrompt = (context: string, query: string): string => {
         const countryKeywords = foodList.map((food) => food.label.toLowerCase())
-        const foodKeywords = ["want", "crave", "for", "like"]
+        const foodKeywords = ["want", "I crave", "crave", "for", "like"]
 
-        let isCountryQuery = false
         let isFoodQuery = false
+        let isCountryQuery = false
 
         for (const keyword of countryKeywords) {
-            if (query.toLowerCase().includes(keyword)) {
+            if (query.toLowerCase().includes(keyword.toLowerCase())) {
                 isCountryQuery = true
                 break
             }
         }
 
         for (const keyword of foodKeywords) {
-            if (query.toLowerCase().includes(keyword)) {
+            if (query.toLowerCase().includes(keyword.toLowerCase())) {
                 isFoodQuery = true
                 break
             }
         }
 
         if (isCountryQuery) {
-            return `User Query: "${query}"\n\nResponse: *name of food*, *name of food*, *name of food*, *name of food*, *name of food*,[no external text]`
+            console.log("väljer prompt 1")
+
+            return `User Query: "I am located in ${location} and ${query}"\n\nResponse: Respond only with a list containing exactly five types of food. Write the food types in a row, separated by commas. Include no other text.`
         } else if (isFoodQuery) {
-            return `${context}\n\nUser Query: "${query}"\n\nResponse: x5 #name to restaurant#\n\n a short description\n *Adress:* **[adress to restaurant]**\n *Visit:* **[name of restaurant]**(url to restaurant)\n`
+            console.log("väler prompt 2")
+
+            return `${context}\n\nUser Query: "I am located in ${location} and ${query}"\n\nResponse: Provide details of exactly four restaurants. For each restaurant, include the following format: \n\n**Name of the Restaurant**\nA short description\n*Address:* **[Name of the Address](https://www.google.com/maps/search/name+of+the+restaurant+mylocation/)**\n*Visit:* **[Name of the Restaurant](URL to restaurant's website)**\n\nInclude no additional text.`
         } else {
+            console.log("väljer prompt 3")
+
             return `${context}\n\nUser Query: "${query}"\n\nResponse: You are a helpful assistant. Answer the user's question in a friendly and informative manner.`
         }
     }
@@ -93,6 +127,7 @@ export default function FoodChatBot() {
                 .map((message) => `${message.role}: ${message.content}`)
                 .join("\n")
             const prompt = generatePrompt(context, query)
+            console.log(prompt)
 
             const fetchPromise = axios.post(
                 "https://localhost:7038/api/OpenAi/AskAiAssistant",
@@ -106,15 +141,10 @@ export default function FoodChatBot() {
                         Accept: "application/json",
                         "Content-Type": "application/json",
                     },
-                    withCredentials: true, // Ensure cookies are sent with the request
+                    withCredentials: true,
                 },
             )
-
-            // Delay promise
-            const delayPromise = delay(2000)
-
-            // Wait for both promises to resolve
-            const [response] = await Promise.all([fetchPromise, delayPromise])
+            const [response] = await Promise.all([fetchPromise])
 
             if (response.status !== 200) {
                 throw new Error("Network problem")
@@ -160,7 +190,7 @@ export default function FoodChatBot() {
                     message.type === "button" ? (
                         <FoodButtonContainer
                             message={message}
-                            handleFoodChoice={handleFoodChoice}
+                            handleChatButtonClick={handleChatButtonClick}
                             key={index}
                         />
                     ) : (
@@ -172,7 +202,7 @@ export default function FoodChatBot() {
                         />
                     ),
                 )}
-
+                {/* visar preferenser på matland */}
                 {showPreferenceButtons && (
                     <div className="flex w-11/12 flex-wrap justify-center gap-2">
                         {foodList
@@ -180,7 +210,7 @@ export default function FoodChatBot() {
                             .map((food, index) => (
                                 <FoodPreferenceButtons
                                     key={index}
-                                    onFoodChoice={handleFoodChoice}
+                                    onFoodChoice={handleChatButtonClick}
                                     foodPreference={food.label}
                                 />
                             ))}

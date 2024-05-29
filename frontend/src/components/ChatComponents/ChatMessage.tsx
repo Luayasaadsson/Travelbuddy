@@ -19,8 +19,6 @@ export default function ChatMessage({
               ? messageContent.join(" ")
               : ""
 
-    console.log(content)
-
     return messageRole === "agent" ? (
         messageType === "text" ? (
             <p className="botPrompt">

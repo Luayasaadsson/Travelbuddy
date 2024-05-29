@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { Routes, Route } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import axios from "axios"
@@ -29,11 +29,30 @@ import {
     logoutUser,
 } from "./store/slices/userSlice"
 import MainLoader from "./components/MainLoader"
+import { setUserLocation } from "./store/slices/userSlice"
 
 function App() {
     const [isLargeScreen, setIsLargeScreen] = useState(false)
     const [loading, setLoading] = useState(true)
     const dispatch: AppDispatch = useDispatch()
+
+    useEffect(() => {
+        navigator.geolocation.getCurrentPosition(async (position) => {
+            const latitude = position.coords.latitude
+            const longitude = position.coords.longitude
+
+            try {
+                const response = await axios.get(
+                    `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`,
+                )
+                if (response.data && response.data.city) {
+                    dispatch(setUserLocation(response.data.city))
+                }
+            } catch (error) {
+                console.error("Failed to fetch city:", error)
+            }
+        })
+    }, [dispatch])
 
     useEffect(() => {
         const handleResize = () => {

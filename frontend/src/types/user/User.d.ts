@@ -64,6 +64,9 @@ type SessionInfo = {
     isLoggedIn: boolean
     isLoading: boolean
     messageToUser: string | null
+    longitude: number | null
+    latitude: number | null
+    city:string
 }
 
 type Profile = {
