@@ -9,7 +9,7 @@ import ChatLog from "../ChatLog"
 import FoodPreferenceButtons from "./FoodPreferenceButtons"
 import ChatInput from "../ChatInput"
 import ChatMessage from "../ChatMessage"
-import ButtonContainer from "../ButtonContainer"
+import VacationButtonContainer from "./VacationButtonContainer"
 
 export default function VacationChatBot() {
     const dispatch = useDispatch()
@@ -160,7 +160,7 @@ export default function VacationChatBot() {
             <ChatLog>
                 {messageList.map((message, index) =>
                     message.type === "button" ? (
-                        <ButtonContainer
+                        <VacationButtonContainer
                             message={message}
                             handleFoodChoice={handleFoodChoice}
                             key={index}
