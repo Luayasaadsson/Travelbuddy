@@ -161,7 +161,7 @@ export default function FoodChatBot() {
 
     const filterAgentResponse = (message: string) => {
         // Split message into words
-        const words = message.split(",")
+        const words = message.split(',').map(word => word.trim());
 
         if (words.length === 5) {
             dispatch(
