@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom"
 import { Button } from "./ui/button"
+import { useSelector } from "react-redux"
+import { RootState } from "@/store/store"
 
 function Hero() {
+    const isAuth = useSelector(
+        (state: RootState) => state.user.sessionInfo.isLoggedIn,
+    )
     return (
         <main className="flex h-screen justify-center">
-            <div className="flex max-h-screen w-full flex-col justify-center lg:justify-start gap-4 px-4 md:px-10 lg:gap-8 lg:px-40 lg:pt-40 xl:max-w-[1325px] ">
+            <div className="flex max-h-screen w-full flex-col justify-center gap-4 px-4 md:px-10 lg:justify-start lg:gap-8 lg:px-40 lg:pt-40 xl:max-w-[1325px] ">
                 <div className="flex flex-col items-center justify-center text-center lg:min-w-[500px] lg:flex-row lg:gap-10">
                     <div className="flex flex-col items-center justify-center gap-4">
                         <img
@@ -61,31 +66,41 @@ function Hero() {
                             </span>
                         </p>
                         <div className="flex justify-center gap-3">
-                            <Link
-                                to="/login"
-                                className="border-r-2 border-primary pr-3"
-                            >
-                                <Button variant="outline" size="lg">
-                                    <p className="text-neutral-200">
-                                        Login now
-                                    </p>
-                                    <img
-                                        className="ml-2 h-6 w-6"
-                                        src="/images/account.svg"
-                                        alt="Profileicon"
-                                    />
-                                </Button>
-                            </Link>
-                            <Link to="/signup">
-                                <Button variant="default" size="lg">
-                                    <p>Sign up</p>
-                                    <img
-                                        className="ml-2 h-6 w-6"
-                                        src="/images/account2.svg"
-                                        alt="Profileicon"
-                                    />
-                                </Button>
-                            </Link>
+                            {!isAuth ? (
+                                <>
+                                    <Link
+                                        to="/login"
+                                        className="border-r-2 border-primary pr-3"
+                                    >
+                                        <Button variant="outline" size="lg">
+                                            <p className="text-neutral-200">
+                                                Login now
+                                            </p>
+                                            <img
+                                                className="ml-2 h-6 w-6"
+                                                src="/images/account.svg"
+                                                alt="Profileicon"
+                                            />
+                                        </Button>
+                                    </Link>
+                                    <Link to="/signup">
+                                        <Button variant="default" size="lg">
+                                            <p>Sign up</p>
+                                            <img
+                                                className="ml-2 h-6 w-6"
+                                                src="/images/account2.svg"
+                                                alt="Profileicon"
+                                            />
+                                        </Button>
+                                    </Link>
+                                </>
+                            ) : (
+                                <Link to="/profilestart">
+                                    <Button variant="default" size="lg">
+                                        <p>Chatbot</p>
+                                    </Button>
+                                </Link>
+                            )}
                         </div>
                     </div>
                 </div>
