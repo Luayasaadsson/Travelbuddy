@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 // import {
@@ -76,6 +76,35 @@ const ProfileSettings: React.FC = () => {
         dispatch(updateBudgetPreference(budgetPreference))
     } */
 
+        // Local states
+        const [firstName, setFirstName] = useState<string | undefined>(useSelector((state: RootState) => state.user.profile.firstName))
+        const [lastName, setLastName] = useState<string | undefined>(useSelector((state: RootState) => state.user.profile.lastName))
+        const [userName, setUserName] = useState<string | undefined>(useSelector((state: RootState) => state.user.profile.userName))
+        const [city, setCity] = useState<string | undefined>(useSelector((state: RootState) => state.user.profile.address.city))
+        const [country, setCountry] = useState<string | undefined>(useSelector((state: RootState) => state.user.profile.address.country))
+    
+        // Handle-functions
+        const handleFirstNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+            e.preventDefault()
+            setFirstName(e.target.value)
+        }
+        const handleLastNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+            e.preventDefault()
+            setLastName(e.target.value)
+        }
+        const handleUserNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+            e.preventDefault()
+            setUserName(e.target.value)
+        }
+        const handleCityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+            e.preventDefault()
+            setCity(e.target.value)
+        }
+        const handleCountryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+            e.preventDefault()
+            setCountry(e.target.value)
+        }
+
     return (
         <main className="flex min-h-screen items-start justify-center mb-10">
             <div className="relative flex w-11/12 max-w-96 flex-col items-center justify-center gap-6">
@@ -84,7 +113,18 @@ const ProfileSettings: React.FC = () => {
                 </div>
 
                 {/* Username and Profile Information */}
-                <ProfileDetailsSection />
+                <ProfileDetailsSection 
+                handleFirstNameChange={handleFirstNameChange}
+                handleLastNameChange={handleLastNameChange}
+                handleUserNameChange={handleUserNameChange}
+                handleCityChange={handleCityChange}
+                handleCountryChange={handleCountryChange}
+                firstName={firstName}
+                lastName={lastName}
+                userName={userName}
+                city={city}
+                country={country}
+                />
                 <p className="self-start text-xl">Preferences</p>
                 {/* Preferences Sections */}
                 <PreferencesSection

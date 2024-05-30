@@ -401,7 +401,7 @@ export const userSlice = createSlice({
                 firstName: string
                 lastName: string
                 userName: string
-                /*  phoneNumber: string */
+               /*  phoneNumber: string */
                 city: string
                 country: string
                 /* gender: Gender */
@@ -411,7 +411,7 @@ export const userSlice = createSlice({
             state.profile.firstName = action.payload.firstName
             state.profile.lastName = action.payload.lastName
             state.profile.userName = action.payload.userName
-            /*     state.profile.phoneNumber = action.payload.phoneNumber */
+        /*     state.profile.phoneNumber = action.payload.phoneNumber */
             state.profile.address.city = action.payload.city
             state.profile.address.country = action.payload.country
             /* state.profile.gender = action.payload.gender */
@@ -452,20 +452,20 @@ export const userSlice = createSlice({
                 /* phoneNumber, */
                 city,
                 country,
-                /*   gender, */
+              /*   gender, */
             } = action.payload
             state.profile = {
                 ...state.profile,
                 firstName,
                 lastName,
                 userName,
-                /*  phoneNumber, */
+               /*  phoneNumber, */
                 address: {
                     ...state.profile.address,
                     city,
                     country,
                 },
-                /*   gender, */
+              /*   gender, */
             }
         })
     },
@@ -627,3 +627,4 @@ const maxSearchResultsChosen = Number(JSON.parse(localStorage.getItem("maxSearch
       } 
       console.log("state.currentJobs after update:", state.currentJobs);
       */
+

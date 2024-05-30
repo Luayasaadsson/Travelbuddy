@@ -12,8 +12,8 @@ type User = {
 }
 
 type Address = {
-    city?: string | null
-    country?: string | null
+    city: string | undefined
+    country: string | undefined
 }
 
 type AccommodationPreference = {
@@ -70,12 +70,12 @@ type SessionInfo = {
 }
 
 type Profile = {
-    firstName: string | null
-    lastName?: string | null
-    userName: string | null
-    phoneNumber?: string | null
+    firstName: string | undefined
+    lastName: string | undefined
+    userName: string | undefined
+    phoneNumber?: string | undefined
     gender: Gender
-    address: Address | { city: string | null; country: string | null }
+    address: Address
 }
 
 type Settings = {
