@@ -110,3 +110,7 @@ type Preferences = {
 }
 
 export default User
+export default AccommodationPreferences
+export default FoodPreferences
+export default DietPreferences
+export default AccommodationPreferences

@@ -123,7 +123,16 @@ const ProfileSettings: React.FC = () => {
             city: city || "",
             country: country || "",
         }
-        await dispatch(patchUserProfile(userData))
+        const preferenceData = {
+            foods: foodPreferenceList,
+            accommodations: accommodationPreferenceList,
+            diets: dietPreferenceList,
+            transportations: transportationPreferenceList,
+            vacations: vacationPreferenceList,
+        }
+        console.log(userData)
+
+        await dispatch(patchUserProfile({ userData, preferenceData }))
         await dispatch(fetchUserProfile())
     }
 

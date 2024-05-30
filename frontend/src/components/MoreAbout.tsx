@@ -28,7 +28,7 @@ import { AppDispatch } from "@/store/store"
 // Component Function
 
 function MoreAbout() {
-    const dispatch = useDispatch<AppDispatch>();
+    const dispatch = useDispatch<AppDispatch>()
 
     // Local states
     const [firstName, setFirstName] = useState<string>("")
@@ -65,11 +65,11 @@ function MoreAbout() {
             userName,
             city,
             country,
-        };
-        dispatch(addBasicUserProfileInfo(userData));
-        dispatch(patchUserProfile(userData));
-    };
-    
+        }
+        const preferenceData = {} // Assuming no preferences data to send initially
+        dispatch(addBasicUserProfileInfo(userData))
+        dispatch(patchUserProfile({ userData, preferenceData }))
+    }
 
     return (
         <main className="h-screen">

@@ -1,3 +1,4 @@
+
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import type { PayloadAction } from "@reduxjs/toolkit" // För att typa action.payload i reducer-funktioner
 import User from "../../types/user/User"
@@ -417,7 +418,6 @@ export const userSlice = createSlice({
         },
     },
 
-
     extraReducers: (builder) => {
         builder.addCase(patchUserProfile.pending, (state) => {
             state.sessionInfo.isLoading = true
@@ -470,12 +470,21 @@ export const fetchUserProfile = createAsyncThunk(
 )
 export const patchUserProfile = createAsyncThunk(
     "user/patchUserProfile",
-    async (userData: {
-        firstName: string
-        lastName: string
-        userName: string
-        city: string
-        country: string
+    async ({ userData, preferenceData }: {
+        userData: {
+            firstName: string;
+            lastName: string;
+            userName: string;
+            city: string;
+            country?: string;
+        };
+        preferenceData: {
+            foods?: { id: number; label: string; selected: boolean }[];
+            accommodations?: { id: number; label: string; selected: boolean }[];
+            diets?: { id: number; label: string; selected: boolean }[];
+            transportations?: { id: number; label: string; selected: boolean }[];
+            vacations?: { id: number; label: string; selected: boolean }[];
+        };
     }) => {
         try {
             const response = await axios.patch(
@@ -486,6 +495,11 @@ export const patchUserProfile = createAsyncThunk(
                     userName: userData.userName,
                     city: userData.city,
                     country: userData.country,
+                    foods: preferenceData.foods,
+                    accommodations: preferenceData.accommodations,
+                    diets: preferenceData.diets,
+                    transportations: preferenceData.transportations,
+                    vacations: preferenceData.vacations,
                 },
                 {
                     headers: {
