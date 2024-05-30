@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import { useState, useEffect } from "react"
 import { Routes, Route, useLocation } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import axios from "axios"
@@ -35,7 +35,6 @@ function App() {
     const userName = useSelector(
         (state: RootState) => state.user.profile.userName,
     )
-    const location = useLocation()
     const [isLargeScreen, setIsLargeScreen] = useState(false)
     const loading = useSelector(
         (state: RootState) => state.settings.sessionInfo.isLoading,

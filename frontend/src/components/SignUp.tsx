@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons"
 import { FormEvent } from "react"
 import { useDispatch } from "react-redux"
-import { loginUser, logoutUser } from "@/store/slices/userSlice"
+import { loginUser } from "@/store/slices/userSlice"
 
 function SignUp(): JSX.Element {
     const dispatch = useDispatch()
