@@ -14,9 +14,7 @@ const initialState: User = {
         firstName: "",
         lastName: "",
         userName: "",
-        phoneNumber: "",
         gender: {
-            id: 0,
             label: "",
         },
         address: {
@@ -401,20 +399,15 @@ export const userSlice = createSlice({
                 firstName: string
                 lastName: string
                 userName: string
-               /*  phoneNumber: string */
                 city: string
                 country: string
-                /* gender: Gender */
             }>,
         ) => {
-            // update state
             state.profile.firstName = action.payload.firstName
             state.profile.lastName = action.payload.lastName
             state.profile.userName = action.payload.userName
-        /*     state.profile.phoneNumber = action.payload.phoneNumber */
             state.profile.address.city = action.payload.city
             state.profile.address.country = action.payload.country
-            /* state.profile.gender = action.payload.gender */
         },
     },
 
@@ -423,50 +416,33 @@ export const userSlice = createSlice({
     // med addCase kan vi fånga upp olika action från den asynkrona hämtningen (pending, fulfilled, rejected)
     // https://redux-toolkit.js.org/api/createAsyncThunk
     extraReducers: (builder) => {
-        builder.addCase(fetchUser.pending, (state) => {
-            state = initialState
+        builder.addCase(patchUserProfile.pending, (state) => {
             state.sessionInfo.isLoading = true
-            state.sessionInfo.messageToUser = "Loading user profile data..."
         })
-        builder.addCase(
-            fetchUser.fulfilled,
-            (state, action: PayloadAction<User>) => {
-                //console.log("action.payload in fetchJobs.fulfilled:", action.payload);
-                //console.log("state.allJobs in fetchJobs.fulfilled ex ante... ",state.allJobs);
-                // TODO:
-                state = action.payload
-                state.sessionInfo.isLoading = false
-            },
-        )
-        builder.addCase(fetchUser.rejected, (state) => {
+        builder.addCase(patchUserProfile.fulfilled, (state) => {
             state.sessionInfo.isLoading = false
-            state.sessionInfo.messageToUser =
-                "The user profile cannot be loaded. Please try again later."
-            console.error("Error fetching user data")
+            state.sessionInfo.messageToUser = "Profile updated successfully"
         })
+        builder.addCase(patchUserProfile.rejected, (state) => {
+            state.sessionInfo.isLoading = false
+            state.sessionInfo.messageToUser = "Failed to update profile"
+        })
+        builder.addCase(fetchUserProfile.pending, (state) => {
+            state.sessionInfo.isLoading = true
+        })
+
         builder.addCase(fetchUserProfile.fulfilled, (state, action) => {
-            const {
-                firstName,
-                lastName,
-                userName,
-                /* phoneNumber, */
-                city,
-                country,
-              /*   gender, */
-            } = action.payload
-            state.profile = {
-                ...state.profile,
-                firstName,
-                lastName,
-                userName,
-               /*  phoneNumber, */
-                address: {
-                    ...state.profile.address,
-                    city,
-                    country,
-                },
-              /*   gender, */
-            }
+            state.profile.firstName = action.payload.firstName
+            state.profile.lastName = action.payload.lastName
+            state.settings.email = action.payload.email
+            state.profile.address.country = action.payload.country
+            state.profile.address.city = action.payload.city
+            state.profile.userName = action.payload.userName
+            state.sessionInfo.isLoading = false
+        })
+        builder.addCase(fetchUserProfile.rejected, (state) => {
+            state.sessionInfo.isLoading = false
+            state.sessionInfo.messageToUser = "Failed to update profile"
         })
     },
 })
@@ -485,9 +461,41 @@ export const fetchUserProfile = createAsyncThunk(
         return response.data
     },
 )
+export const patchUserProfile = createAsyncThunk(
+    "user/patchUserProfile",
+    async (userData: {
+        firstName: string
+        lastName: string
+        userName: string
+        city: string
+        country: string
+    }) => {
+        try {
+            const response = await axios.patch(
+                "https://localhost:7038/api/Auth/user",
+                {
+                    firstname: userData.firstName,
+                    lastname: userData.lastName,
+                    userName: userData.userName,
+                    city: userData.city,
+                    country: userData.country,
+                },
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    withCredentials: true,
+                },
+            )
+            return response.data
+        } catch (error) {
+            throw error
+        }
+    },
+)
 
 // createAsyncThunk tar två argument, ett namn och en funktion som returnerar en promise
-export const fetchUser = createAsyncThunk(
+/* export const fetchUser = createAsyncThunk(
     "user/fetchUser",
     async (urlEndpoint: string) => {
         const response: Response = await fetch(urlEndpoint)
@@ -500,7 +508,7 @@ export const fetchUser = createAsyncThunk(
             return fetchedUser
         }
     },
-)
+) */
 
 // Exporterar alla actionfunktioner
 export const {
@@ -525,106 +533,3 @@ export const {
 } = userSlice.actions
 // Exporterar reducern
 export default userSlice.reducer
-
-/* if (!localStorage.getItem("favouriteJobs")) {
-  localStorage.setItem("favouriteJobs", JSON.stringify([]));
-}
-if (!localStorage.getItem("currentSkillsOperand")) {
-  localStorage.setItem("currentSkillsOperand", JSON.stringify("OCH"));
-}
-if (!localStorage.getItem("currentWorkingHoursTypeLabel")) {
-  localStorage.setItem("currentWorkingHoursTypeLabel", JSON.stringify("Heltid"));
-}
-if (!localStorage.getItem("currentSkillsFilters")) {
-  localStorage.setItem("currentSkillsFilters", JSON.stringify([]));
-}
-if (!localStorage.getItem("currentLocationFilters")) {
-  localStorage.setItem("currentLocationFilters", JSON.stringify([]));
-}
-if (!localStorage.getItem("maxSearchResultsChosen")) {
-  localStorage.setItem("maxSearchResultsChosen", JSON.stringify(10));
-} */
-
-/* const favouriteJobsFromLocalStorage = JSON.parse(localStorage.getItem("favouriteJobs")!);
-const currentSkillsOperand = JSON.parse(localStorage.getItem("currentSkillsOperand")!);
-const currentWorkingHoursTypeLabel = JSON.parse(localStorage.getItem("currentWorkingHoursTypeLabel")!);
-
-const currentSkillsFilters = JSON.parse(localStorage.getItem("currentSkillsFilters")!);
-const currentLocationFilters = JSON.parse(localStorage.getItem("currentLocationFilters")!);
-const maxSearchResultsChosen = Number(JSON.parse(localStorage.getItem("maxSearchResultsChosen")!))
- */
-
-/*     updatePersonalInfo: (state, action: PayloadAction<Job[]>) =>{
-      state.favouriteJobs = action.payload
-      localStorage.setItem("favouriteJobs", JSON.stringify(action.payload))
-    },
-    updateCurrentLocationFilters: (state, action: PayloadAction<string[]>) => {
-      state.currentLocationFilters = action.payload
-      localStorage.setItem("currentLocationFilters", JSON.stringify(action.payload))
-      console.log("currentLocationFilters action.payload in searchJobsSlice reducer:", action.payload);
-      console.log("currentLocationFilters in searchJobsSlice reducer:", state.currentLocationFilters);
-    },
-    updateCurrentSkillsFilters: (state, action: PayloadAction<string[]>) => {
-      console.log("state.currentSkillsFilters in reducer before updating", state.currentSkillsFilters);
-      state.currentSkillsFilters = action.payload
-      localStorage.setItem("currentSkillsFilters", JSON.stringify(action.payload))
-      console.log("currentSkillsFilters action.payload in searchJobsSlice reducer:", action.payload);
-      console.log("currentSkillsFilters in searchJobsSlice reducer:", state.currentSkillsFilters);
-    },
-    updateCurrentSkillsOperand: (state, action: PayloadAction<SearchJobsState['currentSkillsOperand']>)  => {
-      state.currentSkillsOperand = action.payload
-      localStorage.setItem("currentSkillsOperand", JSON.stringify(action.payload))
-      console.log("action.payload in updateCurrentSkillsOperand in searchJobsSlice:", action.payload);
-      console.log("currentSkillsOperand in updateCurrentSkillsOperand in searchJobsSlice:", state.currentSkillsOperand);
-    },
-    updateCurrentWorkingHoursTypeLabel: (state, action: PayloadAction<string>)  => {
-      state.currentWorkingHoursTypeLabel= action.payload
-      localStorage.setItem("currentWorkingHoursTypeLabel", JSON.stringify(action.payload))
-      console.log("action.payload in updateCurrentWorkingHoursTypeLabel in searchJobsSlice:", action.payload);
-      console.log("currentWorkingHoursTypeLabel in updateCurrentWorkingHoursTypeLabel in searchJobsSlice:", state.currentWorkingHoursTypeLabel);
-    },
-    updateMessageToUser: (state, action: PayloadAction<string>) => {
-      state.messageToUser = action.payload
-    },
-    clearAllCurrentFilters: (state) => {
-      state.currentLocationFilters = []
-      state.currentSkillsFilters = []
-      state.currentSkillsOperand = "ELLER"
-    },
-    updateMaxSearchResultsChosen: (state, action: PayloadAction<number>) => {
-      state.maxSearchResultsChosen = action.payload
-    }, */
-
-/* if(state.allJobs.length === 0){
-        state.messageToUser = "Sorry, there are no such jobs available."
-      } else {
-        state.messageToUser = ""
-      }
-      console.log("state.allJobs after update:", state.allJobs); 
-       */
-// If all filters are empty, set currentJobs to allJobs
-/* const stateCurrentSkillsFilters = [...state.currentSkillsFilters]  
-      const stateCurrentLocationFilters = [...state.currentLocationFilters] 
-      const stateCurrentSkillsOperand = state.currentSkillsOperand  // no shallow copy needed 
-      console.log("stateCurrentSkillsFilters in fetchJobs reducer:",stateCurrentSkillsFilters);
-      console.log("stateCurrentLocationFilters in fetchJobs reducer:",stateCurrentLocationFilters)
-      console.log("stateCurrentSkillsOperand in fetchJobs-reducer: ",stateCurrentSkillsOperand);
-       */
-/*  if((!stateCurrentSkillsFilters && !stateCurrentLocationFilters) || (stateCurrentSkillsOperand === "ELLER")){
-        state.currentJobs = state.allJobs
-        state.numberOfHits = state.allJobs.length
-      } else if (stateCurrentSkillsOperand === "OCH"){
-
-          console.log("state.currentSkillsFilters in OCH:",stateCurrentSkillsFilters);
-          const newCurrentJobs: Job[] = state.allJobs.filter((job: Job) => {
-            return stateCurrentSkillsFilters.every(filterValue => job.description.text?.toLowerCase()!.includes(filterValue.toLowerCase())); 
-          });
-          state.currentJobs = newCurrentJobs 
-          state.numberOfHits = newCurrentJobs.length
-      } else {
-          console.log("Error: CurrentSkillsOperand is not working");
-          throw new Error
-      } 
-      console.log("state.currentJobs after update:", state.currentJobs);
-      */
-

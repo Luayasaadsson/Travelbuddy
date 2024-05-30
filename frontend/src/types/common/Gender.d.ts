@@ -1,5 +1,4 @@
 type Gender = {
-    id: number
     label: string | null
 }
 

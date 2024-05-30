@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
-import { Routes, Route } from "react-router-dom"
-import { useDispatch } from "react-redux"
+import { Routes, Route, useLocation } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
 import axios from "axios"
 
 import Settings from "./components/Settings/Settings"
@@ -22,7 +22,7 @@ import RateTheApp from "./components/RateTheApp"
 import DesktopVector from "./components/DesktopVector"
 import PrivateRoutes from "./PrivateRoutes/PrivateRoutes"
 import VacationChatBot from "./components/ChatComponents/VacationChatBot/VacationChatBot"
-import { AppDispatch } from "./store/store"
+import { AppDispatch, RootState } from "./store/store"
 import {
     fetchUserProfile,
     loginUser,
@@ -32,10 +32,17 @@ import MainLoader from "./components/MainLoader"
 import { setUserLocation } from "./store/slices/userSlice"
 
 function App() {
+    const userName = useSelector(
+        (state: RootState) => state.user.profile.userName,
+    )
+    const location = useLocation()
     const [isLargeScreen, setIsLargeScreen] = useState(false)
-    const [loading, setLoading] = useState(true)
+    const loading = useSelector(
+        (state: RootState) => state.settings.sessionInfo.isLoading,
+    )
     const dispatch: AppDispatch = useDispatch()
 
+    //hämtar användarens location
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(async (position) => {
             const latitude = position.coords.latitude
@@ -54,6 +61,7 @@ function App() {
         })
     }, [])
 
+    //ändrar styling beroende på skärmstorlek
     useEffect(() => {
         const handleResize = () => {
             setIsLargeScreen(window.innerWidth >= 1024)
@@ -67,10 +75,16 @@ function App() {
         }
     }, [])
 
+    //hämtar användarens data varje gång app.tsx laddas om
     useEffect(() => {
-        dispatch(fetchUserProfile())
+        if (!userName) {
+            dispatch(fetchUserProfile())
+        } else {
+            return
+        }
     }, [dispatch])
 
+    //kollar om användaren redan är inloggad
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -87,13 +101,13 @@ function App() {
             } catch (error) {
                 dispatch(logoutUser())
             } finally {
-                setLoading(false)
             }
         }
 
         fetchData()
     }, [dispatch])
 
+    //loader för hela skärmen
     if (loading) {
         return (
             <>
