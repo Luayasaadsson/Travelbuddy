@@ -144,5 +144,23 @@ public class AuthController : ControllerBase
     await _signInManager.SignOutAsync();
     return Ok();
   }
+
+  [HttpPost("validate-password")]
+  public async Task<IActionResult> ValidatePassword([FromBody] PasswordValidationDto passwordValidationDto)
+  {
+    var user = await _userManager.GetUserAsync(User);
+    if (user == null)
+    {
+      return NotFound("User not found");
+    }
+
+    var passwordValid = await _userManager.CheckPasswordAsync(user, passwordValidationDto.Password);
+    if (!passwordValid)
+    {
+      return Unauthorized("Invalid password");
+    }
+
+    return Ok(new { valid = true });
+  }
 }
 
