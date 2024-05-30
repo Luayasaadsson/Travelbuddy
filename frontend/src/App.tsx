@@ -30,17 +30,42 @@ import {
 } from "./store/slices/userSlice"
 import MainLoader from "./components/MainLoader"
 import { setUserLocation } from "./store/slices/userSlice"
+import { updateIsLoading } from "./store/slices/userSlice"
 
 function App() {
-    const userName = useSelector(
-        (state: RootState) => state.user.profile.userName,
+    const isAuth = useSelector(
+        (state: RootState) => state.settings.sessionInfo.isLoggedIn,
     )
     const [isLargeScreen, setIsLargeScreen] = useState(false)
     const loading = useSelector(
         (state: RootState) => state.settings.sessionInfo.isLoading,
     )
     const dispatch: AppDispatch = useDispatch()
-    /* const isAuth = useSelector((state:RootState)=>state.settings.sessionInfo.isLoggedIn) */
+
+    /*  //kollar om användaren redan är inloggad
+    useEffect(() => {
+        dispatch(updateIsLoading(true))
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(
+                    "https://localhost:7038/api/Auth/user",
+                    { withCredentials: true },
+                )
+
+                if (response.status === 200) {
+                    dispatch(loginUser())
+                } else {
+                    dispatch(logoutUser())
+                }
+            } catch (error) {
+                dispatch(logoutUser())
+            } finally {
+                dispatch(updateIsLoading(false))
+            }
+        }
+
+        fetchData()
+    }, []) */
 
     //hämtar användarens location
     useEffect(() => {
@@ -77,34 +102,14 @@ function App() {
 
     //hämtar användarens data varje gång app.tsx laddas om
     useEffect(() => {
-        if (!userName) {
-            dispatch(fetchUserProfile())
-        } else {
-            return
-        }
-    }, [dispatch])
-
-    //kollar om användaren redan är inloggad
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get(
-                    "https://localhost:7038/api/Auth/user",
-                    { withCredentials: true },
-                )
-
-                if (response.status === 200) {
-                    dispatch(loginUser())
-                } else {
-                    dispatch(logoutUser())
-                }
-            } catch (error) {
-                dispatch(logoutUser())
-            } finally {
+        async function fetchUser() {
+            if (!isAuth) {
+                await dispatch(fetchUserProfile())
+            } else {
+                return
             }
         }
-
-        fetchData()
+        fetchUser()
     }, [dispatch])
 
     //loader för hela skärmen

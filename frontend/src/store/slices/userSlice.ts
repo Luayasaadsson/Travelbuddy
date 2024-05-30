@@ -270,12 +270,15 @@ export const userSlice = createSlice({
         },
         loginUser: (state) => {
             state.sessionInfo.isLoggedIn = true
+            sessionStorage.setItem("isLoggedIn", "true")
         },
         logoutUser: (state) => {
             state.sessionInfo.isLoggedIn = false
+            sessionStorage.removeItem("isLoggedIn")
         },
         signOutUser: (state) => {
             state.sessionInfo.isLoggedIn = false
+            sessionStorage.removeItem("isLoggedIn")
         },
         updateUserId: (state, action: PayloadAction<User>) => {
             state.id = action.payload.id
@@ -435,6 +438,7 @@ export const userSlice = createSlice({
         })
 
         builder.addCase(fetchUserProfile.fulfilled, (state, action) => {
+            state.sessionInfo.isLoggedIn = true
             state.profile.firstName = action.payload.firstName
             state.profile.lastName = action.payload.lastName
             state.settings.email = action.payload.email
@@ -445,6 +449,8 @@ export const userSlice = createSlice({
             state.sessionInfo.isLoading = false
         })
         builder.addCase(fetchUserProfile.rejected, (state) => {
+            sessionStorage.removeItem("isLoggedIn")
+            state.sessionInfo.isLoggedIn = false
             state.sessionInfo.isLoading = false
             state.sessionInfo.messageToUser = "Failed to update profile"
         })
