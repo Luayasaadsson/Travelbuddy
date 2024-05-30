@@ -3,7 +3,7 @@ import type { PayloadAction } from "@reduxjs/toolkit" // För att typa action.pa
 import User from "../../types/user/User"
 import Currency from "@/types/common/Currency"
 import BudgetPreference from "@/types/user/BudgetPreference"
-import Gender from "@/types/common/Gender"
+/* import Gender from "@/types/common/Gender" */
 import axios from "axios"
 
 // Initial state
@@ -248,7 +248,7 @@ const initialState: User = {
         messageToUser: "",
         longitude: null,
         latitude: null,
-        city: "test",
+        city: "",
     },
 }
 
@@ -267,8 +267,8 @@ export const userSlice = createSlice({
             state.settings = action.payload.settings
             state.sessionInfo = action.payload.sessionInfo
         },
-        setUserLocation: (state, action: PayloadAction<string>) => {
-            state.sessionInfo.city = action.payload
+        setUserLocation: (state, action: PayloadAction<{ city: string }>) => {
+            state.sessionInfo.city = action.payload.city
         },
         loginUser: (state) => {
             state.sessionInfo.isLoggedIn = true
@@ -401,20 +401,20 @@ export const userSlice = createSlice({
                 firstName: string
                 lastName: string
                 userName: string
-                phoneNumber: string
+                /*  phoneNumber: string */
                 city: string
                 country: string
-                gender: Gender
+                /* gender: Gender */
             }>,
         ) => {
             // update state
             state.profile.firstName = action.payload.firstName
             state.profile.lastName = action.payload.lastName
             state.profile.userName = action.payload.userName
-            state.profile.phoneNumber = action.payload.phoneNumber
+            /*     state.profile.phoneNumber = action.payload.phoneNumber */
             state.profile.address.city = action.payload.city
             state.profile.address.country = action.payload.country
-            state.profile.gender = action.payload.gender
+            /* state.profile.gender = action.payload.gender */
         },
     },
 
@@ -449,23 +449,23 @@ export const userSlice = createSlice({
                 firstName,
                 lastName,
                 userName,
-                phoneNumber,
+                /* phoneNumber, */
                 city,
                 country,
-                gender,
+                /*   gender, */
             } = action.payload
             state.profile = {
                 ...state.profile,
                 firstName,
                 lastName,
                 userName,
-                phoneNumber,
+                /*  phoneNumber, */
                 address: {
                     ...state.profile.address,
                     city,
                     country,
                 },
-                gender,
+                /*   gender, */
             }
         })
     },
