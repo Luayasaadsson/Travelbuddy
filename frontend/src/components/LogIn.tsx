@@ -42,7 +42,7 @@ function LogIn(): JSX.Element {
             console.log("Login successful.", response)
             dispatch(fetchUserProfile())
             dispatch(loginUser())
-            navigate(requestedLocation, { replace: true })
+            navigate("/profilestart"); // Säkerställer att användaren alltid kommer till profilestart efter inloggningen.
         } catch (error: any) {
             if (error.response) {
                 // Server responded with a status other than 2xx
