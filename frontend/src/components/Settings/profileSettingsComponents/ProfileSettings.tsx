@@ -24,7 +24,7 @@ import {
 // import BudgetPreferencesSection from "./BudgetPreferencesSection"
 import ProfileDetailsSection from "./ProfileDetailsSection"
 import PreferencesSection from "./PreferencesSection"
-import { patchUserProfile } from "@/store/slices/userSlice"
+import { patchUserProfile, fetchUserProfile } from "@/store/slices/userSlice"
 
 const ProfileSettings: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>()
@@ -116,7 +116,7 @@ const ProfileSettings: React.FC = () => {
         setCountry(e.target.value)
     }
 
-    const updateUserInfo = () => {
+    const updateUserInfo = async () => {
         const userData = {
             firstName: firstName || "",
             lastName: lastName || "",
@@ -124,7 +124,8 @@ const ProfileSettings: React.FC = () => {
             city: city || "",
             country: country || "",
         }
-        dispatch(patchUserProfile(userData))
+        await dispatch(patchUserProfile(userData))
+        await dispatch(fetchUserProfile())
     }
 
     return (
@@ -222,12 +223,12 @@ const ProfileSettings: React.FC = () => {
                 </div> */}
 
                 {/* Save Changes Button */}
-                    <Button
-                        onClick={updateUserInfo}
-                        className="flex w-full max-w-96 items-center justify-center gap-2 p-3"
-                    >
-                        Save changes
-                    </Button>
+                <Button
+                    onClick={updateUserInfo}
+                    className="flex w-full max-w-96 items-center justify-center gap-2 p-3"
+                >
+                    Save changes
+                </Button>
             </div>
         </main>
     )
