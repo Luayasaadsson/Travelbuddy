@@ -409,6 +409,9 @@ export const userSlice = createSlice({
             state.profile.address.city = action.payload.city
             state.profile.address.country = action.payload.country
         },
+        resetToInitialState: () => {
+            return initialState
+        },
     },
 
     //  extraReducers är en reducer som kan hantera actions från andra slices eller från createAsyncThunk
@@ -529,6 +532,7 @@ export const {
     loginUser,
     logoutUser,
     signOutUser,
+    resetToInitialState,
     setUserLocation,
 } = userSlice.actions
 // Exporterar reducern

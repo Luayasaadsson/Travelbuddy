@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { Routes, Route, useLocation } from "react-router-dom"
+import { Routes, Route } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import axios from "axios"
 
@@ -40,6 +40,7 @@ function App() {
         (state: RootState) => state.settings.sessionInfo.isLoading,
     )
     const dispatch: AppDispatch = useDispatch()
+    /* const isAuth = useSelector((state:RootState)=>state.settings.sessionInfo.isLoggedIn) */
 
     //hämtar användarens location
     useEffect(() => {
