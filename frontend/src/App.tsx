@@ -52,7 +52,7 @@ function App() {
                 console.error("Failed to fetch city:", error)
             }
         })
-    }, [dispatch])
+    }, [])
 
     useEffect(() => {
         const handleResize = () => {

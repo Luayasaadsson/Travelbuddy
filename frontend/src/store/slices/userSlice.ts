@@ -248,7 +248,7 @@ const initialState: User = {
         messageToUser: "",
         longitude: null,
         latitude: null,
-        city: "",
+        city: "test",
     },
 }
 
@@ -267,8 +267,8 @@ export const userSlice = createSlice({
             state.settings = action.payload.settings
             state.sessionInfo = action.payload.sessionInfo
         },
-        setUserLocation: (state, action: PayloadAction<{ city: string }>) => {
-            state.sessionInfo.city = action.payload.city
+        setUserLocation: (state, action: PayloadAction<string>) => {
+            state.sessionInfo.city = action.payload
         },
         loginUser: (state) => {
             state.sessionInfo.isLoggedIn = true
