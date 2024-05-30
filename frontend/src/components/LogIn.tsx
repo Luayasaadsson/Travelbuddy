@@ -8,12 +8,13 @@ import { Button } from "./ui/button"
 import { Checkbox } from "./ui/checkbox"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons"
-import { loginUser } from "@/store/slices/userSlice"
+import { fetchUserProfile, loginUser } from "@/store/slices/userSlice"
 import { FormEvent } from "react"
+import { AppDispatch } from "@/store/store"
 
 function LogIn(): JSX.Element {
     const navigate = useNavigate()
-    const dispatch = useDispatch()
+    const dispatch = useDispatch<AppDispatch>()
     const location = useLocation()
     const requestedLocation = location.state?.from?.pathname || "/profilestart"
     const [email, setEmail] = useState<string>("")
@@ -39,7 +40,7 @@ function LogIn(): JSX.Element {
             console.log("Logging in with email:", email)
             console.log("Logging in with password:", password)
             console.log("Login successful.", response)
-
+            dispatch(fetchUserProfile())
             dispatch(loginUser())
             navigate(requestedLocation, { replace: true })
         } catch (error: any) {
