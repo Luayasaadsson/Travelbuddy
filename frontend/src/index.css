@@ -145,7 +145,7 @@
 }
 
 ::-webkit-scrollbar-track {
-    background: hsla(0, 0%, 0%, 0.435);
+    background: hsla(0, 0%, 0%, 0);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -158,7 +158,7 @@
 /* För Firefox */
 html {
     scrollbar-width: thin;
-    scrollbar-color: hsl(162, 49%, 68%) rgba(0, 0, 0, 0.5);
+    scrollbar-color: hsl(162, 49%, 68%) rgba(0, 0, 0, 0);
 }
 
 /* För Internet Explorer och Edge */
