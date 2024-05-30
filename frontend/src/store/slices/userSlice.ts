@@ -441,6 +441,7 @@ export const userSlice = createSlice({
             state.profile.address.country = action.payload.country
             state.profile.address.city = action.payload.city
             state.profile.userName = action.payload.userName
+            state.id = action.payload.id
             state.sessionInfo.isLoading = false
         })
         builder.addCase(fetchUserProfile.rejected, (state) => {
