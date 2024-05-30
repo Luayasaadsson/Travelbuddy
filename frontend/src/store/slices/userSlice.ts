@@ -417,10 +417,7 @@ export const userSlice = createSlice({
         },
     },
 
-    //  extraReducers är en reducer som kan hantera actions från andra slices eller från createAsyncThunk
-    // builder är ett objekt som innehåller metoder för att lägga till case reducers
-    // med addCase kan vi fånga upp olika action från den asynkrona hämtningen (pending, fulfilled, rejected)
-    // https://redux-toolkit.js.org/api/createAsyncThunk
+
     extraReducers: (builder) => {
         builder.addCase(patchUserProfile.pending, (state) => {
             state.sessionInfo.isLoading = true
@@ -503,23 +500,6 @@ export const patchUserProfile = createAsyncThunk(
         }
     },
 )
-
-// createAsyncThunk tar två argument, ett namn och en funktion som returnerar en promise
-/* export const fetchUser = createAsyncThunk(
-    "user/fetchUser",
-    async (urlEndpoint: string) => {
-        const response: Response = await fetch(urlEndpoint)
-        if (!response.ok) {
-            throw new Error("Failed to fetch user")
-        } else {
-            const data = await response.json()
-            console.log("data.hits TODO: in fetchUser function:", data.hits)
-            const fetchedUser: User = data.hits // TODO: CHECKA 'hits'
-            return fetchedUser
-        }
-    },
-) */
-
 // Exporterar alla actionfunktioner
 export const {
     updateUser,
