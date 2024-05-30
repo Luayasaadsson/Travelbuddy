@@ -7,8 +7,11 @@ import { Button } from "./ui/button"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons"
 import { FormEvent } from "react"
+import { useDispatch } from "react-redux"
+import { loginUser } from "@/store/slices/userSlice"
 
 function SignUp(): JSX.Element {
+    const dispatch = useDispatch()
     const [email, setEmail] = useState<string>("")
     const [password, setPassword] = useState<string>("")
     const [confirmPassword, setConfirmPassword] = useState<string>("")
@@ -32,7 +35,7 @@ function SignUp(): JSX.Element {
         }
 
         try {
-            const response = await axios.post(
+            const signUpResponse = await axios.post(
                 "https://localhost:7038/register",
                 {
                     email: email,
@@ -40,9 +43,27 @@ function SignUp(): JSX.Element {
                 },
                 { withCredentials: true },
             )
-            console.log(response)
 
-            navigate("/moreabout")
+            console.log("Sign up successful. Response:", signUpResponse)
+
+            if (signUpResponse.status === 200) {
+                // Logga in användaren efter framgångsrik registrering
+                const logInResponse = await axios.post(
+                    "https://localhost:7038/login?useCookies=true",
+                    {
+                        email: email,
+                        password: password,
+                    },
+                    { withCredentials: true },
+                )
+                if (logInResponse.status === 200) {
+                    // Dispatcha action för att markera användaren som inloggad
+                    dispatch(loginUser())
+
+                    // Navigera till "more about" sidan
+                    navigate("/moreabout")
+                }
+            }
         } catch (error: any) {
             if (error.response) {
                 const errors = error.response.data.errors

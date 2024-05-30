@@ -11,7 +11,7 @@ import { validatePassword } from "@/components/validator"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { signOutUser } from "@/store/slices/userSlice"
+import { signOutUser, resetToInitialState } from "@/store/slices/userSlice"
 
 function Settings() {
     // Hämtar dispatch funktionen från Redux store.
@@ -72,6 +72,7 @@ function Settings() {
             await axios.get("https://localhost:7038/api/Auth/logout", {
                 withCredentials: true,
             })
+            dispatch(resetToInitialState())
             dispatch(signOutUser())
         } catch (error) {
             console.error("Error logging out:", error)
@@ -190,7 +191,7 @@ function Settings() {
                     </Button>
                     <img src="./icons/vector-icon.svg" alt="Vectoricon" />
                     <Button
-                        onClick={()=>dispatch(showOverlay({}))}
+                        onClick={() => dispatch(showOverlay({}))}
                         variant="destructive"
                     >
                         <p>Delete account</p>

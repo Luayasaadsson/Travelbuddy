@@ -12,12 +12,15 @@ function Header() {
     const location = useLocation()
     const dispatch = useDispatch()
     useEffect(() => {
-        if (
-            location.pathname !== "/foodchat" &&
-            location.pathname !== "/vacationchat"
-        ) {
-            dispatch(clearMessageList())
+        async function clearMessages() {
+            if (
+                location.pathname !== "/foodchat" &&
+                location.pathname !== "/vacationchat"
+            ) {
+                dispatch(clearMessageList())
+            }
         }
+        clearMessages()
     }, [location, dispatch])
 
     const [isOpen, setIsOpen] = useState<boolean>(false)

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react"
+import { useState, useEffect } from "react"
 import { Routes, Route } from "react-router-dom"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import axios from "axios"
 
 import Settings from "./components/Settings/Settings"
@@ -22,7 +22,7 @@ import RateTheApp from "./components/RateTheApp"
 import DesktopVector from "./components/DesktopVector"
 import PrivateRoutes from "./PrivateRoutes/PrivateRoutes"
 import VacationChatBot from "./components/ChatComponents/VacationChatBot/VacationChatBot"
-import { AppDispatch } from "./store/store"
+import { AppDispatch, RootState } from "./store/store"
 import {
     fetchUserProfile,
     loginUser,
@@ -30,12 +30,44 @@ import {
 } from "./store/slices/userSlice"
 import MainLoader from "./components/MainLoader"
 import { setUserLocation } from "./store/slices/userSlice"
+import { updateIsLoading } from "./store/slices/userSlice"
 
 function App() {
+    const isAuth = useSelector(
+        (state: RootState) => state.settings.sessionInfo.isLoggedIn,
+    )
     const [isLargeScreen, setIsLargeScreen] = useState(false)
-    const [loading, setLoading] = useState(true)
+    const loading = useSelector(
+        (state: RootState) => state.settings.sessionInfo.isLoading,
+    )
     const dispatch: AppDispatch = useDispatch()
 
+    /*  //kollar om användaren redan är inloggad
+    useEffect(() => {
+        dispatch(updateIsLoading(true))
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(
+                    "https://localhost:7038/api/Auth/user",
+                    { withCredentials: true },
+                )
+
+                if (response.status === 200) {
+                    dispatch(loginUser())
+                } else {
+                    dispatch(logoutUser())
+                }
+            } catch (error) {
+                dispatch(logoutUser())
+            } finally {
+                dispatch(updateIsLoading(false))
+            }
+        }
+
+        fetchData()
+    }, []) */
+
+    //hämtar användarens location
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(async (position) => {
             const latitude = position.coords.latitude
@@ -52,8 +84,9 @@ function App() {
                 console.error("Failed to fetch city:", error)
             }
         })
-    }, [dispatch])
+    }, [])
 
+    //ändrar styling beroende på skärmstorlek
     useEffect(() => {
         const handleResize = () => {
             setIsLargeScreen(window.innerWidth >= 1024)
@@ -67,33 +100,19 @@ function App() {
         }
     }, [])
 
+    //hämtar användarens data varje gång app.tsx laddas om
     useEffect(() => {
-        dispatch(fetchUserProfile())
-    }, [dispatch])
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get(
-                    "https://localhost:7038/api/Auth/user",
-                    { withCredentials: true },
-                )
-
-                if (response.status === 200) {
-                    dispatch(loginUser())
-                } else {
-                    dispatch(logoutUser())
-                }
-            } catch (error) {
-                dispatch(logoutUser())
-            } finally {
-                setLoading(false)
+        async function fetchUser() {
+            if (!isAuth) {
+                await dispatch(fetchUserProfile())
+            } else {
+                return
             }
         }
-
-        fetchData()
+        fetchUser()
     }, [dispatch])
 
+    //loader för hela skärmen
     if (loading) {
         return (
             <>

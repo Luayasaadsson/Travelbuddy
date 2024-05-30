@@ -12,8 +12,8 @@ type User = {
 }
 
 type Address = {
-    city?: string | null
-    country?: string | null
+    city: string | undefined
+    country: string | undefined
 }
 
 type AccommodationPreference = {
@@ -66,16 +66,16 @@ type SessionInfo = {
     messageToUser: string | null
     longitude: number | null
     latitude: number | null
-    city:string
+    city: string
 }
 
 type Profile = {
-    firstName: string | null
-    lastName?: string | null
-    userName: string | null
-    phoneNumber?: string | null
+    firstName: string | undefined
+    lastName: string | undefined
+    userName: string | undefined
+    phoneNumber?: string | undefined
     gender: Gender
-    address: Address | { city: string | null; country: string | null }
+    address: Address
 }
 
 type Settings = {
@@ -110,3 +110,7 @@ type Preferences = {
 }
 
 export default User
+export default AccommodationPreferences
+export default FoodPreferences
+export default DietPreferences
+export default AccommodationPreferences

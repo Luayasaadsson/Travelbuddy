@@ -9,7 +9,9 @@ type PrivateRoutesProps = {
 function PrivateRoutes({ route }: PrivateRoutesProps) {
     const location = useLocation()
     const isAuth = useSelector(
-        (state: RootState) => state.user.sessionInfo.isLoggedIn,
+        (state: RootState) =>
+            sessionStorage.getItem("isLoggedIn") === "true" ||
+            state.user.sessionInfo.isLoggedIn,
     )
 
     return (

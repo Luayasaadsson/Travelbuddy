@@ -1,6 +1,6 @@
-import React from "react"
-import { Link } from "react-router-dom"
+import React, { useState } from "react"
 import { Button } from "@/components/ui/button"
+import { useNavigate } from "react-router-dom"
 // import {
 //     Select,
 //     SelectContent,
@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button"
 //     SelectValue,
 // } from "@/components/ui/select"
 import { useSelector, useDispatch } from "react-redux"
-import { RootState } from "@/store/store"
+import { AppDispatch, RootState } from "@/store/store"
 import {
     toggleAccommodationPreference,
     toggleDietPreference,
@@ -24,9 +24,11 @@ import {
 // import BudgetPreferencesSection from "./BudgetPreferencesSection"
 import ProfileDetailsSection from "./ProfileDetailsSection"
 import PreferencesSection from "./PreferencesSection"
+import { patchUserProfile, fetchUserProfile } from "@/store/slices/userSlice"
 
 const ProfileSettings: React.FC = () => {
-    const dispatch = useDispatch()
+    const navigate = useNavigate();
+    const dispatch = useDispatch<AppDispatch>()
     const accommodationPreferenceList = useSelector(
         (state: RootState) => state.user.preferences.accomodation,
     )
@@ -42,7 +44,7 @@ const ProfileSettings: React.FC = () => {
     const vacationPreferenceList = useSelector(
         (state: RootState) => state.user.preferences.vacation,
     )
- /*    const budgetPreferenceList = useSelector(
+    /*    const budgetPreferenceList = useSelector(
         (state: RootState) => state.user.preferences.budget,
     )
     const preferredCurrency = useSelector(
@@ -67,7 +69,7 @@ const ProfileSettings: React.FC = () => {
     const handleToggleVacationPreference = (id: number) => {
         dispatch(toggleVacationPreference(id))
     }
-  /*   const handlePreferredCurrencySelected = (currency: Currency) => {
+    /*   const handlePreferredCurrencySelected = (currency: Currency) => {
         dispatch(updatePreferredCurrency(currency))
     }
     const handleBudgetPreferenceUpdated = (
@@ -76,15 +78,87 @@ const ProfileSettings: React.FC = () => {
         dispatch(updateBudgetPreference(budgetPreference))
     } */
 
+    // Local states
+    const [firstName, setFirstName] = useState<string | undefined>(
+        useSelector((state: RootState) => state.user.profile.firstName),
+    )
+    const [lastName, setLastName] = useState<string | undefined>(
+        useSelector((state: RootState) => state.user.profile.lastName),
+    )
+    const [userName, setUserName] = useState<string | undefined>(
+        useSelector((state: RootState) => state.user.profile.userName),
+    )
+    const [city, setCity] = useState<string | undefined>(
+        useSelector((state: RootState) => state.user.profile.address.city),
+    )
+    const [country, setCountry] = useState<string | undefined>(
+        useSelector((state: RootState) => state.user.profile.address.country),
+    )
+
+    // Handle-functions
+    const handleFirstNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        e.preventDefault()
+        setFirstName(e.target.value)
+    }
+    const handleLastNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        e.preventDefault()
+        setLastName(e.target.value)
+    }
+    const handleUserNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        e.preventDefault()
+        setUserName(e.target.value)
+    }
+    const handleCityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        e.preventDefault()
+        setCity(e.target.value)
+    }
+    const handleCountryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        e.preventDefault()
+        setCountry(e.target.value)
+    }
+
+    const updateUserInfo = async () => {
+        const userData = {
+            firstName: firstName || "",
+            lastName: lastName || "",
+            userName: userName || "",
+            city: city || "",
+            country: country || "",
+        }
+        const preferenceData = {
+            foods: foodPreferenceList,
+            accommodations: accommodationPreferenceList,
+            diets: dietPreferenceList,
+            transportations: transportationPreferenceList,
+            vacations: vacationPreferenceList,
+        }
+        console.log(userData)
+
+        await dispatch(patchUserProfile({ userData, preferenceData }))
+        await dispatch(fetchUserProfile())
+        navigate("/settings"); 
+    }
+
     return (
-        <main className="flex min-h-screen items-start justify-center mb-10">
+        <main className="mb-10 flex min-h-screen items-start justify-center">
             <div className="relative flex w-11/12 max-w-96 flex-col items-center justify-center gap-6">
                 <div className="flex justify-center pt-28">
                     <h1 className="text-2xl font-bold">Profile settings</h1>
                 </div>
 
                 {/* Username and Profile Information */}
-                <ProfileDetailsSection />
+                <ProfileDetailsSection
+                    handleFirstNameChange={handleFirstNameChange}
+                    handleLastNameChange={handleLastNameChange}
+                    handleUserNameChange={handleUserNameChange}
+                    handleCityChange={handleCityChange}
+                    handleCountryChange={handleCountryChange}
+                    firstName={firstName}
+                    lastName={lastName}
+                    userName={userName}
+                    city={city}
+                    country={country}
+                />
                 <p className="self-start text-xl">Preferences</p>
                 {/* Preferences Sections */}
                 <PreferencesSection
@@ -160,11 +234,12 @@ const ProfileSettings: React.FC = () => {
                 </div> */}
 
                 {/* Save Changes Button */}
-                <Link className="w-full" to="/profilestart">
-                    <Button className="flex w-full max-w-96 items-center justify-center gap-2 p-3">
-                        Save changes
-                    </Button>
-                </Link>
+                <Button
+                    onClick={updateUserInfo}
+                    className="flex w-full max-w-96 items-center justify-center gap-2 p-3"
+                >
+                    Save changes
+                </Button>
             </div>
         </main>
     )
