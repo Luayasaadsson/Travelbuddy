@@ -130,7 +130,21 @@ public class AuthController : ControllerBase
   public async Task<IActionResult> DeleteUser()
   {
     var user = await _userManager.GetUserAsync(User);
+
+    if (user == null)
+    {
+      return NotFound("User not found");
+    }
+
+    _context.Entry(user).Collection(u => u.Accommodations).Load();
+    _context.Entry(user).Collection(u => u.Vacations).Load();
+    _context.Entry(user).Collection(u => u.Budgets).Load();
+    _context.Entry(user).Collection(u => u.Diets).Load();
+    _context.Entry(user).Collection(u => u.Foods).Load();
+    _context.Entry(user).Collection(u => u.Transportations).Load();
+
     var result = await _userManager.DeleteAsync(user);
+
     if (!result.Succeeded)
     {
       return BadRequest("Could not delete user account");

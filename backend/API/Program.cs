@@ -28,7 +28,7 @@ builder.Services.AddCors(options =>
     policy.WithOrigins("https://localhost:5173")
             .AllowAnyMethod()
             .AllowAnyHeader()
-            .AllowCredentials(); // allow credentials only works with specific origin
+            .AllowCredentials(); // allow credentials only works with specific origin for cookie based auth like google auth or jwt auth with cookies methods
   });
 });
 
@@ -49,6 +49,8 @@ builder.Services.AddAuthentication(
   {
     options.ClientId = Environment.GetEnvironmentVariable("GOOGLE_OAUTH_CLIENT_ID");
     options.ClientSecret = Environment.GetEnvironmentVariable("GOOGLE_OAUTH_CLIENT_SECRET");
+    options.CallbackPath = "/signin-google";
+
   }
 )
 

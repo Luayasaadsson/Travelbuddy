@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { Button } from "@/components/ui/button"
+import { useNavigate } from "react-router-dom"
 // import {
 //     Select,
 //     SelectContent,
@@ -26,6 +27,7 @@ import PreferencesSection from "./PreferencesSection"
 import { patchUserProfile, fetchUserProfile } from "@/store/slices/userSlice"
 
 const ProfileSettings: React.FC = () => {
+    const navigate = useNavigate();
     const dispatch = useDispatch<AppDispatch>()
     const accommodationPreferenceList = useSelector(
         (state: RootState) => state.user.preferences.accomodation,
@@ -134,6 +136,7 @@ const ProfileSettings: React.FC = () => {
 
         await dispatch(patchUserProfile({ userData, preferenceData }))
         await dispatch(fetchUserProfile())
+        navigate("/settings"); 
     }
 
     return (
