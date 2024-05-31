@@ -17,15 +17,36 @@ function ProfileStart() {
     const userName = useSelector(
         (state: RootState) => state.user.profile.userName,
     )
+    const foodPreferences = useSelector(
+        (state: RootState) => state.user.preferences.food,
+    )
+        .filter((food) => food.selected === true)
+        .map((food) => food.label)
+        .join(", ")
+
+    const accomodationPreferences = useSelector(
+        (state: RootState) => state.user.preferences.accomodation,
+    )
+        .filter((accomodation) => accomodation.selected === true)
+        .map((accomodation) => accomodation.label)
+        .join(", ")
+    const vacationPreferences = useSelector(
+        (state: RootState) => state.user.preferences.vacation,
+    )
+        .filter((vacation) => vacation.selected === true)
+        .map((vacation) => vacation.label)
+        .join(", ")
 
     const handleClick = (
         heading: string,
         subHeading: string,
-        message: Message,
+        agentMessage: Message,
+        userMessage: Message,
     ) => {
         dispatch(updateChatHeading(heading))
         dispatch(updateSubHeading(subHeading))
-        dispatch(updateMessageList(message))
+        dispatch(updateMessageList(agentMessage))
+        dispatch(updateMessageList(userMessage))
     }
 
     return (
@@ -60,6 +81,11 @@ function ProfileStart() {
                                             content:
                                                 "Hi, find your dream vacation?",
                                         },
+                                        {
+                                            type: "button",
+                                            role: "user",
+                                            content: vacationPreferences,
+                                        },
                                     )
                                 }
                                 className="justify-between"
@@ -79,6 +105,11 @@ function ProfileStart() {
                                             role: "agent",
                                             content:
                                                 "Hi, where do you want to stay?",
+                                        },
+                                        {
+                                            type: "button",
+                                            role: "user",
+                                            content: accomodationPreferences,
                                         },
                                     )
                                 }
@@ -102,6 +133,11 @@ function ProfileStart() {
                                             content:
                                                 "Hi, what do you want to eat today?",
                                         },
+                                        {
+                                            type: "button",
+                                            role: "user",
+                                            content: foodPreferences,
+                                        },
                                     )
                                 }
                                 className="justify-between"
@@ -121,6 +157,11 @@ function ProfileStart() {
                                             role: "agent",
                                             content:
                                                 "Hi, Experiences & Activities?",
+                                        },
+                                        {
+                                            type: "text",
+                                            role: "user",
+                                            content: vacationPreferences,
                                         },
                                     )
                                 }

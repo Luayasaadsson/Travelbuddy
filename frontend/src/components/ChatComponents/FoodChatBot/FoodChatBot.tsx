@@ -6,7 +6,6 @@ import { updateMessageList } from "@/store/slices/chatSlice"
 import ChatLoader from "../ChatLoader"
 import ChatHeading from "../ChatHeading"
 import ChatLog from "../ChatLog"
-import FoodPreferenceButtons from "./FoodPreferenceButtons"
 import ChatInput from "../ChatInput"
 import ChatMessage from "../ChatMessage"
 import FoodButtonContainer from "./FoodButtonContainer"
@@ -24,7 +23,6 @@ export default function FoodChatBot() {
     const foodList = useSelector(
         (state: RootState) => state.user.preferences.food,
     )
-    const [showPreferenceButtons, setShowPreferenceButtons] = useState(true)
 
     const handleChatButtonClick = (buttonChoice: string): void => {
         const countryKeywords = foodList.map((food) => food.label.toLowerCase())
@@ -64,14 +62,11 @@ export default function FoodChatBot() {
             )
         }
 
-        setShowPreferenceButtons(false)
-
         fetchAgentResponse(message)
     }
 
     const handleInputSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
         e.preventDefault()
-        setShowPreferenceButtons(false)
         dispatch(
             updateMessageList({
                 type: "text",
@@ -201,20 +196,6 @@ export default function FoodChatBot() {
                             messageType={message.type}
                         />
                     ),
-                )}
-                {/* visar preferenser på matland */}
-                {showPreferenceButtons && (
-                    <div className="flex w-11/12 flex-wrap justify-center gap-2">
-                        {foodList
-                            .filter((food) => food.selected === true)
-                            .map((food, index) => (
-                                <FoodPreferenceButtons
-                                    key={index}
-                                    onFoodChoice={handleChatButtonClick}
-                                    foodPreference={food.label}
-                                />
-                            ))}
-                    </div>
                 )}
                 {isLoading && <ChatLoader />}
             </ChatLog>
