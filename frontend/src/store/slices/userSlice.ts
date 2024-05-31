@@ -1,4 +1,3 @@
-
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import type { PayloadAction } from "@reduxjs/toolkit" // För att typa action.payload i reducer-funktioner
 import User from "../../types/user/User"
@@ -435,14 +434,69 @@ export const userSlice = createSlice({
         })
 
         builder.addCase(fetchUserProfile.fulfilled, (state, action) => {
+            const {
+                firstName,
+                lastName,
+                email,
+                country,
+                city,
+                userName,
+                id,
+                accommodations,
+                gender,
+                budgets,
+                diets,
+                foods,
+                transportations,
+                vacations,
+            } = action.payload
+
             state.sessionInfo.isLoggedIn = true
-            state.profile.firstName = action.payload.firstName
-            state.profile.lastName = action.payload.lastName
-            state.settings.email = action.payload.email
-            state.profile.address.country = action.payload.country
-            state.profile.address.city = action.payload.city
-            state.profile.userName = action.payload.userName
-            state.id = action.payload.id
+            state.id = id
+
+            state.profile = {
+                ...state.profile,
+                firstName: firstName,
+                lastName: lastName,
+                userName: userName,
+                gender: gender,
+                address: {
+                    city: city,
+                    country: country,
+                },
+            }
+            state.preferences = {
+                ...state.preferences,
+                accomodation:
+                    accommodations && accommodations.length > 0
+                        ? accommodations
+                        : state.preferences.accomodation,
+                budget:
+                    budgets && budgets.length > 0
+                        ? budgets
+                        : state.preferences.budget,
+                diet:
+                    diets && diets.length > 0
+                        ? diets
+                        : state.preferences.diet,
+                food:
+                    foods && foods.length > 0
+                        ? foods
+                        : state.preferences.food,
+                transportation:
+                    transportations && transportations.length > 0
+                        ? transportations
+                        : state.preferences.transportation,
+                vacation:
+                    vacations && vacations.length > 0
+                        ? vacations
+                        : state.preferences.vacation,
+            }
+            state.settings = {
+                ...state.settings,
+                email: email,
+            }
+
             state.sessionInfo.isLoading = false
         })
         builder.addCase(fetchUserProfile.rejected, (state) => {
@@ -464,27 +518,30 @@ export const fetchUserProfile = createAsyncThunk(
                 withCredentials: true,
             },
         )
-        console.log("Profile data:", response.data)
+        console.log("Fetch profile data:", response.data)
         return response.data
     },
 )
 export const patchUserProfile = createAsyncThunk(
     "user/patchUserProfile",
-    async ({ userData, preferenceData }: {
+    async ({
+        userData,
+        preferenceData,
+    }: {
         userData: {
-            firstName: string;
-            lastName: string;
-            userName: string;
-            city: string;
-            country?: string;
-        };
+            firstName: string
+            lastName: string
+            userName: string
+            city: string
+            country: string
+        }
         preferenceData: {
-            foods?: { id: number; label: string; selected: boolean }[];
-            accommodations?: { id: number; label: string; selected: boolean }[];
-            diets?: { id: number; label: string; selected: boolean }[];
-            transportations?: { id: number; label: string; selected: boolean }[];
-            vacations?: { id: number; label: string; selected: boolean }[];
-        };
+            accommodations?: { id: number; label: string; selected: boolean }[]
+            foods?: { id: number; label: string; selected: boolean }[]
+            diets?: { id: number; label: string; selected: boolean }[]
+            transportations?: { id: number; label: string; selected: boolean }[]
+            vacations?: { id: number; label: string; selected: boolean }[]
+        }
     }) => {
         try {
             const response = await axios.patch(

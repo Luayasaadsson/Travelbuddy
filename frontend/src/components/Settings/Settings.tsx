@@ -53,7 +53,7 @@ function Settings() {
     }
 
     // En callback-funktion som kör efter 2 sekunder.
-    const handleConfirm = () => {
+    const handleConfirm = async () => {
         if (!password) {
             setPasswordError("Please enter your password")
         } else if (!validatePassword(password)) {
@@ -61,12 +61,28 @@ function Settings() {
                 "Your password must be at least 6 characters long and include a capital letter, a number, and a special character",
             )
         } else {
-            dispatch(hideOverlay())
-            setTimeout(() => {
-                setShowSuccessOverlay(true)
-            }, 200) // Fördröjer visningen av den andra overlayen i 200 millisekunder.
+            try {
+                const response = await axios.post(
+                    "https://localhost:7038/api/Auth/validate-password",
+                    { password },
+                    { withCredentials: true },
+                )
+                if (response.data.valid) {
+                    await handleDeleteAccount()
+                    dispatch(hideOverlay())
+                    setTimeout(() => {
+                        setShowSuccessOverlay(true)
+                    }, 200) // Fördröjer visningen av den andra overlayen i 200 millisekunder.
+                } else {
+                    setPasswordError("Incorrect password")
+                }
+            } catch (error) {
+                setPasswordError("Invalid password, please try again.")
+                console.error("Password validation error:", error)
+            }
         }
     }
+
     const handleSignOut = async () => {
         try {
             await axios.get("https://localhost:7038/api/Auth/logout", {
@@ -86,7 +102,7 @@ function Settings() {
             })
             dispatch(signOutUser())
         } catch (error) {
-            console.error("Error logging out:", error)
+            console.error("Error deleting account:", error)
         }
     }
 
@@ -251,7 +267,7 @@ function Settings() {
                                     variant={"destructive"}
                                     onClick={() => {
                                         handleConfirm()
-                                        handleDeleteAccount()
+                                        
                                     }}
                                     className="mt-2 p-4 uppercase"
                                 >

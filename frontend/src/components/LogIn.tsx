@@ -11,6 +11,7 @@ import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons"
 import { fetchUserProfile, loginUser } from "@/store/slices/userSlice"
 import { FormEvent } from "react"
 import { AppDispatch } from "@/store/store"
+import { useGoogleLogin } from "@react-oauth/google"
 
 function LogIn(): JSX.Element {
     const navigate = useNavigate()
@@ -72,6 +73,17 @@ function LogIn(): JSX.Element {
             console.error("Error logging in:", error)
         }
     }
+
+    const login = useGoogleLogin({
+        onSuccess: async (response) => {
+            console.log("Google login successful", response);
+            dispatch(loginUser()); // Dispatch loginUser action
+            window.location.href = "https://localhost:7038/api/Auth/login-google";
+        },
+        onError: (error) => {
+            console.error("Google Login Failed", error);
+        },
+    });
 
     const handleEmailChange = (event: ChangeEvent<HTMLInputElement>): void => {
         setEmail(event.target.value)
@@ -181,7 +193,7 @@ function LogIn(): JSX.Element {
                         />
                         <span className="flex-grow">Login with Facebook</span>
                     </Button>
-                    <Button variant="google">
+                    <Button variant="google" onClick={() => login()}>
                         <img src="./icons/google-logo.svg" alt="Google Logo" />
                         <span className="flex-grow">Login with Google</span>
                     </Button>

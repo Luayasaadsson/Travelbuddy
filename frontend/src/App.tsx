@@ -23,14 +23,9 @@ import DesktopVector from "./components/DesktopVector"
 import PrivateRoutes from "./PrivateRoutes/PrivateRoutes"
 import VacationChatBot from "./components/ChatComponents/VacationChatBot/VacationChatBot"
 import { AppDispatch, RootState } from "./store/store"
-import {
-    fetchUserProfile,
-    loginUser,
-    logoutUser,
-} from "./store/slices/userSlice"
+import { fetchUserProfile } from "./store/slices/userSlice"
 import MainLoader from "./components/MainLoader"
 import { setUserLocation } from "./store/slices/userSlice"
-import { updateIsLoading } from "./store/slices/userSlice"
 
 function App() {
     const isAuth = useSelector(
@@ -41,31 +36,6 @@ function App() {
         (state: RootState) => state.settings.sessionInfo.isLoading,
     )
     const dispatch: AppDispatch = useDispatch()
-
-    /*  //kollar om användaren redan är inloggad
-    useEffect(() => {
-        dispatch(updateIsLoading(true))
-        const fetchData = async () => {
-            try {
-                const response = await axios.get(
-                    "https://localhost:7038/api/Auth/user",
-                    { withCredentials: true },
-                )
-
-                if (response.status === 200) {
-                    dispatch(loginUser())
-                } else {
-                    dispatch(logoutUser())
-                }
-            } catch (error) {
-                dispatch(logoutUser())
-            } finally {
-                dispatch(updateIsLoading(false))
-            }
-        }
-
-        fetchData()
-    }, []) */
 
     //hämtar användarens location
     useEffect(() => {
