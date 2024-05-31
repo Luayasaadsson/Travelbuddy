@@ -467,12 +467,30 @@ export const userSlice = createSlice({
             }
             state.preferences = {
                 ...state.preferences,
-                accomodation: accommodations,
-                budget: budgets,
-                diet: diets,
-                food: foods,
-                transportation: transportations,
-                vacation: vacations,
+                accomodation:
+                    accommodations && accommodations.length > 0
+                        ? accommodations
+                        : state.preferences.accomodation,
+                budget:
+                    budgets && budgets.length > 0
+                        ? budgets
+                        : state.preferences.budget,
+                diet:
+                    diets && diets.length > 0
+                        ? diets
+                        : state.preferences.diet,
+                food:
+                    foods && foods.length > 0
+                        ? foods
+                        : state.preferences.food,
+                transportation:
+                    transportations && transportations.length > 0
+                        ? transportations
+                        : state.preferences.transportation,
+                vacation:
+                    vacations && vacations.length > 0
+                        ? vacations
+                        : state.preferences.vacation,
             }
             state.settings = {
                 ...state.settings,
