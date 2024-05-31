@@ -6,7 +6,7 @@ const initialState: Chat = {
     id: null,
     userId: null,
     //agentId: null,
-    messageList: [], // Ensure id is typed as a string
+    messageList: JSON.parse(localStorage.getItem("messageList") || "[]"), // Load from localStorage if available, otherwise empty array
     heading: "",
     subHeading: "",
 }
@@ -22,10 +22,20 @@ const chatSlice = createSlice({
             state.subHeading = action.payload
         },
         updateMessageList: (state, action: PayloadAction<Message>) => {
-            state.messageList = [...state.messageList, action.payload]
+            // Add the new message to the message list
+            state.messageList.push(action.payload);
+
+            // Filter out 'button' type messages that are not the last message
+            state.messageList = state.messageList.filter((message, index, array) => {
+                return message.type !== 'button' || index === array.length - 1;
+            });
+
+            // Save the updated message list to localStorage
+            localStorage.setItem("messageList", JSON.stringify(state.messageList));
         },
         clearMessageList: (state) => {
             state.messageList = []
+            localStorage.removeItem("messageList")
         },
     },
 })
