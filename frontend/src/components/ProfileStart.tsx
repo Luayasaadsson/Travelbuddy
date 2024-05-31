@@ -17,12 +17,21 @@ function ProfileStart() {
     const userName = useSelector(
         (state: RootState) => state.user.profile.userName,
     )
-    const foodPreferences = useSelector(
+    let foodPreferences = useSelector(
         (state: RootState) => state.user.preferences.food,
     )
         .filter((food) => food.selected === true)
         .map((food) => food.label)
         .join(", ")
+
+    if (foodPreferences === "") {
+        foodPreferences = useSelector(
+            (state: RootState) => state.user.preferences.food,
+        )
+            .filter((food) => food.selected === false)
+            .map((food) => food.label)
+            .join(", ")
+    }
 
     const accomodationPreferences = useSelector(
         (state: RootState) => state.user.preferences.accomodation,
