@@ -58,6 +58,8 @@ namespace API.Repository
           currentUser?.Foods?.Add(new Food
           {
             Label = foodDto.Label,
+            //Vart tvungen att lägga till raden under
+            Selected = foodDto.Selected
           });
         }
       }
