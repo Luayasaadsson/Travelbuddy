@@ -17,6 +17,7 @@ function ProfileStart() {
     const userName = useSelector(
         (state: RootState) => state.user.profile.userName,
     )
+    //hämtar alla preferenser från food
     let foodPreferences = useSelector(
         (state: RootState) => state.user.preferences.food,
     )
@@ -24,6 +25,7 @@ function ProfileStart() {
         .map((food) => food.label)
         .join(", ")
 
+    //om användaren inte klicat i några preferenser så kommer alla foodpreferenser att visas som knappar
     if (foodPreferences === "") {
         foodPreferences = useSelector(
             (state: RootState) => state.user.preferences.food,
