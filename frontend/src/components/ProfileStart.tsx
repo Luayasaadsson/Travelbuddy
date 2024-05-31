@@ -41,12 +41,20 @@ function ProfileStart() {
         .filter((accomodation) => accomodation.selected === true)
         .map((accomodation) => accomodation.label)
         .join(", ")
-    const vacationPreferences = useSelector(
+    let vacationPreferences = useSelector(
         (state: RootState) => state.user.preferences.vacation,
     )
         .filter((vacation) => vacation.selected === true)
         .map((vacation) => vacation.label)
         .join(", ")
+    if (vacationPreferences === "") {
+        vacationPreferences = useSelector(
+            (state: RootState) => state.user.preferences.vacation,
+        )
+            .filter((vacation) => vacation.selected === false)
+            .map((vacation) => vacation.label)
+            .join(", ")
+    }
 
     const handleClick = (
         heading: string,

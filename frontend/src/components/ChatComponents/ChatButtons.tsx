@@ -1,20 +1,17 @@
-import { Button } from "../../ui/button"
+import { Button } from "../ui/button"
 import ReactMarkdown from "react-markdown"
 
 type ChatButtonsProps = {
-    onFoodChoice: (foodPreference: string) => void
+    onButtonChoice: (foodPreference: string) => void
     foodPreference: string
-    onCloseButtonContainer: () => void
 }
 
-export default function FoodChatButtons({
-    onFoodChoice,
+export default function ChatButton({
+    onButtonChoice,
     foodPreference,
-    onCloseButtonContainer,
 }: ChatButtonsProps) {
     const handleButtonClick = () => {
-        onFoodChoice(foodPreference)
-        onCloseButtonContainer()
+        onButtonChoice(foodPreference)
     }
     return (
         <Button

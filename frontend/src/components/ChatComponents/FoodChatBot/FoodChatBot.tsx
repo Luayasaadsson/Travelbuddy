@@ -8,7 +8,7 @@ import ChatHeading from "../ChatHeading"
 import ChatLog from "../ChatLog"
 import ChatInput from "../ChatInput"
 import ChatMessage from "../ChatMessage"
-import FoodButtonContainer from "./FoodButtonContainer"
+import ChatButtonsContainer from "../ChatButtonsContainer"
 
 export default function FoodChatBot() {
     const dispatch = useDispatch()
@@ -183,7 +183,7 @@ export default function FoodChatBot() {
             <ChatLog>
                 {messageList.map((message, index) =>
                     message.type === "button" ? (
-                        <FoodButtonContainer
+                        <ChatButtonsContainer
                             message={message}
                             handleChatButtonClick={handleChatButtonClick}
                             key={index}
