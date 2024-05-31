@@ -24,7 +24,7 @@ namespace API.Services
     {
       var api = new OpenAI_API.OpenAIAPI(_openAiConfig.ApiKey);
       var chat = api.Chat.CreateConversation();
-      chat.Model = "gpt-4o";
+      chat.Model = "gpt-4";
       chat.RequestParameters.MaxTokens = request.Token;
       chat.RequestParameters.Temperature = 0.1;
 
