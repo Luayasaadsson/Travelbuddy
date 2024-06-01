@@ -177,6 +177,8 @@ export default function FoodChatBot() {
         }
     }
 
+    //test
+
     return (
         <main className="flex h-screen w-full flex-col items-center justify-between gap-4">
             <ChatHeading />
