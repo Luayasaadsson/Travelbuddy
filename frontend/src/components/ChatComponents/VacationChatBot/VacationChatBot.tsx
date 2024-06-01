@@ -20,23 +20,21 @@ export default function VacationChatBot() {
     const messageList = useSelector(
         (state: RootState) => state.chat.messageList,
     )
-    const foodList = useSelector(
-        (state: RootState) => state.user.preferences.food,
+    const vacationList = useSelector(
+        (state: RootState) => state.user.preferences.vacation,
     )
 
     const handleChatButtonClick = (buttonChoice: string): void => {
-        const countryKeywords = foodList.map((food) => food.label.toLowerCase())
-        let isCountryQuery = false
-        for (const keyword of countryKeywords) {
-            if (buttonChoice.toLowerCase().includes(keyword.toLowerCase())) {
-                isCountryQuery = true
-                break
-            }
-        }
+        const destinationKeywords = vacationList.map((vacation) =>
+            vacation.label.toLowerCase(),
+        )
+        let isDestinationQuery = destinationKeywords.some((keyword) =>
+            buttonChoice.toLowerCase().includes(keyword),
+        )
         let message
 
-        if (isCountryQuery) {
-            message = `I'm down to eat some ${buttonChoice} food`
+        if (isDestinationQuery) {
+            message = `I'm interested in traveling for ${buttonChoice}`
             dispatch(
                 updateMessageList({
                     type: "text",
@@ -48,16 +46,16 @@ export default function VacationChatBot() {
                 updateMessageList({
                     type: "text",
                     role: "agent",
-                    content: "Okay! What type of food are you after?",
+                    content: `Great choice! Here are some things to keep in mind regarding this vacation: <br><strong>Attractions, Weather, Travel Tips</strong>`,
                 }),
             )
         } else {
-            message = `I crave ${buttonChoice.toLowerCase()}`
+            message = `I want to explore ${buttonChoice.toLowerCase()}`
             dispatch(
                 updateMessageList({
                     type: "text",
                     role: "user",
-                    content: `I crave ${buttonChoice.toLowerCase()}`,
+                    content: message,
                 }),
             )
         }
@@ -79,52 +77,28 @@ export default function VacationChatBot() {
     }
 
     const generatePrompt = (context: string, query: string): string => {
-        const countryKeywords = foodList.map((food) => food.label.toLowerCase())
-        const foodKeywords = ["want", "I crave", "crave", "for", "like"]
+        const destinationKeywords = vacationList.map((vacation) =>
+            vacation.label.toLowerCase(),
+        )
+        let isDestinationQuery = destinationKeywords.some((keyword) =>
+            query.toLowerCase().includes(keyword),
+        )
 
-        let isFoodQuery = false
-        let isCountryQuery = false
-
-        for (const keyword of countryKeywords) {
-            if (query.toLowerCase().includes(keyword.toLowerCase())) {
-                isCountryQuery = true
-                break
-            }
-        }
-
-        for (const keyword of foodKeywords) {
-            if (query.toLowerCase().includes(keyword.toLowerCase())) {
-                isFoodQuery = true
-                break
-            }
-        }
-
-        if (isCountryQuery) {
-            console.log("väljer prompt 1")
-
-            return `User Query: "I am located in ${location} and ${query}"\n\nResponse: Respond only with a list containing exactly five types of food. Write the food types in a row, separated by commas. Include no other text.`
-        } else if (isFoodQuery) {
-            console.log("väler prompt 2")
-
-            return `${context}\n\nUser Query: "I am located in ${location} and ${query}"\n\nResponse: Provide details of exactly six restaurants at my location. For each restaurant, include the following format: \n\n**Name of the Restaurant**\nA short description\n**Google maps:** <a href="https://www.google.com/maps/search/name+of+the+restaurant+mylocation/" target="_blank">Name</a>\n**Visit website:** <a href="The real URL to the restaurant's website thats linked to the resturant in google maps" target="_blank">Name</a>\n\nInclude no additional text.`
+        if (isDestinationQuery) {
+            return `User Query: "I am located in ${location} and interested in visiting ${query}"\n\nResponse: Provide details of <strong>top attractions</strong>, <strong>recommended travel period</strong>, and <strong>essential tips for visitors</strong>. Include no other text.`
         } else {
-            console.log("väljer prompt 3")
-
-            return `${context}\n\nUser Query: "${query}"\n\nResponse: You are a helpful assistant. Answer the user's question in a friendly and informative manner.`
+            return `${context}\n\nUser Query: "I want to travel from ${location} to ${query}, any advice?"\n\nResponse: Provide travel advice including best travel routes, recommended airlines, and any travel warnings. Include no additional text.`
         }
     }
 
     const fetchAgentResponse = async (query: string) => {
         setIsLoading(true)
-
         try {
             const context = messageList
                 .map((message) => `${message.role}: ${message.content}`)
                 .join("\n")
             const prompt = generatePrompt(context, query)
-            console.log(prompt)
-
-            const fetchPromise = axios.post(
+            const response = await axios.post(
                 "https://localhost:7038/api/OpenAi/AskAiAssistant",
                 {
                     question: prompt,
@@ -139,7 +113,6 @@ export default function VacationChatBot() {
                     withCredentials: true,
                 },
             )
-            const [response] = await Promise.all([fetchPromise])
 
             if (response.status !== 200) {
                 throw new Error("Network problem")
@@ -155,26 +128,13 @@ export default function VacationChatBot() {
     }
 
     const filterAgentResponse = (message: string) => {
-        // Split message into words
-        const words = message.split(",").map((word) => word.trim())
-
-        if (words.length === 5) {
-            dispatch(
-                updateMessageList({
-                    type: "button",
-                    role: "agent",
-                    content: message,
-                }),
-            )
-        } else {
-            dispatch(
-                updateMessageList({
-                    type: "text",
-                    role: "agent",
-                    content: message,
-                }),
-            )
-        }
+        dispatch(
+            updateMessageList({
+                type: "text",
+                role: "agent",
+                content: message,
+            }),
+        )
     }
 
     return (
