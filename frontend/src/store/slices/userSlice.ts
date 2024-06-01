@@ -8,6 +8,8 @@ import axios from "axios"
 
 // Initial state
 
+const initialProfileImage = localStorage.getItem("profileImage") || ""
+
 const initialState: User = {
     id: null,
     profile: {
@@ -21,6 +23,7 @@ const initialState: User = {
             city: "",
             country: "",
         },
+        profileImage: initialProfileImage,
     },
     settings: {
         email: "",
@@ -268,6 +271,10 @@ export const userSlice = createSlice({
         setUserLocation: (state, action: PayloadAction<{ city: string }>) => {
             state.sessionInfo.city = action.payload.city
         },
+        updateProfileImage: (state, action: PayloadAction<string>) => {
+            state.profile.profileImage = action.payload
+            localStorage.setItem("profileImage", action.payload)
+        },
         loginUser: (state) => {
             state.sessionInfo.isLoggedIn = true
             sessionStorage.setItem("isLoggedIn", "true")
@@ -476,13 +483,9 @@ export const userSlice = createSlice({
                         ? budgets
                         : state.preferences.budget,
                 diet:
-                    diets && diets.length > 0
-                        ? diets
-                        : state.preferences.diet,
+                    diets && diets.length > 0 ? diets : state.preferences.diet,
                 food:
-                    foods && foods.length > 0
-                        ? foods
-                        : state.preferences.food,
+                    foods && foods.length > 0 ? foods : state.preferences.food,
                 transportation:
                     transportations && transportations.length > 0
                         ? transportations
@@ -587,6 +590,7 @@ export const {
     addBasicUserProfileInfo,
     updateIsLoading,
     updateMessageToUser,
+    updateProfileImage,
     loginUser,
     logoutUser,
     signOutUser,

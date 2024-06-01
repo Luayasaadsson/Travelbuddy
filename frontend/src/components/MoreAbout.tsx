@@ -12,14 +12,14 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select" */
-import { useDispatch /* useSelector */ } from "react-redux"
-/* import { RootState } from "@/store/store" */
+import { useDispatch, useSelector } from "react-redux"
+import { RootState, AppDispatch } from "@/store/store"
 import {
     addBasicUserProfileInfo,
     patchUserProfile,
+    updateProfileImage,
 } from "@/store/slices/userSlice"
-import React, { useState } from "react"
-import { AppDispatch } from "@/store/store"
+import React, { useState, useRef } from "react"
 /* import Gender from "@/types/common/Gender" */
 
 // Assumption: The user will only forwarded to MoreAbout, if the user is totally new and has just registered as a user
@@ -29,6 +29,10 @@ import { AppDispatch } from "@/store/store"
 
 function MoreAbout() {
     const dispatch = useDispatch<AppDispatch>()
+    const profileImage = useSelector(
+        (state: RootState) => state.user.profile.profileImage,
+    )
+    const fileInputRef = useRef<HTMLInputElement>(null)
 
     // Local states
     const [firstName, setFirstName] = useState<string>("")
@@ -36,6 +40,19 @@ function MoreAbout() {
     const [userName, setUserName] = useState<string>("")
     const [city, setCity] = useState<string>("")
     const [country, setCountry] = useState<string>("")
+
+    const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const file = event.target.files ? event.target.files[0] : null
+        if (file) {
+            const reader = new FileReader()
+            reader.onloadend = () => {
+                if (typeof reader.result === "string") {
+                    dispatch(updateProfileImage(reader.result))
+                }
+            }
+            reader.readAsDataURL(file)
+        }
+    }
 
     // Handle-functions
     const handleFirstNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -65,6 +82,7 @@ function MoreAbout() {
             userName,
             city,
             country,
+            profileImage,
         }
         const preferenceData = {} // Assuming no preferences data to send initially
         dispatch(addBasicUserProfileInfo(userData))
@@ -89,20 +107,26 @@ function MoreAbout() {
                         </p>
                     </div>
 
-                    <div className="flex flex-col items-center justify-center gap-2">
-                        <Avatar
-                            //isAvatarImageUploaded && className="border-4 border-onBackground" TODO:
-                            className="border-4 border-onTertiaryContainer"
-                            style={{
-                                borderRadius: "50% 50% 0% 50%",
-                            }}
-                        >
-                            <AvatarImage src="./images/profile-picture.jpg" />
-                            <AvatarFallback>CN</AvatarFallback>
-                        </Avatar>
-                    </div>
-
-                    <button className="cursor-pointer border-b-[1px] border-primary pb-[2px] text-center text-[14px] text-xs font-bold text-primary">
+                    <Avatar
+                        className="mt-4 h-20 w-20 border-4"
+                        style={{ borderRadius: "50% 50% 0% 50%" }}
+                    >
+                        <AvatarImage
+                            src={profileImage || "./images/default-avatar.png"}
+                        />
+                        <AvatarFallback>CN</AvatarFallback>
+                    </Avatar>
+                    <input
+                        type="file"
+                        accept="image/*"
+                        onChange={handleFileChange}
+                        style={{ display: "none" }}
+                        ref={fileInputRef}
+                    />
+                    <button
+                        onClick={() => fileInputRef.current?.click()}
+                        className="text-primary"
+                    >
                         Upload profile picture
                     </button>
 

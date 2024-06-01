@@ -12,6 +12,9 @@ import Message from "@/types/chat/Message"
 
 function ProfileStart() {
     const dispatch = useDispatch()
+    const profileImage = useSelector(
+        (state: RootState) => state.user.profile.profileImage,
+    )
 
     // Hämtar användarinformation från Redux store
     const userName = useSelector(
@@ -72,13 +75,15 @@ function ProfileStart() {
         <main className="flex h-screen items-center justify-center">
             <div className="relative flex w-11/12 max-w-96 flex-col items-center justify-center gap-8 lg:max-w-3xl">
                 <Avatar
-                    className="border-4 border-secondary"
+                    className="mt-4 h-20 w-20 border-4"
                     style={{
                         borderRadius: "50% 50% 0% 50%",
                     }}
                 >
-                    <AvatarImage src={"./images/profile-picture.jpg"} />
-                    <AvatarFallback>?</AvatarFallback>
+                    <AvatarImage
+                        src={profileImage || "./images/default-avatar.png"}
+                    />
+                    <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
                 <div>
                     <h1 className="text-center text-3xl">Hi, {userName}!</h1>

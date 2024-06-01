@@ -16,6 +16,9 @@ import { signOutUser, resetToInitialState } from "@/store/slices/userSlice"
 function Settings() {
     // Hämtar dispatch funktionen från Redux store.
     const dispatch = useDispatch<AppDispatch>()
+    const profileImage = useSelector(
+        (state: RootState) => state.user.profile.profileImage,
+    )
 
     // Hämtar overlayns visningsstatus från Redux store.
     const overlayVisible = useSelector(
@@ -117,7 +120,9 @@ function Settings() {
                             borderRadius: "50% 50% 0% 50%",
                         }}
                     >
-                        <AvatarImage src="./images/profile-picture.jpg" />
+                        <AvatarImage
+                            src={profileImage || "./images/default-avatar.png"}
+                        />
                         <AvatarFallback>CN</AvatarFallback>
                     </Avatar>
                     <div className="text-center text-secondary">
@@ -267,7 +272,6 @@ function Settings() {
                                     variant={"destructive"}
                                     onClick={() => {
                                         handleConfirm()
-                                        
                                     }}
                                     className="mt-2 p-4 uppercase"
                                 >

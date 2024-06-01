@@ -76,6 +76,7 @@ type Profile = {
     phoneNumber?: string | undefined
     gender: Gender
     address: Address
+    profileImage?: string
 }
 
 type Settings = {
