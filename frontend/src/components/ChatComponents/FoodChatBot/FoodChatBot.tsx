@@ -203,6 +203,7 @@ export default function FoodChatBot() {
                 handleInputSubmit={handleInputSubmit}
                 inputQuery={inputQuery}
                 setInputQuery={setInputQuery}
+                inputLabel="What's your craving?"
             />
         </main>
     )

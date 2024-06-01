@@ -163,6 +163,7 @@ export default function VacationChatBot() {
                 handleInputSubmit={handleInputSubmit}
                 inputQuery={inputQuery}
                 setInputQuery={setInputQuery}
+                inputLabel="What's your next vacation destination?"
             />
         </main>
     )
