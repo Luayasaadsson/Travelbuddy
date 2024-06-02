@@ -14,7 +14,7 @@ import {
     toggleAccommodationPreference,
     toggleActivityPreference,
     toggleFoodPreference,
-    toggleTransportationPreference,
+    /* toggleTransportationPreference, */
     toggleVacationPreference,
     // updatePreferredCurrency,
     // updateBudgetPreference,
@@ -63,9 +63,9 @@ const ProfileSettings: React.FC = () => {
     const handleToggleFoodPreference = (id: number) => {
         dispatch(toggleFoodPreference(id))
     }
-    const handleToggleTransportationPreference = (id: number) => {
+    /* const handleToggleTransportationPreference = (id: number) => {
         dispatch(toggleTransportationPreference(id))
-    }
+    } */
     const handleToggleVacationPreference = (id: number) => {
         dispatch(toggleVacationPreference(id))
     }
