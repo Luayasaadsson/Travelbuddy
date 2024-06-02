@@ -88,7 +88,7 @@ function ProfileStart() {
         dispatch(updateMessageList(agentMessage))
         dispatch(updateMessageList(userMessage))
     }
-console.log(activityPreferences);
+    console.log(activityPreferences)
 
     return (
         <main className="flex h-screen items-center justify-center">
@@ -199,7 +199,7 @@ console.log(activityPreferences);
                                             type: "text",
                                             role: "agent",
                                             content:
-                                                "Hi, Experiences & Activities?",
+                                                "Hi, what type of activity are you looking for?",
                                         },
                                         {
                                             type: "button",

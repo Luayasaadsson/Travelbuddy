@@ -38,7 +38,7 @@ export default function ActivityChatBot() {
         let message
 
         if (isActivityQuery) {
-            message = `I'm interested in ${buttonChoice} activities`
+            message = `I'm interested in ${buttonChoice.toLowerCase()}`
             dispatch(
                 updateMessageList({
                     type: "text",
@@ -51,7 +51,7 @@ export default function ActivityChatBot() {
                     type: "text",
                     role: "agent",
                     content:
-                        "Great! What kind of activities are you looking for?",
+                        "Great! Let´s see what we an find near your location!",
                 }),
             )
         } else {
@@ -104,7 +104,7 @@ export default function ActivityChatBot() {
         if (isActivityQuery) {
             console.log("Choosing activity prompt")
 
-            return `User Query: "I am located in ${location} and interested in ${query}"\n\nResponse: Provide details of exactly five activities related to "${query}". Include no additional text.`
+            return `User Query: "I am located in ${location} and interested in ${query}"\n\nResponse: Provide details of exactly five activities related to "${query}". i want a description and website to every activity to make the booking.`
         } else {
             console.log("Choosing general prompt")
 
