@@ -109,25 +109,55 @@ const initialState: User = {
                 amount: null,
             },
         ],
-        diet: [
+        activities: [
             {
                 id: 1,
-                label: "Vegetarian",
+                label: "City tours",
                 selected: false,
             },
             {
                 id: 2,
-                label: "Vegan",
+                label: "Historical sites",
                 selected: false,
             },
             {
                 id: 3,
-                label: "Halal",
+                label: "Food and drink tastings",
                 selected: false,
             },
             {
                 id: 4,
-                label: "Gluten Fre",
+                label: "Museums",
+                selected: false,
+            },
+            {
+                id: 5,
+                label: "Beach activities",
+                selected: false,
+            },
+            {
+                id: 6,
+                label: "Scenic spots",
+                selected: false,
+            },
+            {
+                id: 7,
+                label: "Markets and shopping",
+                selected: false,
+            },
+            {
+                id: 8,
+                label: "Nightlife",
+                selected: false,
+            },
+            {
+                id: 9,
+                label: "Cultural events",
+                selected: false,
+            },
+            {
+                id: 10,
+                label: "Day trips",
                 selected: false,
             },
         ],
@@ -336,19 +366,13 @@ export const userSlice = createSlice({
                 },
             }
         },
-        toggleDietPreference: (state, action: PayloadAction<number>) => {
-            const id = action.payload
-            return {
-                ...state,
-                preferences: {
-                    ...state.preferences,
-                    diet: state.preferences.diet.map((item) =>
-                        item.id === id
-                            ? { ...item, selected: !item.selected }
-                            : item,
-                    ),
-                },
-            }
+        toggleActivityPreference: (state, action: PayloadAction<number>) => {
+            state.preferences.activities = state.preferences.activities.map(
+                (item) =>
+                    item.id === action.payload
+                        ? { ...item, selected: !item.selected }
+                        : item,
+            )
         },
         toggleTransportationPreference: (
             state,
@@ -482,8 +506,10 @@ export const userSlice = createSlice({
                     budgets && budgets.length > 0
                         ? budgets
                         : state.preferences.budget,
-                diet:
-                    diets && diets.length > 0 ? diets : state.preferences.diet,
+                activities:
+                    diets && diets.length > 0
+                        ? diets
+                        : state.preferences.activities,
                 food:
                     foods && foods.length > 0 ? foods : state.preferences.food,
                 transportation:
@@ -580,7 +606,7 @@ export const {
     updateUserId,
     updateIsLoggedIn,
     toggleAccommodationPreference,
-    toggleDietPreference,
+    toggleActivityPreference,
     toggleFoodPreference,
     toggleTransportationPreference,
     toggleVacationPreference,

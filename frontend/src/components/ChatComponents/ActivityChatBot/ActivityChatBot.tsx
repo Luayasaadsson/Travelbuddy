@@ -1,44 +1,44 @@
-// import axios from "axios"
-// import { useState } from "react"
-// import { useSelector, useDispatch } from "react-redux"
-// import { RootState } from "@/store/store"
-// import { updateMessageList } from "@/store/slices/chatSlice"
-// import ChatLoader from "../ChatLoader"
-// import ChatHeading from "../ChatHeading"
-// import ChatLog from "../ChatLog"
-// import ChatInput from "../ChatInput"
-// import ChatMessage from "../ChatMessage"
-// import ChatButtonsContainer from "../ChatButtonsContainer"
+import axios from "axios"
+import { useState } from "react"
+import { useSelector, useDispatch } from "react-redux"
+import { RootState } from "@/store/store"
+import { updateMessageList } from "@/store/slices/chatSlice"
+import ChatLoader from "../ChatLoader"
+import ChatHeading from "../ChatHeading"
+import ChatLog from "../ChatLog"
+import ChatInput from "../ChatInput"
+import ChatMessage from "../ChatMessage"
+import ChatButtonsContainer from "../ChatButtonsContainer"
 
-/*
-
-export default function ExperienceChatBot() {
+export default function ActivityChatBot() {
     const dispatch = useDispatch()
     const location = useSelector(
-        (state: RootState) => state.user.sessionInfo.city,
+        (state: RootState) => state.user.profile.address.city,
     )
     const [inputQuery, setInputQuery] = useState("")
     const [isLoading, setIsLoading] = useState(false)
     const messageList = useSelector(
         (state: RootState) => state.chat.messageList,
     )
-    const experienceList = useSelector(
-        (state: RootState) => state.user.preferences.experience,
+    const activityList = useSelector(
+        (state: RootState) => state.user.preferences.activities,
     )
 
     const handleChatButtonClick = (buttonChoice: string): void => {
-        const countryKeywords = experienceList.map((experience) => experience.label.toLowerCase())
-        let isCountryQuery = false
-        for (const keyword of countryKeywords) {
+        const activityKeywords = activityList.map((activity) =>
+            activity.label.toLowerCase(),
+        )
+        let isActivityQuery = false
+        for (const keyword of activityKeywords) {
             if (buttonChoice.toLowerCase().includes(keyword.toLowerCase())) {
-                isCountryQuery = true
+                isActivityQuery = true
                 break
             }
         }
         let message
 
-        if (isCountryQuery) {
-            message = `I'm down to a new ${buttonChoice} experience`
+        if (isActivityQuery) {
+            message = `I'm interested in ${buttonChoice} activities`
             dispatch(
                 updateMessageList({
                     type: "text",
@@ -50,16 +50,17 @@ export default function ExperienceChatBot() {
                 updateMessageList({
                     type: "text",
                     role: "agent",
-                    content: "Okay! What type of experience are you after?",
+                    content:
+                        "Great! What kind of activities are you looking for?",
                 }),
             )
         } else {
-            message = `I crave a new experience ${buttonChoice.toLowerCase()}`
+            message = `I'm curious about ${buttonChoice}`
             dispatch(
                 updateMessageList({
                     type: "text",
                     role: "user",
-                    content: `I want to experience ${buttonChoice.toLowerCase()}`,
+                    content: message,
                 }),
             )
         }
@@ -81,45 +82,31 @@ export default function ExperienceChatBot() {
     }
 
     const generatePrompt = (context: string, query: string): string => {
-        const countryKeywords = experienceList.map((experience) => experience.label.toLowerCase())
-        const experienceKeywords = 
-        ["Adventure Travel", 
-        "Backpacking", 
-        "Beach Vacations",
-        "Cultural Experiences", 
-        "Festival and Event Tourism",
-        "Road Trips",
-        "Skiing and Snowboarding Trips",
-        "Wellness and Spa Retreats"]
-        
+        const activityKeywords = activityList.map((activity) =>
+            activity.label.toLowerCase(),
+        )
+     /*    const activityPhrases = [
+            "interested in",
+            "curious about",
+            "explore",
+            "find",
+        ] */
 
-        let isexperienceQuery = false
-        let isCountryQuery = false
+        let isActivityQuery = false
 
-        for (const keyword of countryKeywords) {
+        for (const keyword of activityKeywords) {
             if (query.toLowerCase().includes(keyword.toLowerCase())) {
-                isCountryQuery = true
+                isActivityQuery = true
                 break
             }
         }
 
-        for (const keyword of experienceKeywords) {
-            if (query.toLowerCase().includes(keyword.toLowerCase())) {
-                isexperienceQuery = true
-                break
-            }
-        }
+        if (isActivityQuery) {
+            console.log("Choosing activity prompt")
 
-        if (isCountryQuery) {
-            console.log("väljer prompt 1")
-
-            return `User Query: "I am located in ${location} and ${query}"\n\nResponse: Respond only with a list containing exactly five types of experience. Write the experience types in a row, separated by commas. Include no other text.`
-        } else if (isexperienceQuery) {
-            console.log("väler prompt 2")
-
-            return `${context}\n\nUser Query: "I am located in ${location} and ${query}"\n\nResponse: Provide details of exactly six restaurants at my location. For each restaurant, include the following format: \n\n**Name of the Restaurant**\nA short description\n**Google maps:** <a href="https://www.google.com/maps/search/name+of+the+restaurant+mylocation/" target="_blank">Name</a>\n**Visit website:** <a href="The real URL to the restaurant's website thats linked to the resturant in google maps" target="_blank">Name</a>\n\nInclude no additional text.`
+            return `User Query: "I am located in ${location} and interested in ${query}"\n\nResponse: Provide details of exactly five activities related to "${query}". Include no additional text.`
         } else {
-            console.log("väljer prompt 3")
+            console.log("Choosing general prompt")
 
             return `${context}\n\nUser Query: "${query}"\n\nResponse: You are a helpful assistant. Answer the user's question in a friendly and informative manner.`
         }
@@ -214,9 +201,8 @@ export default function ExperienceChatBot() {
                 handleInputSubmit={handleInputSubmit}
                 inputQuery={inputQuery}
                 setInputQuery={setInputQuery}
+                inputLabel="What are you curious about?"
             />
         </main>
     )
 }
-
-*/

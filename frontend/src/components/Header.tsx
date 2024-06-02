@@ -15,7 +15,8 @@ function Header() {
         async function clearMessages() {
             if (
                 location.pathname !== "/foodchat" &&
-                location.pathname !== "/vacationchat"
+                location.pathname !== "/vacationchat" &&
+                location.pathname !== "/activitychatbot"
             ) {
                 dispatch(clearMessageList())
             }

@@ -26,13 +26,13 @@ type AccommodationPreferences = AccommodationPreference[]
 
 type BudgetPreferences = BudgetPreference[]
 
-type DietPreference = {
+type ActivitiePreference = {
     id: number
     label: string
     selected: boolean
 }
 
-type DietPreferences = DietPreference[]
+type ActivitiesPreferences = ActivitiePreference[]
 
 type FoodPreference = {
     id: number
@@ -104,7 +104,7 @@ type PersonalInfo = {
 type Preferences = {
     accomodation: AccommodationPreferences
     budget: BudgetPreferences
-    diet: DietPreferences
+    activities: ActivitiesPreferences
     food: FoodPreferences
     transportation: TransportationPreferences
     vacation: VacationPreferences

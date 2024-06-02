@@ -12,7 +12,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { AppDispatch, RootState } from "@/store/store"
 import {
     toggleAccommodationPreference,
-    toggleDietPreference,
+    toggleActivityPreference,
     toggleFoodPreference,
     toggleTransportationPreference,
     toggleVacationPreference,
@@ -27,13 +27,13 @@ import PreferencesSection from "./PreferencesSection"
 import { patchUserProfile, fetchUserProfile } from "@/store/slices/userSlice"
 
 const ProfileSettings: React.FC = () => {
-    const navigate = useNavigate();
+    const navigate = useNavigate()
     const dispatch = useDispatch<AppDispatch>()
     const accommodationPreferenceList = useSelector(
         (state: RootState) => state.user.preferences.accomodation,
     )
-    const dietPreferenceList = useSelector(
-        (state: RootState) => state.user.preferences.diet,
+    const activityPreferenceList = useSelector(
+        (state: RootState) => state.user.preferences.activities,
     )
     const foodPreferenceList = useSelector(
         (state: RootState) => state.user.preferences.food,
@@ -57,8 +57,8 @@ const ProfileSettings: React.FC = () => {
     const handleToggleAccommodationPreference = (id: number) => {
         dispatch(toggleAccommodationPreference(id))
     }
-    const handleToggleDietPreference = (id: number) => {
-        dispatch(toggleDietPreference(id))
+    const handleToggleActivityPreference = (id: number) => {
+        dispatch(toggleActivityPreference(id))
     }
     const handleToggleFoodPreference = (id: number) => {
         dispatch(toggleFoodPreference(id))
@@ -128,7 +128,7 @@ const ProfileSettings: React.FC = () => {
         const preferenceData = {
             foods: foodPreferenceList,
             accommodations: accommodationPreferenceList,
-            diets: dietPreferenceList,
+            diets: activityPreferenceList,
             transportations: transportationPreferenceList,
             vacations: vacationPreferenceList,
         }
@@ -136,7 +136,7 @@ const ProfileSettings: React.FC = () => {
 
         await dispatch(patchUserProfile({ userData, preferenceData }))
         await dispatch(fetchUserProfile())
-        navigate("/settings"); 
+        navigate("/profilestart")
     }
 
     return (
@@ -169,10 +169,10 @@ const ProfileSettings: React.FC = () => {
                 />
 
                 <PreferencesSection
-                    title="Dietary"
-                    items={dietPreferenceList}
-                    handleToggle={handleToggleDietPreference}
-                    accordionKey="dietary"
+                    title="Activities"
+                    items={activityPreferenceList}
+                    handleToggle={handleToggleActivityPreference}
+                    accordionKey="activities"
                 />
 
                 <PreferencesSection
@@ -246,3 +246,4 @@ const ProfileSettings: React.FC = () => {
 }
 
 export default ProfileSettings
+

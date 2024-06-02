@@ -26,6 +26,7 @@ import { AppDispatch, RootState } from "./store/store"
 import { fetchUserProfile } from "./store/slices/userSlice"
 import MainLoader from "./components/MainLoader"
 import { setUserLocation } from "./store/slices/userSlice"
+import ActivityChatBot from "./components/ChatComponents/ActivityChatBot/ActivityChatBot"
 
 function App() {
     const isAuth = useSelector(
@@ -220,6 +221,15 @@ function App() {
                         element={
                             <div>
                                 <VacationChatBot />
+                                <DesktopVector />
+                            </div>
+                        }
+                    />
+                    <Route
+                        path="/activitychatbot"
+                        element={
+                            <div>
+                                <ActivityChatBot />
                                 <DesktopVector />
                             </div>
                         }
