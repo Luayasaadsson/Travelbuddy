@@ -100,7 +100,7 @@ function Hero() {
                                     </Link>
                                 </>
                             ) : (
-                                <Link to="/profilestart">
+                                <Link to="/profilestart" className="w-full">
                                     <Button
                                         variant="default"
                                         className="w-full"
