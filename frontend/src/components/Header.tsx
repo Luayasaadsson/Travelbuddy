@@ -2,15 +2,18 @@ import { useState, useEffect, useRef } from "react"
 import { Link } from "react-router-dom"
 import { Switch } from "@/components/ui/switch"
 import { useLocation } from "react-router-dom"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { clearMessageList } from "@/store/slices/chatSlice"
 import { Button } from "./ui/button"
-import { useSelector } from "react-redux"
 import { RootState } from "@/store/store"
 
 function Header() {
     const location = useLocation()
     const dispatch = useDispatch()
+    const profileImage = useSelector(
+        (state: RootState) => state.user.profile.profileImage,
+    )
+
     useEffect(() => {
         async function clearMessages() {
             if (
@@ -76,9 +79,9 @@ function Header() {
                     </div>
                     <Link to="/settings" className="flex items-center">
                         <img
-                            src="/images/account_circle.svg"
-                            alt=""
-                            className="w-10 hover:cursor-pointer"
+                            src={profileImage || "/images/account_circle.svg"}
+                            alt="Profile"
+                            className="h-10 w-10 rounded-full object-cover hover:cursor-pointer"
                         />
                     </Link>
 
@@ -86,7 +89,7 @@ function Header() {
                         src={
                             isOpen ? "/icons/menu_open.svg" : "/images/menu.svg"
                         }
-                        alt=""
+                        alt="Menu"
                         className="w-11 hover:cursor-pointer"
                         onClick={handleMenu}
                     />

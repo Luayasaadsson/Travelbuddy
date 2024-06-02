@@ -8,7 +8,7 @@ import axios from "axios"
 
 // Initial state
 
-const initialProfileImage = localStorage.getItem("profileImage") || ""
+const initialProfileImage = sessionStorage.getItem("profileImage") || ""
 
 const initialState: User = {
     id: null,
@@ -303,20 +303,37 @@ export const userSlice = createSlice({
         },
         updateProfileImage: (state, action: PayloadAction<string>) => {
             state.profile.profileImage = action.payload
-            localStorage.setItem("profileImage", action.payload)
+            if (state.sessionInfo.isLoggedIn) {
+                sessionStorage.setItem("profileImage", action.payload)
+            }
         },
+
         loginUser: (state) => {
             state.sessionInfo.isLoggedIn = true
             sessionStorage.setItem("isLoggedIn", "true")
+            const profileImage =
+                sessionStorage.getItem("profileImage") ||
+                localStorage.getItem("profileImage")
+            if (profileImage) {
+                state.profile.profileImage = profileImage
+                sessionStorage.setItem("profileImage", profileImage)
+            }
         },
+
         logoutUser: (state) => {
             state.sessionInfo.isLoggedIn = false
             sessionStorage.removeItem("isLoggedIn")
+            localStorage.removeItem("profileImage")
+            state.profile.profileImage = ""
         },
+
         signOutUser: (state) => {
             state.sessionInfo.isLoggedIn = false
             sessionStorage.removeItem("isLoggedIn")
+            localStorage.removeItem("profileImage")
+            state.profile.profileImage = ""
         },
+
         updateUserId: (state, action: PayloadAction<User>) => {
             state.id = action.payload.id
         },
