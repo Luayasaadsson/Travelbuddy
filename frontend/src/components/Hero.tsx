@@ -25,7 +25,7 @@ function Hero() {
                         </h1>
                         <h2 className="max-w-[800px] text-3xl text-secondary lg:text-xl">
                             <span className="lg:hidden">
-                                Tailor your travel experience to <br />
+                                Tailor your travel <br /> experience to
                                 perfection
                             </span>
                             <span
@@ -61,18 +61,23 @@ function Hero() {
                         <p className="max-w-[490px] pb-4 text-sm text-secondary lg:text-xl">
                             <span className="flex break-words text-center">
                                 Share your preferences and interests to unlock
-                                personalized recommendations and seamless
+                                <br />
+                                personalized recommendations and seamless <br />
                                 adventures. Let's craft your journey together
                             </span>
                         </p>
-                        <div className="flex justify-center gap-3">
+                        <div className="flex w-full justify-center gap-3">
                             {!isAuth ? (
                                 <>
                                     <Link
                                         to="/login"
-                                        className="border-r-2 border-primary pr-3"
+                                        className="w-full border-r-2 border-primary pr-3"
                                     >
-                                        <Button variant="outline" size="lg">
+                                        <Button
+                                            variant="outline"
+                                            className="w-full"
+                                            size="lg"
+                                        >
                                             <p className="text-neutral-200">
                                                 Login now
                                             </p>
@@ -83,11 +88,11 @@ function Hero() {
                                             />
                                         </Button>
                                     </Link>
-                                    <Link to="/signup">
+                                    <Link to="/signup" className="w-full">
                                         <Button variant="default" size="lg">
                                             <p>Sign up</p>
                                             <img
-                                                className="ml-2 h-6 w-6"
+                                                className="ml-2 h-6"
                                                 src="/images/account2.svg"
                                                 alt="Profileicon"
                                             />
@@ -96,7 +101,11 @@ function Hero() {
                                 </>
                             ) : (
                                 <Link to="/profilestart">
-                                    <Button variant="default" size="lg">
+                                    <Button
+                                        variant="default"
+                                        className="w-full"
+                                        size="lg"
+                                    >
                                         <p>Chatbot</p>
                                     </Button>
                                 </Link>
