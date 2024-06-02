@@ -137,12 +137,12 @@ function ProfileStart() {
                                 <img src="./icons/icon-location.svg" alt="" />
                             </Button>
                         </Link>
-                        <Link className="w-full" to="/foodchat">
+                        <Link className="w-full" to="/accommodationchat">
                             <Button
                                 onClick={() =>
                                     handleClick(
-                                        "Let's find a bite!",
-                                        "Choose below or type in your cravings at the bottom for restaurants near you!",
+                                        "Let's find a place!",
+                                        "Choose below or type in your preferred accommodation at the bottom for places to stay near you!",
                                         {
                                             type: "text",
                                             role: "agent",

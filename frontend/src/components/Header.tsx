@@ -16,7 +16,8 @@ function Header() {
             if (
                 location.pathname !== "/foodchat" &&
                 location.pathname !== "/vacationchat" &&
-                location.pathname !== "/activitychatbot"
+                location.pathname !== "/activitychatbot" &&
+                location.pathname !== "/accommodationchat"
             ) {
                 dispatch(clearMessageList())
             }
