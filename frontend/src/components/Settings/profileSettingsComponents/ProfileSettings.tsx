@@ -182,12 +182,12 @@ const ProfileSettings: React.FC = () => {
                     accordionKey="food"
                 />
 
-                <PreferencesSection
+                {/* <PreferencesSection
                     title="Transportation"
                     items={transportationPreferenceList}
                     handleToggle={handleToggleTransportationPreference}
                     accordionKey="transportation"
-                />
+                /> */}
 
                 <PreferencesSection
                     title="Vacation"
