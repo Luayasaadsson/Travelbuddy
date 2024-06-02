@@ -112,10 +112,10 @@ function Settings() {
     return (
         <main className="flex h-screen items-center justify-center">
             <div className="relative flex w-11/12 max-w-96 flex-col items-center justify-center gap-3">
-                <h1 className="text-2xl">Profile</h1>
+                <h1 className="text-2xl pt-8">Profile</h1>
                 <div className="flex flex-col items-center gap-4">
                     <Avatar
-                        className="mt-4 h-20 w-20 border-4"
+                        className="mt-4 h-36 w-36 border-4"
                         style={{
                             borderRadius: "50% 50% 0% 50%",
                         }}

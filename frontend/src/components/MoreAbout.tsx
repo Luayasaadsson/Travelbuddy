@@ -108,7 +108,7 @@ function MoreAbout() {
                     </div>
 
                     <Avatar
-                        className="mt-4 h-20 w-20 border-4"
+                        className="mt-4 h-[150px] w-[150px] border-4"
                         style={{ borderRadius: "50% 50% 0% 50%" }}
                     >
                         <AvatarImage
