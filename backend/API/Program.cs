@@ -54,6 +54,13 @@ builder.Services.AddAuthentication(
   }
 )
 
+.AddFacebook(
+  options =>
+  {
+    options.AppId = Environment.GetEnvironmentVariable("FACEBOOK_APP_ID") ?? throw new ArgumentNullException("FACEBOOK_APP_ID");
+    options.AppSecret = Environment.GetEnvironmentVariable("FACEBOOK_APP_SECRET") ?? throw new ArgumentNullException("FACEBOOK_APP_SECRET");
+  })
+
 .AddJwtBearer(options =>
 {
   options.RequireHttpsMetadata = false;
@@ -71,11 +78,7 @@ builder.Services.AddAuthentication(
   };
 });
 
-// .AddFacebook(opt =>
-// {
-//   opt.AppId = Environment.GetEnvironmentVariable("FACEBOOK_APP_ID"); ;
-//   opt.AppSecret = Environment.GetEnvironmentVariable("FACEBOOK_APP_SECRET");
-// });
+
 
 builder.Services.AddAuthorization();
 
