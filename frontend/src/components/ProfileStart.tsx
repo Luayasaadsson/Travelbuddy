@@ -94,7 +94,7 @@ function ProfileStart() {
         <main className="flex h-screen items-center justify-center">
             <div className="relative flex w-11/12 max-w-96 flex-col items-center justify-center gap-8 lg:max-w-3xl">
                 <Avatar
-                    className="mt-4 h-20 w-20 border-4"
+                    className="mt-4 h-40 w-40 border-4"
                     style={{
                         borderRadius: "50% 50% 0% 50%",
                     }}

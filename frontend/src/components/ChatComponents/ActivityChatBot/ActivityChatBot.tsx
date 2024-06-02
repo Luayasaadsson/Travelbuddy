@@ -85,7 +85,7 @@ export default function ActivityChatBot() {
         const activityKeywords = activityList.map((activity) =>
             activity.label.toLowerCase(),
         )
-     /*    const activityPhrases = [
+        /*    const activityPhrases = [
             "interested in",
             "curious about",
             "explore",
@@ -103,8 +103,10 @@ export default function ActivityChatBot() {
 
         if (isActivityQuery) {
             console.log("Choosing activity prompt")
+            console.log(query);
+            
 
-            return `User Query: "I am located in ${location} and interested in ${query}"\n\nResponse: Provide details of exactly five activities related to "${query}". i want a description and website to every activity to make the booking.`
+            return `${context}\n\nUser Query: "I am located in ${location} and ${query}"\n\nResponse: Provide details of exactly six different activities around my location. For each activity, include the following format: \n\n**Name of the activity**\n*A description*\n**Google Maps:** <a href="https://www.google.com/maps/search/name+of+the+activity+${location}/" target="_blank">Name</a>\n**Visit website:** <a href="The real URL to the activity's website that's linked to the activity in Google Maps" target="_blank">Name</a>\n\nInclude no additional text.`
         } else {
             console.log("Choosing general prompt")
 
