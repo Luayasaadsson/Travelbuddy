@@ -122,7 +122,7 @@ function ProfileStart() {
                                             type: "text",
                                             role: "agent",
                                             content:
-                                                "Hi, find your dream vacation?",
+                                                `Hi ${userName}, find your dream vacation?`,
                                         },
                                         {
                                             type: "button",
@@ -147,7 +147,7 @@ function ProfileStart() {
                                             type: "text",
                                             role: "agent",
                                             content:
-                                                "Hi, where do you want to stay?",
+                                                `Hi ${userName}, where do you want to stay?`,
                                         },
                                         {
                                             type: "button",
@@ -174,7 +174,7 @@ function ProfileStart() {
                                             type: "text",
                                             role: "agent",
                                             content:
-                                                "Hi, what do you want to eat today?",
+                                                `Hi ${userName}, what do you want to eat today?`,
                                         },
                                         {
                                             type: "button",
@@ -199,7 +199,7 @@ function ProfileStart() {
                                             type: "text",
                                             role: "agent",
                                             content:
-                                                "Hi, what type of activity are you looking for?",
+                                                `Hi ${userName}, what type of activity are you looking for?`,
                                         },
                                         {
                                             type: "button",
