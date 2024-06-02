@@ -2,6 +2,7 @@ using System.Security.Claims;
 using API.Model;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Google;
+using Microsoft.AspNetCore.Authentication.Facebook;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -65,6 +66,47 @@ public class AuthController : ControllerBase
     }
 
     await _signInManager.SignInAsync(user, isPersistent: false);
+
+    return Redirect("https://localhost:5173/");
+  }
+
+[HttpGet("login-facebook")]
+    [AllowAnonymous]
+    public IActionResult LoginFacebook()
+    {
+        var properties = new AuthenticationProperties { RedirectUri = Url.Action("FacebookResponse") };
+        return Challenge(properties, FacebookDefaults.AuthenticationScheme);
+    }
+
+    [HttpGet("facebook-response")]
+    [AllowAnonymous]
+    public async Task<IActionResult> FacebookResponse()
+    {
+        var result = await HttpContext.AuthenticateAsync(IdentityConstants.ApplicationScheme);
+
+        if (!result.Succeeded)
+            return BadRequest("Error authenticating with Facebook");
+
+        var claims = result.Principal?.Identities.FirstOrDefault()?.Claims.Select(claim => new
+        {
+            claim.Issuer,
+            claim.OriginalIssuer,
+            claim.Type,
+            claim.Value
+        }).ToList();
+
+        var emailClaim = result.Principal?.FindFirst(ClaimTypes.Email)?.Value;
+        var user = await _userManager.FindByEmailAsync(emailClaim);
+        if (user == null)
+        {
+            user = new User { UserName = emailClaim, Email = emailClaim };
+            var createResult = await _userManager.CreateAsync(user);
+            if (!createResult.Succeeded)
+            {
+                return BadRequest("Could not create user account");
+            }
+        }
+        await _signInManager.SignInAsync(user, isPersistent: false);
 
     return Redirect("https://localhost:5173/");
   }
