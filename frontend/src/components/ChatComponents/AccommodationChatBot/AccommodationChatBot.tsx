@@ -13,7 +13,7 @@ import ChatButtonsContainer from "../ChatButtonsContainer"
 export default function AccommodationChatBot() {
     const dispatch = useDispatch()
     const location = useSelector(
-        (state: RootState) => state.user.sessionInfo.city,
+        (state: RootState) => state.user.profile.address.city,
     )
     const [inputQuery, setInputQuery] = useState("")
     const [isLoading, setIsLoading] = useState(false)
