@@ -42,7 +42,7 @@ function LogIn(): JSX.Element {
             console.log("Logging in with password:", password)
             console.log("Login successful.", response)
             dispatch(fetchUserProfile())
-            dispatch(loginUser())
+            dispatch(loginUser(email))
             navigate(requestedLocation, { replace: true })
         } catch (error: any) {
             if (error.response) {
@@ -77,7 +77,7 @@ function LogIn(): JSX.Element {
     const login = useGoogleLogin({
         onSuccess: async (response) => {
             console.log("Google login successful", response)
-            dispatch(loginUser()) // Dispatch loginUser action
+            dispatch(loginUser(email)) // Dispatch loginUser action
             window.location.href =
                 "https://localhost:7038/api/Auth/login-google"
         },
@@ -187,7 +187,7 @@ function LogIn(): JSX.Element {
                         </div>
                         <span className="w-[139px] border border-primary"></span>
                     </div>
-                   {/*  <Button variant="facebook">
+                    {/*  <Button variant="facebook">
                         <img
                             src="./icons/facebook-logo.svg"
                             alt="Facebook Logo"

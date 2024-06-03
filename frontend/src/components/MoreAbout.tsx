@@ -191,7 +191,7 @@ function MoreAbout() {
 
                     <div className="flex w-full flex-col items-start gap-4 text-[13px] font-semibold text-onBackground">
                         {error && (
-                            <div className="error-message">
+                            <div className="error-message-2">
                                 <FontAwesomeIcon
                                     icon={faExclamationCircle}
                                     className="self-center"
