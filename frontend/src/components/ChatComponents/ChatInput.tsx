@@ -19,7 +19,7 @@ export default function ChatInput({
             <Label>{inputLabel}</Label> 
                 <Input
                     value={inputQuery}
-                    placeholder="Enter Your Cravings"
+                    placeholder="Enter your text here"
                     onChange={(e) => setInputQuery(e.target.value)}
                 />
             </form>
