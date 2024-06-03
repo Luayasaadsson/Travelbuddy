@@ -51,7 +51,7 @@ function Overlay() {
                             <p className="font-small p-2 text-center text-xs leading-normal tracking-wide text-secondary">
                                 Your password was reset
                             </p>
-                            <Link to="/login">
+                            <Link to="/loginuser">
                                 <Button
                                     onClick={() => dispatch(hideOverlay())}
                                     className="mt-2 p-2"

@@ -70,7 +70,7 @@ function Hero() {
                             {!isAuth ? (
                                 <>
                                     <Link
-                                        to="/login"
+                                        to="/loginuser"
                                         className="w-full border-r-2 border-primary pr-3"
                                     >
                                         <Button

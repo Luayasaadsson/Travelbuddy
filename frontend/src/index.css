@@ -169,3 +169,11 @@ body {
 body::-webkit-scrollbar {
     display: none; /* För att dölja scrollbaren helt i IE och Edge */
 }
+.test a {
+    text-decoration: underline;
+}
+/* .test{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+} */

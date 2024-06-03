@@ -1,6 +1,6 @@
 function Footer() {
     return (
-        <footer className="mt-16  flex flex-col items-center gap-10 p-20">
+        <footer className="  flex flex-col items-center gap-10 px-20">
             <div className="grid grid-cols-1 gap-20 sm:grid-cols-3 md:grid-cols-4">
                 {/* Navigeringslänkar kommer senare */}
                 <div className="flex flex-col items-start gap-4">

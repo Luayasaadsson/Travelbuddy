@@ -40,6 +40,7 @@ export default function ChatMessage({
                 <ReactMarkdown
                     rehypePlugins={[rehypeRaw]}
                     components={renderers}
+                    className="test"
                 >
                     {content}
                 </ReactMarkdown>

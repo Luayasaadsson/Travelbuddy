@@ -151,7 +151,7 @@ function Header() {
                         className="hidden justify-center gap-3 pb-3 pr-14 transition-opacity duration-300 ease-in-out lg:flex"
                     >
                         <Link
-                            to="/login"
+                            to="/loginuser"
                             className="h-10 border-r-2 border-primary pr-3"
                         >
                             <Button

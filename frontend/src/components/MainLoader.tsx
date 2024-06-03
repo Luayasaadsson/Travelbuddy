@@ -36,7 +36,5 @@ export default function MainLoader() {
             <span className="absolute size-8 rounded-full bg-primary/70 top-[280px] right-[198px]" />
         </div>
     )
-}
+} */
 
-export default MainLoader
- */

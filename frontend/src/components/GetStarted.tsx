@@ -5,7 +5,7 @@ function GetStarted() {
     return (
         <main className="flex h-screen items-center justify-center">
             <div className="flex w-full flex-col items-center justify-center gap-5 px-4 md:px-32">
-                <img className="w-28" src="/images/logo.svg" alt="logo" />
+                <img className="w-48" src="/images/logo.svg" alt="logo" />
                 <h1 className=" text-center text-4xl text-secondary">
                     Discover Your Perfect Journey
                 </h1>
