@@ -2,11 +2,15 @@ stages:
   - build
   - image
 
-.build_artifact_frontend:
+build_artifact_frontend:
   stage: build
   image: node
   before_script:
     - cd frontend
+    - find ./ -type f -exec sed -i 's/localhost:7038/travelbuddy.mooo.com/g' {} +
+    - sed -i 's|https://travelbuddy.mooo.com/login?useCookies=true|https://travelbuddy.mooo.com/backend/login?useCookies=true|g' src/components/SignUp.tsx
+    - sed -i 's|https://travelbuddy.mooo.com/login?useCookies=true|https://travelbuddy.mooo.com/backend/login?useCookies=true|g' src/components/LogIn.tsx
+    - sed -i 's/tsc && vite build/vite build/g' frontend/package.json
     - npm install
   script:
     - npm run build
@@ -25,7 +29,7 @@ stages:
 #    paths:
 #      - backend/API/bin/Release/net8.0/publish/*
 
-.build_image_frontend:
+build_image_frontend:
   stage: image
   dependencies:
     - build_artifact_frontend
@@ -39,13 +43,11 @@ stages:
     - cd frontend
   script:
     - docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN
-    - docker build -t $CI_REGISTRY/ccg-2/travelbuddy/$IMAGE_TAG .
-    - docker push $CI_REGISTRY/ccg-2/travelbuddy/$IMAGE_TAG
+    - docker build -t $CI_REGISTRY_IMAGE/$IMAGE_TAG .
+    - docker push $CI_REGISTRY_IMAGE/$IMAGE_TAG
 
-.build_image_backend:
+build_image_backend:
   stage: image
-#  dependencies:
-#    - build_artifact_backend
   image: docker:26.1.0
   services:
     - docker:26.1.0-dind
@@ -53,43 +55,9 @@ stages:
     DOCKER_TLS_CERTDIR: "/certs"
     IMAGE_TAG: travelbuddy-backend:$CI_COMMIT_SHORT_SHA
   before_script:
-    - cd backend/API
+    - cd backend
+    - sed -i 's|app.UseHttpsRedirection();|//app.UseHttpsRedirection();|g' API/Program.cs
   script:
     - docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN
-    - docker build -t $CI_REGISTRY/ccg-2/travelbuddy/$IMAGE_TAG -f Dockerfile.prod .
-    - docker push $CI_REGISTRY/ccg-2/travelbuddy/$IMAGE_TAG
-
-.build_image_frontend_arm64:
-  stage: image
-  dependencies:
-    - build_artifact_frontend
-  image: docker:26.1.0
-  services:
-    - docker:26.1.0-dind
-  variables:
-    DOCKER_TLS_CERTDIR: "/certs"
-    IMAGE_TAG: travelbuddy-frontend-arm64:$CI_COMMIT_SHORT_SHA
-  before_script:
-    - cd frontend
-  script:
-    - docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN
-    - docker build --platform linux/arm64/v8 -t $CI_REGISTRY/ccg-2/travelbuddy/$IMAGE_TAG .
-    - docker push $CI_REGISTRY/ccg-2/travelbuddy/$IMAGE_TAG
-
-
-#build_image_backend-arm64:
-#  stage: image
-#  dependencies:
-#    - build_artifact_backend
-#  image: docker:26.1.0
-#  services:
-#    - docker:26.1.0-dind
-#  variables:
-#    DOCKER_TLS_CERTDIR: "/certs"
-#    IMAGE_TAG: travelbuddy-backend-arm64:$CI_COMMIT_SHORT_SHA
-#  before_script:
-#    - cd backend
-#  script:
-#    - docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN
-#    - docker build --platform linux/arm64/v8 -t $CI_REGISTRY/ccg-2/travelbuddy/$IMAGE_TAG .
-#    - docker push $CI_REGISTRY/ccg-2/travelbuddy/$IMAGE_TAG
+    - docker build -t $CI_REGISTRY_IMAGE/$IMAGE_TAG .
+    - docker push $CI_REGISTRY_IMAGE/$IMAGE_TAG
