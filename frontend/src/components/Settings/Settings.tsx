@@ -32,9 +32,14 @@ function Settings() {
     const city = useSelector(
         (state: RootState) => state.user.profile.address.city,
     )
+        ? useSelector((state: RootState) => state.user.profile.address.city)
+        : useSelector((state: RootState) => state.user.sessionInfo.city)
+
     const country = useSelector(
         (state: RootState) => state.user.profile.address.country,
     )
+        ? useSelector((state: RootState) => state.user.profile.address.country)
+        : useSelector((state: RootState) => state.user.sessionInfo.country)
 
     const [password, setPassword] = useState<string>("")
     const [passwordError, setPasswordError] = useState<string>("")
