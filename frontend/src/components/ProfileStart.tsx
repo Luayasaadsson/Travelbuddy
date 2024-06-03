@@ -20,6 +20,8 @@ function ProfileStart() {
     const userName = useSelector(
         (state: RootState) => state.user.profile.userName,
     )
+
+
     //hämtar alla preferenser från food
     let foodPreferences = useSelector(
         (state: RootState) => state.user.preferences.food,
@@ -27,7 +29,6 @@ function ProfileStart() {
         .filter((food) => food.selected === true)
         .map((food) => food.label)
         .join(", ")
-
     //om användaren inte klicat i några preferenser så kommer alla foodpreferenser att visas som knappar
     if (foodPreferences === "") {
         foodPreferences = useSelector(
@@ -37,6 +38,8 @@ function ProfileStart() {
             .map((food) => food.label)
             .join(", ")
     }
+
+
     //hämtar alla preferenser från Activities
     let activityPreferences = useSelector(
         (state: RootState) => state.user.preferences.activities,
@@ -44,7 +47,6 @@ function ProfileStart() {
         .filter((activity) => activity.selected === true)
         .map((activity) => activity.label)
         .join(", ")
-
     //om användaren inte klicat i några preferenser så kommer alla foodpreferenser att visas som knappar
     if (activityPreferences === "") {
         activityPreferences = useSelector(
@@ -55,12 +57,24 @@ function ProfileStart() {
             .join(", ")
     }
 
-    const accomodationPreferences = useSelector(
+
+
+    let accomodationPreferences = useSelector(
         (state: RootState) => state.user.preferences.accomodation,
     )
         .filter((accomodation) => accomodation.selected === true)
         .map((accomodation) => accomodation.label)
         .join(", ")
+        if (accomodationPreferences === "") {
+            accomodationPreferences = useSelector(
+                (state: RootState) => state.user.preferences.accomodation,
+            )
+                .filter((accomodation) => accomodation.selected === false)
+                .map((accomodation) => accomodation.label)
+                .join(", ")
+        }
+
+
 
     let vacationPreferences = useSelector(
         (state: RootState) => state.user.preferences.vacation,
