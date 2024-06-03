@@ -18,7 +18,7 @@ function ProfileStart() {
 
     // Hämtar användarinformation från Redux store
     const userName = useSelector(
-        (state: RootState) => state.user.profile.userName,
+        (state: RootState) => state.user.profile.firstName,
     )
 
 

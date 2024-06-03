@@ -320,8 +320,9 @@ export const userSlice = createSlice({
             }
         },
 
-        loginUser: (state) => {
+        loginUser: (state, action: PayloadAction<string>) => {
             state.sessionInfo.isLoggedIn = true
+            state.profile.userName = action.payload
             sessionStorage.setItem("isLoggedIn", "true")
             const profileImage =
                 sessionStorage.getItem("profileImage") ||

@@ -58,7 +58,7 @@ function SignUp(): JSX.Element {
                 )
                 if (logInResponse.status === 200) {
                     // Dispatcha action för att markera användaren som inloggad
-                    dispatch(loginUser())
+                    dispatch(loginUser(email))
 
                     // Navigera till "more about" sidan
                     navigate("/moreabout")

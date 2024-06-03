@@ -20,6 +20,9 @@ import {
     updateProfileImage,
 } from "@/store/slices/userSlice"
 import React, { useState, useRef } from "react"
+import { setUserLocation } from "@/store/slices/userSlice"
+import axios from "axios"
+import { useEffect } from "react"
 /* import Gender from "@/types/common/Gender" */
 
 // Assumption: The user will only forwarded to MoreAbout, if the user is totally new and has just registered as a user
@@ -39,7 +42,7 @@ function MoreAbout() {
         (state: RootState) => state.settings.sessionInfo.city,
     )
     const reduxEmail = useSelector(
-        (state: RootState) => state.user.settings.email,
+        (state: RootState) => state.user.profile.userName,
     )
 
     const fileInputRef = useRef<HTMLInputElement>(null)
@@ -54,6 +57,32 @@ function MoreAbout() {
     const [country, setCountry] = useState<string>(
         reduxCountry ? reduxCountry : "",
     )
+
+    useEffect(() => {
+        navigator.geolocation.getCurrentPosition(async (position) => {
+            const { latitude, longitude } = position.coords
+
+            try {
+                const { data } = await axios.get(
+                    `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=sv`,
+                )
+                console.log(data)
+
+                if (data && data.city) {
+                    dispatch(
+                        setUserLocation({
+                            latitude,
+                            longitude,
+                            city: data.city,
+                            country: data.countryName,
+                        }),
+                    )
+                }
+            } catch (error) {
+                console.error("Failed to fetch city:", error)
+            }
+        })
+    }, [])
 
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files ? event.target.files[0] : null

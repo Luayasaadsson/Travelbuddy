@@ -51,7 +51,7 @@ const ProfileDetailsSection: React.FC<ProfileDetailsSectionProps> = ({
                 />
             </div>
             <div className="flex w-full  flex-col">
-                <Label className="gap-2 text-secondary">Username *</Label>
+                <Label className="gap-2 text-secondary">Email *</Label>
                 <Input
                     disabled
                     value={userName}
