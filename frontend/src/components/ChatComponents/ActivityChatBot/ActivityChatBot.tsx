@@ -51,7 +51,7 @@ export default function ActivityChatBot() {
                     type: "text",
                     role: "agent",
                     content:
-                        "Great! Let´s see what we an find near your location!",
+                        "Great! Let´s see what we can find near your location!",
                 }),
             )
         } else {

@@ -158,7 +158,7 @@ export default function VacationChatBot() {
         // Split message into words
         const words = message.split(",").map((word) => word.trim())
 
-        if (words.length === 10) {
+        if (words.length === 5) {
             dispatch(
                 updateMessageList({
                     type: "button",

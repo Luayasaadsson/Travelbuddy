@@ -56,9 +56,11 @@ function RateTheApp() {
                     </Link>
                     <img src="./icons/vector-icon.svg" alt="Vectoricon" />
 
-                    <Button variant="default">
-                        <p className="uppercase">send</p>
-                    </Button>
+                    <Link className="w-full" to="/settings">
+                        <Button variant="default">
+                            <p className="uppercase">send</p>
+                        </Button>
+                    </Link>
                 </div>
             </div>
         </main>
