@@ -70,7 +70,7 @@ function Header() {
                         className="md:w-13 w-11"
                     />
                     <img
-                        className="w-[150px]"
+                        className="w-[150px] pt-1 ml-2"
                         src="/icons/TravelBuddy.svg"
                         alt="Icon"
                     />
