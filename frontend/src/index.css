@@ -25,7 +25,7 @@
         white-space: pre-line; /* Användning av white-space inline-stil */
     }
     .loading-message {
-        @apply flex h-12 w-28 items-center justify-center gap-1 bg-[#A9CBE3] text-primary-foreground;
+        @apply mb-10 flex h-12 w-28 items-center justify-center gap-1 bg-[#A9CBE3] pb-1 text-primary-foreground;
         border-radius: 16px 16px 16px 0px; /* Användning av border-radius inline-stil */
         white-space: pre-line; /* Användning av white-space inline-stil */
     }

@@ -38,12 +38,18 @@ function MoreAbout() {
     const reduxCity = useSelector(
         (state: RootState) => state.settings.sessionInfo.city,
     )
+    const reduxEmail = useSelector(
+        (state: RootState) => state.user.settings.email,
+    )
+
     const fileInputRef = useRef<HTMLInputElement>(null)
 
     // Local states
     const [firstName, setFirstName] = useState<string>("")
     const [lastName, setLastName] = useState<string>("")
-    const [userName, setUserName] = useState<string>("")
+    const [userName, setUserName] = useState<string>(
+        reduxEmail ? reduxEmail : "",
+    )
     const [city, setCity] = useState<string>(reduxCity ? reduxCity : "")
     const [country, setCountry] = useState<string>(
         reduxCountry ? reduxCountry : "",
@@ -156,8 +162,9 @@ function MoreAbout() {
                             />
                         </div>
                         <div className="flex w-full flex-col gap-1 ">
-                            <Label>Username *</Label>
+                            <Label>Email *</Label>
                             <Input
+                                disabled
                                 value={userName}
                                 onChange={handleUserNameChange}
                                 placeholder="Enter your username"
