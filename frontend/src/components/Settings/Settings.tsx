@@ -111,14 +111,14 @@ function Settings() {
 
     return (
         <main className="flex h-screen items-start justify-center">
-            <div className="flex w-full items-center justify-center px-4 pt-20 md:px-24 md:pt-28 lg:gap-10 lg:px-40 lg:pt-40">
+            <div className="flex w-full items-center justify-center px-4 pt-24 md:px-24 md:pt-28 lg:gap-10 lg:px-40 lg:pt-40">
                 <img
                     className=" hidden xl:flex xl:w-1/2 2xl:w-[600px]"
                     src="./images/unsplash-bg7.png"
                     alt="Background image"
                 />
                 <div className="relative flex w-full max-w-[600px] flex-col items-center justify-center gap-3">
-                    <h1 className="pt-8 text-2xl">Profile</h1>
+                    <h1 className="text-2xl">Profile</h1>
                     <div className="flex flex-col items-center gap-4">
                         <Avatar
                             className="mt-4 h-36 w-36 border-4"
@@ -229,11 +229,12 @@ function Settings() {
                         <Switch />
                     </div>
 
-                    <div className="mt-4 flex gap-3">
+                    <div className="mt-4 flex w-full gap-3">
                         <Button
                             variant="outline"
                             onClick={handleSignOut}
                             size="lg"
+                            className="w-full"
                         >
                             <p className="text-primary">Sign out</p>
                             <img
@@ -246,6 +247,7 @@ function Settings() {
                         <Button
                             onClick={() => dispatch(showOverlay({}))}
                             variant="destructive"
+                            className="w-full"
                         >
                             <p>Delete account</p>
                             <img

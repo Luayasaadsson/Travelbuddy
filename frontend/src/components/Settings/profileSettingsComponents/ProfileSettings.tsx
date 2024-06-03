@@ -141,7 +141,7 @@ const ProfileSettings: React.FC = () => {
 
     return (
         <main className="mb-10 flex min-h-screen items-start justify-center">
-            <div className="flex w-full items-center justify-center px-4 pt-20 md:px-24 md:pt-28 lg:gap-10 lg:px-40 lg:pt-40">
+            <div className="flex w-full items-center justify-center px-4 pt-24 md:px-24 md:pt-28 lg:gap-10 lg:px-40 lg:pt-40">
                 <img
                     className=" hidden xl:flex xl:w-1/2 2xl:w-[600px]"
                     src="./images/unsplash-bg7.png"
