@@ -206,7 +206,7 @@ function SignUp(): JSX.Element {
                     </form>
                     <p className="text-center text-sm text-neutral-200">
                         Already have an account?
-                        <Link to="/loginuser">
+                        <Link to="/login">
                             <span className="cursor-pointer pl-2 text-primary underline underline-offset-4">
                                 Login here!
                             </span>

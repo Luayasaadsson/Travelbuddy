@@ -112,7 +112,7 @@ function App() {
                     }
                 />
                 <Route
-                    path="/loginuser"
+                    path="/login"
                     element={
                         <div>
                             <LogIn />
@@ -178,7 +178,7 @@ function App() {
                 />
 
                 {/* Protected routes */}
-                <Route element={<PrivateRoutes route="/loginuser" />}>
+                <Route element={<PrivateRoutes route="/login" />}>
                     <Route
                         path="/moreabout"
                         element={
