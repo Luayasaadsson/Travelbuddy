@@ -141,71 +141,77 @@ const ProfileSettings: React.FC = () => {
 
     return (
         <main className="mb-10 flex min-h-screen items-start justify-center">
-            <div className="relative flex w-11/12 max-w-96 flex-col items-center justify-center gap-6">
-                <div className="flex justify-center pt-28">
-                    <h1 className="text-2xl font-bold">Profile settings</h1>
-                </div>
-
-                {/* Username and Profile Information */}
-                <ProfileDetailsSection
-                    handleFirstNameChange={handleFirstNameChange}
-                    handleLastNameChange={handleLastNameChange}
-                    handleUserNameChange={handleUserNameChange}
-                    handleCityChange={handleCityChange}
-                    handleCountryChange={handleCountryChange}
-                    firstName={firstName}
-                    lastName={lastName}
-                    userName={userName}
-                    city={city}
-                    country={country}
+            <div className="flex w-full items-center justify-center px-4 pt-20 md:px-24 md:pt-28 lg:gap-10 lg:px-40 lg:pt-40">
+                <img
+                    className=" hidden xl:flex xl:w-1/2 2xl:w-[600px]"
+                    src="./images/unsplash-bg7.png"
+                    alt="Background image"
                 />
-                <p className="self-start text-xl">Preferences</p>
-                {/* Preferences Sections */}
-                <PreferencesSection
-                    title="Accommodation"
-                    items={accommodationPreferenceList}
-                    handleToggle={handleToggleAccommodationPreference}
-                    accordionKey="accommodation"
-                />
+                <div className="relative flex w-full max-w-[600px] flex-col items-center justify-center gap-6">
+                    <div className="flex justify-center">
+                        <h1 className="text-2xl font-bold">Profile settings</h1>
+                    </div>
 
-                <PreferencesSection
-                    title="Activities"
-                    items={activityPreferenceList}
-                    handleToggle={handleToggleActivityPreference}
-                    accordionKey="activities"
-                />
+                    {/* Username and Profile Information */}
+                    <ProfileDetailsSection
+                        handleFirstNameChange={handleFirstNameChange}
+                        handleLastNameChange={handleLastNameChange}
+                        handleUserNameChange={handleUserNameChange}
+                        handleCityChange={handleCityChange}
+                        handleCountryChange={handleCountryChange}
+                        firstName={firstName}
+                        lastName={lastName}
+                        userName={userName}
+                        city={city}
+                        country={country}
+                    />
+                    <p className="self-start text-xl">Preferences</p>
+                    {/* Preferences Sections */}
+                    <PreferencesSection
+                        title="Accommodation"
+                        items={accommodationPreferenceList}
+                        handleToggle={handleToggleAccommodationPreference}
+                        accordionKey="accommodation"
+                    />
 
-                <PreferencesSection
-                    title="Food"
-                    items={foodPreferenceList}
-                    handleToggle={handleToggleFoodPreference}
-                    accordionKey="food"
-                />
+                    <PreferencesSection
+                        title="Activities"
+                        items={activityPreferenceList}
+                        handleToggle={handleToggleActivityPreference}
+                        accordionKey="activities"
+                    />
 
-                {/* <PreferencesSection
+                    <PreferencesSection
+                        title="Food"
+                        items={foodPreferenceList}
+                        handleToggle={handleToggleFoodPreference}
+                        accordionKey="food"
+                    />
+
+                    {/* <PreferencesSection
                     title="Transportation"
                     items={transportationPreferenceList}
                     handleToggle={handleToggleTransportationPreference}
                     accordionKey="transportation"
                 /> */}
 
-                <PreferencesSection
-                    title="Vacation"
-                    items={vacationPreferenceList}
-                    handleToggle={handleToggleVacationPreference}
-                    accordionKey="vacation"
-                />
+                    <PreferencesSection
+                        title="Vacation"
+                        items={vacationPreferenceList}
+                        handleToggle={handleToggleVacationPreference}
+                        accordionKey="vacation"
+                    />
 
-                {/* Budget Preferences */}
-                {/* <BudgetPreferencesSection
+                    {/* Budget Preferences */}
+                    {/* <BudgetPreferencesSection
                     budgetPreferenceList={budgetPreferenceList}
                     handleBudgetPreferenceUpdated={
                         handleBudgetPreferenceUpdated
                     }
                 /> */}
 
-                {/* Select Currency */}
-                {/* <div className="flex w-full flex-col text-secondary">
+                    {/* Select Currency */}
+                    {/* <div className="flex w-full flex-col text-secondary">
                     <p className="text-xl">Preferred Currency</p>
                     <Select
                         value={preferredCurrency!.code!}
@@ -233,17 +239,17 @@ const ProfileSettings: React.FC = () => {
                     </Select>
                 </div> */}
 
-                {/* Save Changes Button */}
-                <Button
-                    onClick={updateUserInfo}
-                    className="flex w-full max-w-96 items-center justify-center gap-2 p-3"
-                >
-                    Save changes
-                </Button>
+                    {/* Save Changes Button */}
+                    <Button
+                        onClick={updateUserInfo}
+                        className="flex w-full items-center justify-center gap-2 p-3"
+                    >
+                        Save changes
+                    </Button>
+                </div>
             </div>
         </main>
     )
 }
 
 export default ProfileSettings
-

@@ -34,7 +34,7 @@ const ProfileDetailsSection: React.FC<ProfileDetailsSectionProps> = ({
     return (
         <div className="flex w-full flex-col items-start gap-4 text-secondary">
             {/* <p className="text-xl text-primary">Username</p> */}
-            <div className="flex w-full max-w-96 flex-col">
+            <div className="flex w-full flex-col">
                 <Label className="gap-2 text-secondary">First name *</Label>
                 <Input
                     value={firstName}
@@ -42,7 +42,7 @@ const ProfileDetailsSection: React.FC<ProfileDetailsSectionProps> = ({
                     placeholder="Enter your first name"
                 />
             </div>
-            <div className="flex w-full max-w-96 flex-col">
+            <div className="flex w-full flex-col">
                 <Label className="gap-2 text-secondary">Last name *</Label>
                 <Input
                     value={lastName}
@@ -50,7 +50,7 @@ const ProfileDetailsSection: React.FC<ProfileDetailsSectionProps> = ({
                     placeholder="Enter your last name"
                 />
             </div>
-            <div className="flex w-full max-w-96 flex-col">
+            <div className="flex w-full  flex-col">
                 <Label className="gap-2 text-secondary">Username *</Label>
                 <Input
                     disabled
@@ -59,7 +59,7 @@ const ProfileDetailsSection: React.FC<ProfileDetailsSectionProps> = ({
                     placeholder="Enter your username"
                 />
             </div>
-            <div className="flex w-full max-w-96 flex-col">
+            <div className="flex w-full flex-col">
                 <Label className="gap-2 text-secondary">City *</Label>
                 <Input
                     value={city}
@@ -67,7 +67,7 @@ const ProfileDetailsSection: React.FC<ProfileDetailsSectionProps> = ({
                     placeholder="Enter the name of your city"
                 />
             </div>
-            <div className="flex w-full max-w-96 flex-col">
+            <div className="flex w-full flex-col">
                 <Label className="gap-2 text-secondary">Country *</Label>
                 <Input
                     value={country}
