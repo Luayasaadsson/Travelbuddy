@@ -66,7 +66,8 @@ type SessionInfo = {
     messageToUser: string | null
     longitude: number | null
     latitude: number | null
-    city: string
+    city: string | null
+    country: string | null
 }
 
 type Profile = {

@@ -279,7 +279,8 @@ const initialState: User = {
         messageToUser: "",
         longitude: null,
         latitude: null,
-        city: "",
+        city: null,
+        country: null,
     },
 }
 
@@ -298,8 +299,19 @@ export const userSlice = createSlice({
             state.settings = action.payload.settings
             state.sessionInfo = action.payload.sessionInfo
         },
-        setUserLocation: (state, action: PayloadAction<{ city: string }>) => {
+        setUserLocation: (
+            state,
+            action: PayloadAction<{
+                longitude: number
+                latitude: number
+                city: string
+                country: string
+            }>,
+        ) => {
+            state.sessionInfo.longitude = action.payload.longitude
+            state.sessionInfo.latitude = action.payload.latitude
             state.sessionInfo.city = action.payload.city
+            state.sessionInfo.country = action.payload.country
         },
         updateProfileImage: (state, action: PayloadAction<string>) => {
             state.profile.profileImage = action.payload

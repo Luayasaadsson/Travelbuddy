@@ -41,21 +41,22 @@ function App() {
     //hämtar användarens location
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(async (position) => {
-            const latitude = position.coords.latitude
-            const longitude = position.coords.longitude
+            const { latitude, longitude } = position.coords;
 
             try {
-                const response = await axios.get(
-                    `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`,
-                )
-                if (response.data && response.data.city) {
-                    dispatch(setUserLocation(response.data.city))
+                const { data } = await axios.get(
+                    `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=sv`,
+                );
+                console.log(data);
+                
+                if (data && data.city) {
+                    dispatch(setUserLocation({ latitude, longitude, city: data.city, country: data.countryName }));
                 }
             } catch (error) {
-                console.error("Failed to fetch city:", error)
+                console.error("Failed to fetch city:", error);
             }
-        })
-    }, [])
+        });
+    }, []);
 
     //ändrar styling beroende på skärmstorlek
     useEffect(() => {

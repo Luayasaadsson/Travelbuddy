@@ -32,14 +32,22 @@ function MoreAbout() {
     const profileImage = useSelector(
         (state: RootState) => state.user.profile.profileImage,
     )
+    const reduxCountry = useSelector(
+        (state: RootState) => state.settings.sessionInfo.country,
+    )
+    const reduxCity = useSelector(
+        (state: RootState) => state.settings.sessionInfo.city,
+    )
     const fileInputRef = useRef<HTMLInputElement>(null)
 
     // Local states
     const [firstName, setFirstName] = useState<string>("")
     const [lastName, setLastName] = useState<string>("")
     const [userName, setUserName] = useState<string>("")
-    const [city, setCity] = useState<string>("")
-    const [country, setCountry] = useState<string>("")
+    const [city, setCity] = useState<string>(reduxCity ? reduxCity : "")
+    const [country, setCountry] = useState<string>(
+        reduxCountry ? reduxCountry : "",
+    )
 
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files ? event.target.files[0] : null
@@ -159,7 +167,7 @@ function MoreAbout() {
                         <div className="flex w-full flex-col gap-1">
                             <Label>City *</Label>
                             <Input
-                                value={city}
+                                value={city || reduxCity || ""}
                                 onChange={handleCityChange}
                                 placeholder="Enter the name of your city"
                             />
@@ -167,7 +175,7 @@ function MoreAbout() {
                         <div className="flex w-full flex-col gap-1">
                             <Label>Country *</Label>
                             <Input
-                                value={country}
+                                value={country || reduxCountry || ""}
                                 onChange={handleCountryChange}
                                 placeholder="Enter the name of your country"
                             />
