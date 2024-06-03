@@ -9,7 +9,7 @@ function Hero() {
     )
     return (
         <main className="flex h-screen justify-center">
-            <div className="flex max-h-screen w-full flex-col justify-center gap-4 px-4 md:px-10 lg:justify-start lg:gap-8 lg:px-40 lg:pt-40 xl:max-w-[1325px] ">
+            <div className="flex max-h-screen w-full flex-col justify-center gap-4 px-4 md:px-10 lg:justify-center lg:gap-8 lg:px-40 xl:max-w-[1325px] ">
                 <div className="flex flex-col items-center justify-center text-center lg:min-w-[500px] lg:flex-row lg:gap-10">
                     <div className="flex flex-col items-center justify-center gap-4">
                         <img
@@ -61,8 +61,7 @@ function Hero() {
                         <p className="max-w-[490px] pb-4 text-sm text-secondary lg:text-xl">
                             <span className="flex break-words text-center">
                                 Share your preferences and interests to unlock
-                                <br />
-                                personalized recommendations and seamless <br />
+                                personalized recommendations and seamless
                                 adventures. Let's craft your journey together
                             </span>
                         </p>
@@ -103,7 +102,7 @@ function Hero() {
                                 <Link to="/profilestart" className="w-full">
                                     <Button
                                         variant="default"
-                                        className="w-full"
+                                        className="w-10/12"
                                         size="lg"
                                     >
                                         <p>Chatbot</p>
