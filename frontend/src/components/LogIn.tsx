@@ -187,13 +187,13 @@ function LogIn(): JSX.Element {
                         </div>
                         <span className="w-[139px] border border-primary"></span>
                     </div>
-                    <Button variant="facebook">
+                   {/*  <Button variant="facebook">
                         <img
                             src="./icons/facebook-logo.svg"
                             alt="Facebook Logo"
                         />
                         <span className="flex-grow">Login with Facebook</span>
-                    </Button>
+                    </Button> */}
                     <Button variant="google" onClick={() => login()}>
                         <img src="./icons/google-logo.svg" alt="Google Logo" />
                         <span className="flex-grow">Login with Google</span>
