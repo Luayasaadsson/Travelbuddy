@@ -46,7 +46,7 @@ stages:
     - docker build -t $CI_REGISTRY_IMAGE/$IMAGE_TAG .
     - docker push $CI_REGISTRY_IMAGE/$IMAGE_TAG
 
-.build_image_backend:
+build_image_backend:
   stage: image
   image: docker:26.1.0
   services:
@@ -56,7 +56,6 @@ stages:
     IMAGE_TAG: travelbuddy-backend:$CI_COMMIT_SHORT_SHA
   before_script:
     - cd backend
-    - sed -i 's|app.UseHttpsRedirection();|//app.UseHttpsRedirection();|g' API/Program.cs
   script:
     - docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN
     - docker build -t $CI_REGISTRY_IMAGE/$IMAGE_TAG .
