@@ -22,6 +22,7 @@ import RateTheApp from "./components/RateTheApp"
 import DesktopVector from "./components/DesktopVector"
 import PrivateRoutes from "./PrivateRoutes/PrivateRoutes"
 import VacationChatBot from "./components/ChatComponents/VacationChatBot/VacationChatBot"
+import AccommodationChatBot from "./components/ChatComponents/AccommodationChatBot/AccommodationChatBot"
 import { AppDispatch, RootState } from "./store/store"
 import { fetchUserProfile } from "./store/slices/userSlice"
 import MainLoader from "./components/MainLoader"
@@ -222,6 +223,15 @@ function App() {
                         element={
                             <div>
                                 <VacationChatBot />
+                                <DesktopVector />
+                            </div>
+                        }
+                    />
+                     <Route
+                        path="/accommodationchat"
+                        element={
+                            <div>
+                                <AccommodationChatBot />
                                 <DesktopVector />
                             </div>
                         }
