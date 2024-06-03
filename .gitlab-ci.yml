@@ -10,7 +10,7 @@ build_artifact_frontend:
     - find ./ -type f -exec sed -i 's/localhost:7038/travelbuddy.mooo.com/g' {} +
     - sed -i 's|https://travelbuddy.mooo.com/login?useCookies=true|https://travelbuddy.mooo.com/backend/login?useCookies=true|g' src/components/SignUp.tsx
     - sed -i 's|https://travelbuddy.mooo.com/login?useCookies=true|https://travelbuddy.mooo.com/backend/login?useCookies=true|g' src/components/LogIn.tsx
-    - sed -i 's/tsc && vite build/vite build/g' frontend/package.json
+    - sed -i 's/tsc && vite build/vite build/g' package.json
     - npm install
   script:
     - npm run build
