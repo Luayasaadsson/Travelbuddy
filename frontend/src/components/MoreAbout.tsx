@@ -1,5 +1,5 @@
 // import axios from "axios"
-import { Link } from "react-router-dom"
+import { Link, Navigate, useNavigate } from "react-router-dom"
 import { Input } from "./ui/input"
 import { Label } from "./ui/label"
 import { Button } from "./ui/button"
@@ -23,6 +23,8 @@ import React, { useState, useRef } from "react"
 import { setUserLocation } from "@/store/slices/userSlice"
 import axios from "axios"
 import { useEffect } from "react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons"
 /* import Gender from "@/types/common/Gender" */
 
 // Assumption: The user will only forwarded to MoreAbout, if the user is totally new and has just registered as a user
@@ -31,6 +33,7 @@ import { useEffect } from "react"
 // Component Function
 
 function MoreAbout() {
+    const navigate = useNavigate()
     const dispatch = useDispatch<AppDispatch>()
     const profileImage = useSelector(
         (state: RootState) => state.user.profile.profileImage,
@@ -44,6 +47,7 @@ function MoreAbout() {
     const reduxEmail = useSelector(
         (state: RootState) => state.user.profile.userName,
     )
+    const [error, setError] = useState<string>("")
 
     const fileInputRef = useRef<HTMLInputElement>(null)
 
@@ -100,25 +104,36 @@ function MoreAbout() {
     // Handle-functions
     const handleFirstNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         e.preventDefault()
+        setError("")
         setFirstName(e.target.value)
     }
     const handleLastNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         e.preventDefault()
+        setError("")
         setLastName(e.target.value)
     }
     const handleUserNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         e.preventDefault()
+        setError("")
         setUserName(e.target.value)
     }
     const handleCityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         e.preventDefault()
+        setError("")
         setCity(e.target.value)
     }
     const handleCountryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         e.preventDefault()
+        setError("")
         setCountry(e.target.value)
     }
     const handleAddBasicUserProfileInfo = () => {
+        if (!firstName || !lastName || !userName || !city || !country) {
+            setError(
+                "All fields marked with * are mandatory and must be filled.",
+            )
+            return
+        }
         const userData = {
             firstName,
             lastName,
@@ -130,6 +145,7 @@ function MoreAbout() {
         const preferenceData = {} // Assuming no preferences data to send initially
         dispatch(addBasicUserProfileInfo(userData))
         dispatch(patchUserProfile({ userData, preferenceData }))
+        navigate("/profilestart")
     }
 
     return (
@@ -174,6 +190,16 @@ function MoreAbout() {
                     </button>
 
                     <div className="flex w-full flex-col items-start gap-4 text-[13px] font-semibold text-onBackground">
+                        {error && (
+                            <div className="error-message">
+                                <FontAwesomeIcon
+                                    icon={faExclamationCircle}
+                                    className="self-center"
+                                />
+
+                                <p className="pl-2">{error}</p>
+                            </div>
+                        )}
                         <div className="flex w-full flex-col gap-1">
                             <Label>First name *</Label>
                             <Input
@@ -224,11 +250,10 @@ function MoreAbout() {
                             </p>
                             <Switch />
                         </div>
-                        <Link className="w-full" to="/profilestart">
-                            <Button onClick={handleAddBasicUserProfileInfo}>
-                                Add to your profile
-                            </Button>
-                        </Link>
+
+                        <Button onClick={handleAddBasicUserProfileInfo}>
+                            Add to your profile
+                        </Button>
                     </div>
                 </div>
             </div>
