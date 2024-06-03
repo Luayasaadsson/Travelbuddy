@@ -41,6 +41,7 @@ const Switch = React.forwardRef<
                     style={{ transform: "translateX(-0%)" }}
                     {...props}
                     ref={ref}
+                    aria-label="Dark mode switch"
                 >
                     <SwitchPrimitives.Thumb
                         className={cn(
