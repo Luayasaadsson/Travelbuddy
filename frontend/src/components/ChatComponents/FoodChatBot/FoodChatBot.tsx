@@ -155,10 +155,13 @@ export default function FoodChatBot() {
     }
 
     const filterAgentResponse = (message: string) => {
-        // Split message into words
-        const words = message.split(",").map((word) => word.trim())
+        // Split message into segments separated by commas
+        const segments = message.split(",").map((segment) => segment.trim())
 
-        if (words.length === 5) {
+        // Check if there are exactly 5 segments
+        const isFiveSegments = segments.length === 5
+
+        if (isFiveSegments) {
             dispatch(
                 updateMessageList({
                     type: "button",
@@ -176,8 +179,6 @@ export default function FoodChatBot() {
             )
         }
     }
-
-    //test
 
     return (
         <main className="flex h-screen w-full flex-col items-center justify-between gap-4">
