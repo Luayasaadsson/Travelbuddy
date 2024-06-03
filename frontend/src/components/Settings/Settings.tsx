@@ -162,69 +162,75 @@ function Settings() {
                     <img className="" src="./icons/Arrow.svg" alt="Arrow" />
                 </button> */}
 
-                    <button className="mt-4 flex h-9 w-full cursor-pointer items-center justify-between self-start px-4 text-secondary">
+                    <Link
+                        to="/profilesettings"
+                        className="mt-4 flex h-9 w-full cursor-pointer items-center justify-between self-start px-4 text-secondary"
+                    >
                         <div className="flex gap-4">
                             <img
                                 src="./icons/p-settings.svg"
                                 alt="Settingsicon"
                             />
-                            <Link to="/profilesettings">
-                                <p>Profile settings</p>
-                            </Link>
+                            <p>Profile settings</p>
                         </div>
                         <img
                             className="w-8"
                             src="./icons/Arrow.svg"
                             alt="Arrow"
                         />
-                    </button>
+                    </Link>
 
-                    <button className="mt-4 flex h-9 w-full cursor-pointer items-center justify-between px-4 text-secondary">
-                        <Link to="/changepassword" className="flex gap-4">
+                    <Link
+                        to="/changepassword"
+                        className="mt-4 flex h-9 w-full cursor-pointer items-center justify-between px-4 text-secondary"
+                    >
+                        <div className="flex gap-4">
                             <img
                                 src="./icons/icon-password.svg"
                                 alt="Passwordicon"
                             />
                             <p>Change password</p>
-                        </Link>
+                        </div>
                         <img
                             className="w-8"
                             src="./icons/Arrow.svg"
                             alt="Arrow"
                         />
-                    </button>
+                    </Link>
 
                     {/*   <h2 className="ml-2 mt-4 self-start text-xl">Feedback</h2> */}
-                    <button className="mt-4 flex h-9 w-full cursor-pointer items-center justify-between px-4 text-secondary">
+                    <Link
+                        to="/ratetheapp"
+                        className="mt-4 flex h-9 w-full cursor-pointer items-center justify-between px-4 text-secondary"
+                    >
                         <div className="flex gap-4">
                             <img
                                 className="w-5"
                                 src="./icons/star-icon.svg"
                                 alt="Staricon"
                             />
-                            <Link to="/ratetheapp">
-                                <p>Rate the app</p>
-                            </Link>
+                            <p>Rate the app</p>
                         </div>
                         <img
                             className="w-8"
                             src="./icons/Arrow.svg"
                             alt="Arrow"
                         />
-                    </button>
-                    <button className="mt-4 flex h-9 w-full cursor-pointer items-center justify-between px-4 text-secondary">
+                    </Link>
+                    <Link
+                        to="/aboutus"
+                        className="mt-4 flex h-9 w-full cursor-pointer items-center justify-between px-4 text-secondary"
+                    >
                         <div className="flex gap-4">
                             <img src="./icons/users.svg" alt="Profileicon" />
-                            <Link to="/aboutus">
-                                <p>About us</p>
-                            </Link>
+                            <p>About us</p>
                         </div>
                         <img
                             className="w-8"
                             src="./icons/Arrow.svg"
                             alt="Arrow"
                         />
-                    </button>
+                    </Link>
 
                     <div className="mt-4 flex h-9 w-full items-center  justify-between px-4 text-secondary">
                         <p className="flex flex-row-reverse gap-3">
