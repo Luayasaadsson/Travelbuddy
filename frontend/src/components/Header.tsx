@@ -69,9 +69,11 @@ function Header() {
                         alt=""
                         className="md:w-13 w-11"
                     />
-                    <h1 className="pl-3 text-lg font-semibold tracking-wide md:text-2xl">
-                        TravelBuddy
-                    </h1>
+                    <img
+                        className="w-[150px]"
+                        src="/icons/TravelBuddy.svg"
+                        alt="Icon"
+                    />
                 </Link>
                 <div className="flex gap-4 md:pr-5">
                     <div className="hidden lg:flex">
