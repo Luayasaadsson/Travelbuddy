@@ -2,7 +2,7 @@ stages:
   - build
   - image
 
-.build_artifact_frontend:
+build_artifact_frontend:
   stage: build
   image: node
   before_script:
@@ -29,7 +29,7 @@ stages:
 #    paths:
 #      - backend/API/bin/Release/net8.0/publish/*
 
-.build_image_frontend:
+build_image_frontend:
   stage: image
   dependencies:
     - build_artifact_frontend
