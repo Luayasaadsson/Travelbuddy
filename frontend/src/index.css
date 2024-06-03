@@ -171,9 +171,11 @@ body::-webkit-scrollbar {
 }
 .test a {
     text-decoration: underline;
+    display: inline-block;
+    padding-top: 16px;
 }
-/* .test{
+.test {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-} */
+    gap: 40px;
+}
