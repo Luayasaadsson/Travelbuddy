@@ -19,8 +19,8 @@ function LogIn(): JSX.Element {
     const location = useLocation()
     const requestedLocation = location.state?.from?.pathname || "/profilestart"
     const [email, setEmail] = useState<string>("")
-    const [password, setPassword] = useState<string>("")
     const [emailError, setEmailError] = useState<string>("")
+    const [password, setPassword] = useState<string>("")
     const [passwordError, setPasswordError] = useState<string>("")
     const [showPassword, setShowPassword] = useState<boolean>(false)
 
@@ -76,14 +76,15 @@ function LogIn(): JSX.Element {
 
     const login = useGoogleLogin({
         onSuccess: async (response) => {
-            console.log("Google login successful", response);
-            dispatch(loginUser()); // Dispatch loginUser action
-            window.location.href = "https://localhost:7038/api/Auth/login-google";
+            console.log("Google login successful", response)
+            dispatch(loginUser()) // Dispatch loginUser action
+            window.location.href =
+                "https://localhost:7038/api/Auth/login-google"
         },
         onError: (error) => {
-            console.error("Google Login Failed", error);
+            console.error("Google Login Failed", error)
         },
-    });
+    })
 
     const handleEmailChange = (event: ChangeEvent<HTMLInputElement>): void => {
         setEmail(event.target.value)
