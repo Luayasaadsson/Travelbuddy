@@ -2,7 +2,7 @@ stages:
   - build
   - image
 
-build_artifact_frontend:
+.build_artifact_frontend:
   stage: build
   image: node
   before_script:
@@ -29,7 +29,7 @@ build_artifact_frontend:
 #    paths:
 #      - backend/API/bin/Release/net8.0/publish/*
 
-build_image_frontend:
+.build_image_frontend:
   stage: image
   dependencies:
     - build_artifact_frontend
@@ -46,7 +46,7 @@ build_image_frontend:
     - docker build -t $CI_REGISTRY_IMAGE/$IMAGE_TAG .
     - docker push $CI_REGISTRY_IMAGE/$IMAGE_TAG
 
-build_image_backend:
+.build_image_backend:
   stage: image
   image: docker:26.1.0
   services:
