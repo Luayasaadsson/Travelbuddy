@@ -30,6 +30,7 @@ const Switch = React.forwardRef<
             onClick={handleToggle}
             role="button" // Add role="button" to make it accessible
             tabIndex={0} // Add tabIndex={0} to make it focusable
+            aria-label="Toggle dark mode"
         >
             {isDarkMode ? (
                 <SwitchPrimitives.Root

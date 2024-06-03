@@ -52,8 +52,31 @@ function Footer() {
                 <h1 className="text-4xl font-light">TravelBuddy</h1>
             </div>
             <div className="flex gap-4">
-                <img src="/icons/facebook.svg" alt="Facebook icon" />
-                <img src="/icons/instagram.svg" alt="Instagram icon" />
+                <a
+                    href="https://www.facebook.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <img src="/icons/facebook.svg" alt="Facebook icon" />
+                </a>
+
+                <a
+                    href="https://www.instagram.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <img src="/icons/instagram.svg" alt="Instagram icon" />
+                </a>
+
+                <a
+                    href="https://gitlab.com/ccg-2/travelbuddy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <button className="cursor-pointer">
+                        <img src="/icons/gitlab-icon.svg" alt="Gitlab icon" />
+                    </button>
+                </a>
             </div>
             <div className="flex items-center justify-center">
                 <p className="text-xl">
