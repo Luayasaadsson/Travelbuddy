@@ -9,6 +9,12 @@ TravelBuddy is an application developed as part of our school project under the 
 - **User settings**: (change firstname, lastname, password, add location)
 - **User preferences**: Recommendations based on user preferences
 
+## Agile Methodology
+
+We followed an agile methodology to manage our project development. You can view our project board and progress on GitHub:
+
+- **Agile Board**: [TravelBuddy Agile Project Board](https://github.com/orgs/ChasChallengeG2/projects)
+
 ## Installation and Running
 
 ### Prerequisites
