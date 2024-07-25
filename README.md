@@ -81,7 +81,8 @@ After starting the frontend and backend servers, open your browser and navigate 
 ### Backend
 
 - **[Damian Amalraj](https://gitlab.com/damianamalraj)**
-- **[Ashfaqul awal](https://gitlab.com/awalashfaqul)**
+- **[Ashfaqul Awal](https://gitlab.com/awalashfaqul)**
+- **[Suhagan Mostahid](https://gitlab.com/suhagan)**
 
 ### UXF
 
